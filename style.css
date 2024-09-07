@@ -1,20 +1,28 @@
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
     padding: 20px;
-    background-color: #333;
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 .logo img {
     height: 80px;
 }
 
+nav {
+    flex-grow: 1;
+    margin-left: 100px;
+}
+
 nav ul {
     list-style: none;
     display: flex;
     gap: 10px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li {
@@ -22,26 +30,32 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: black;
+    font-style:initial;
     text-decoration: none;
     font-weight: bold;
     padding: 10px 20px;
     border-radius: 4px;
 }
 
-nav ul li a:hover{
-    color: white;
-    text-decoration: underline;
+nav ul li a:hover {
+    color: #37b5ff;
+    text-decoration: underline 3px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 10px;
 }
 
 .btn {
     display: inline-block;
     padding: 12px 24px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     color: #333;
     background-color: white; 
-    border: none;
+    border-style: groove;
     border-radius: 5px;
     text-decoration: none;
     text-align: center;
@@ -50,7 +64,7 @@ nav ul li a:hover{
 }
 
 .btn:hover {
-    background-color: gold; 
+    background-color: #37b5ff; 
     transform: scale(1.05); 
 }
 

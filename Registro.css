@@ -1,0 +1,18 @@
+#Formulario {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+    background-color: rgba(66, 217, 247, 0.678);
+    width: 50%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10%;    
+}
+
+#BtnRegistro {
+    margin-bottom: 10px;
+}

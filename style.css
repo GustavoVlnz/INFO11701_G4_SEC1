@@ -1,3 +1,4 @@
+/* Estilos del header */
 header {
     display: flex;
     justify-content: space-between; 
@@ -31,7 +32,7 @@ nav ul li {
 
 nav ul li a {
     color: black;
-    font-style:initial;
+    font-style: initial;
     text-decoration: none;
     font-weight: bold;
     padding: 10px 20px;
@@ -70,4 +71,121 @@ nav ul li a:hover {
 
 .btn:active {
     transform: scale(0.98); 
+}
+
+.banner {
+    position: relative; 
+    background-image: url(./Imagenes/Movo_Banner.jpg); 
+    background-size: cover; 
+    background-position: center 1100px; 
+    text-align: center;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+.banner h1,
+.banner p,
+.banner .btn {
+    position: relative;
+    z-index: 2; 
+}
+
+.banner h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px #37b5ff;
+    color: white;
+}
+
+.banner p {
+    font-size: 24px;
+    margin-bottom: 30px;
+    max-width: 800px;
+    text-shadow: 1px 1px 3px #37b5ff;
+    color: white;
+}
+
+.banner .btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #37b5ff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.banner .btn:hover {
+    background-color: #1e90ff;
+    transform: scale(1.05);
+}
+
+.banner .btn:active {
+    transform: scale(0.98);
+}
+
+/* Estilos de la sección de información */
+.info-section {
+    display: flex; /* Usa flexbox para alinear los elementos */
+    align-items: center; /* Alinea verticalmente los elementos al principio */
+    padding: 40px 20px;
+    background-color: #f4f4f4; 
+    color: #333; 
+    gap: 20px; /* Espacio entre el texto y la imagen */
+}
+
+.container{
+    display: grid; /* Usa grid layout para las categorías */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Distribuye las columnas según el tamaño de la pantalla */
+    gap: 50px; 
+}
+
+.info-section.hidden {
+    display: none; 
+}
+
+.info-section.visible {
+    display: flex; 
+}
+
+.info-section .text-content {
+    padding: 20px; 
+}
+
+.info-section .text-content img{
+    width: 80%;
+    height: 80%;
+}
+
+.info-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.info-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.info-section img {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho disponible en su contenedor */
+    height: auto; /* Mantiene las proporciones de la imagen */
 }

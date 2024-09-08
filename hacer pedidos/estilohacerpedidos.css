@@ -9,7 +9,6 @@ h1, h2 {
     color: #333;
 }
 
-/* Encabezado */
 header {
     display: flex;
     justify-content: space-between;
@@ -35,6 +34,11 @@ header .logo {
 header .logo img {
     width: 50px;
     margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+header .logo img:hover {
+    transform: rotate(20deg);
 }
 
 header h1 {
@@ -53,11 +57,22 @@ nav a {
     text-decoration: none;
     color: #333;
     font-size: 16px;
+    transition: color 0.3s ease;
 }
 
 nav a.active {
     color: #007bff;
     font-weight: bold;
+}
+
+nav a:hover {
+    color: #0056b3;
+}
+
+.nav-link.inicio:hover, 
+.nav-link.perfil:hover {
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .logout {
@@ -66,17 +81,19 @@ nav a.active {
 
 .logout img {
     width: 30px;
-    cursor: pointer; 
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .logout img:hover {
-    opacity: 0.8; 
+    transform: scale(1.2);
 }
 
 .container {
     display: flex;
     justify-content: center;
     padding: 20px;
+    padding-bottom: 100px;
 }
 
 .service-list {
@@ -87,21 +104,16 @@ nav a.active {
     border-right: 1px solid #eaeaea;
 }
 
-.service-cart {
-    width: 25%;
-    max-height: 80vh;
-    overflow-y: auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
 .title-with-icon {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 10;
+    padding: 10px;
+    border-bottom: 1px solid #eaeaea;
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
-    justify-content: flex-start;
+    margin-bottom: 10px; 
 }
 
 .title-with-icon img {
@@ -111,6 +123,56 @@ nav a.active {
 
 .title-with-icon h2 {
     font-size: 24px;
+    margin: 0;
+}
+
+.service-cart {
+    width: 25%;
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.service-cart h2 {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 10;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.service-cart-content {
+    flex-grow: 1; 
+    overflow-y: auto;
+}
+
+.action-buttons {
+    margin-top: 20px; 
+    text-align: center;
+}
+
+.pagar {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 15px 30px; 
+    border-radius: 25px; 
+    cursor: pointer;
+    font-size: 18px; 
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.pagar:hover {
+    background-color: #218838;
+    transform: scale(1.05);
 }
 
 /* Servicios */
@@ -128,6 +190,11 @@ nav a.active {
     width: 50px;
     height: 50px;
     margin-right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.service-category img:hover {
+    transform: scale(1.1);
 }
 
 .service-info span {
@@ -148,18 +215,32 @@ nav a.active {
     padding: 10px 20px;
     border-radius: 20px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .add-service:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 .cart-item {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 10px;
     border-bottom: 1px solid #eaeaea;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cart-item:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.02);
+}
+
+.cart-item img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
 
 .cart-item span {
@@ -179,6 +260,8 @@ nav a.active {
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
+    margin: 0 5px; 
+    transition: background-color 0.3s ease;
 }
 
 .quantity-control button:hover {
@@ -193,44 +276,32 @@ nav a.active {
     border-radius: 5px;
     cursor: pointer;
     margin-left: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .remove-service:hover {
     background-color: #c82333;
+    transform: scale(1.05);
 }
 
-.action-buttons {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.pay-now {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.pay-now:hover {
-    background-color: #218838;
-}
-
-/* Pie de página */
 footer {
     background-color: #3b9aff; 
-    padding: 15px 30px;
+    padding: 25px 40px;
     text-align: center;
     position: fixed; 
     width: 100%; 
     bottom: 0; 
+    z-index: 100;
+    opacity: 1;
 }
 
 .footer-links a {
-    margin: 0 10px;
+    margin: 0 30px;
     text-decoration: none;
-    color: #333;
+    color: #1f1f1f;
 }
 
-
+.footer-links a:hover {
+    color: #0d0d0e;
+    font-weight: bold;
+}

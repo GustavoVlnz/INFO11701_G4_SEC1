@@ -1,7 +1,7 @@
 /* Estilos del header */
 header {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between; /* */
     align-items: center;
     padding: 20px;
     background-color: white;
@@ -13,12 +13,12 @@ header {
 }
 
 nav {
-    flex-grow: 1;
+    flex-grow: 1; /* */
     margin-left: 100px;
 }
 
 nav ul {
-    list-style: none;
+    list-style: none; /* */
     display: flex;
     gap: 10px;
     cursor: pointer;
@@ -33,7 +33,7 @@ nav ul li {
 nav ul li a {
     color: black;
     font-style: initial;
-    text-decoration: none;
+    text-decoration: none; /* */
     font-weight: bold;
     padding: 10px 20px;
     border-radius: 4px;
@@ -50,7 +50,7 @@ nav ul li a:hover {
 }
 
 .btn {
-    display: inline-block;
+    display: inline-block; /* */
     padding: 12px 24px;
     font-size: 18px;
     font-weight: bold;
@@ -60,23 +60,23 @@ nav ul li a:hover {
     border-radius: 5px;
     text-decoration: none;
     text-align: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* */
     cursor: pointer;
 }
 
-.btn:hover {
+.btn:hover { /* */
     background-color: #37b5ff; 
-    transform: scale(1.05); 
+    transform: scale(1.05);  /* */
 }
 
-.btn:active {
-    transform: scale(0.98); 
+.btn:active { /* */
+    transform: scale(0.98);  /* */
 }
 
 .banner {
-    position: relative; 
+    position: relative;  /* */
     background-image: url(./Imagenes/Movo_Banner.jpg); 
-    background-size: cover; 
+    background-size: cover;  /* */
     background-position: center 1100px; 
     text-align: center;
     padding: 100px 20px;
@@ -87,7 +87,7 @@ nav ul li a:hover {
     color: white;
 }
 
-.banner::before {
+.banner::before { /* */
     content: "";
     position: absolute;
     top: 0;
@@ -101,8 +101,8 @@ nav ul li a:hover {
 .banner h1,
 .banner p,
 .banner .btn {
-    position: relative;
-    z-index: 2; 
+    position: relative; /* */
+    z-index: 2;  /* */
 }
 
 .banner h1 {
@@ -116,7 +116,7 @@ nav ul li a:hover {
     font-size: 24px;
     margin-bottom: 30px;
     max-width: 800px;
-    text-shadow: 1px 1px 3px #37b5ff;
+    text-shadow: 1px 1px 3px #37b5ff; /* */
     color: white;
 }
 
@@ -128,8 +128,8 @@ nav ul li a:hover {
     color: white;
     background-color: #37b5ff;
     border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none; /* */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* */
 }
 
 .banner .btn:hover {
@@ -138,7 +138,7 @@ nav ul li a:hover {
 }
 
 .banner .btn:active {
-    transform: scale(0.98);
+    transform: scale(0.98); /* */
 }
 
 /* Estilos de la sección de información */
@@ -158,7 +158,7 @@ nav ul li a:hover {
 }
 
 .info-section.hidden {
-    display: none; 
+    display: none;  /* */
 }
 
 .info-section.visible {

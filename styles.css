@@ -1,0 +1,170 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Barra de navegación */
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.company-name {
+    margin-left: 10px;
+    font-size: 1.5em;
+}
+
+.nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-menu li {
+    margin-left: 20px;
+}
+
+.nav-menu a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Encabezado de la página */
+.header {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Contenedor de categorías */
+.category-container {
+    padding: 20px;
+}
+
+/* Tarjeta de categoría */
+.category-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.expand-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.category-description {
+    margin: 10px 0;
+}
+
+.category-options {
+    display: none;
+}
+
+.details-btn, .order-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.details-btn {
+    background-color: #28a745;
+}
+
+.order-btn {
+    background-color: #dc3545;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Estilos para el formulario de agendamiento */
+#orderForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#orderForm label {
+    margin: 10px 0 5px;
+}
+
+#orderForm input, #orderForm select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#orderForm button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#orderForm button:hover {
+    background-color: #0056b3;
+}

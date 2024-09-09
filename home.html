@@ -3,9 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amaro bot</title>
+    <title>Categorías de Servicios</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <!-- Barra de navegación -->
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo de la Empresa" class="logo">
+            <span class="company-name">Nombre de la Empresa</span>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Cuenta</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Encabezado de la página -->
+    <div class="header">
+        <h1>Categorías de Servicios</h1>
+    </div>
+
+    <!-- Contenedor de las categorías -->
+    <div class="category-container">
+
+        <!-- Categoría 1: Electricidad -->
+        <div class="category-card">
+            <div class="category-header">
+                <h3>Electricidad</h3>
+                <button class="expand-btn">+</button>
+            </div>
+            <div class="category-description">
+                Descripción corta: Servicios relacionados con instalaciones y reparaciones eléctricas.
+            </div>
+            <div class="category-options">
+                <ul>
+                    <li>Instalación de luces <button class="details-btn" data-title="Instalación de luces" data-description="Descripción del servicio de instalación de luces.">Ver detalles</button> <button class="order-btn" data-service="Instalación de luces">Pedir este servicio</button></li>
+                    <li>Reparación de cortocircuitos <button class="details-btn" data-title="Reparación de cortocircuitos" data-description="Descripción del servicio de reparación de cortocircuitos.">Ver detalles</button> <button class="order-btn" data-service="Reparación de cortocircuitos">Pedir este servicio</button></li>
+                    <li>Inspección de conexiones eléctricas <button class="details-btn" data-title="Inspección de conexiones eléctricas" data-description="Descripción del servicio de inspección de conexiones eléctricas.">Ver detalles</button> <button class="order-btn" data-service="Inspección de conexiones eléctricas">Pedir este servicio</button></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Categoría 2: Fontanería -->
+        <div class="category-card">
+            <div class="category-header">
+                <h3>Fontanería</h3>
+                <button class="expand-btn">+</button>
+            </div>
+            <div class="category-description">
+                Descripción corta: Servicios de instalación y reparación de sistemas de agua y desagüe.
+            </div>
+            <div class="category-options">
+                <ul>
+                    <li>Reparación de fugas <button class="details-btn" data-title="Reparación de fugas" data-description="Descripción del servicio de reparación de fugas de agua.">Ver detalles</button> <button class="order-btn" data-service="Reparación de fugas">Pedir este servicio</button></li>
+                    <li>Instalación de tuberías <button class="details-btn" data-title="Instalación de tuberías" data-description="Descripción del servicio de instalación de tuberías.">Ver detalles</button> <button class="order-btn" data-service="Instalación de tuberías">Pedir este servicio</button></li>
+                    <li>Desatasco de desagües <button class="details-btn" data-title="Desatasco de desagües" data-description="Descripción del servicio de desatasco de desagües.">Ver detalles</button> <button class="order-btn" data-service="Desatasco de desagües">Pedir este servicio</button></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Categoría 3: Jardinería -->
+        <div class="category-card">
+            <div class="category-header">
+                <h3>Jardinería</h3>
+                <button class="expand-btn">+</button>
+            </div>
+            <div class="category-description">
+                Descripción corta: Servicios para el cuidado y mantenimiento de jardines y áreas verdes.
+            </div>
+            <div class="category-options">
+                <ul>
+                    <li>Podado de césped <button class="details-btn" data-title="Podado de césped" data-description="Descripción del servicio de podado de césped.">Ver detalles</button> <button class="order-btn" data-service="Podado de césped">Pedir este servicio</button></li>
+                    <li>Diseño de jardines <button class="details-btn" data-title="Diseño de jardines" data-description="Descripción del servicio de diseño de jardines.">Ver detalles</button> <button class="order-btn" data-service="Diseño de jardines">Pedir este servicio</button></li>
+                    <li>Fertilización de plantas <button class="details-btn" data-title="Fertilización de plantas" data-description="Descripción del servicio de fertilización de plantas.">Ver detalles</button> <button class="order-btn" data-service="Fertilización de plantas">Pedir este servicio</button></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Categoría 4: Limpieza -->
+        <div class="category-card">
+            <div class="category-header">
+                <h3>Limpieza</h3>
+                <button class="expand-btn">+</button>
+            </div>
+            <div class="category-description">
+                Descripción corta: Servicios de limpieza para hogares, oficinas y espacios comerciales.
+            </div>
+            <div class="category-options">
+                <ul>
+                    <li>Limpieza de casas <button class="details-btn" data-title="Limpieza de casas" data-description="Descripción del servicio de limpieza de casas.">Ver detalles</button> <button class="order-btn" data-service="Limpieza de casas">Pedir este servicio</button></li>
+                    <li>Limpieza de oficinas <button class="details-btn" data-title="Limpieza de oficinas" data-description="Descripción del servicio de limpieza de oficinas.">Ver detalles</button> <button class="order-btn" data-service="Limpieza de oficinas">Pedir este servicio</button></li>
+                    <li>Limpieza profunda <button class="details-btn" data-title="Limpieza profunda" data-description="Descripción del servicio de limpieza profunda.">Ver detalles</button> <button class="order-btn" data-service="Limpieza profunda">Pedir este servicio</button></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Categoría 5: Reparaciones generales -->
+        <div class="category-card">
+            <div class="category-header">
+                <h3>Reparaciones generales</h3>
+                <button class="expand-btn">+</button>
+            </div>
+            <div class="category-description">
+                Descripción corta: Servicios de reparaciones y mantenimiento general para el hogar.
+            </div>
+            <div class="category-options">
+                <ul>
+                    <li>Reparación de paredes <button class="details-btn" data-title="Reparación de paredes" data-description="Descripción del servicio de reparación de paredes.">Ver detalles</button> <button class="order-btn" data-service="Reparación de paredes">Pedir este servicio</button></li>
+                    <li>Reparación de techos <button class="details-btn" data-title="Reparación de techos" data-description="Descripción del servicio de reparación de techos.">Ver detalles</button> <button class="order-btn" data-service="Reparación de techos">Pedir este servicio</button></li>
+                    <li>Instalación de muebles <button class="details-btn" data-title="Instalación de muebles" data-description="Descripción del servicio de instalación de muebles.">Ver detalles</button> <button class="order-btn" data-service="Instalación de muebles">Pedir este servicio</button></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal para mostrar detalles del servicio -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="serviceTitle"></h2>
+            <p id="serviceDescription"></p>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación para pedido de servicio -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" data-modal="confirmModal">&times;</span>
+            <h2>¿Quieres pedir este servicio?</h2>
+            <button id="confirmOrderBtn">Sí, pedir</button>
+            <button id="cancelOrderBtn">No, cancelar</button>
+        </div>
+    </div>
+
+    <!-- Modal para el formulario de agendamiento -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" data-modal="orderModal">&times;</span>
+            <h2>Agendar Pedido</h2>
+            <form id="orderForm">
+                <input type="hidden" id="selectedService">
+                <label for="serviceDate">Fecha:</label>
+                <input type="date" id="serviceDate" required>
+                <label for="serviceTime">Hora:</label>
+                <input type="time" id="serviceTime" required>
+                <label for="customerName">Nombre:</label>
+                <input type="text" id="customerName" required>
+                <label for="customerPhone">Teléfono:</label>
+                <input type="tel" id="customerPhone" required>
+                <label for="paymentMethod">Método de pago:</label>
+                <select id="paymentMethod" required>
+                    <option value="tarjeta">Tarjeta de crédito/débito</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="efectivo">Efectivo</option>
+                </select>
+                <button type="submit">Enviar Pedido</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Obtener todos los botones de "Ver detalles" y "Pedir este servicio"
+        const detailsButtons = document.querySelectorAll('.details-btn');
+        const orderButtons = document.querySelectorAll('.order-btn');
+        const serviceModal = document.getElementById('serviceModal');
+        const confirmModal = document.getElementById('confirmModal');
+        const orderModal = document.getElementById('orderModal');
+        const modalTitle = document.getElementById('serviceTitle');
+        const modalDescription = document.getElementById('serviceDescription');
+        const closeModalButtons = document.querySelectorAll('.close-btn');
+        const confirmOrderBtn = document.getElementById('confirmOrderBtn');
+        const cancelOrderBtn = document.getElementById('cancelOrderBtn');
+        const orderForm = document.getElementById('orderForm');
+        const selectedServiceInput = document.getElementById('selectedService');
+
+        // Abrir el modal con los detalles del servicio
+        detailsButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const title = button.getAttribute('data-title');
+                const description = button.getAttribute('data-description');
+                
+                modalTitle.textContent = title;
+                modalDescription.textContent = description;
+                serviceModal.style.display = 'block';
+            });
+        });
+
+        // Cerrar el modal de detalles
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const modal = event.target.dataset.modal ? document.getElementById(event.target.dataset.modal) : serviceModal;
+                modal.style.display = 'none';
+            });
+        });
+
+        // Abrir el modal de confirmación al presionar "Pedir este servicio"
+        orderButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const service = button.getAttribute('data-service');
+                
+                selectedServiceInput.value = service;
+                confirmModal.style.display = 'block';
+            });
+        });
+
+        // Confirmar el pedido y abrir el formulario de agendamiento
+        confirmOrderBtn.addEventListener('click', () => {
+            confirmModal.style.display = 'none';
+            orderModal.style.display = 'block';
+        });
+
+        // Cancelar el pedido
+        cancelOrderBtn.addEventListener('click', () => {
+            confirmModal.style.display = 'none';
+        });
+
+        // Enviar el formulario de agendamiento
+        orderForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            alert('Pedido enviado para: ' + selectedServiceInput.value);
+            orderModal.style.display = 'none';
+        });
+
+        // Cerrar el modal de detalles si el usuario hace clic fuera del contenido del modal
+        window.addEventListener('click', (event) => {
+            if (event.target === serviceModal || event.target === confirmModal || event.target === orderModal) {
+                serviceModal.style.display = 'none';
+                confirmModal.style.display = 'none';
+                orderModal.style.display = 'none';
+            }
+        });
+
+        // Funcionalidad para expandir o contraer las opciones de la categoría
+        const expandButtons = document.querySelectorAll('.expand-btn');
+        expandButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const categoryOptions = button.parentElement.nextElementSibling.nextElementSibling;
+                categoryOptions.style.display = categoryOptions.style.display === 'none' || categoryOptions.style.display === '' ? 'block' : 'none';
+            });
+        });
+    </script>
 
 </body>
 </html>

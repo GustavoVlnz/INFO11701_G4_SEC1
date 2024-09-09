@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- Barra de navegación -->
+   
     <header class="navbar">
         <div class="logo-container">
             <img src="logo.png" alt="Logo de la Empresa" class="logo">
@@ -25,15 +25,15 @@
         </nav>
     </header>
 
-    <!-- Encabezado de la página -->
+    
     <div class="header">
         <h1>Categorías de Servicios</h1>
     </div>
 
-    <!-- Contenedor de las categorías -->
+    
     <div class="category-container">
 
-        <!-- Categoría 1: Electricidad -->
+     
         <div class="category-card">
             <div class="category-header">
                 <h3>Electricidad</h3>
@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <!-- Categoría 2: Fontanería -->
+    
         <div class="category-card">
             <div class="category-header">
                 <h3>Fontanería</h3>
@@ -69,7 +69,7 @@
             </div>
         </div>
 
-        <!-- Categoría 3: Jardinería -->
+    
         <div class="category-card">
             <div class="category-header">
                 <h3>Jardinería</h3>
@@ -87,7 +87,7 @@
             </div>
         </div>
 
-        <!-- Categoría 4: Limpieza -->
+    
         <div class="category-card">
             <div class="category-header">
                 <h3>Limpieza</h3>
@@ -105,7 +105,7 @@
             </div>
         </div>
 
-        <!-- Categoría 5: Reparaciones generales -->
+     
         <div class="category-card">
             <div class="category-header">
                 <h3>Reparaciones generales</h3>
@@ -125,7 +125,7 @@
 
     </div>
 
-    <!-- Modal para mostrar detalles del servicio -->
+   
     <div id="serviceModal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
@@ -134,7 +134,7 @@
         </div>
     </div>
 
-    <!-- Modal de confirmación para pedido de servicio -->
+
     <div id="confirmModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" data-modal="confirmModal">&times;</span>
@@ -144,7 +144,7 @@
         </div>
     </div>
 
-    <!-- Modal para el formulario de agendamiento -->
+
     <div id="orderModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" data-modal="orderModal">&times;</span>
@@ -171,7 +171,6 @@
     </div>
 
     <script>
-        // Obtener todos los botones de "Ver detalles" y "Pedir este servicio"
         const detailsButtons = document.querySelectorAll('.details-btn');
         const orderButtons = document.querySelectorAll('.order-btn');
         const serviceModal = document.getElementById('serviceModal');
@@ -185,7 +184,6 @@
         const orderForm = document.getElementById('orderForm');
         const selectedServiceInput = document.getElementById('selectedService');
 
-        // Abrir el modal con los detalles del servicio
         detailsButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const title = button.getAttribute('data-title');
@@ -197,7 +195,6 @@
             });
         });
 
-        // Cerrar el modal de detalles
         closeModalButtons.forEach(button => {
             button.addEventListener('click', (event) => {
                 const modal = event.target.dataset.modal ? document.getElementById(event.target.dataset.modal) : serviceModal;
@@ -205,7 +202,6 @@
             });
         });
 
-        // Abrir el modal de confirmación al presionar "Pedir este servicio"
         orderButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const service = button.getAttribute('data-service');
@@ -215,25 +211,21 @@
             });
         });
 
-        // Confirmar el pedido y abrir el formulario de agendamiento
         confirmOrderBtn.addEventListener('click', () => {
             confirmModal.style.display = 'none';
             orderModal.style.display = 'block';
         });
 
-        // Cancelar el pedido
         cancelOrderBtn.addEventListener('click', () => {
             confirmModal.style.display = 'none';
         });
 
-        // Enviar el formulario de agendamiento
         orderForm.addEventListener('submit', (event) => {
             event.preventDefault();
             alert('Pedido enviado para: ' + selectedServiceInput.value);
             orderModal.style.display = 'none';
         });
 
-        // Cerrar el modal de detalles si el usuario hace clic fuera del contenido del modal
         window.addEventListener('click', (event) => {
             if (event.target === serviceModal || event.target === confirmModal || event.target === orderModal) {
                 serviceModal.style.display = 'none';
@@ -242,7 +234,6 @@
             }
         });
 
-        // Funcionalidad para expandir o contraer las opciones de la categoría
         const expandButtons = document.querySelectorAll('.expand-btn');
         expandButtons.forEach(button => {
             button.addEventListener('click', () => {

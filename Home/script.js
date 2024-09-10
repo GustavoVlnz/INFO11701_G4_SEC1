@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Obtiene referencias a los elementos del DOM que se usarán
     const DescubreMasBtn = document.getElementById('descubre-mas'); // Botón para mostrar/ocultar información
     const SeccionInfo = document.getElementById('mas-info'); // Sección de información que se muestra/oculta
-    const SeccionServicio = document.getElementById('seccion-servicio'); // Sección de muestra de servicios
+    const SeccionServicio = document.getElementById('seccion-servicio'); // Sección del carrusel de servicios
 
     // Agrega un evento de clic al botón "Descubre Más"
     DescubreMasBtn.addEventListener('click', (event) => {
@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Inicializa el índice de la diapositiva para la muestra de servicios
+    // Inicializa el índice de la diapositiva para el carrusel de servicios
     let slideIndex = 0;
     showSlides(slideIndex); // Muestra la diapositiva inicial
 
-    // Función para mostrar las diapositivas de la muestra de servicios
+    // Función para mostrar las diapositivas del carrusel
     function showSlides(n) {
         let slides = document.getElementsByClassName("slide"); // Obtiene todas las diapositivas
         if (n >= slides.length) { slideIndex = 0; } // Si el índice es mayor o igual al número de diapositivas, reinicia al inicio
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         slides[slideIndex].style.display = "block"; // Muestra la diapositiva actual
     }
 
-    // Función para mover las diapositivas
+    // Función para mover las diapositivas del carrusel
     function moveSlide(n) {
         showSlides(slideIndex += n); // Actualiza el índice de la diapositiva y muestra la nueva diapositiva
     }

@@ -1,0 +1,138 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: white;
+    border-bottom: 2px solid #eaeaea;
+}
+
+.header-content {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+header .logo img:hover {
+    transform: rotate(20deg);
+}
+
+nav {
+    display: flex;
+    justify-content: center; /* Centra las pestañas horizontalmente */
+    flex-grow: 1;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav a.active {
+    color: #007bff;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #0056b3;
+}
+
+.CerrarSesion img {
+    width: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.CerrarSesion img:hover {
+    transform: scale(1.2);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.lista_servicios {
+    width: 70%;
+}
+
+.Ventana {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.Ventana img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.Ventana h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.category {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.category:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.022);
+}
+
+footer {
+    background-color: #3b9aff; 
+    padding: 25px 40px;
+    text-align: center;
+    position: fixed; 
+    width: 100%; 
+    bottom: 0; 
+    z-index: 100;
+}
+
+.footer a {
+    margin: 0 30px;
+    text-decoration: none;
+    color: #1f1f1f;
+}
+
+.footer a:hover {
+    color: #0d0d0e;
+    font-weight: bold;
+}

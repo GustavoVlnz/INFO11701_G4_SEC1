@@ -8,6 +8,21 @@
     <script src="Registro.js"></script> <!--Vincula el javascript en un codigo externo-->
 </head>
 <body>
+
+    <header>
+        <div class="logo">
+            <img src="imagenes/logo.png" alt="Movo logo">
+            <h1>MOVO</h1>
+        </div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#" class="active">Perfil</a>
+        </nav>
+        <div class="logout">
+            <img src="imagenes/logout.png" alt="Salir">
+        </div>
+    </header>
+
     <div id="Box_Formulario"> <!--Id del contenedor principal -->
         <h2>Registro</h2>
         <form id="Formulario" method="post">
@@ -41,8 +56,8 @@
                     <label for="confirm-password">Confirmar contraseña:</label>
                     <input type="password" id="confirm-password" name="confirm-password" required><br><br>
         
-                    <label for="Tipo">Tipo de usuario:</label>
-                    <select id="Tipo">
+                    <label for="Rol">Tipo de usuario:</label>
+                    <select id="Rol">
                         <option value="client" label="Cliente"></option>
                         <option value="empresa" label="Empresa"></option>
                     </select><br><br>
@@ -50,12 +65,22 @@
             </div>
     
             <div id="Final">
+                <div id="mensaje-error"></div> <!--Mensaje de error en caso de que las contraseñas no coincidan-->
                 <input id="BtnRegistro" type="submit" value="Registrarse">
-                <a href="#" id="login-link">¿Ya tienes una cuenta? Inicia sesión</a> <!--Link que lleva a interfaz de recuperar contraseña -->
+                <a href="#" id="login-link">¿Ya tienes una cuenta? Inicia sesión</a> <!--Link que lleva a link recuperar contraseña -->
 
-                <div id="error-message"></div> <!--Mensaje de error en caso de que las contraseñas no coincidan-->
             </div>
         </form>
     </div>
+
+<footer>
+    <div class="footer-links">
+         <a href="#">Teléfono</a>
+         <a href="#">Redes Sociales</a>
+         <a href="#">Correo</a>
+         <a href="#">Ayuda</a>
+    </div>
+</footer>
+       
 </body>
 </html>

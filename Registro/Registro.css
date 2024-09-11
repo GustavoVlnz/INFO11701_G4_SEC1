@@ -7,6 +7,7 @@
     background-color: #3b9aff; /*color de fondo del contenedor del formulario*/
     width: 50%; /*Ancho que usa de la pagina*/
     height: auto;
+    margin-top: 10px;
     padding: 20px;
     position: absolute; /*Permite mover el contenedor mas a gusto, se pone una capa encima de los elementos*/
     top: 50%;

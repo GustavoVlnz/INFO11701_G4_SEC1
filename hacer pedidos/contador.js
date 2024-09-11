@@ -1,49 +1,51 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const addButtons = document.querySelectorAll('.add-service');
-    const cartList = document.querySelector('.service-cart');
+document.addEventListener('DOMContentLoaded', () => {
+    // se obtiene el contenedor del carrito de servicios
+    const listaCarrito = document.getElementById('lista-carrito');
 
-    addButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const serviceName = this.parentElement.querySelector('.service-info span').textContent;
-            const serviceImage = this.parentElement.querySelector('img').src;
+    // esta funcion agrega un servicio al carrito
+    function agregarServicio(nombre, imagen) {
+        // se crea un nuevo contenedor para el servicio
+        const item = document.createElement('div');
+        item.classList.add('item-carrito');
+        
+        // se crea un elemento de imagen para el servicio
+        const img = document.createElement('img');
+        img.src = imagen;
+        img.alt = nombre;
+        img.classList.add('imagen-item');
 
-            let listItem = Array.from(cartList.querySelectorAll('.cart-item'))
-                .find(item => item.querySelector('span').textContent === serviceName);
+        // se crea un elemento de texto para el nombre del servicio
+        const nombreServicio = document.createElement('span');
+        nombreServicio.textContent = nombre;
 
-            if (listItem) {
-                const counter = listItem.querySelector('.quantity-control span');
-                counter.textContent = parseInt(counter.textContent) + 1;
-            } else {
-                listItem = document.createElement('div');
-                listItem.classList.add('cart-item');
-                listItem.innerHTML = `
-                    <img src="${serviceImage}" alt="${serviceName}">
-                    <span>${serviceName}</span>
-                    <div class="quantity-control">
-                        <button class="decrement">-</button>
-                        <span>1</span>
-                        <button class="increment">+</button>
-                        <button class="remove-service">Eliminar</button>
-                    </div>
-                `;
-                cartList.appendChild(listItem);
-            }
+        // se crea un boton para eliminar el servicio del carrito
+        const eliminarBtn = document.createElement('button');
+        eliminarBtn.textContent = 'Eliminar';
+        eliminarBtn.classList.add('eliminar-servicio');
+        eliminarBtn.addEventListener('click', () => {
+            // cuando se hace clic en el boton, elimina el servicio del carrito
+            listaCarrito.removeChild(item);
+        });
 
-            listItem.querySelector('.increment').addEventListener('click', function() {
-                const counter = listItem.querySelector('.quantity-control span');
-                counter.textContent = parseInt(counter.textContent) + 1;
-            });
+        // esta seccion añade la imagen, el nombre y el boton al contenedor del servicio
+        item.appendChild(img);
+        item.appendChild(nombreServicio);
+        item.appendChild(eliminarBtn);
 
-            listItem.querySelector('.decrement').addEventListener('click', function() {
-                const counter = listItem.querySelector('.quantity-control span');
-                if (parseInt(counter.textContent) > 1) {
-                    counter.textContent = parseInt(counter.textContent) - 1;
-                }
-            });
+        // aqui se añade el nuevo servicio al carrito
+        listaCarrito.appendChild(item);
+    }
 
-            listItem.querySelector('.remove-service').addEventListener('click', function() {
-                listItem.remove();
-            });
+    // aqui se agrega un evento a cada boton de agregar servicio
+    document.querySelectorAll('.agregar-servicio').forEach(btn => {
+        btn.addEventListener('click', (event) => {
+            // Encuentra el elemento del servicio correspondiente
+            const servicioElement = event.target.closest('.categoria-servicio');
+            const nombre = servicioElement.querySelector('.info-servicio span').textContent;
+            const imagen = servicioElement.querySelector('img').src;
+            
+            // y finalmente se lama a la funcion para agregar el servicio al carrito
+            agregarServicio(nombre, imagen);
         });
     });
 });

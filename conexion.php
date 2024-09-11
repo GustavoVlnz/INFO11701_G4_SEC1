@@ -13,26 +13,30 @@ if ($conn->connect_error) {
     die("Conexion fallida: " . $conn->connect_error);
 }
 
-// erificar siv se envio el formulario
+// verifica si se envia el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // obtiene los datos ingresados en el formulario
-    $nombre_usuario = $_POST['nombre_usuario'];
+    // Obtener los datos del formulario
+    $nombre = $_POST['nombre'];
+    $apellido = $_POST['apellido'];
+    $rut = $_POST['rut'];
+    $genero = $_POST['genero'];
     $email = $_POST['email'];
     $contrasena = $_POST['contrasena'];
+    $tipo_usuario = $_POST['tipo_usuario'];
 
-    // encriptar la contraseña antes de guardarla en la base de datos
+    // Encriptar la contraseña antes de guardarla en la base de datos
     $contrasena_hash = password_hash($contrasena, PASSWORD_DEFAULT);
 
-    // consulta para ingresar datos
-    $sql = "INSERT INTO usuarios (nombre_usuario, email, contrasena) VALUES (?, ?, ?)";
+    // Preparar la consulta SQL para insertar los datos
+    $sql = "INSERT INTO usuarios (nombre, apellido, rut, genero, email, contrasena, tipo_usuario) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-    // prepara la declaracion
+    // Preparar la declaración
     $stmt = $conn->prepare($sql);
 
-    // vincula los parametros
-    $stmt->bind_param("sss", $nombre_usuario, $email, $contrasena_hash);
+    // Vincular los parámetros
+    $stmt->bind_param("sssssss", $nombre, $apellido, $rut, $genero, $email, $contrasena_hash, $tipo_usuario);
 
-    // ejecuta la consukta
+    // Ejecutar la consulta
     if ($stmt->execute()) {
         echo "Registro exitoso";
     } else {

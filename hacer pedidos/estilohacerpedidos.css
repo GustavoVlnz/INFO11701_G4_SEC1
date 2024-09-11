@@ -38,7 +38,7 @@ header .logo img {
 }
 
 header .logo img:hover {
-    transform: rotate(20deg);
+    transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
 }
 
 header h1 {
@@ -60,7 +60,7 @@ nav a {
     transition: color 0.3s ease;
 }
 
-nav a.active {
+nav a.activo {
     color: #007bff;
     font-weight: bold;
 }
@@ -75,28 +75,28 @@ nav a:hover {
     font-size: 18px;
 }
 
-.logout {
+.salir {
     margin-left: auto;
 }
 
-.logout img {
+.salir img {
     width: 30px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.logout img:hover {
+.salir img:hover {
     transform: scale(1.2);
 }
 
-.container {
+.contenedor {
     display: flex;
     justify-content: center;
     padding: 20px;
     padding-bottom: 100px;
 }
 
-.service-list {
+.lista-servicios {
     width: 70%; 
     max-height: 80vh;
     overflow-y: auto;
@@ -104,7 +104,7 @@ nav a:hover {
     border-right: 1px solid #eaeaea;
 }
 
-.title-with-icon {
+.titulo-con-icono {
     position: sticky;
     top: 0;
     background-color: #ffffff;
@@ -116,17 +116,17 @@ nav a:hover {
     margin-bottom: 10px; 
 }
 
-.title-with-icon img {
+.titulo-con-icono img {
     width: 30px;
     margin-right: 10px;
 }
 
-.title-with-icon h2 {
+.titulo-con-icono h2 {
     font-size: 24px;
     margin: 0;
 }
 
-.service-cart {
+.carrito-servicios {
     width: 25%;
     max-height: 80vh;
     overflow-y: auto;
@@ -138,7 +138,7 @@ nav a:hover {
     flex-direction: column;
 }
 
-.service-cart h2 {
+.carrito-servicios h2 {
     position: sticky;
     top: 0;
     background-color: #ffffff;
@@ -148,12 +148,12 @@ nav a:hover {
     border-bottom: 1px solid #eaeaea;
 }
 
-.service-cart-content {
+.contenido-carrito-servicios {
     flex-grow: 1; 
-    overflow-y: auto;
+    overflow-y: auto; /* permite el desplazamiento vertical si el contenido es mayor que el area visible */
 }
 
-.action-buttons {
+.botones-acciones {
     margin-top: 20px; 
     text-align: center;
 }
@@ -167,16 +167,16 @@ nav a:hover {
     cursor: pointer;
     font-size: 18px; 
     width: 100%;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* transiciones suaves para color y tamano */
 }
 
 .pagar:hover {
     background-color: #218838;
-    transform: scale(1.05);
+    transform: scale(1.05); /* aumenta el tamano del boton al pasar el mouse por encima */
 }
 
 /* Servicios */
-.service-category {
+.categoria-servicio {
     display: flex;
     align-items: center;
     background-color: white;
@@ -186,28 +186,28 @@ nav a:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.service-category img {
+.categoria-servicio img {
     width: 50px;
     height: 50px;
     margin-right: 20px;
     transition: transform 0.3s ease;
 }
 
-.service-category img:hover {
+.categoria-servicio img:hover {
     transform: scale(1.1);
 }
 
-.service-info span {
+.info-servicio span {
     font-size: 18px;
     font-weight: bold;
 }
 
-.service-info p {
+.info-servicio p {
     font-size: 14px;
     color: #555;
 }
 
-.add-service {
+.agregar-servicio {
     margin-left: auto;
     background-color: #007bff;
     color: white;
@@ -218,90 +218,69 @@ nav a:hover {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.add-service:hover {
+.agregar-servicio:hover {
     background-color: #0056b3;
     transform: scale(1.05);
 }
 
-.cart-item {
+.item-carrito {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     padding: 10px;
     border-bottom: 1px solid #eaeaea;
-    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.cart-item:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02);
+.item-carrito img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
 }
 
-.cart-item img {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-}
-
-.cart-item span {
-    flex-grow: 1;
-    font-size: 18px;
-}
-
-.quantity-control {
+.control-cantidad {
     display: flex;
     align-items: center;
+    margin: 0 20px;
 }
 
-.quantity-control button {
-    background-color: #007bff;
-    color: white;
+.control-cantidad button {
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    background-color: #f8f9fa;
+    font-size: 20px;
     cursor: pointer;
-    margin: 0 5px; 
     transition: background-color 0.3s ease;
 }
 
-.quantity-control button:hover {
-    background-color: #0056b3;
+.control-cantidad button:hover {
+    background-color: #e2e6ea;
 }
 
-.remove-service {
+.control-cantidad span {
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+.eliminar-servicio {
     background-color: #dc3545;
     color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 10px 20px;
+    border-radius: 20px;
     cursor: pointer;
-    margin-left: 10px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.remove-service:hover {
+.eliminar-servicio:hover {
     background-color: #c82333;
     transform: scale(1.05);
 }
 
 footer {
-    background-color: #3b9aff; 
-    padding: 25px 40px;
+    background-color: #3b9aff;
+    color: white;
     text-align: center;
-    position: fixed; 
-    width: 100%; 
-    bottom: 0; 
-    z-index: 100;
-    opacity: 1;
-}
-
-.footer-links a {
-    margin: 0 30px;
-    text-decoration: none;
-    color: #1f1f1f;
-}
-
-.footer-links a:hover {
-    color: #0d0d0e;
-    font-weight: bold;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

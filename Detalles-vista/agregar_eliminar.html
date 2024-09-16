@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista del Proveedor</title>
+    <link rel="stylesheet" href="agregar_eliminar.css">
+</head>
+<body>
+<!--Solamente esta a nivel visual, las interacciones y demases obviamente se hacen con javascript-->
+<header>
+    <div class="logo">
+        <img src="icon.jpg" alt="Logo">
+        <h1>Movo</h1>
+    </div>
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Perfil</a>
+        <a href="#" class="active">Mis Servicios</a>
+    </nav>
+    <div class="cerrar_sesion">
+        <img src="logout.png" alt="Cerrar sesión">
+    </div>
+</header>
+
+<div class="container">
+    <div class="detalles_pedido">
+        <h2>Mis Servicios</h2>
+        
+        <!-- Botón para agregar un nuevo servicio -->
+        <button class="boton">Agregar Servicio</button>
+
+        <!-- Formulario para agregar servicio -->
+        <div class="form-container">
+            <h3>Agregar Nuevo Servicio</h3>
+            <form>
+                <label for="nombre-servicio">Nombre del Servicio:</label>
+                <input type="text" id="nombre-servicio" name="nombre-servicio" required>
+
+                <label for="descripcion-servicio">Descripción:</label>
+                <textarea id="descripcion-servicio" name="descripcion-servicio" required></textarea>
+
+                <label for="precio-servicio">Precio:</label>
+                <input type="number" id="precio-servicio" name="precio-servicio" required>
+
+                <button type="submit" class="boton">Agregar</button>
+            </form>
+        </div>
+
+        <!-- Lista de servicios ya agregados -->
+        <div id="lista-servicios">
+            <div class="servicio">
+                <h3>Limpieza hogar</h3>
+                <p>Servicio de limpieza completa de la casa, se aceptan solo casas de 1 piso.</p>
+                <p>Precio: $25.000 CLP</p>
+                <button class="boton-eliminar">Eliminar</button>
+            </div>
+
+            <div class="servicio">
+                <h3>Editor de video</h3>
+                <p>Editor de video profesional para que tus gameplays y demas tipo de contenido sean de calidad.</p>
+                <p>Precio: $35.000 CLP</p>
+                <button class="boton-eliminar">Eliminar</button>
+            </div>
+        </div>
+
+        <!-- Formulario de confirmación de eliminación -->
+        <div class="form-container">
+            <h3>Eliminar Servicio</h3>
+            <p>¿Por qué deseas eliminar este servicio?</p>
+            <textarea id="razon-eliminacion" name="razon-eliminacion"></textarea>
+            <button class="boton">Aceptar</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="#">Términos y Condiciones</a>
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Redes Sociales</a>
+        <a href="#">Contacto</a>
+        <a href="#">Ayuda</a>
+    </div>
+</footer>
+
+</body>
+</html>

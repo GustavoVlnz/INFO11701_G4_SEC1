@@ -89,21 +89,21 @@ nav a:hover {
     transform: scale(1.2);
 }
 
-.contenedor {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    padding-bottom: 100px;
+/* Estructura principal */
+.estructura {
+    display: flex; /* Cambia a diseño de flexbox */
 }
 
+/* Lista de Servicios */
 .lista-servicios {
-    width: 70%; 
+    width: 75%; /* Ajusta el ancho de la lista de servicios */
     max-height: 80vh;
     overflow-y: auto;
     padding-right: 20px;
     border-right: 1px solid #eaeaea;
 }
 
+/* Título con icono */
 .titulo-con-icono {
     position: sticky;
     top: 0;
@@ -126,8 +126,9 @@ nav a:hover {
     margin: 0;
 }
 
+/* Carrito de Servicios */
 .carrito-servicios {
-    width: 25%;
+    width: 25%; /* Ajusta el ancho del carrito de servicios */
     max-height: 80vh;
     overflow-y: auto;
     background-color: white;
@@ -150,7 +151,7 @@ nav a:hover {
 
 .contenido-carrito-servicios {
     flex-grow: 1; 
-    overflow-y: auto; /* permite el desplazamiento vertical si el contenido es mayor que el area visible */
+    overflow-y: auto; /* permite el desplazamiento vertical si el contenido es mayor que el área visible */
 }
 
 .botones-acciones {
@@ -167,12 +168,12 @@ nav a:hover {
     cursor: pointer;
     font-size: 18px; 
     width: 100%;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* transiciones suaves para color y tamano */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* transiciones suaves para color y tamaño */
 }
 
 .pagar:hover {
     background-color: #218838;
-    transform: scale(1.05); /* aumenta el tamano del boton al pasar el mouse por encima */
+    transform: scale(1.05); /* aumenta el tamaño del botón al pasar el mouse por encima */
 }
 
 /* Servicios */
@@ -279,7 +280,7 @@ footer {
     background-color: #3b9aff;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     position: fixed;
     bottom: 0;
     width: 100%;

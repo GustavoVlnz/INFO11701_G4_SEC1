@@ -7,18 +7,23 @@
     <link rel="stylesheet" href="Login.css">
 </head>
 <body>
-    
     <header>
+        <!-- Sección para el logo de la empresa -->
         <div class="logo">
-            <img src="../Images/logo.png" alt="Movo logo">
-            <h1>MOVO</h1>
+            <img src="../Images/logo.png" alt="Logo de la empresa">
         </div>
+        <!-- Barra de navegación con enlaces internos -->
         <nav>
-            <a href="#">Inicio</a>
-            <a href="#" class="active">Perfil</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">INICIO</a></li>
+                <li><a href="#servicios">SERVICIOS</a></li>
+                <li><a href="#contacto">CONTACTO</a></li>
+            </ul>
         </nav>
-        <div class="logout">
-            <img src="../Images/logout.png" alt="Salir">
+        <!-- Botones para iniciar sesión o registrarse -->
+        <div class="botones-cuenta">
+            <a href="#Iniciar Sesión" class="btn">Iniciar Sesión</a>
+            <a href="#Registrarse" class="btn">Registrarse</a>
         </div>
     </header>
 
@@ -37,14 +42,32 @@
             <a href="#" class="links">¿Olvidaste tu contraseña? Click para recuperarla</a>
         </form>
     </div>
+   
 <footer>
-    <div class="footer-links">
-        <a href="#">Teléfono</a>
-         <a href="#">Redes Sociales</a>
-         <a href="#">Correo</a>
-         <a href="#">Ayuda</a>
-     </div>
-</footer>
+    <div class="contenido-footer">
+            <!-- Sección con información de contacto y redes sociales -->
+        <div class="contacto">
+            <h3>Contacto</h3>
+            <p>Email: contacto@movo.com</p>
+        </div>
+        <div class="redes-sociales">
+            <h3>Redes Sociales</h3>
+            <a href="#" class="social-icon">Facebook</a>
+            <a href="#" class="social-icon">Twitter</a>
+            <a href="#" class="social-icon">Instagram</a>
+        </div>
+        <div class="info-legal">
+            <h3>Información Legal</h3>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Términos de Servicio</a>
+        </div>
+    </div>
+        <!-- Sección de derechos de autor -->
+        <div class="copyright_footer">
+            <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
     
 </body>
 </html>

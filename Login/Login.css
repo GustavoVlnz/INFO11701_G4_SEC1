@@ -61,113 +61,121 @@ input[type="password"] {
 .links:hover {
   text-decoration: underline;/*Agrega el subrayado de nuevo, pero solo cuando pasa el mouse encima*/
 }
-
-/*Header*/
-
+/* Estilos del header */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background-color: white;
-  border-bottom: 2px solid #eaeaea;
+  display: flex; /* Usa un contenedor flexible para alinear los elementos */
+  justify-content: space-between; /* Espacia los elementos del header */
+  align-items: center; /* Centra los elementos verticalmente */
+  padding: 20px;
+  background-color: white; 
+  color: black;
 }
 
-.header-content {
-  display: flex;
-  flex-grow: 1;
-  justify-content: center;
-  align-items: center;
-}
-
-header .logo {
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
-}
-
-header .logo img {
-  width: 50px;
-  margin-right: 10px;
-  transition: transform 0.3s ease;
-}
-
-header .logo img:hover {
-  transform: rotate(20deg);
-}
-
-header h1 {
-  font-size: 24px;
-  margin: 0;
+.logo img {
+  height: 80px; /* Establece la altura del logo */
 }
 
 nav {
-  display: flex;
-  justify-content: center;
-  flex-grow: 1;
+  flex-grow: 1; /* Hace que el nav ocupe el espacio disponible */
+  margin-left: 100px; /* Margen a la izquierda del nav */
 }
 
-nav a {
-  margin: 0 15px;
-  text-decoration: none;
+nav ul {
+  list-style: none; /* Elimina los puntos que trae la lista desordenada*/
+  display: flex; /* Muestra los elementos de la lista en una fila */
+  gap: 10px; /* Espacio entre los elementos de la lista */
+  cursor: pointer; /* Cambia el cursor al pasar sobre la lista */
+  padding: 0; /* Elimina el padding de la lista */
+  margin: 0; /* Elimina el margen de la lista */
+}
+
+nav ul li {
+  margin: 0; /* Elimina el margen de los elementos de la lista */
+}
+
+nav ul li a {
+  color: black;
+  font-style: initial; /* Estilo de fuente inicial (sin cursiva) */
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  font-weight: bold; /* Texto en negrita */
+  padding: 10px 20px;
+  border-radius: 4px; /* Bordes redondeados de los enlaces */
+}
+
+nav ul li a:hover {
+  color: #37b5ff;
+  text-decoration: underline 3px; /* Subrayado del enlace con 3px de grosor */
+}
+
+.botones-cuenta {
+  display: flex; /* Usa un contenedor flexible para los botones de cuenta */
+  gap: 10px; /* Espacio entre los botones */
+}
+
+.btn {
+  display: inline-block; /* Muestra el botón en línea */
+  padding: 12px 24px; /* Espaciado interno del botón */
+  font-size: 18px; 
+  font-weight: bold; /* Texto en negrita */
   color: #333;
-  font-size: 16px;
-  transition: color 0.3s ease;
+  background-color: white; 
+  border-style: groove; /* Estilo de borde del botón */
+  border-radius: 5px; /* Bordes redondeados del botón */
+  text-decoration: none; /* Elimina el subrayado del texto del botón */
+  text-align: center; 
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transición para el color de fondo y para la transformación */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
 }
 
-nav a.active {
-  color: #007bff;
-  font-weight: bold;
+.btn:hover {
+  background-color: #37b5ff; 
+  transform: scale(1.05); /* Aumenta el tamaño del botón al pasar el ratón */
 }
 
-nav a:hover {
-  color: #0056b3;
-}
-
-.nav-link.inicio:hover, 
-.nav-link.perfil:hover {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.logout {
-  margin-left: auto;
-}
-
-.logout img {
-  width: 30px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.logout img:hover {
-  transform: scale(1.2);
+.btn:active {
+  transform: scale(0.98); /* Reduce el tamaño del botón cuando se hace clic */
 }
 
 
-/*Footer*/ 
-
+/* Estilos del footer */
 footer {
-  background-color: #3b9aff; 
-  padding: 25px 40px; /*25px vertical y 40px horizontal*/
-  text-align: center;
-  position: fixed; /*Hace que el footer siempre sea visible en la parte inferior de la pantalla.*/
-  width: 100%; 
-  bottom: 0; /*Posiciona el footer en la parte inferior de la ventana del navegador*/
-  z-index: 100; /* Hace que el elemento esté más "adelante" (encima de otros elementos).*/
-  opacity: 1; /*Cambia la opacidad para que sea completamente visible*/
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;/* Fija el footer en la parte inferior de la página */
+    bottom: 0; /* Asegura que el footer esté pegado al borde inferior */
+    width: 100%;
 }
 
-.footer-links a {
-  margin: 0 30px;
-  text-decoration: none;
-  color: #1f1f1f;
+.contenido-footer {
+    display: flex; /* Utiliza flexbox para organizar los elementos hijos dentro del footer */
+    justify-content: space-around;/* Distribuye el espacio restante de forma equitativa entre los elementos */
 }
 
-.footer-links a:hover {
-  color: #0d0d0e;
-  font-weight: bold;
+.contenido-footer div {
+    flex: 1;/* Cada div dentro de .contenido-footer ocupará el mismo ancho disponible */
+    margin: 0 10px;/* Margen horizontal entre los divs */
 }
 
+.contenido-footer h3 {
+    margin-top: 0;/* Elimina el margen superior de los encabezados dentro del footer */
+}
+
+.contenido-footer p, .contenido-footer a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;/* Elimina el subrayado de los enlaces por defecto */
+    display: block;/* Los convierte en elementos de bloque para que ocupen todo el ancho disponible */
+    margin-bottom: 5px;/* Añade margen inferior para separarlos visualmente */
+}
+
+.contenido-footer a:hover {
+    text-decoration: underline;/* Agrega un subrayado cuando se pasa el mouse sobre los enlaces */
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;/* Añade una línea superior al footer para separarlo del contenido principal */
+}
 
 

@@ -4,9 +4,11 @@ body {
     padding: 0;
     background-color: #f8f9fa;
 }
-
-h1, h2, h3, h4 {
-    color: #333;
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
 }
 
 header {
@@ -14,7 +16,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: white;
+    background-color: #ffffff;
     border-bottom: 2px solid #eaeaea;
 }
 
@@ -61,10 +63,6 @@ nav a:hover {
     color: #0056b3;
 }
 
-.cerrar_sesion {
-    margin-left: auto;
-}
-
 .cerrar_sesion img {
     width: 30px;
     cursor: pointer;
@@ -74,74 +72,100 @@ nav a:hover {
 .cerrar_sesion img:hover {
     transform: scale(1.2);
 }
-
 .container {
-    display: flex;
-    justify-content: center;
     padding: 20px;
-    padding-bottom: 100px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.detalles_pedido {
-    width: 70%;
-    max-height: 80vh;
-    overflow-y: auto;
-    padding-right: 20px;
-    border-right: 1px solid #eaeaea;
+.detalles_pedido h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-button {
-    background-color: #007bff;
+#lista-servicios .servicio {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.boton-eliminar, .boton-editar {
+    background-color: #dc3545;
     color: white;
+    padding: 8px 12px;
     border: none;
-    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 15px;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+.boton-editar {
+    background-color: #007bff;
+}
+
+.boton-eliminar:hover {
+    background-color: #c82333;
+}
+
+.boton-editar:hover {
     background-color: #0056b3;
 }
 
 .form-container {
-    background-color: white;
+    margin-top: 40px;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
-    margin-top: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.servicio {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
+.form-container h3 {
+    margin-bottom: 20px;
 }
 
-.pedido h3 {
-    font-size: 20px;
-    color: #007bff;
-    margin-bottom: 10px;
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
 }
 
-.pedido p {
-    font-size: 16px;
-    color: #555;
-    margin: 5px 0;
+.form-container input, .form-container textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: none; /* Impide la redimensión manual */
+}
+
+button.boton {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.boton:hover {
+    background-color: #0056b3;
 }
 
 footer {
     background-color: #3b9aff;
     padding: 25px 40px;
     text-align: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    z-index: 100;
-    opacity: 1;
 }
 
 .footer-links a {

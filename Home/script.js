@@ -46,3 +46,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // Exponer la función moveSlide a nivel global para los botones de navegación del carrusel
     window.moveSlide = moveSlide;
 });
+
+// Función para mostrar los datos del formulario en una alerta
+function showAlertOnSubmit(event) {
+    event.preventDefault(); // Evita que el formulario se envíe de la forma tradicional
+
+    // Obtener los valores de los campos del formulario
+    const name = document.getElementById('name').value;
+    const lastname = document.getElementById('lastname').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('telefono').value; 
+    const selectElement = document.getElementById('options');
+    const optionText = selectElement.options[selectElement.selectedIndex].text; // Obtener el texto de la opción seleccionada
+    const message = document.getElementById('message').value;
+
+    // Mostrar los datos en una alerta
+    alert(`Nombres: ${name}\nApellidos: ${lastname}\nEmail: ${email}\nTelefono: ${phone}\nMotivo: ${optionText}\nMensaje: ${message}`);
+}
+
+// Asignar el evento submit del formulario a la función
+document.getElementById('contactForm').addEventListener('submit', showAlertOnSubmit);
+
+// Función para cambiar el color del botón al pasar el mouse sobre él
+function changeButtonColorOnHover() {
+    this.style.backgroundColor = 'royalblue';
+}
+
+// Función para restaurar el color original del botón al salir el mouse
+function restoreButtonColor() {
+    this.style.backgroundColor = '#333';
+}
+
+// Obtener el botón de envío del formulario y agregar los eventos
+const submitButton = document.querySelector('#contactForm input[type="submit"]'); // Selector más específico
+
+submitButton.addEventListener('mouseover', changeButtonColorOnHover);
+submitButton.addEventListener('mouseout', restoreButtonColor);

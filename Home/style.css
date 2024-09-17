@@ -13,6 +13,14 @@ main {
     flex: 1; /* Hace que el contenido principal ocupe el espacio restante */
 }
 
+section {
+    padding: 50px 20px; 
+    text-align: center; 
+    position: relative; /* Posiciona de forma relativa para futuras modificaciones */
+    margin: 0; /* Elimina márgenes predeterminados */
+    padding-top: 70px; /* Ajusta el padding superior teniendo en cuenta el header */
+}
+
 /* Estilos del header */
 header {
     display: flex; /* Usa un contenedor flexible para alinear los elementos */
@@ -279,8 +287,8 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px;
-    position: fixed;/* Fija el footer en la parte inferior de la página */
+    padding: 2px;
+    position: flex;/* Fija el footer en la parte inferior de la página */
     bottom: 0; /* Asegura que el footer esté pegado al borde inferior */
     width: 100%;
 }
@@ -300,7 +308,7 @@ footer {
 }
 
 .contenido-footer p, .contenido-footer a {
-    font-size: 18px;
+    font-size: 15px;
     color: white;
     text-decoration: none;/* Elimina el subrayado de los enlaces por defecto */
     display: block;/* Los convierte en elementos de bloque para que ocupen todo el ancho disponible */
@@ -313,4 +321,58 @@ footer {
 
 .copyright_footer {
     border-top: 1px solid #444;/* Añade una línea superior al footer para separarlo del contenido principal */
+}
+
+#contacto {
+    background-image: url("Imagenes/ContactSection.jpeg"); /* Imagen de fondo para la sección de contacto */
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+    background-position: top; /* Posiciona la imagen de fondo en la parte superior */
+    padding: 20px; 
+}
+
+form {
+    display: inline-block; /* Hace que el formulario se comporte como un bloque en línea */
+    text-align: left; 
+    max-width: 500px; /* Ancho máximo del formulario */
+    width: 100%; /* El formulario ocupa el 100% de su contenedor */
+    background-color: #37b5ff; 
+    padding: 20px; 
+    border-radius: 10px; 
+}
+
+form label {
+    display: block; /* Hace que las etiquetas ocupen todo el ancho disponible */
+    margin-bottom: 5px;
+    color: white; 
+}
+
+form select {
+    width: 95%; /* El cuadro de selección ocupa el 95% del ancho disponible */
+    padding: 10px; 
+    margin-bottom: 15px; 
+    border: none; 
+    border-radius: 5px; 
+    background-color: #fff; /* Fondo blanco para el cuadro */
+    color: #333; /* Color de texto */
+    transition: all 0.3s ease-in-out;
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+form input, form textarea {
+    width: 95%; /* Los campos de entrada ocupan el 95% del ancho disponible */
+    padding: 10px; 
+    margin-bottom: 15px; 
+    border: none; 
+    border-radius: 5px; 
+    transition: all 0.3s ease-in-out;
+}
+
+#button{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #333; 
+    color: white;
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
 }

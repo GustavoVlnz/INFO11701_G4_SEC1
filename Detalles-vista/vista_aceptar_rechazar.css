@@ -1,10 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-    padding-bottom: 80px; /* Ajusta el valor según la altura del footer */
+    background-color: #f3f3f3;
 }
 
 header {
@@ -12,14 +9,13 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: white;
+    background-color: #ffffff;
     border-bottom: 2px solid #eaeaea;
 }
 
 header .logo {
     display: flex;
     align-items: center;
-    margin-right: 20px;
 }
 
 header .logo img {
@@ -60,10 +56,6 @@ nav a:hover {
     color: #0056b3;
 }
 
-.cerrar_sesion {
-    margin-left: auto;
-}
-
 .cerrar_sesion img {
     width: 30px;
     cursor: pointer;
@@ -73,84 +65,83 @@ nav a:hover {
 .cerrar_sesion img:hover {
     transform: scale(1.2);
 }
-
+/* Contenedor principal */
 .container {
     padding: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    padding-bottom: 0; /* Elimina el padding inferior para el contenedor principal */
 }
 
-h1 {
+.container h1 {
+    font-size: 28px;
     color: #333;
     margin-bottom: 20px;
 }
 
-.solicitudes_lista {
-    display: flex;
-    flex-direction: column;
-}
-
-.solicitud1 {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.solicitud1 h3 {
-    margin: 0;
-    font-size: 20px;
-    color: #007bff;
-}
-
-.solicitud1 p {
-    margin: 10px 0;
-    font-size: 16px;
-    color: #555;
-}
-
-.solicitud1 span {
-    font-weight: bold;
-}
-.solicitud2 {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.solicitud2 h3 {
-    margin: 0;
-    font-size: 20px;
-    color: #007bff;
-}
-
-.solicitud2 p {
-    margin: 10px 0;
-    font-size: 16px;
-    color: #555;
-}
-
-.solicitud2 span {
-    font-weight: bold;
-}
-
-
-.botones {
+/* Estilos para la lista de servicios */
+.servicios {
     margin-top: 20px;
 }
 
-.botones button {
+.servicios h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.agenda {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.agenda:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.agenda p {
+    margin: 0;
     font-size: 16px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    color: #000000;
+    display: flex;
+    align-items: center;
+}
+
+.agenda p strong {
+    color: #000000;
     margin-right: 10px;
+}
+
+/* Estilos adicionales para el botón de detalles */
+.detalles_btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.detalles_btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para los botones de aceptar y rechazar */
+.botones {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.aceptar_btn, .rechazar_btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .aceptar_btn {
@@ -171,47 +162,12 @@ h1 {
     background-color: #c82333;
 }
 
-.motivo_rechazo {
-    margin-top: 20px;
-}
-
-.motivo_rechazo label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.motivo_rechazo textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.enviar_btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-}
-
-.enviar_btn:hover {
-    background-color: #0056b3;
-}
-
 footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 10px;
     width: 100%;
-    transform: translateY(100%);
     margin-top: 40px; /* Añade un margen superior para separar el footer del contenido */
 }
 

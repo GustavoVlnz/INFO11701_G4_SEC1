@@ -1,3 +1,18 @@
+/* Estilo global para el body y html */
+html, body {
+    height: 100%; /* Asegura que el body y el html ocupen toda la altura de la ventana */
+    margin: 0; /* Elimina el margen por defecto del body */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en columna */
+}
+
+main {
+    flex: 1; /* Hace que el contenido principal ocupe el espacio restante */
+}
+
 /* Estilos del header */
 header {
     display: flex; /* Usa un contenedor flexible para alinear los elementos */
@@ -257,4 +272,45 @@ nav ul li a:hover {
 
 .anterior:hover, .siguiente:hover {
     background-color: #333; /* Color de fondo al pasar el ratón sobre los botones */
+}
+
+/* Estilos del footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;/* Fija el footer en la parte inferior de la página */
+    bottom: 0; /* Asegura que el footer esté pegado al borde inferior */
+    width: 100%;
+}
+
+.contenido-footer {
+    display: flex; /* Utiliza flexbox para organizar los elementos hijos dentro del footer */
+    justify-content: space-around;/* Distribuye el espacio restante de forma equitativa entre los elementos */
+}
+
+.contenido-footer div {
+    flex: 1;/* Cada div dentro de .contenido-footer ocupará el mismo ancho disponible */
+    margin: 0 10px;/* Margen horizontal entre los divs */
+}
+
+.contenido-footer h3 {
+    margin-top: 0;/* Elimina el margen superior de los encabezados dentro del footer */
+}
+
+.contenido-footer p, .contenido-footer a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;/* Elimina el subrayado de los enlaces por defecto */
+    display: block;/* Los convierte en elementos de bloque para que ocupen todo el ancho disponible */
+    margin-bottom: 5px;/* Añade margen inferior para separarlos visualmente */
+}
+
+.contenido-footer a:hover {
+    text-decoration: underline;/* Agrega un subrayado cuando se pasa el mouse sobre los enlaces */
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;/* Añade una línea superior al footer para separarlo del contenido principal */
 }

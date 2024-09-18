@@ -5,8 +5,19 @@ body {
     background-color: #f8f9fa;
 }
 
-h1, h2 {
+h1, h2, h3, h4 {
     color: #333;
+}
+ /* Estilo del calendario inicialmente oculto */
+ #calendario {
+    height: 40px; /* Reserva espacio */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Muestra el calendario al activar */
+#calendario.visible {
+    opacity: 1;
 }
 
 header {
@@ -28,6 +39,7 @@ header {
 header .logo {
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 
 header .logo img {
@@ -40,9 +52,14 @@ header .logo img:hover {
     transform: rotate(20deg);
 }
 
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
 nav {
     display: flex;
-    justify-content: center; /* Centra las pestañas horizontalmente */
+    justify-content: center;
     flex-grow: 1;
 }
 
@@ -63,13 +80,17 @@ nav a:hover {
     color: #0056b3;
 }
 
-.CerrarSesion img {
+.cerrar_sesion {
+    margin-left: auto;
+}
+
+.cerrar_sesion img {
     width: 30px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.CerrarSesion img:hover {
+.cerrar_sesion img:hover {
     transform: scale(1.2);
 }
 
@@ -77,62 +98,97 @@ nav a:hover {
     display: flex;
     justify-content: center;
     padding: 20px;
+    padding-bottom: 100px;
 }
 
-.lista_servicios {
+.detalles_pedido {
     width: 70%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding-right: 20px;
+    border-right: 1px solid #eaeaea;
 }
 
-.Ventana {
+.icono {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.Ventana img {
+.icono img {
     width: 30px;
     margin-right: 10px;
 }
 
-.Ventana h2 {
+.icono h2 {
     font-size: 24px;
     margin: 0;
 }
 
-.category {
-    display: flex;
-    align-items: center;
+.pedido {
     background-color: white;
-    margin-bottom: 20px;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.category:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.022);
+.pedido h3 {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.pedido p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.pedido h4 {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
 
 footer {
-    background-color: #3b9aff; 
+    background-color: #3b9aff;
     padding: 25px 40px;
     text-align: center;
-    position: fixed; 
-    width: 100%; 
-    bottom: 0; 
+    position: fixed;
+    width: 100%;
+    bottom: 0;
     z-index: 100;
+    opacity: 1;
 }
 
-.footer a {
+.footer-links a {
     margin: 0 30px;
     text-decoration: none;
     color: #1f1f1f;
 }
 
-.footer a:hover {
+.footer-links a:hover {
     color: #0d0d0e;
     font-weight: bold;
+}
+/* Alinear los botones */
+.Contratar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

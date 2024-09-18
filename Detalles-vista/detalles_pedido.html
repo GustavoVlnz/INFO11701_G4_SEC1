@@ -52,31 +52,30 @@
             </div>
         </div>
     </div>
-
-    <footer>
-        <div class="footer-links">
-            <a href="#">Términos y Condiciones</a>
-            <a href="#">Política de Privacidad</a>
-            <a href="#">Redes Sociales</a>
-            <a href="#">Contacto</a>
-            <a href="#">Ayuda</a>
+<footer>
+    <div class="contenido-footer">
+        <!-- Sección con información de contacto y redes sociales -->
+        <div class="contacto">
+            <h3>Contacto</h3>
+            <p>Email: contacto@movo.com</p>
         </div>
-    </footer>
-
-    <script>
-        document.getElementById("ver_horarios").addEventListener("click", function() {
-            const calendario = document.getElementById("calendario");
-
-            // Muestra el calendario con una transición suave
-            calendario.classList.add("visible");
-
-            // Inicializa el calendario usando Flatpickr
-            flatpickr("#calendario", {
-                enableTime: true,  // Permite seleccionar la hora
-                dateFormat: "Y-m-d H:i",  // Formato de fecha y hora
-                minDate: "today",  // No permite seleccionar fechas pasadas
-            });
-        });
-    </script>
+        <div class="redes-sociales">
+            <h3>Redes Sociales</h3>
+            <a href="#" class="social-icon">Facebook</a>
+            <a href="#" class="social-icon">Twitter</a>
+            <a href="#" class="social-icon">Instagram</a>
+        </div>
+        <div class="info-legal">
+            <h3>Información Legal</h3>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Términos de Servicio</a>
+        </div>
+    </div>
+    <!-- Sección de derechos de autor -->
+    <div class="copyright_footer">
+        <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
+    </div>
+</footer>
+    <script src="detalles_pedido.js"></script>
 </body>
 </html>

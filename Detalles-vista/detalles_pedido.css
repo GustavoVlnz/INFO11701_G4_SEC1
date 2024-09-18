@@ -1,13 +1,24 @@
 body {
-    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
 }
-
-h1, h2, h3, h4 {
-    color: #333;
+h4 {
+    color:#333
 }
+
+h3 {
+    color: #ffffff;
+}
+
+h2 {
+    color:#333
+}
+
+h1 {
+    color:#333
+}
+
  /* Estilo del calendario inicialmente oculto */
  #calendario {
     height: 40px; /* Reserva espacio */
@@ -164,31 +175,56 @@ button {
 button:hover {
     background-color: #0056b3;
 }
-
-footer {
-    background-color: #3b9aff;
-    padding: 25px 40px;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    z-index: 100;
-    opacity: 1;
-}
-
-.footer-links a {
-    margin: 0 30px;
-    text-decoration: none;
-    color: #1f1f1f;
-}
-
-.footer-links a:hover {
-    color: #0d0d0e;
-    font-weight: bold;
-}
 /* Alinear los botones */
 .Contratar {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    margin-top: 40px; /* Añade un margen superior para separar el footer del contenido */
+}
+
+.contenido-footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.contenido-footer div {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.contenido-footer h3 {
+    margin-top: 0;
+}
+
+.contenido-footer p, .contenido-footer a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contenido-footer a:hover {
+    text-decoration: underline;
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;
+}
+
+.social-icon {
+    color: rgb(254, 254, 254);
+}
+
+.info-legal a {
+    color:rgb(254, 254, 254)
 }

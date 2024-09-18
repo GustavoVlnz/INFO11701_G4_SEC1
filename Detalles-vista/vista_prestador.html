@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="vista_prestador.css">
 </head>
 <body>
-<!--Solamente esta a nivel visual, las interacciones y demases obviamente se hacen con javascript-->
+
 <header>
     <div class="logo">
         <img src="icon.jpg" alt="Logo">
@@ -26,9 +26,25 @@
 <div class="container">
     <div class="detalles_pedido">
         <h2>Mis Servicios</h2>
-        
-        <!-- Botón para agregar un nuevo servicio -->
-        <button class="boton">Agregar Servicio</button>
+
+        <!-- Lista de servicios ya agregados -->
+        <div id="lista-servicios">
+            <div class="servicio">
+                <h3>Limpieza hogar</h3>
+                <p>Servicio de limpieza completa de la casa, se aceptan solo casas de 1 piso.</p>
+                <p>Precio: $25.000 CLP</p>
+                <button class="boton-eliminar">Eliminar</button>
+                <button class="boton-editar">Editar</button>
+            </div>
+
+            <div class="servicio">
+                <h3>Editor de video</h3>
+                <p>Editor de video profesional para que tus gameplays y demas tipo de contenido sean de calidad.</p>
+                <p>Precio: $35.000 CLP</p>
+                <button class="boton-eliminar">Eliminar</button>
+                <button class="boton-editar">Editar</button>
+            </div>
+        </div>
 
         <!-- Formulario para agregar servicio -->
         <div class="form-container">
@@ -45,23 +61,6 @@
 
                 <button type="submit" class="boton">Agregar</button>
             </form>
-        </div>
-
-        <!-- Lista de servicios ya agregados -->
-        <div id="lista-servicios">
-            <div class="servicio">
-                <h3>Limpieza hogar</h3>
-                <p>Servicio de limpieza completa de la casa, se aceptan solo casas de 1 piso.</p>
-                <p>Precio: $25.000 CLP</p>
-                <button class="boton-eliminar">Eliminar</button>
-            </div>
-
-            <div class="servicio">
-                <h3>Editor de video</h3>
-                <p>Editor de video profesional para que tus gameplays y demas tipo de contenido sean de calidad.</p>
-                <p>Precio: $35.000 CLP</p>
-                <button class="boton-eliminar">Eliminar</button>
-            </div>
         </div>
 
         <!-- Formulario de confirmación de eliminación -->
@@ -83,6 +82,11 @@
         <a href="#">Ayuda</a>
     </div>
 </footer>
+<script>
+    // Impedir que la descripción se pueda expandir con el mouse
+    document.getElementById('descripcion-servicio').style.resize = 'none';
+    document.getElementById('razon-eliminacion').style.resize = 'none';
+</script>
 
 </body>
 </html>

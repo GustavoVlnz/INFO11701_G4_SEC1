@@ -4,10 +4,12 @@ body {
     background-color: #f4f6f8;
 }
 
+/* Estilo para encabezados */
 h2, h3, h4 {
     margin: 0;
 }
 
+/* Estilo del encabezado principal */
 header {
     display: flex;
     justify-content: space-between;
@@ -80,6 +82,7 @@ nav a:hover {
     transform: scale(1.2);
 }
 
+/* Contenedor principal de la página */
 .container {
     display: flex;
     justify-content: center;
@@ -87,6 +90,7 @@ nav a:hover {
     padding-bottom: 100px;
 }
 
+/* Estilo para detalles del pedido */
 .detalles_pedido {
     width: 80%;
     max-width: 1200px;
@@ -96,6 +100,7 @@ nav a:hover {
     overflow: hidden;
 }
 
+/* Estilo del ícono en detalles de pedido */
 .icono {
     display: flex;
     align-items: center;
@@ -113,6 +118,7 @@ nav a:hover {
     color: #333;
 }
 
+/* Estilo del contenido del pedido */
 .pedido {
     padding: 20px;
 }
@@ -126,9 +132,9 @@ nav a:hover {
 .pedido p {
     font-size: 16px;
     color: #555;
-    margin: 5px 0;
 }
 
+/* Información del proveedor */
 .info-proveedor {
     margin-top: 20px;
     border-top: 1px solid #eaeaea;
@@ -153,6 +159,7 @@ nav a:hover {
     text-decoration: underline;
 }
 
+/* Estilo para el precio del servicio */
 .precio {
     margin-top: 20px;
     padding-top: 10px;
@@ -169,6 +176,7 @@ nav a:hover {
     color: #007bff;
 }
 
+/* Estilo de los botones */
 button {
     background-color: #007bff;
     color: white;
@@ -184,6 +192,7 @@ button:hover {
     background-color: #0056b3;
 }
 
+/* Estilo del calendario */
 #calendario {
     height: 40px;
     opacity: 0;
@@ -194,6 +203,7 @@ button:hover {
     opacity: 1;
 }
 
+/* Estilo para las reseñas */
 .reseñas {
     background-color: white;
     padding: 20px;
@@ -268,7 +278,7 @@ button:hover {
     color: #555;
 }
 
-
+/* Estilo del footer */
 footer {
     background-color: #333;
     color: white;

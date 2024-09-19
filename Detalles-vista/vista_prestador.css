@@ -3,7 +3,7 @@ body {
     padding: 0;
     background-color: #f8f9fa;
 }
-
+/* Distribución flexible para logo, título y navegación */
 header {
     display: flex;
     justify-content: space-between;
@@ -23,7 +23,7 @@ header .logo img {
     margin-right: 10px;
     transition: transform 0.3s ease;
 }
-
+ /* Icono de cerrar sesión con efecto hover */
 header .logo img:hover {
     transform: rotate(20deg);
 }
@@ -75,7 +75,7 @@ nav a:hover {
     text-align: center;
     margin-bottom: 20px;
 }
-
+ /* Tarjetas de servicios con sombras y bordes redondeados */
 #lista-servicios .servicio {
     background-color: white;
     padding: 20px;
@@ -84,7 +84,7 @@ nav a:hover {
     margin-bottom: 20px;
     text-align: left;
 }
-
+/* Botones con transiciones y colores para eliminar y editar */
 .boton-eliminar, .boton-editar {
     background-color: #dc3545;
     color: white;
@@ -106,7 +106,7 @@ nav a:hover {
 .boton-editar:hover {
     background-color: #0056b3;
 }
-
+/* Formulario centrado con sombras y bordes */
 .form-container {
     margin-top: 40px;
     background-color: #ffffff;

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar contraseña</title>
+    <link rel="stylesheet" href="Restablecer.css">
+    <script src="Restablecer.js"></script> <!--Vincula el javascript en un codigo externo-->
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../../Images/logo.png" alt="Logo Movo">
+            <h1>MOVO</h1>
+        </div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="#" class="activo">Perfil</a>
+        </nav>
+        <div class="salir">
+            <img src="../../Images/logout.png" alt="Salir">
+        </div>
+    </header>
+   
+    <div id="Contra"> <!-- Se crea el contenedor que contiene al formulario  -->
+        <h2>Cambiar contraseña</h2>
+        <form id="Formulario" action="#" method="post"> <!--Se crea el formulario -->
+            <label for="password">Nueva Contraseña:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <label for="confirm-password">Confirmar contraseña:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+
+            <input id="Confirmar" type="submit" value="Enviar "><br> <!--Boton que cambia la contraseña de la cuenta-->
+
+            <div id="mensaje-error"></div> <!--Mensaje de error en caso de que las contraseñas no coincidan-->
+        </form>
+    </div>
+   
+<footer>
+    <div class="contenido-footer">
+        <!-- Sección con información de contacto y redes sociales -->
+        <div class="contacto">
+            <h3>Contacto</h3>
+            <p>Email: contacto@movo.com</p>
+        </div>
+        <div class="redes-sociales">
+            <h3>Redes Sociales</h3>
+            <a href="#" class="social-icon">Facebook</a>
+            <a href="#" class="social-icon">Twitter</a>
+            <a href="#" class="social-icon">Instagram</a>
+        </div>
+        <div class="info-legal">
+            <h3>Información Legal</h3>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Términos de Servicio</a>
+        </div>
+    </div>
+    <!-- Sección de derechos de autor -->
+    <div class="copyright_footer">
+        <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
+    </div>
+</footer>
+</body>
+</html>

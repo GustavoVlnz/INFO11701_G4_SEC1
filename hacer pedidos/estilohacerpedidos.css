@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
+    overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
 }
 
 h1, h2 {
@@ -92,6 +93,7 @@ nav a:hover {
 /* Estructura principal */
 .estructura {
     display: flex; /* Cambia a diseño de flexbox */
+    flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
 }
 
 /* Lista de Servicios */
@@ -269,6 +271,7 @@ nav a:hover {
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-left: 20px; /* Ajusta este valor para aumentar la separación en el eje X */
 }
 
 .eliminar-servicio:hover {
@@ -277,11 +280,48 @@ nav a:hover {
 }
 
 footer {
-    background-color: #3b9aff;
+    background-color: #333;
     color: white;
     text-align: center;
-    padding: 15px;
-    position: fixed;
-    bottom: 0;
+    padding: 10px;
     width: 100%;
+    margin-top: 40px; /* Añade un margen superior para separar el footer del contenido */
+}
+
+.contenido-footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.contenido-footer div {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.contenido-footer h3 {
+    margin-top: 0;
+}
+
+.contenido-footer p, .contenido-footer a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contenido-footer a:hover {
+    text-decoration: underline;
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;
+}
+
+.social-icon {
+    color: rgb(254, 254, 254);
+}
+
+.info-legal a {
+    color: rgb(254, 254, 254);
 }

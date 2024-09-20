@@ -49,6 +49,31 @@ select {
     margin-top: 20px;
 }
 
+.terminos-condiciones {
+  display: flex;
+  align-items: center; 
+  margin-bottom: 15px;
+  text-align: left; 
+}
+
+.terminos-condiciones input[type="checkbox"] {
+  margin-right: 10px; 
+}
+
+.terminos-condiciones label {
+  font-size: 14px;
+  color: #333;
+}
+
+.terminos-condiciones a {
+  color: #007bff;
+  text-decoration: none; 
+}
+
+.terminos-condiciones a:hover {
+  text-decoration: underline; 
+}
+
 #BtnRegistro {
     width: 50%;
     padding: 10px;

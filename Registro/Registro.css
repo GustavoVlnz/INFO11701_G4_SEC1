@@ -1,19 +1,21 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 #Box_Formulario {
-    display: flex;
-    flex-direction: column;
-    place-items: center; /* centra los elementos horizontalmente */
-    justify-content : center; /* centra los elementos de forma vertical*/
-    background-color: #3b9aff; /*color de fondo del contenedor del formulario*/
-    width: 50%; /*Ancho que usa de la pagina*/
-    height: auto;
-    margin-top: 10px;
-    padding: 20px;
-    position: absolute; /*Permite mover el contenedor mas a gusto, se pone una capa encima de los elementos*/
-    top: 50%;
-    left: 50%; /*top y left centran la esquina superior del formulario en la pagina*/
-    transform: translate(-50%, -50%); /*Mueve el formulario hacia arriba y hacia la izquierda la mitad de su tamaño, para finalmente centrarlo*/
-    border-radius :10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  background-color: #3b9aff;
+  width: 50%;
+  height: auto;
+  padding: 20px;
+  border-radius: 10px; /*Redondea los bordes*/
+  margin: auto;
 }
 
 #Contenedor { /*Separa el formulario en dos columnas*/
@@ -93,110 +95,114 @@ label {
   padding-bottom: 20px;
 }
 
-/*Header*/
 
+/*Estilos del header*/
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: white;
-    border-bottom: 2px solid #eaeaea; /*Modifica el border de la parte de abajo*/
-  }
-  
-  .header-content {
-    display: flex;
-    flex-grow: 1; /*Hace que el contenid odel header pueda crecer para ocupar todo el espacio extra */
-    justify-content: center;
-    align-items: center;
-  }
-  
-  header .logo {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-  }
-  
-  header .logo img {
-    width: 50px;
-    margin-right: 10px;
-    transition: transform 0.3s ease; /*Tiempo de la animacion*/
-  }
-  
-  header .logo img:hover {
-    transform: rotate(20deg); /*Animacion de rotacion de la imagen al poner el mouse encima*/
-  }
-  
-  header h1 {
-    font-size: 24px;
-    margin: 0;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
-  }
-  
-  nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    transition: color 0.3s ease;
-  }
-  
-  nav a.active {
-    color: #007bff;
-    font-weight: bold;
-  }
-  
-  nav a:hover {
-    color: #0056b3;
-  }
-  
-  .nav-link.inicio:hover, 
-  .nav-link.perfil:hover {
-    font-weight: bold;
-    font-size: 18px;
-  }
-  
-  .logout {
-    margin-left: auto;
-  }
-  
-  .logout img {
-    width: 30px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .logout img:hover {
-    transform: scale(1.2); /*Agranda un 20% la imagen al poner el mouse encima*/
-  }
-  
-/*Footer*/ 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: white;
+  border-bottom: 2px solid #eaeaea;
+}
 
+.header-content {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+header .logo img {
+  width: 50px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+header .salir img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+header .logo img:hover {
+  transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
+}
+
+header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+nav a.active {
+  color: #007bff;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #0056b3;
+}
+
+/* Estilos del footer */
 footer {
-    background-color: #3b9aff; 
-    padding: 25px 40px; /*25px vertical y 40px horizontal*/
-    text-align: center;
-    position: fixed; /*Hace que el footer siempre sea visible en la parte inferior de la pantalla.*/
-    width: 100%; 
-    bottom: 0; /*Posiciona el footer en la parte inferior de la ventana del navegador*/
-    z-index: 100; /* Hace que el elemento esté más "adelante" (encima de otros elementos).*/
-    opacity: 1; /*Cambia la opacidad para que sea completamente visible*/
-  }
-  
-  .footer-links a {
-    margin: 0 30px;
-    text-decoration: none;
-    color: #1f1f1f;
-  }
-  
-  .footer-links a:hover {
-    color: #0d0d0e;
-    font-weight: bold;
-  }
-  
-  
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  margin-top: 40px;
+  bottom: 0; /* Añade un margen superior para separar el footer del contenido */
+  left: 0;
+  margin-top: auto;
+}
+
+
+
+.contenido-footer {
+    display: flex; /* Utiliza flexbox para organizar los elementos hijos dentro del footer */
+    justify-content: space-around;/* Distribuye el espacio restante de forma equitativa entre los elementos */
+}
+
+.contenido-footer div {
+    flex: 1;/* Cada div dentro de .contenido-footer ocupará el mismo ancho disponible */
+    margin: 0 10px;/* Margen horizontal entre los divs */
+}
+
+.contenido-footer h3 {
+    margin-top: 0;/* Elimina el margen superior de los encabezados dentro del footer */
+}
+
+.contenido-footer p, .contenido-footer a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;/* Elimina el subrayado de los enlaces por defecto */
+    display: block;/* Los convierte en elementos de bloque para que ocupen todo el ancho disponible */
+    margin-bottom: 5px;/* Añade margen inferior para separarlos visualmente */
+}
+
+.contenido-footer a:hover {
+    text-decoration: underline;/* Agrega un subrayado cuando se pasa el mouse sobre los enlaces */
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;/* Añade una línea superior al footer para separarlo del contenido principal */
+}

@@ -3,16 +3,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /*Termina de ajustar el codigo en el centro*/
+  justify-content: center; 
   background-color: #3b9aff;
   width: 40%;
   height: auto;
   padding: 20px;
   border-radius: 10px; /*Redondea los bordes*/
+  margin: auto;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h2 {
@@ -61,92 +65,87 @@ input[type="password"] {
 .links:hover {
   text-decoration: underline;/*Agrega el subrayado de nuevo, pero solo cuando pasa el mouse encima*/
 }
-/* Estilos del header */
+
+/*Estilos del header*/
 header {
-  display: flex; /* Usa un contenedor flexible para alinear los elementos */
-  justify-content: space-between; /* Espacia los elementos del header */
-  align-items: center; /* Centra los elementos verticalmente */
-  padding: 20px;
-  background-color: white; 
-  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: white;
+  border-bottom: 2px solid #eaeaea;
 }
 
-.logo img {
-  height: 80px; /* Establece la altura del logo */
+.header-content {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+header .logo img {
+  width: 50px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+header .salir img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+header .logo img:hover {
+  transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
+}
+
+header h1 {
+  font-size: 24px;
+  margin: 0;
 }
 
 nav {
-  flex-grow: 1; /* Hace que el nav ocupe el espacio disponible */
-  margin-left: 100px; /* Margen a la izquierda del nav */
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
 }
 
-nav ul {
-  list-style: none; /* Elimina los puntos que trae la lista desordenada*/
-  display: flex; /* Muestra los elementos de la lista en una fila */
-  gap: 10px; /* Espacio entre los elementos de la lista */
-  cursor: pointer; /* Cambia el cursor al pasar sobre la lista */
-  padding: 0; /* Elimina el padding de la lista */
-  margin: 0; /* Elimina el margen de la lista */
-}
-
-nav ul li {
-  margin: 0; /* Elimina el margen de los elementos de la lista */
-}
-
-nav ul li a {
-  color: black;
-  font-style: initial; /* Estilo de fuente inicial (sin cursiva) */
-  text-decoration: none; /* Elimina el subrayado de los enlaces */
-  font-weight: bold; /* Texto en negrita */
-  padding: 10px 20px;
-  border-radius: 4px; /* Bordes redondeados de los enlaces */
-}
-
-nav ul li a:hover {
-  color: #37b5ff;
-  text-decoration: underline 3px; /* Subrayado del enlace con 3px de grosor */
-}
-
-.botones-cuenta {
-  display: flex; /* Usa un contenedor flexible para los botones de cuenta */
-  gap: 10px; /* Espacio entre los botones */
-}
-
-.btn {
-  display: inline-block; /* Muestra el botón en línea */
-  padding: 12px 24px; /* Espaciado interno del botón */
-  font-size: 18px; 
-  font-weight: bold; /* Texto en negrita */
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
   color: #333;
-  background-color: white; 
-  border-style: groove; /* Estilo de borde del botón */
-  border-radius: 5px; /* Bordes redondeados del botón */
-  text-decoration: none; /* Elimina el subrayado del texto del botón */
-  text-align: center; 
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Transición para el color de fondo y para la transformación */
-  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
 
-.btn:hover {
-  background-color: #37b5ff; 
-  transform: scale(1.05); /* Aumenta el tamaño del botón al pasar el ratón */
+nav a.active {
+  color: #007bff;
+  font-weight: bold;
 }
 
-.btn:active {
-  transform: scale(0.98); /* Reduce el tamaño del botón cuando se hace clic */
+nav a:hover {
+  color: #0056b3;
 }
-
 
 /* Estilos del footer */
 footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;/* Fija el footer en la parte inferior de la página */
-    bottom: 0; /* Asegura que el footer esté pegado al borde inferior */
-    width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  margin-top: 40px;
+  bottom: 0; /* Añade un margen superior para separar el footer del contenido */
+  left: 0;
+  margin-top: auto;
 }
+
+
 
 .contenido-footer {
     display: flex; /* Utiliza flexbox para organizar los elementos hijos dentro del footer */

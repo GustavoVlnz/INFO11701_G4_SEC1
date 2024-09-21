@@ -1,5 +1,4 @@
 body {
-    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
@@ -9,35 +8,34 @@ h1, h2 {
     color: #333;
 }
 
+/* Estilo del encabezado principal */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    background-color: white;
-    border-bottom: 2px solid #eaeaea;
+    padding: 20px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header-content {
     display: flex;
-    flex-grow: 1;
-    justify-content: center;
     align-items: center;
 }
 
-header .logo {
+header .icono {
     display: flex;
     align-items: center;
     margin-right: 20px;
 }
 
-header .logo img {
+header .icono img {
     width: 50px;
     margin-right: 10px;
     transition: transform 0.3s ease;
 }
 
-header .logo img:hover {
+header .icono img:hover {
     transform: rotate(20deg);
 }
 
@@ -85,86 +83,133 @@ nav a:hover {
 
 .container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
     padding-bottom: 100px;
 }
 
-.lista_agenda {
-    width: 70%;
-    max-height: 80vh;
-    overflow-y: auto;
-    padding-right: 20px;
-    border-right: 1px solid #eaeaea;
-}
-
-.icono {
-    position: sticky;
-    top: 0;
-    background-color: #ffffff;
-    z-index: 10;
-    padding: 10px;
-    border-bottom: 1px solid #eaeaea;
+.calendario-header {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.icono img {
+.calendario-icon {
     width: 30px;
     margin-right: 10px;
 }
 
-.icono h2 {
-    font-size: 24px;
-    margin: 0;
-}
-
-.agenda {
+.flex-container {
     display: flex;
-    flex-direction: column;
-    background-color: white;
-    margin-bottom: 20px;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.agenda h3 {
-    margin: 0 0 10px 0;
-    font-size: 18px;
-    color: #007bff;
-}
-
-.agenda p {
-    margin: 5px 0;
-    font-size: 16px;
-    color: #555;
-}
-
-.agenda span {
-    display: block;
-    font-weight: bold;
-}
-
-footer {
-    background-color: #3b9aff;
-    padding: 25px 40px;
-    text-align: center;
-    position: fixed;
+    justify-content: space-between;
     width: 100%;
-    bottom: 0;
-    z-index: 100;
-    opacity: 1;
+    max-width: 1200px;
 }
 
-.footer-links a {
-    margin: 0 30px;
-    text-decoration: none;
-    color: #1f1f1f;
+.calendar {
+    width: 60%;
 }
 
-.footer-links a:hover {
-    color: #0d0d0e;
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+.calendar-title {
+    font-size: 20px;
     font-weight: bold;
+}
+
+.calendar-controls button {
+    margin: 0 5px;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    padding: 15px;
+    background-color: white;
+    text-align: center;
+    border: 1px solid #eaeaea;
+}
+
+.calendar-day.empty {
+    background-color: transparent;
+}
+
+.agenda-details {
+    width: 35%;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.agenda-item {
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilo del footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.contenido-footer {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contenido-footer div {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.contenido-footer h3 {
+    margin-top: 0;
+}
+
+.contenido-footer p, .contenido-footer a {
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contenido-footer a:hover {
+    text-decoration: underline;
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+}
+
+.social-icon {
+    color: rgb(254, 254, 254);
+}
+
+.info-legal a {
+    color: rgb(254, 254, 254);
 }

@@ -282,6 +282,85 @@ nav ul li a:hover {
     background-color: #333; /* Color de fondo al pasar el ratón sobre los botones */
 }
 
+/* Estilos seccion de Noticias */
+#noticias {
+padding: 10px 0;
+background-color: #f4f4f4;
+text-align: center;
+}
+
+#noticias h2 {
+font-size: 48px;
+margin-bottom: 10px;
+}
+
+#noticias p {
+font-size: 24px;
+color: #666;
+margin-bottom: 40px;
+}
+
+.noticias-grid {
+display: flex;
+gap: 20px;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.noticias-post {
+background-color: white;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+width: 30%;
+}
+
+.noticias-post img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+}
+
+.noticias-contenido {
+padding: 20px;
+}
+
+.noticias-contenido h3 {
+font-size: 1.6em;
+margin-bottom: 15px;
+}
+
+.noticias-contenido p {
+color: #666;
+line-height: 1.6;
+margin-bottom: 20px;
+}
+
+.btn-leer-mas {
+display: inline-block; /* Muestra el botón en línea */
+padding: 15px 30px; 
+font-size: 18px; 
+font-weight: bold; /* Texto en negrita */
+color: white; 
+background-color: #37b5ff; 
+border-radius: 5px; /* Bordes redondeados del botón */
+text-decoration: none; /* Elimina el subrayado del texto del botón */
+transition: background-color 0.3s ease, transform 0.3s ease; /* Transición para el color de fondo y la transformación */
+}
+
+.btn-leer-mas:hover {
+background-color: #1e90ff; 
+transform: scale(1.05); /* Aumenta el tamaño del botón al pasar el ratón */
+}
+
+.hidden {
+display: none;
+}
+
+.visible {
+display: block; /* o cualquier estilo que necesites */
+}  
+
 /* Estilos del footer */
 footer {
     background-color: #333;

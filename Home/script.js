@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Inicializa el índice de la diapositiva para el carrusel de servicios
+    // Inicializa el índice de la diapositiva para la galeria de servicios
     let slideIndex = 0;
     showSlides(slideIndex); // Muestra la diapositiva inicial
 

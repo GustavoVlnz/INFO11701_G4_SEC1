@@ -1,49 +1,53 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
-    <link rel="stylesheet" href="Info.css">
+    <title>Carrito de compras</title>
+    <link rel="stylesheet" href="Carrito.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="../../Images/logo.png" alt="Logo Movo">
+            <img src="../Images/logo.png" alt="Logo Movo">
             <h1>MOVO</h1>
         </div>
         <nav>
             <a href="#">Inicio</a>
             <a href="#">Servicios</a>
-            <a href="#">Perfil</a>
+            <a href="../Perfil/InfoAcc/Info.html">Perfil</a>
         </nav>
         <div class="salir">
-            <img src="../../Images/logout.png" alt="Salir">
+            <img src="../Images/logout.png" alt="Salir">
         </div>
     </header>
 
-<div id="perfil">
-    <section class="sidebar">
-        <ul>
-            <li><a href="#">Información de la cuenta</a></li>
-            <li><a href="../Seguridad/Seguridad.html">Seguridad</a></li>
-            <li><a href="#">Historial de servicios</a></li>
-        </ul>
-    </section>
 
-    <section class="info-perfil">
-        <div class="header-perfil">
-            <a href="#"><img src="" alt="Foto de perfil" class="foto-perfil"></a>
-            <h2>Name user</h2>
+<section class="carrito">
+    <section class="header-carrito">
+        <h2>Carrito de la compra (cantidad)</h2>
+    </section>
+    
+    <section class="servicio">
+        <div class=detalles-servicio">
+            <img src="" alt="servicio">
+            <h3>Nombre Servicio </h3>
+            <p>Descripción breve del servicio</p>
+            <span>Precio: CLP 00000</span>
         </div>
-        <div class="detalles">
-            <h3>Información </h3>
-            <p><b><a class="infos" href="#">Nombre:</a></b> Name user</p>
-            <p><b><a class="infos" href="#">Numero de telefono:</a></b> +56912345454</p>
-            <p><b><a class="infos" href="#">Correo electronico: </a></b> example@gmail.com</p>
+        <div class="cantidad">
+            <p>Cantidad:</p>
+            <span>1</span>
         </div>
     </section>
-</div>
+</section>
+
+<section class="total-pagar">
+    <h3>Resumen</h3>
+    <p>Total a pagar: CLP 00000</p>
+    <button class="btn-pago">Pagar</button>
+</section>
+
 
 
 <footer>
@@ -62,7 +66,7 @@
         <div class="info-legal">
             <h3>Información Legal</h3>
             <a href="#">Política de Privacidad</a>
-            <a href="../../Registro/terminos.html">Términos de Servicio</a>
+            <a href="../Registro/terminos.html">Términos de Servicio</a>
         </div>
     </div>
         <!-- Sección de derechos de autor -->
@@ -70,7 +74,5 @@
             <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
         </div>
 </footer>
-
-    
 </body>
 </html>

@@ -82,3 +82,28 @@ const submitButton = document.querySelector('#contactForm input[type="submit"]')
 
 submitButton.addEventListener('mouseover', changeButtonColorOnHover);
 submitButton.addEventListener('mouseout', restoreButtonColor);
+
+// Funcionalidad seccion noticias leer mas
+document.addEventListener('DOMContentLoaded', () => {
+    const readMoreButtons = document.querySelectorAll('.btn-leer-mas');
+
+    // Agrega un evento de clic a cada botón "Leer más"
+    readMoreButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault(); // Evita el comportamiento por defecto del enlace
+
+            const moreInfo = button.closest('.noticias-post').querySelector('.masInfo'); // Selecciona la sección de más información correspondiente
+
+            // Alterna la visibilidad de la sección de información adicional
+            if (moreInfo.classList.contains('hidden')) {
+                moreInfo.classList.remove('hidden'); // Muestra la información
+                moreInfo.classList.add('visible'); // (opcional) añade clase visible si necesitas estilos específicos
+                button.textContent = 'Ocultar'; // Cambia el texto del botón
+            } else {
+                moreInfo.classList.remove('visible'); // (opcional) quita clase visible si la usaste
+                moreInfo.classList.add('hidden'); // Oculta la información
+                button.textContent = 'Leer más'; // Cambia el texto del botón de vuelta
+            }
+        });
+    });
+});

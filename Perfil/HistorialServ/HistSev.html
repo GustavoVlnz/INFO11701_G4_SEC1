@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
-    <link rel="stylesheet" href="Info.css">
+    <link rel="stylesheet" href="HistSev.css">
 </head>
 <body>
     <header>
@@ -25,23 +25,33 @@
 <div id="perfil">
     <section class="sidebar">
         <ul>
-            <li><a href="#">Información de la cuenta</a></li>
+            <li><a href="../InfoAcc/Info.html">Información de la cuenta</a></li>
             <li><a href="../Seguridad/Seguridad.html">Seguridad</a></li>
-            <li><a href="../HistorialServ/HistSev.html">Historial de servicios</a></li>
+            <li><a href="#">Historial servicios</a></li>
         </ul>
     </section>
 
-    <section class="info-perfil">
-        <div class="header-perfil">
-            <a href="#"><img src="" alt="Foto de perfil" class="foto-perfil"></a>
-            <h2>Name user</h2>
+    <section class="historial">
+        <div class="header-seguridad">
+            <h2>Historial servicios finalizados</h2>
         </div>
-        <div class="detalles">
-            <h3>Información </h3>
-            <p><b><a class="infos" href="#">Nombre:</a></b> Name user</p>
-            <p><b><a class="infos" href="#">Numero de telefono:</a></b> +56912345454</p>
-            <p><b><a class="infos" href="#">Correo electronico: </a></b> example@gmail.com</p>
-        </div>
+        
+        <section class="servicio">
+            <div class=detalles-servicio">
+                <img src="../../Images/camara.png" alt="servicio">
+                <h3>Fotografia para boda </h3>
+                <span>Precio: CLP 100000</span>
+                <p>Finalizado el 12/07/2024</p>
+            </div>
+        </section>
+        <section class="servicio">
+            <div class=detalles-servicio">
+                <img src="../../Images/planta.png" alt="servicio">
+                <h3>Jardineria </h3>
+                <span>Precio: CLP 50000</span>
+                <p>Finalizado el 27/06/2024</p>
+            </div>
+        </section>
     </section>
 </div>
 

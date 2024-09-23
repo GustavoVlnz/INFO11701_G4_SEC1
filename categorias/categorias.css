@@ -103,16 +103,36 @@ nav a:hover {
     align-items: center;
     background-color: white;
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 15px; /* Aumenta el padding para más espacio interno */
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Añade transición para la sombra */
+    gap: 15px; /* Espacio entre imagen y texto */
+}
+
+.category img {
+    width: 60px; /* Tamaño de la imagen */
+    height: 60px;
+    border-radius: 10%; /* Redondear la imagen */
 }
 
 .category:hover {
     background-color: #f0f0f0;
-    transform: scale(1.022);
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Efecto de sombra más intenso al pasar el ratón */
+    border: 2px solid #007bff; /* Borde azul al pasar el ratón */
+}
+
+/* Efecto de texto al pasar el ratón */
+.category span {
+    color: #333; /* Color del texto */
+    font-weight: bold; /* Hacer el texto en negrita */
+    transition: color 0.3s ease; /* Transición para el color */
+}
+
+.category:hover span {
+    color: #007bff; /* Cambia el color del texto al azul al pasar el ratón */
 }
 
 /* Estilo del footer */

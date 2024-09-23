@@ -62,10 +62,15 @@
     color:#0277bd;
     text-decoration: none;
   }
-.infos:hover {
+
+.infos:hover , #borrar:hover {
     text-decoration: underline; 
   }
   
+#borrar {
+  color: red;
+  text-decoration: none;
+}
   
 body {
       margin: 0;

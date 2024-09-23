@@ -1,20 +1,19 @@
-window.onload = function() {
-    let progreso = 0; // Inicializa el progreso en 0
-    let barra = document.getElementById("barra-progreso");
-    let estadoServicio = document.getElementById("estado-servicio");
+let progreso = 0;
+const barraProgreso = document.getElementById('barra-progreso');
+const estadoServicio = document.getElementById('estado-servicio');
 
-    // Función que actualiza el progreso
-    function avanzarProgreso() {
-        if (progreso >= 100) {
-            clearInterval(intervalo); // Detiene el temporizador cuando se alcanza el 100%
+const ProgresoActualizado = setInterval(() => {
+    if (progreso < 100) {
+        progreso += 10;
+        barraProgreso.style.width = progreso + '%';
+        if (progreso === 100) {
             estadoServicio.textContent = "Servicio Completado";
-            return;
+        } else if (progreso >= 40) {
+            estadoServicio.textContent = "Servicio en Proceso...";
+        } else {
+            estadoServicio.textContent = "Prestador en Camino...";
         }
-        progreso += 1; // Incrementa el progreso en 1
-        barra.style.width = progreso + "%"; // Actualiza el ancho de la barra
-        barra.textContent = progreso + "%"; // Muestra el porcentaje dentro de la barra
+    } else {
+        clearInterval(ProgresoActualizado);
     }
-
-    // Simula el progreso automático (aumenta cada 100ms)
-    let intervalo = setInterval(avanzarProgreso, 200); // Cambia el tiempo según sea necesario
-};
+}, 2000);

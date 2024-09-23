@@ -4,23 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles del Pedido</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="progresoPedido.css">
 </head>
 <body>
     <header>
-        <h1>Detalles del Pedido</h1>
+        <div class="logo">
+            <img src="imagenes/logo.png" alt="Logo Movo">
+            <h1>MOVO</h1>
+        </div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="#" class="activo">Perfil</a>
+        </nav>
+        <div class="salir">
+            <img src="imagenes/salir.png" alt="Salir">
+        </div>
     </header>
 
-    <main>
-        <section class="pedido-detalles">
+    <section class="progreso-servicio">
+        <h2>Detalles y Progreso del Pedido</h2>
+        <div class="detalles-orden">
+            <h3>Detalles del Pedido</h3>
+            <p>Servicio: <b> Servicio Tecnico de Ordenadores</b></p>
+            <p>Fecha de solicitud: <b>20 de Septiembre, 2024</b></p>
+            <p>Dirección: <b>Arturo Pratt 123</b></p>
+        </div>
+
+        <div class="detalle-provedor">
+            <h3>Prestador de Servicios</h3>
+            <img src="/progreso y detalles/imagenes/foto usuario.png" alt="Foto del prestador">
+            <p>Nombre: <b>Benjamin Valenzuela</b></p>
+            <p>Calificación: ⭐⭐⭐⭐ 4.8/5</p>
+            <p>Estado: <b>En Proceso</b></p>
+
+        </div>
+
+        <div class="pedido-detalles">
             <h2>Progreso del Servicio</h2>
             <div class="barra-contenedor">
                 <div id="barra-progreso"></div>
             </div>
             <p id="estado-servicio">Servicio en Proceso...</p>
-        </section>
-    </main>
+        </div>
 
-    <script src="script.js"></script>
+        <div class="historial">
+            <h3>Historial</h3>
+            <p>Pedido confirmado: <b>12:00 PM</b></p>
+            <p>Prestador en camino: <b>12:15 PM</b></p>
+            <p>Trabajo comenzado: <b>12:30 PM</b></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="contenido-footer">
+            <div class="contacto">
+                <h3>Contacto</h3>
+                <p>Email: contacto@movo.com</p>
+            </div>
+            <div class="redes-sociales">
+                <h3>Redes Sociales</h3>
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">Instagram</a>
+            </div>
+            <div class="info-legal">
+                <h3>Información Legal</h3>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Servicio</a>
+            </div>
+        </div>
+        <div class="copyright_footer">
+            <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="progreso.js"></script>
 </body>
 </html>
+

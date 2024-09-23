@@ -189,7 +189,7 @@ nav ul li a:hover {
 .seccion-info .contenido {
     padding: 20px;
     border-style: dashed; /* Estilo de borde de los bloques de contenido */
-    border-color: #37b5ff; 
+    border-color: black; 
     border-radius: 6px; /* Bordes redondeados de los bloques de contenido */
     border-width: 2px; /* Ancho del borde */
 }
@@ -284,7 +284,8 @@ nav ul li a:hover {
 
 /* Estilos seccion de Noticias */
 #noticias {
-padding: 10px 0;
+padding-top: 35px;
+padding-bottom: 50px;
 background-color: #f4f4f4;
 text-align: center;
 }
@@ -403,10 +404,6 @@ footer {
 }
 
 #contacto {
-    background-image: url("Imagenes/ContactSection.jpeg"); /* Imagen de fondo */
-    background-color: rgba(0, 0, 0, 0.5);
-    background-size: cover; /* Cubrir toda la sección */
-    background-position: top; /* Posiciona la imagen en la parte superior */
     padding: 40px 300px; 
     display: flex; /* Flexbox para alinear los elementos */
     flex-wrap: wrap; /* Flexbox para hacer que los elementos se ajusten en dispositivos pequeños */

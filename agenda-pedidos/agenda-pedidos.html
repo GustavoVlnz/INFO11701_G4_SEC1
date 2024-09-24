@@ -3,77 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda de Servicios</title>
+    <title>Servicios Agendados</title>
     <link rel="stylesheet" href="agenda.css">
 </head>
 <body>
     <header>
         <div class="header-content">
-            <div class="logo">
-                <img src="icon.jpg" alt="Logo">
-                <h1>Mi Agenda</h1>
+            <div class="icono">
+                <img src="../images/icon.jpg" alt="Logo">
+                <h1>Movo</h1>
             </div>
-            <nav>
-                <a href="#" class="nav-link inicio active">Inicio</a>
-                <a href="#" class="nav-link perfil">Perfil</a>
-                <!-- Más enlaces -->
-            </nav>
-            <div class="cerrar_sesion">
-                <img src="logout.png" alt="Logout">
-            </div>
+        </div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="#">Perfil</a>
+        </nav>
+        <div class="cerrar_sesion">
+            <img src="../images/logout.png" alt="Cerrar sesión">
         </div>
     </header>
     
     <div class="container">
-        <div class="lista_agenda">
-            <div class="icono">
-                <img src="calendario.png" alt="Calendar">
-                <h2>Agenda de Servicios</h2>
+        <div class="calendario-header">
+            <img src="calendario.png" alt="calendario" class="calendario-icon">
+            <h1>Agenda Servicios</h1>
+        </div>
+
+        <div class="flex-container">
+            <div class="calendar">
+                <div class="calendar-header">
+                    <div class="calendar-title">Septiembre 2024</div>
+                    <div class="calendar-controls">
+                        <button>Prev</button>
+                        <button>Next</button>
+                    </div>
+                </div>
+                <div class="calendar-days">
+                    <div class="calendar-day">Lun</div>
+                    <div class="calendar-day">Mar</div>
+                    <div class="calendar-day">Mié</div>
+                    <div class="calendar-day">Jue</div>
+                    <div class="calendar-day">Vie</div>
+                    <div class="calendar-day">Sáb</div>
+                    <div class="calendar-day">Dom</div>
+                    
+                    <!-- Días del mes -->
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day">1</div>
+                    <div class="calendar-day">2</div>
+                    <div class="calendar-day">3</div>
+                    <div class="calendar-day">4</div>
+                    <div class="calendar-day">5</div>
+                    <div class="calendar-day">6</div>
+                    <div class="calendar-day">7</div>
+                    <div class="calendar-day">8</div>
+                    <div class="calendar-day">9</div>
+                    <div class="calendar-day">10</div>
+                    <div class="calendar-day">11</div>
+                    <div class="calendar-day">12</div>
+                    <div class="calendar-day">13</div>
+                    <div class="calendar-day">14</div>
+                    <div class="calendar-day">15</div>
+                    <div class="calendar-day">16</div>
+                    <div class="calendar-day">17</div>
+                    <div class="calendar-day">18</div>
+                    <div class="calendar-day">19</div>
+                    <div class="calendar-day">20</div>
+                    <div class="calendar-day">21</div>
+                    <div class="calendar-day">22</div>
+                    <div class="calendar-day">23</div>
+                    <div class="calendar-day">24</div>
+                    <div class="calendar-day">25</div>
+                    <div class="calendar-day">26</div>
+                    <div class="calendar-day">27</div>
+                    <div class="calendar-day">28</div>
+                    <div class="calendar-day">29</div>
+                    <div class="calendar-day">30</div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                </div>
             </div>
-            <div class="agenda">
-                <h3>Alejandro Gutierrez: Servicio de DJ</h3>
-                <p><span>Fecha de Pago:</span> 10 de septiembre de 2024</p>
-                <p><span>Fecha del Servicio:</span> 15 de septiembre de 2024</p>
-                <p><span>Cantidad Pago:</span> $40.000</p>
-                <p><span>Horario:</span> 10:00 AM</p>
-                <p><span>Correo del Proveedor:</span> alejandrom@gmail.com</p>
-            </div>
-            <div class="agenda">
-                <h3>Electronics.inc: Servicio instalacion panel electrico</h3>
-                <p><span>Fecha de Pago:</span> 12 de septiembre de 2024</p>
-                <p><span>Fecha del Servicio:</span> 18 de septiembre de 2024</p>
-                <p><span>Cantidad Pago:</span> $100.000</p>
-                <p><span>Horario:</span> 02:00 PM</p>
-                <p><span>Correo del Proveedor:</span> contacto@electronics.com</p>
-            </div>
-            <div class="agenda">
-                <h3>Maria Tapia: Servicio de limpieza</h3>
-                <p><span>Fecha de Pago:</span> 14 de septiembre de 2024</p>
-                <p><span>Fecha del Servicio:</span> 20 de septiembre de 2024</p>
-                <p><span>Cantidad Pago:</span> $17.500</p>
-                <p><span>Horario:</span> 11:00 AM</p>
-                <p><span>Correo del Proveedor:</span> MariaT_@gmail.com</p>
-            </div>
-            <div class="agenda">
-                <h3>Tech_sports: Servicio de reparacion computador</h3>
-                <p><span>Fecha de Pago:</span> 16 de septiembre de 2024</p>
-                <p><span>Fecha del Servicio:</span> 22 de septiembre de 2024</p>
-                <p><span>Cantidad Pago:</span> $30.000</p>
-                <p><span>Horario:</span> 03:00 PM</p>
-                <p><span>Correo del Proveedor:</span> contacto@Tech_sports.com</p>
+            
+            <div class="agenda-details">
+                <h2>Servicios del Día</h2>
+                <div id="services-container">
+                    <div class="agenda-item">
+                        <h3>Limpieza hogar</h3>
+                        <p><strong>Proveedor:</strong> Maria Teresa</p>
+                        <p><strong>Hora:</strong> 10:00</p>
+                    </div>
+                    <div class="agenda-item">
+                        <h3>DJ</h3>
+                        <p><strong>Proveedor:</strong> DJ's.inc</p>
+                        <p><strong>Hora:</strong> 14:00</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    
+
     <footer>
-        <div class="footer-links">
-            <a href="#">Política de privacidad</a>
-            <a href="#">Términos de servicio</a>
-            <a href="#">Teléfono</a>
-            <a href="#">Correo</a>
-            <a href="#">Redes Sociales</a>
-            <a href="#">Ayuda</a>
+        <div class="contenido-footer">
+                <!-- Sección con información de contacto y redes sociales -->
+            <div class="contacto">
+                <h3>Contacto</h3>
+                <a href="mailto:Movocompanycontact@gmail.com?Subject=Ingrese%20el%20asunto">Email: Movocompanycontact@gmail.com</a>
+                </div>
+                <div class="redes-sociales">
+                    <h3>Redes Sociales</h3>
+                    <a href="https://www.facebook.com/profile.php?id=61566403465579" class="social-icon">Facebook</a>
+                    <a href="https://x.com/CompanyMovo_inc" class="social-icon">Twitter</a>
+                    <a href="https://www.instagram.com/movo_inc/" class="social-icon">Instagram</a>
+                </div>
+            <div class="info-legal">
+                <h3>Información Legal</h3>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Servicio</a>
+            </div>
         </div>
-    </footer>
+            <!-- Sección de derechos de autor -->
+            <div class="copyright_footer">
+                <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
+            </div>
+        </footer>
 </body>
 </html>

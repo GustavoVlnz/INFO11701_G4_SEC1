@@ -1,5 +1,4 @@
 body {
-    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
@@ -116,23 +115,53 @@ nav a:hover {
     transform: scale(1.022);
 }
 
+/* Estilo del footer */
 footer {
-    background-color: #3b9aff; 
-    padding: 25px 40px;
+    background-color: #333;
+    color: white;
     text-align: center;
-    position: fixed; 
-    width: 100%; 
-    bottom: 0; 
-    z-index: 100;
+    padding: 20px;
+    width: 100%;
+    margin-top: 40px;
 }
 
-.footer a {
-    margin: 0 30px;
+.contenido-footer {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contenido-footer div {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.contenido-footer h3 {
+    margin-top: 0;
+}
+
+.contenido-footer p, .contenido-footer a {
+    font-size: 16px;
+    color: white;
     text-decoration: none;
-    color: #1f1f1f;
+    display: block;
+    margin-bottom: 5px;
 }
 
-.footer a:hover {
-    color: #0d0d0e;
-    font-weight: bold;
+.contenido-footer a:hover {
+    text-decoration: underline;
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+}
+
+.social-icon {
+    color: rgb(254, 254, 254);
+}
+
+.info-legal a {
+    color: rgb(254, 254, 254);
 }

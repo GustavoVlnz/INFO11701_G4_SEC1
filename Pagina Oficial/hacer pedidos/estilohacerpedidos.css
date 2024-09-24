@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
+    overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
 }
 
 h1, h2 {
@@ -89,21 +90,22 @@ nav a:hover {
     transform: scale(1.2);
 }
 
-.contenedor {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    padding-bottom: 100px;
+/* Estructura principal */
+.estructura {
+    display: flex; /* Cambia a diseño de flexbox */
+    flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
 }
 
+/* Lista de Servicios */
 .lista-servicios {
-    width: 70%; 
+    width: 75%; /* Ajusta el ancho de la lista de servicios */
     max-height: 80vh;
     overflow-y: auto;
     padding-right: 20px;
     border-right: 1px solid #eaeaea;
 }
 
+/* Título con icono */
 .titulo-con-icono {
     position: sticky;
     top: 0;
@@ -126,8 +128,9 @@ nav a:hover {
     margin: 0;
 }
 
+/* Carrito de Servicios */
 .carrito-servicios {
-    width: 25%;
+    width: 25%; /* Ajusta el ancho del carrito de servicios */
     max-height: 80vh;
     overflow-y: auto;
     background-color: white;
@@ -150,7 +153,7 @@ nav a:hover {
 
 .contenido-carrito-servicios {
     flex-grow: 1; 
-    overflow-y: auto; /* permite el desplazamiento vertical si el contenido es mayor que el area visible */
+    overflow-y: auto; /* permite el desplazamiento vertical si el contenido es mayor que el área visible */
 }
 
 .botones-acciones {
@@ -167,12 +170,12 @@ nav a:hover {
     cursor: pointer;
     font-size: 18px; 
     width: 100%;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* transiciones suaves para color y tamano */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* transiciones suaves para color y tamaño */
 }
 
 .pagar:hover {
     background-color: #218838;
-    transform: scale(1.05); /* aumenta el tamano del boton al pasar el mouse por encima */
+    transform: scale(1.05); /* aumenta el tamaño del botón al pasar el mouse por encima */
 }
 
 /* Servicios */
@@ -268,6 +271,7 @@ nav a:hover {
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-left: 20px; /* Ajusta este valor para aumentar la separación en el eje X */
 }
 
 .eliminar-servicio:hover {
@@ -276,11 +280,48 @@ nav a:hover {
 }
 
 footer {
-    background-color: #3b9aff;
+    background-color: #333;
     color: white;
     text-align: center;
     padding: 10px;
-    position: fixed;
-    bottom: 0;
     width: 100%;
+    margin-top: 40px; /* Añade un margen superior para separar el footer del contenido */
+}
+
+.contenido-footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.contenido-footer div {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.contenido-footer h3 {
+    margin-top: 0;
+}
+
+.contenido-footer p, .contenido-footer a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contenido-footer a:hover {
+    text-decoration: underline;
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;
+}
+
+.social-icon {
+    color: rgb(254, 254, 254);
+}
+
+.info-legal a {
+    color: rgb(254, 254, 254);
 }

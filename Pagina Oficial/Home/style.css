@@ -189,7 +189,7 @@ nav ul li a:hover {
 .seccion-info .contenido {
     padding: 20px;
     border-style: dashed; /* Estilo de borde de los bloques de contenido */
-    border-color: #37b5ff; 
+    border-color: black; 
     border-radius: 6px; /* Bordes redondeados de los bloques de contenido */
     border-width: 2px; /* Ancho del borde */
 }
@@ -282,6 +282,86 @@ nav ul li a:hover {
     background-color: #333; /* Color de fondo al pasar el ratón sobre los botones */
 }
 
+/* Estilos seccion de Noticias */
+#noticias {
+padding-top: 35px;
+padding-bottom: 50px;
+background-color: #f4f4f4;
+text-align: center;
+}
+
+#noticias h2 {
+font-size: 48px;
+margin-bottom: 10px;
+}
+
+#noticias p {
+font-size: 24px;
+color: #666;
+margin-bottom: 40px;
+}
+
+.noticias-grid {
+display: flex;
+gap: 20px;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.noticias-post {
+background-color: white;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+width: 30%;
+}
+
+.noticias-post img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+}
+
+.noticias-contenido {
+padding: 20px;
+}
+
+.noticias-contenido h3 {
+font-size: 1.6em;
+margin-bottom: 15px;
+}
+
+.noticias-contenido p {
+color: #666;
+line-height: 1.6;
+margin-bottom: 20px;
+}
+
+.btn-leer-mas {
+display: inline-block; /* Muestra el botón en línea */
+padding: 15px 30px; 
+font-size: 18px; 
+font-weight: bold; /* Texto en negrita */
+color: white; 
+background-color: #37b5ff; 
+border-radius: 5px; /* Bordes redondeados del botón */
+text-decoration: none; /* Elimina el subrayado del texto del botón */
+transition: background-color 0.3s ease, transform 0.3s ease; /* Transición para el color de fondo y la transformación */
+}
+
+.btn-leer-mas:hover {
+background-color: #1e90ff; 
+transform: scale(1.05); /* Aumenta el tamaño del botón al pasar el ratón */
+}
+
+.hidden {
+display: none;
+}
+
+.visible {
+display: block; /* o cualquier estilo que necesites */
+}  
+
 /* Estilos del footer */
 footer {
     background-color: #333;
@@ -324,55 +404,67 @@ footer {
 }
 
 #contacto {
-    background-image: url("Imagenes/ContactSection.jpeg"); /* Imagen de fondo para la sección de contacto */
-    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
-    background-position: top; /* Posiciona la imagen de fondo en la parte superior */
-    padding: 20px; 
+    padding: 40px 300px; 
+    display: flex; /* Flexbox para alinear los elementos */
+    flex-wrap: wrap; /* Flexbox para hacer que los elementos se ajusten en dispositivos pequeños */
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center;
+    color: white; 
+    gap: 20px; /* Espacio entre los elementos */
+}
+
+#contactanos {
+    flex: 1; /* Ocupa la mitad del ancho */
+    display: flex;
+    flex-direction: column; /* Alinea el contenido verticalmente */
+    max-width: 600px; /* Ancho máximo */
+    background-color: #37b5ff;
+    border-radius: 30px;
+    padding: 40px;
+    font-size: 25px;
+}
+
+#formulario {
+    flex: 1; /* Ocupa la otra mitad */
+    max-width: 500px;
+    width: 100%; /* Ocupa el 100% del contenedor */
 }
 
 form {
-    display: inline-block; /* Hace que el formulario se comporte como un bloque en línea */
-    text-align: left; 
-    max-width: 500px; /* Ancho máximo del formulario */
-    width: 100%; /* El formulario ocupa el 100% de su contenedor */
-    background-color: #37b5ff; 
+    background-color: #37b5ff; /* Fondo azul claro */
     padding: 20px; 
     border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 form label {
-    display: block; /* Hace que las etiquetas ocupen todo el ancho disponible */
+    display: block; 
     margin-bottom: 5px;
+    color: white; /* Texto en blanco */
+}
+
+form input, form select, form textarea {
+    width: 95%; /* Ocupa casi todo el ancho del formulario */
+    padding: 10px;
+    margin-bottom: 15px; 
+    border: none; 
+    border-radius: 5px; 
+    background-color: #fff; /* Fondo blanco */
+    color: #333; /* Texto oscuro */
+    transition: all 0.3s ease;
+}
+
+form input:focus, form select:focus, form textarea:focus {/*pseudoclase que se aplica cuando un usuario interactua con él*/
+    outline: none;
+    border: 1px solid #333; /* Borde oscuro al hacer foco */
+}
+
+#button {
+    background-color: #333; /* Fondo negro */
     color: white; 
-}
-
-form select {
-    width: 95%; /* El cuadro de selección ocupa el 95% del ancho disponible */
-    padding: 10px; 
-    margin-bottom: 15px; 
-    border: none; 
-    border-radius: 5px; 
-    background-color: #fff; /* Fondo blanco para el cuadro */
-    color: #333; /* Color de texto */
-    transition: all 0.3s ease-in-out;
-    font-size: 16px; /* Tamaño de fuente */
-}
-
-form input, form textarea {
-    width: 95%; /* Los campos de entrada ocupan el 95% del ancho disponible */
-    padding: 10px; 
-    margin-bottom: 15px; 
-    border: none; 
-    border-radius: 5px; 
-    transition: all 0.3s ease-in-out;
-}
-
-#button{
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #333; 
-    color: white;
     padding: 10px 15px; 
     border: none; 
     border-radius: 5px; 
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
 }

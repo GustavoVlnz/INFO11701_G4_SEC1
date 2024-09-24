@@ -1,7 +1,13 @@
 
-.carrito{
+#carrito {
+  display: flex;
+  justify-content: space-between; 
+  align-items: flex-start;
+}
+
+.carrito-servicios{
     padding: 20px;
-    flex-grow: 1;
+    flex: 3;
 }
 
 .header-carrito {
@@ -21,12 +27,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    border-bottom: 1px solid #eaeaea;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #000000;
+    width: 60%;
 }
 
 .servicio img {
-    max-width: 100px;
+    max-width: 60px;
+    max-height: 60px;
     margin-right: 20px;
 }
 
@@ -40,6 +49,15 @@
     font-size: 18px;
 }
 
+.btn-cantidad {
+  padding: 5px 10px;
+  margin: 0 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
 .cantidad {
     min-width: 50px;
     text-align: right;
@@ -47,26 +65,39 @@
 
 
 .total-pagar {
-    background-color: #f9f9f9;
-    padding: 20px;
-    text-align: right;
-    border-left: 1px solid #eaeaea;
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 20px;
+  text-align: left;
+  position: sticky;
+  top: 20px;
+  border-left: 1px solid #eaeaea;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px; 
+  max-width: 300px; 
 }
 
 .total-pagar h3 {
     margin: 0 0 20px 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.total-pagar p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #555;
 }
 
 .btn-pago {
-    background-color: #3b9aff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer;
+  font-size: 18px; 
 }
-
-
 
 body {
     margin: 0;

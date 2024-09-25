@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="imagenes/logo.png" alt="Logo Movo">
+            <h1>MOVO</h1>
+        </div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="#" class="activo">Perfil</a>
+        </nav>
+        <div class="salir">
+            <img src="imagenes/salir.png" alt="Salir">
+        </div>
+    </header>
+
+    <main class="estructura-admin">
+        <aside class="sidebar">
+            <h2>Panel de Administrador</h2>
+            <ul>
+                <li><a href="usuarios.html"><img src="imagenes/usuarios.png" alt="Usuarios" class="icon"> Usuarios</a></li>
+                <li><a href="servicios.html"><img src="imagenes/servicios.png" alt="Servicios" class="icon"> Servicios</a></li>
+                <li><a href="pedido.html"><img src="imagenes/pedidos.png" alt="Pedidos" class="icon"> Pedidos</a></li>
+                <li><a href="reporte.html"><img src="imagenes/reportes.png" alt="Reportes" class="icon"> Reportes</a></li>
+            </ul>
+        </aside>
+        
+        <section class="contenido-principal">
+            <h2>Bienvenido al Panel de Administrador</h2>
+            <div class="widgets">
+                <div class="widget">
+                    <h3>Total de Usuarios</h3>
+                    <p>481</p>
+                </div>
+                <div class="widget">
+                    <h3>Servicios Activos</h3>
+                    <p>20</p>
+                </div>
+                <div class="widget">
+                    <h3>Pedidos Pendientes</h3>
+                    <p>140</p>
+                </div>
+            </div>
+
+            <div class="graficos-container">
+                <h3>Gráficos de ventas</h3>
+                <div class="graficos">
+                    <div class="grafico">
+                        <img src="imagenes/grafica_mensual.png" alt="Grafico de pedidos del mes" style="width: 140%;">
+                    </div>
+                    <div class="grafico">
+                        <img src="imagenes/grafica_anual.png" alt="Grafico de pedidos del año" style="width: 140%;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabla-datos">
+                <h3>Ultimos 10 Pedidos</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID Pedido</th>
+                            <th>Cliente</th>
+                            <th>Servicio</th>
+                            <th>Estado</th>
+                            <th>Fecha y Hora</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1581</td>
+                            <td>Juan Pérez</td>
+                            <td>Limpieza</td>
+                            <td>Completado</td>
+                            <td>2023-09-15 14:35</td>
+                        </tr>
+                        <tr>
+                            <td>5158</td>
+                            <td>María Gómez</td>
+                            <td>Chef</td>
+                            <td>En Progreso</td>
+                            <td>2023-09-15 12:20</td>
+                        </tr>
+                        <tr>
+                            <td>2143</td>
+                            <td>Carlos Díaz</td>
+                            <td>Electricista</td>
+                            <td>Completado</td>
+                            <td>2023-09-14 16:45</td>
+                        </tr>
+                        <tr>
+                            <td>9014</td>
+                            <td>Luisa Martínez</td>
+                            <td>Plomería</td>
+                            <td>Pendiente</td>
+                            <td>2023-09-14 09:30</td>
+                        </tr>
+                        <tr>
+                            <td>5612</td>
+                            <td>Pedro Castillo</td>
+                            <td>Carpintero</td>
+                            <td>Completado</td>
+                            <td>2023-09-13 17:15</td>
+                        </tr>
+                        <tr>
+                            <td>6794</td>
+                            <td>Ana Fernández</td>
+                            <td>Pintor</td>
+                            <td>En Progreso</td>
+                            <td>2023-09-13 13:50</td>
+                        </tr>
+                        <tr>
+                            <td>7914</td>
+                            <td>Mario López</td>
+                            <td>Reparación de Aire Acondicionado</td>
+                            <td>Completado</td>
+                            <td>2023-09-12 10:20</td>
+                        </tr>
+                        <tr>
+                            <td>8001</td>
+                            <td>Laura Rodríguez</td>
+                            <td>Jardinería</td>
+                            <td>Pendiente</td>
+                            <td>2023-09-11 08:45</td>
+                        </tr>
+                        <tr>
+                            <td>4931</td>
+                            <td>Andrés Ramírez</td>
+                            <td>Reparación de Calefacción</td>
+                            <td>Completado</td>
+                            <td>2023-09-10 15:30</td>
+                        </tr>
+                        <tr>
+                            <td>1593</td>
+                            <td>Claudia Silva</td>
+                            <td>Cocinero</td>
+                            <td>En Progreso</td>
+                            <td>2023-09-09 12:10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="contenido-footer">
+            <!-- Sección con información de contacto y redes sociales -->
+            <div class="contacto">
+                <h3>Contacto</h3>
+                <p>Email: contacto@movo.com</p>
+            </div>
+            <div class="redes-sociales">
+                <h3>Redes Sociales</h3>
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">Instagram</a>
+            </div>
+            <div class="info-legal">
+                <h3>Información Legal</h3>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Servicio</a>
+            </div>
+        </div>
+        <!-- Sección de derechos de autor -->
+        <div class="copyright_footer">
+            <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

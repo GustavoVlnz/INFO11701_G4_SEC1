@@ -3,14 +3,20 @@ body {
     padding: 0;
     background-color: #f8f9fa;
 }
-/* Distribución flexible para logo, título y navegación */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: #ffffff;
+    background-color: white;
     border-bottom: 2px solid #eaeaea;
+}
+
+.header-content {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 header .logo {
@@ -23,19 +29,17 @@ header .logo img {
     margin-right: 10px;
     transition: transform 0.3s ease;
 }
- /* Icono de cerrar sesión con efecto hover */
+
 header .logo img:hover {
     transform: rotate(20deg);
 }
-
-header h1 {
-    font-size: 24px;
-    margin: 0;
+.salir img {
+    width: 30px;
 }
 
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centra las pestañas horizontalmente */
     flex-grow: 1;
 }
 

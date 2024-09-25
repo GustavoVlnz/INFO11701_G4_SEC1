@@ -10,43 +10,42 @@ body {
     color: #333;
     line-height: 1.6;
 }
-
+/* Estilo del encabezado principal */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    background-color: white;
-    border-bottom: 2px solid #eaeaea;
+    padding: 20px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header-content {
     display: flex;
-    flex-grow: 1;
-    justify-content: center;
     align-items: center;
 }
 
-header .logo {
+header .icono {
     display: flex;
     align-items: center;
     margin-right: 20px;
 }
 
-header .logo img {
+header .icono img {
     width: 50px;
     margin-right: 10px;
     transition: transform 0.3s ease;
 }
 
-header .logo img:hover {
-    transform: rotate(20deg); /* la imagen rota cuando el ratón pasa sobre ella */
+header .icono img:hover {
+    transform: rotate(20deg);
 }
 
 header h1 {
     font-size: 24px;
     margin: 0;
 }
+
 
 nav {
     display: flex;

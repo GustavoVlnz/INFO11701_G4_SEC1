@@ -8,18 +8,18 @@
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="../imagenes/logo.png" alt="Logo Movo">
-            <h1>MOVO</h1>
-        </div>
-        <nav>
-            <a href="/Pagina Oficial/Home/home.html">Inicio</a>
-            <a href="#" class="activo">Servicios</a>
-            <a href="#">Perfil</a>
-        </nav>
-        <div class="salir">
-            <img src="../imagenes/salir.png" alt="Salir">
-        </div>
+            <div class="logo">
+                <img src="../images/icon.jpg" alt="Logo">
+                <h1>Movo</h1>
+            </div>
+            <nav>
+                <a href="/Pagina Oficial/Home/home.html">Inicio</a>
+                <a href="/Pagina Oficial/categorias/categorias.html"class="active">Servicios</a>
+                <a href="/Pagina Oficial/Perfil/InfoAcc/Info.html">Perfil</a>
+            </nav>
+            <div class="cerrar_sesion">
+                <img src="../images/logout.png" alt="Cerrar Sesión">
+            </div>
     </header>
 
     <main>
@@ -53,33 +53,35 @@
         <div class="pedido">
             <h2>Tu Pedido</h2>
             <ul id="lista-pedido"></ul>
-            <button onclick="window.location.href='carpetaAmigo/confirmacion.html'">Confirmar Pedido</button> <!-- PAGINA DE PAGOOOOOOOOOOOOOOOO -->
-            <button onclick="window.location.href='categorias.html'">Volver a Categorías</button> <!-- BOTON PARA VOLVER A LA PAGINA DE CATEGORIAS -->
+            <button onclick="window.location.href='/Pagina Oficial/calificador (carpeta pago)/pagos.html'">Confirmar Pedido</button> <!-- PAGINA DE PAGOOOOOOOOOOOOOOOO -->
+            <button onclick="window.location.href='/Pagina Oficial/categorias/categorias.html'">Volver a Categorías</button> <!-- BOTON PARA VOLVER A LA PAGINA DE CATEGORIAS -->
         </div>
     </main>
 
     <footer>
         <div class="contenido-footer">
+                <!-- Sección con información de contacto y redes sociales -->
             <div class="contacto">
                 <h3>Contacto</h3>
-                <p>Email: contacto@movo.com</p>
-            </div>
-            <div class="redes-sociales">
-                <h3>Redes Sociales</h3>
-                <a href="#" class="social-icon">Facebook</a>
-                <a href="#" class="social-icon">Twitter</a>
-                <a href="#" class="social-icon">Instagram</a>
-            </div>
+                <a href="mailto:Movocompanycontact@gmail.com?Subject=Ingrese%20el%20asunto">Email: Movocompanycontact@gmail.com</a>
+                </div>
+                <div class="redes-sociales">
+                    <h3>Redes Sociales</h3>
+                    <a href="https://www.facebook.com/profile.php?id=61566403465579" class="social-icon">Facebook</a>
+                    <a href="https://x.com/CompanyMovo_inc" class="social-icon">Twitter</a>
+                    <a href="https://www.instagram.com/movo_inc/" class="social-icon">Instagram</a>
+                </div>
             <div class="info-legal">
                 <h3>Información Legal</h3>
-                <a href="#">Política de Privacidad</a>
-                <a href="#">Términos de Servicio</a>
+                <a href="/Pagina Oficial/politica y privacidad/politica y privacidad.html">Política de Privacidad</a>
+                <a href="/Pagina Oficial/Registro/terminos.html">Términos de Servicio</a>
             </div>
         </div>
-        <div class="copyright_footer">
-            <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+            <!-- Sección de derechos de autor -->
+            <div class="copyright_footer">
+                <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
+            </div>
+        </footer>
 
     <script src="cya.js"></script>
 </body>

@@ -38,6 +38,9 @@ header .logo img {
 header .logo img:hover {
     transform: rotate(20deg);
 }
+.salir img {
+    width: 50px;
+}
 
 nav {
     display: flex;
@@ -63,7 +66,7 @@ nav a:hover {
 }
 
 .CerrarSesion img {
-    width: 30px;
+    width: 10px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -76,10 +79,8 @@ nav a:hover {
     display: flex;
     justify-content: center;
     padding: 20px;
-}
-
-.lista_servicios {
-    width: 70%;
+    max-width: 1200px; /* Ancho máximo del contenedor principal */
+    margin: 0 auto; /* Centrar el contenedor en la pantalla */
 }
 
 .Ventana {
@@ -98,7 +99,7 @@ nav a:hover {
     margin: 0;
 }
 
-.category {
+.category{
     display: flex;
     align-items: center;
     background-color: white;
@@ -132,7 +133,7 @@ nav a:hover {
 }
 
 .category:hover span {
-    color: #007bff; /* Cambia el color del texto al azul al pasar el ratón */
+    color: #000000; /* Cambia el color del texto al azul al pasar el ratón */
 }
 
 /* Estilo del footer */

@@ -106,71 +106,71 @@ body {
     flex-direction: column;
   }
 
-  /*Estilos del header*/
+/*Estilos del header*/
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: white;
-    border-bottom: 2px solid #eaeaea;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: white;
+  border-bottom: 2px solid #eaeaea;
+}
+
 .header-content {
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-    align-items: center;
-  }
-  
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
 header .logo {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-  }
-  
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
 header .logo img {
-    width: 50px;
-    margin-right: 10px;
-    transition: transform 0.3s ease;
-  }
-  
+  width: 50px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
 header .salir img {
-    width: 50px;
-    margin-right: 10px;
-  }
-  
+  width: 30px;
+  margin-right: 10px;
+}
+
 header .logo img:hover {
-    transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
-  }
-  
+  transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
+}
+
 header h1 {
-    font-size: 24px;
-    margin: 0;
-  }
-  
+  font-size: 24px;
+  margin: 0;
+}
+
 nav {
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
-  }
-  
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
 nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    transition: color 0.3s ease;
-  }
-  
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
 nav a.active {
-    color: #007bff;
-    font-weight: bold;
-  }
-  
+  color: #007bff;
+  font-weight: bold;
+}
+
 nav a:hover {
-    color: #0056b3;
-  }
+  color: #0056b3;
+}
   
   /* Estilos del footer */
 footer {

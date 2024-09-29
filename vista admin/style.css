@@ -1,17 +1,21 @@
+/* General Styles */
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Asegura que el body ocupe al menos la altura de la ventana */
 }
 
 h1, h2, h3 {
     color: #333;
 }
 
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
@@ -19,12 +23,6 @@ header {
     padding: 15px 30px;
     background-color: white;
     border-bottom: 2px solid #eaeaea;
-}
-
-header .logo {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
 }
 
 header .logo img {
@@ -52,16 +50,12 @@ nav a {
 }
 
 nav a.activo {
-    color: #007bff;
+    color: #39B6FF;
     font-weight: bold;
 }
 
 nav a:hover {
     color: #0056b3;
-}
-
-.salir {
-    margin-left: auto;
 }
 
 .salir img {
@@ -74,119 +68,59 @@ nav a:hover {
     transform: scale(1.2);
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    width: 100%;
-    margin-top: 40px; /* Añade un margen superior para separar el footer del contenido */
-}
-
-.contenido-footer {
+/* Horizontal Sidebar */
+.horizontal-menu {
     display: flex;
-    justify-content: space-around;
-}
-
-.contenido-footer div {
-    flex: 1;
-    margin: 0 10px;
-}
-
-.contenido-footer h3 {
-    color: white; /* Asegúrate de que el color sea visible */
-    margin: 10px 0; /* Espaciado adicional */
-    font-size: 20px; /* Ajusta el tamaño de la fuente si es necesario */
-}
-
-
-.contenido-footer p, .contenido-footer a {
-    font-size: 18px;
-    color: white;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.contenido-footer a:hover {
-    text-decoration: underline;
-}
-
-.copyright_footer {
-    border-top: 1px solid #444;
-}
-
-.social-icon {
-    color: rgb(254, 254, 254);
-}
-
-.info-legal a {
-    color:rgb(254, 254, 254)
-}
-
-.estructura-admin {
-    display: flex;
-    margin: 20px;
-    flex-grow: 1; /* Permite que esta sección ocupe el espacio restante */
-    padding-bottom: 20px; /* Espacio para el footer */
-}
-
-.sidebar {
-    width: 250px;
-    background-color: #569fec; /* Color de fondo más suave */
-    color: #000000;
-    padding: 30px;
-    border-radius: 8px;
-    margin-right: 14px;
+    justify-content: center;
+    background-color: #39B6FF;
+    padding: 15px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    height: 95%; /* Ajuste de altura del sidebar */
-    padding-bottom: 10px; /* Padding en la parte inferior */
-    box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
-.sidebar h2 {
-    margin-top: 0;
-    font-size: 23px;
-}
-
-.sidebar ul {
+.horizontal-menu ul {
     list-style: none;
+    display: flex;
     padding: 0;
     margin: 0;
 }
 
-.sidebar ul li {
-    margin: 10px 0;
+.horizontal-menu ul li {
+    margin: 0 20px;
 }
 
-.sidebar ul li a {
-    color: #333;
+.horizontal-menu ul li a {
+    color: #fff;
     text-decoration: none;
-    font-size: 19px;
+    font-size: 18px;
     display: flex;
     align-items: center;
-    padding: 15px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.horizontal-menu ul li a:hover {
+    background-color: #fff;
+    color: #000;
     border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.sidebar ul li a:hover {
-    background-color: #fafafa;
-    color: rgb(0, 0, 0);
+.horizontal-menu .icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 8px;
 }
 
-.sidebar .icon {
-    width: 30px;
-    margin-right: 10px;
-}
-
+/* Main Content */
 .contenido-principal {
     flex-grow: 1;
     background-color: #f1f3f5;
     padding: 20px;
     border-radius: 8px;
+}
+
+.contenido-principal h2{
+    text-align: center;
 }
 
 .widgets {
@@ -200,80 +134,211 @@ footer {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 48%; /* Para asegurar que los gráficos se alineen en dos columnas */
+    width: 48%;
     text-align: center;
 }
 
-.widget h3 {
-    margin-top: 0;
-}
-
-.tabla-datos {
+.datos {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.tabla-datos table {
+.datos table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.tabla-datos th, .tabla-datos td {
+.datos th, .datos td {
     border: 1px solid #eaeaea;
     padding: 10px;
     text-align: left;
 }
 
-.tabla-datos th {
-    background-color: #007bff;
+.datos th {
+    background-color: #39B6FF;
     color: white;
 }
 
-.calificar-btn {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
-
-.calificar-btn:hover {
-    background-color: #218838;
-}
-
+/* Gráficos */
 .graficos-container {
-    text-align: center; /* Centra el título y el contenido dentro del contenedor */
-    margin-bottom: 30px; /* Espacio debajo del contenedor de gráficos */
-}
-
-.graficos-container h3 {
-    font-size: 20px;
-    color: #333;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 .graficos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta el tamaño de las columnas */
-    justify-content: center; /* Centra el grid en el contenedor */
-    margin: 0 auto; /* Centra el grid en el contenedor */
-}
-
-.grafico {
-    display: flex;
-    justify-content: center; /* Centra el contenido dentro del div del gráfico */
-    align-items: center; /* Alinea el contenido verticalmente en el centro */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
 }
 
 .grafico img {
-    max-width: 60%; /* Ajuste de tamaño de las imágenes para hacerlas más pequeñas */
-    height: auto; /* Mantiene la proporción de la imagen */
-    border-radius: 8px; /* Opcional: agrega bordes redondeados a las imágenes */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: agrega una sombra sutil a las imágenes */
+    max-width: 60%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Servicios PyMEs */
+#servicios-pymes {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#servicios-pymes h2 {
+    text-align: center;
+    color: #333;
+}
+
+.servicio {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+.servicio h3 {
+    margin: 0;
+    color: #000;
+}
+
+.servicio p {
+    margin: 5px 0;
+    color: #7f8c8d;
+}
+
+.detalles-btn {
+    background-color: #39B6FF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.detalles-btn:hover {
+    background-color: #0056b3;
+}
+
+.detalles {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+}
+
+#reportes-usuarios {
+    max-width: 800px;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#reportes-usuarios h2 {
+    text-align: center;
+    color: #333;
+}
+
+.reporte {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+.reporte h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #000000;
+}
+
+.reporte p {
+    margin: 5px 0;
+    color: #7f8c8d;
+}
+
+.estado-reporte-btn {
+    background-color: #39B6FF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.estado-reporte-btn:hover {
+    background-color: #3498db;
+}
+
+.estado-reporte {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+}
+
+.estado-reporte p {
+    margin: 5px 0;
+    color: #34495e;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.contenido-footer {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contenido-footer div {
+    margin: 0 20px;
+}
+
+.contenido-footer h3 {
+    margin-top: 0;
+}
+
+.contenido-footer p, .contenido-footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.contenido-footer a:hover {
+    text-decoration: underline;
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+}
+.info-legal a {
+    display: block;
+    margin-bottom: 5px; 
 }

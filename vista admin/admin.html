@@ -24,19 +24,18 @@
     </header>
 
     <main class="estructura-admin">
-        <aside class="sidebar">
-            <h2>Panel de Administrador</h2>
+        <aside class="horizontal-menu">
             <ul>
-                <li><a href="usuarios.html"><img src="imagenes/usuarios.png" alt="Usuarios" class="icon"> Usuarios</a></li>
-                <li><a href="servicios.html"><img src="imagenes/servicios.png" alt="Servicios" class="icon"> Servicios</a></li>
-                <li><a href="pedido.html"><img src="imagenes/pedidos.png" alt="Pedidos" class="icon"> Pedidos</a></li>
-                <li><a href="reporte.html"><img src="imagenes/reportes.png" alt="Reportes" class="icon"> Reportes</a></li>
+                <li><a href="#usuarios"><img src="imagenes/usuarios.png" alt="Usuarios" class="icon"> Usuarios</a></li>
+                <li><a href="#servicios-pymes"><img src="imagenes/servicios.png" alt="Servicios" class="icon"> Servicios</a></li>
+                <li><a href="#datos"><img src="imagenes/pedidos.png" alt="Pedidos" class="icon"> Pedidos</a></li>
+                <li><a href="#reportes-usuarios"><img src="imagenes/reportes.png" alt="Reportes" class="icon"> Reportes</a></li>
             </ul>
         </aside>
         
         <section class="contenido-principal">
             <h2>Bienvenido al Panel de Administrador</h2>
-            <div class="widgets">
+            <div id="usuarios" class="widgets">
                 <div class="widget">
                     <h3>Total de Usuarios</h3>
                     <p>481</p>
@@ -63,8 +62,8 @@
                 </div>
             </div>
 
-            <div class="tabla-datos">
-                <h3>Ultimos 10 Pedidos</h3>
+            <div id="datos" class="datos">
+                <h3>Ultimos 5 Pedidos</h3>
                 <table>
                     <thead>
                         <tr>
@@ -111,50 +110,84 @@
                             <td>Completado</td>
                             <td>2023-09-13 17:15</td>
                         </tr>
-                        <tr>
-                            <td>6794</td>
-                            <td>Ana Fernández</td>
-                            <td>Pintor</td>
-                            <td>En Progreso</td>
-                            <td>2023-09-13 13:50</td>
-                        </tr>
-                        <tr>
-                            <td>7914</td>
-                            <td>Mario López</td>
-                            <td>Reparación de Aire Acondicionado</td>
-                            <td>Completado</td>
-                            <td>2023-09-12 10:20</td>
-                        </tr>
-                        <tr>
-                            <td>8001</td>
-                            <td>Laura Rodríguez</td>
-                            <td>Jardinería</td>
-                            <td>Pendiente</td>
-                            <td>2023-09-11 08:45</td>
-                        </tr>
-                        <tr>
-                            <td>4931</td>
-                            <td>Andrés Ramírez</td>
-                            <td>Reparación de Calefacción</td>
-                            <td>Completado</td>
-                            <td>2023-09-10 15:30</td>
-                        </tr>
-                        <tr>
-                            <td>1593</td>
-                            <td>Claudia Silva</td>
-                            <td>Cocinero</td>
-                            <td>En Progreso</td>
-                            <td>2023-09-09 12:10</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
         </section>
     </main>
 
+    <section id="servicios-pymes">
+        <h2>Solicitud de Servicios</h2>
+
+        <div class="servicio">
+            <h3>Empresa: <span>Events Go</span></h3>
+            <p>Servicio: <span>Organizacion de Eventos</span></p>
+            <button class="detalles-btn" onclick="mostrarDetalles(1)">Ver Detalles</button>
+            <div class="detalles" id="detalles-1">
+                <p>Descripción: Nos especializamos en la planificación y ejecución de eventos en la comodidad de tu hogar.</p>
+                <p>Precio: Depende del evento a realizar</p>
+            </div>
+        </div>
+
+        <div class="servicio">
+            <h3>Empresa: <span>Tech Innovadores</span></h3>
+            <p>Servicio: <span>Mantencion de electrodomésticos</span></p>
+            <button class="detalles-btn" onclick="mostrarDetalles(2)">Ver Detalles</button>
+            <div class="detalles" id="detalles-2">
+                <p>Descripción: Ofrecemos un servicio rápido y confiable de reparación de electrodomésticos en tu hogar.</p>
+                <p>Precio Limpieza: $10.000</p>
+                <p>Precio Arreglo: $30.000 a $50.000</p>
+            </div>
+        </div>
+
+        <div class="servicio">
+            <h3>Empresa: <span>Cosmetic Plus</span></h3>
+            <p>Servicio: <span>Estilista</span></p>
+            <button class="detalles-btn" onclick="mostrarDetalles(3)">Ver Detalles</button>
+            <div class="detalles" id="detalles-3">
+                <p>Descripción: Disfruta de servicios de peluquería y estética en la comodidad de tu hogar.</p>
+                <p>Precio: Sujeto a servicio que solicite.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="reportes-usuarios">
+        <h2>Reportes de Usuarios </h2>
+        
+        <div class="reporte">
+            <h3>Usuario: <span>Luis Villa</span></h3>
+            <p>Servicio reportado: <span>Reparación de electrodomésticos</span></p>
+            <p>Descripción: <span>El técnico llegó tarde y no tenía las herramientas adecuadas para realizar la reparación.</span></p>
+            <button class="estado-reporte-btn" onclick="verEstado(1)">Revisar Estado</button>
+            <div class="estado-reporte" id="estado-1">
+                <p>Estado del reporte: Pendiente de revisión</p>
+            </div>
+        </div>
+
+        <div class="reporte">
+            <h3>Usuario: <span>Maria Gómez</span></h3>
+            <p>Servicio reportado: <span>Organización de eventos</span></p>
+            <p>Descripción: <span>Hubo un mal manejo del tiempo durante la planificación del evento.</span></p>
+            <button class="estado-reporte-btn" onclick="verEstado(2)">Revisar Estado</button>
+            <div class="estado-reporte" id="estado-2">
+                <p>Estado del reporte: En proceso de resolución</p>
+            </div>
+        </div>
+        
+        <div class="reporte">
+            <h3>Usuario: <span>Carlos Hernadez</span></h3>
+            <p>Servicio reportado: <span>Estilista a domicilio</span></p>
+            <p>Descripción: <span>El corte de cabello no se ajustó a lo que había solicitado.</span></p>
+            <button class="estado-reporte-btn" onclick="verEstado(3)">Revisar Estado</button>
+            <div class="estado-reporte" id="estado-3">
+                <p>Estado del reporte: Resuelto - Se ofreció un reembolso parcial.</p>
+            </div>
+        </div>
+    </section>
+
+
     <footer>
         <div class="contenido-footer">
-            <!-- Sección con información de contacto y redes sociales -->
             <div class="contacto">
                 <h3>Contacto</h3>
                 <a href="mailto:Movocompanycontact@gmail.com?Subject=Ingrese%20el%20asunto">Email: Movocompanycontact@gmail.com</a>
@@ -176,6 +209,7 @@
             <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <script src="script.js"></script>
     
 </body>
 </html>

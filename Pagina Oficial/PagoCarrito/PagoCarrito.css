@@ -28,21 +28,27 @@ header {
     align-items: center;
 }
 
-header .icono {
+header .logo {
     display: flex;
     align-items: center;
     margin-right: 20px;
-}
-
-header .icono img {
+  }
+  
+header .logo img {
     width: 50px;
     margin-right: 10px;
     transition: transform 0.3s ease;
-}
-
-header .icono img:hover {
-    transform: rotate(20deg);
-}
+  }
+  
+header .salir img {
+    width: 50px;
+    margin-right: 10px;
+  }
+  
+header .logo img:hover {
+    transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
+  }
+  
 
 header h1 {
     font-size: 24px;

@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar</title>
     <link rel="stylesheet" href="Registro.css"> <!--Vincula el css que esta en un codigo externo-->
-    <script src="Registro.js"></script> <!--Vincula el javascript en un codigo externo-->
+    
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -27,7 +28,7 @@
 
     <div id="Box_Formulario"> <!--Id del contenedor principal -->
         <h2>Registro</h2>
-        <form id="Formulario" action="#" method="post">
+        <form id="Formulario" action="Backend_registro/registro.php" method="post">
             <div id="Contenedor">
                 <div class="columnas"> <!--Se separan los campos en dos div para ordenarlos mejor en css-->
                     <label for="username">Nombres:</label>
@@ -40,7 +41,7 @@
                     <input type="text" id="rut" name="rut" placeholder="Ejemplo: 12.345.678-9" required><br><br>
     
                     <label for="genero">Género:</label>
-                    <select id="genero"> <!--Lista de opciones de genero del usuario-->
+                    <select id="genero" name="genero"> <!--Lista de opciones de genero del usuario-->
                         <option label="Masculino"></option>
                         <option label="Femenino"></option>
                         <option label="Otro"></option>
@@ -105,6 +106,6 @@
                 <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
             </div>
     </footer>
-          
+    <script src="Registro.js"></script> <!--Vincula el javascript en un codigo externo-->   
 </body>
 </html>

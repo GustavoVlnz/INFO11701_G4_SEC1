@@ -117,6 +117,22 @@ h1 {
     margin-bottom: 20px; /* Espacio entre la barra de búsqueda y la lista */
 }
 
+/* Animación de zoom cuando el servicio se añade */
+.zoom-in {
+    animation: zoomIn 0.4s ease-out; /* Aplica animación */
+}
+
+/* Definición de la animación */
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.9); /* Empieza con un tamaño ligeramente reducido */
+        opacity: 0.1; /* Inicia invisible */
+    }
+    100% {
+        transform: scale(1); /* Alcanza el tamaño normal */
+        opacity: 1; /* Aparece completamente */
+    }
+}
 
 #favorite-search {
     width: 100%;
@@ -166,14 +182,19 @@ h1 {
 }
 
 #lista-favoritos .servicio {
-    background-color: white;
+    background-color: #f9f9f9; /* Color de fondo suave */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
     margin-bottom: 20px;
     text-align: left;
-    cursor: pointer;
     width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+#lista-favoritos .servicio:hover {
+    transform: scale(1.02); /* Ligera expansión al hacer hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra más intensa */
 }
 
 #lista-favoritos .servicio h3 {
@@ -188,33 +209,39 @@ h1 {
     color: #555;
 }
 
-/* Botón para eliminar */
-.eliminar-servicio {
-    background-color: #dc3545;
+/* Estilo general para todos los botones */
+button, .detalles-servicio {
+    background-color: #007bff;
+    text-decoration: none;
     color: white;
-    padding: 8px 12px;
+    padding: 8px 12px; /* Tamaño consistente */
     border-radius: 4px;
     cursor: pointer;
     border: none;
+    font-size: 14px; /* Tamaño de fuente consistente */
+    display: inline-block;
+    text-align: center;
+}
+
+/* Hover para todos los botones */
+button:hover, .detalles-servicio:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos específicos para el botón de eliminar */
+.eliminar-servicio {
+    background-color: #dc3545;
+    margin-right: 10px; /* Espacio entre botones */
 }
 
 .eliminar-servicio:hover {
     background-color: #c82333;
 }
 
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
+/* Estilos específicos para el botón de detalles */
+.detalles-servicio {
+    background-color: #007bff; /* Mantener el color predeterminado */
 }
-
-button:hover {
-    background-color: #0056b3;
-}
-
 
 /* Footer dinámico que se ajusta según el contenido */
 footer {

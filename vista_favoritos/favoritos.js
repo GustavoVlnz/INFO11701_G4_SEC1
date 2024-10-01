@@ -57,7 +57,7 @@ function renderFavorites() {
     
     favoritos.forEach(service => {
         const div = document.createElement('div');
-        div.classList.add('servicio');
+        div.classList.add('servicio', 'zoom-in');
         
         const nombre = document.createElement('h3');
         nombre.textContent = service.nombre;
@@ -76,16 +76,24 @@ function renderFavorites() {
             removeServiceFromFavorites(service);
         });
 
-        div.addEventListener('click', () => window.location.href = service.url);
+        const verDetallesBtn = document.createElement('a');
+        verDetallesBtn.textContent = "Ver detalles";
+        verDetallesBtn.href = service.url;
+        verDetallesBtn.classList.add('detalles-servicio');
 
         div.appendChild(nombre);
         div.appendChild(proveedor);
         div.appendChild(calificacion);
         div.appendChild(eliminarBtn);
+        div.appendChild(verDetallesBtn);
 
         favoritosList.appendChild(div);
-    });
 
+        // Remover la clase de animación después de que ocurra para permitir animaciones futuras
+        setTimeout(() => {
+            div.classList.remove('zoom-in');
+        }, 400); // Tiempo que dura la animación (0.4s)
+    });
     document.getElementById('no-favorites-message').style.display = favoritos.length ? 'none' : 'block';
 }
 

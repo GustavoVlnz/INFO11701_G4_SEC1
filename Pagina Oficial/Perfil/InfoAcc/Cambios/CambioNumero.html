@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autenticación - Paso 2</title>
-    <link rel="stylesheet" href="Autenticacion.css">
+    <title>Cambiar Número de Teléfono</title>
+    <link rel="stylesheet" href="../../Seguridad/Autenticacion/Autenticacion.css">
 </head>
 <body>
     <header>
@@ -15,11 +15,10 @@
         <nav>
             <a href="/Pagina Oficial/Home/home.html">Inicio</a>
             <a href="/Pagina Oficial/categorias/categorias.html">Servicios</a>
-            <a href="/Pagina Oficial/Perfil/InfoAcc/Info.html">Perfil</a>
         </nav>
         <a href="/Pagina Oficial/Home/home.html">
             <div class="salir">
-                <img src="imagenes/salir.png" alt="Salir">
+                <img src="../../Images/logout.png" alt="Salir">
             </div>
         </a>
     </header>
@@ -28,21 +27,20 @@
         <section class="sidebar">
             <ul>
                 <li><a href="../../InfoAcc/Info.html">Información de la cuenta</a></li>
-                <li><a href="../Seguridad.html">Seguridad</a></li>
-                <li><a href="../../HistorialServ/HistSev.html">Historial servicios</a></li>
+                <li><a href="../../Seguridad/Seguridad.html">Seguridad</a></li>
+                <li><a href="../../HistorialServ/HistSev.html">Historial de servicios</a></li>
             </ul>
         </section>
 
         <section class="info-seguridad">
             <div class="header-seguridad">
-                <h2>Autenticación de dos pasos</h2>
+                <h2>Cambiar Número de Teléfono</h2>
             </div>
-            <div class="seguridad">
-                <p>Introduce el código de verificación que te hemos enviado por correo.</p>
-                <form action="#">
-                    <input id="codigo" type="text" name="codigo" placeholder="Introduce el código" required>
-                    <br><br>
-                    <button id="Boton" type="submit" >Verificar</button>
+            <div >
+                <p>Introduce tu nuevo número de teléfono y presiona "Guardar" para actualizarlo.</p><br>
+                <form action="#" method="POST">
+                    <input type="text" id="telefono" name="telefono" placeholder="+56912345678" required><br><br>
+                    <button id="Boton" type="submit">Guardar</button>
                 </form>
             </div>
         </section>
@@ -70,6 +68,5 @@
             <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
         </div>
     </footer>
-
 </body>
 </html>

@@ -70,7 +70,9 @@
 #Boton:hover {
     background-color: #0277bd;
   }
-#Code,  
+  
+#codigo,
+input[type="text"],
 input[type="email"] {
     width: 50%;
     padding: 10px;

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotografia y Videografia</title>
+    <link rel="stylesheet" href="fyv.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../imagenes/logo.png" alt="Logo Movo">
+            <h1>MOVO</h1>
+        </div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#" class="activo">Servicios</a>
+            <a href="#">Perfil</a>
+        </nav>
+        <div class="salir">
+            <img src="../imagenes/salir.png" alt="Salir">
+        </div>
+    </header>
+
+    <main>
+        <div class="servicios">
+            <div class="servicio">
+                <img src="../imagenes/cobertura_eventos.png" alt="cobertura">
+                <h3>Cobertura Eventos</h3>
+                <p>Precio: $30,000 CLP</p>
+                <button onclick="agregarServicio('Cobertura Eventos', 30.000)">Agregar</button>
+            </div>
+            <div class="servicio">
+                <img src="../imagenes/fotografia_producto.png" alt="producto">
+                <h3>Fotografia Producto</h3>
+                <p>Precio: $20.000 CLP</p>
+                <button onclick="agregarServicio('Fotografia Producto', 20.000)">Agregar</button>
+            </div>
+            <div class="servicio">
+                <img src="../imagenes/fotografia_retrato.png" alt="retrato">
+                <h3>Fotografia Retrato</h3>
+                <p>Precio: $10.000 CLP</p>
+                <button onclick="agregarServicio('Fotografia Retrato', 10.000)">Agregar</button>
+            </div>
+            <div class="servicio">
+                <img src="../imagenes/videografia_corporativa.png" alt="videografia">
+                <h3>Videografia Coporativa</h3>
+                <p>Precio: $15.000 CLP</p>
+                <button onclick="agregarServicio('Videografia Coporativa', 15.000)">Agregar</button>
+            </div>
+        </div>
+
+        <div class="pedido">
+            <h2>Tu Pedido</h2>
+            <ul id="lista-pedido"></ul>
+            <button onclick="window.location.href='carpetaAmigo/confirmacion.html'">Confirmar Pedido</button> <!-- PAGINA DE PAGOOOOOOOOOOOOOOOO -->
+            <button onclick="window.location.href='categorias.html'">Volver a Categorías</button> <!-- BOTON PARA VOLVER A LA PAGINA DE CATEGORIAS -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="contenido-footer">
+            <div class="contacto">
+                <h3>Contacto</h3>
+                <p>Email: contacto@movo.com</p>
+            </div>
+            <div class="redes-sociales">
+                <h3>Redes Sociales</h3>
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">Instagram</a>
+            </div>
+            <div class="info-legal">
+                <h3>Información Legal</h3>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Servicio</a>
+            </div>
+        </div>
+        <div class="copyright_footer">
+            <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="fyv.js"></script>
+</body>
+</html>

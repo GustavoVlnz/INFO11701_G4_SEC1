@@ -27,10 +27,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Configuracion de URLs
 ROOT_URLCONF = 'tu_proyecto.urls'
 
-# Configuracion de plantillas
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -59,7 +58,7 @@ BASES_DE_DATOS = {
     }
 }
 
-# Configuracion de autenticación
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',

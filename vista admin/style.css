@@ -3,9 +3,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Asegura que el body ocupe al menos la altura de la ventana */
 }
 
 h1, h2, h3 {
@@ -94,11 +91,8 @@ footer {
 }
 
 .contenido-footer h3 {
-    color: white; /* Asegúrate de que el color sea visible */
-    margin: 10px 0; /* Espaciado adicional */
-    font-size: 20px; /* Ajusta el tamaño de la fuente si es necesario */
+    margin-top: 0;
 }
-
 
 .contenido-footer p, .contenido-footer a {
     font-size: 18px;
@@ -127,13 +121,12 @@ footer {
 .estructura-admin {
     display: flex;
     margin: 20px;
-    flex-grow: 1; /* Permite que esta sección ocupe el espacio restante */
-    padding-bottom: 20px; /* Espacio para el footer */
+    padding-bottom: 100px; /* Para asegurar que el footer no se superponga */
 }
 
 .sidebar {
     width: 250px;
-    background-color: #569fec; /* Color de fondo más suave */
+    background-color: #569fec; /* Color de fondo mas suave */
     color: #000000;
     padding: 30px;
     border-radius: 8px;
@@ -200,7 +193,7 @@ footer {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 48%; /* Para asegurar que los gráficos se alineen en dos columnas */
+    width: 48%; /* Para asegurar que los graficos se alineen en dos columnas */
     text-align: center;
 }
 
@@ -247,8 +240,8 @@ footer {
 }
 
 .graficos-container {
-    text-align: center; /* Centra el título y el contenido dentro del contenedor */
-    margin-bottom: 30px; /* Espacio debajo del contenedor de gráficos */
+    text-align: center; /* Centra el titulo y el contenido dentro del contenedor */
+    margin-bottom: 30px; /* Espacio debajo del contenedor de graficos */
 }
 
 .graficos-container h3 {
@@ -260,20 +253,34 @@ footer {
 
 .graficos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta el tamaño de las columnas */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta el tamaño de las columnas automáticamente */
+    gap: 20px; /* Espacio entre los gráficos */
     justify-content: center; /* Centra el grid en el contenedor */
     margin: 0 auto; /* Centra el grid en el contenedor */
 }
 
 .grafico {
-    display: flex;
-    justify-content: center; /* Centra el contenido dentro del div del gráfico */
-    align-items: center; /* Alinea el contenido verticalmente en el centro */
+    width: 300px; /* Ajusta el ancho del contenedor del gráfico */
+    height: 300px; /* Ajusta el alto del contenedor del gráfico */
 }
 
+.grafico canvas {
+    width: 100% !important; /* Asegura que ocupe todo el ancho del contenedor */
+    height: 100% !important; /* Asegura que ocupe todo el alto del contenedor */
+}
+
+
 .grafico img {
-    max-width: 60%; /* Ajuste de tamaño de las imágenes para hacerlas más pequeñas */
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
     height: auto; /* Mantiene la proporción de la imagen */
-    border-radius: 8px; /* Opcional: agrega bordes redondeados a las imágenes */
+    border-radius: 8px; /* Opcional: agrega bordes redondeados a las imagenes */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: agrega una sombra sutil a las imágenes */
 }
+
+#graficoContainer {
+    display: flex;
+    justify-content: space-around; /* Espacio alrededor de los gráficos */
+    align-items: center;
+    height: 44vh; /* Altura completa de la vista */
+}
+

@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-
     <header>
         <div class="logo">
             <img src="imagenes/logo.png" alt="Logo Movo">
             <h1>MOVO</h1>
         </div>
         <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Servicios</a>
-            <a href="#" class="activo">Perfil</a>
+            <a href="admin.html">Inicio</a>
+            <a href="perfil.html" class="activo">Perfil</a>
         </nav>
         <div class="salir">
             <img src="imagenes/salir.png" alt="Salir">
@@ -51,17 +50,11 @@
                 </div>
             </div>
 
-            <div class="graficos-container">
-                <h3>Gráficos de ventas</h3>
-                <div class="graficos">
-                    <div class="grafico">
-                        <img src="imagenes/grafica_mensual.png" alt="Grafico de pedidos del mes" style="width: 140%;">
-                    </div>
-                    <div class="grafico">
-                        <img src="imagenes/grafica_anual.png" alt="Grafico de pedidos del año" style="width: 140%;">
-                    </div>
-                </div>
+            <div id="graficoContainer">
+                <canvas id="miGrafico" width="900" height="450"></canvas> <!-- Primer grafico -->
+                <canvas id="graficoSeptiembre" width="900" height="450"></canvas> <!-- Segundo grafico -->
             </div>
+                               
 
             <div class="tabla-datos">
                 <h3>Ultimos 10 Pedidos</h3>
@@ -154,7 +147,6 @@
 
     <footer>
         <div class="contenido-footer">
-            <!-- Sección con información de contacto y redes sociales -->
             <div class="contacto">
                 <h3>Contacto</h3>
                 <p>Email: contacto@movo.com</p>
@@ -171,11 +163,15 @@
                 <a href="#">Términos de Servicio</a>
             </div>
         </div>
-        <!-- Sección de derechos de autor -->
         <div class="copyright_footer">
             <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
         </div>
     </footer>
-    
+
+    <script src="script.js"></script>
+
+    <!-- Cargar Chart.js desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </body>
 </html>

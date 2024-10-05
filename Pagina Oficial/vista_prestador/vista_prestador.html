@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista del Proveedor</title>
+    <link rel="stylesheet" href="vista_prestador.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="/images/icon.jpg" alt="Logo">
+            <h1>Movo</h1>
+        </div>
+        <nav>
+            <a href="/Pagina Oficial/Home/home.html" class="link">Inicio</a>
+            <a href="/Pagina Oficial/Perfil/InfoAcc/Info.html" class="link">Perfil</a>
+        </nav>
+        <a href="/Pagina Oficial/Home/home.html">
+            <div class="salir">
+                <img src="/images/logout.png" alt="Salir">
+            </div>
+        </a>
+    </header>
+
+<div class="container">
+    <div class="detalles_pedido">
+        <h2>Mis Servicios</h2>
+
+        <!-- Lista de servicios ya agregados -->
+        <div id="lista-servicios">
+            <div class="servicio">
+                <h3>Limpieza hogar</h3>
+                <p>Servicio de limpieza completa de la casa, se aceptan solo casas de 1 piso.</p>
+                <p>Precio: $25.000 CLP</p>
+                <button class="boton-eliminar">Eliminar</button>
+                <button class="boton-editar">Editar</button>
+            </div>
+
+            <div class="servicio">
+                <h3>Editor de video</h3>
+                <p>Editor de video profesional para que tus gameplays y demas tipo de contenido sean de calidad.</p>
+                <p>Precio: $35.000 CLP</p>
+                <button class="boton-eliminar">Eliminar</button>
+                <button class="boton-editar">Editar</button>
+            </div>
+        </div>
+
+        <!-- Botón para agregar un nuevo servicio -->
+        <button class="boton-agregar">Agregar Servicio</button>
+    </div>
+</div>
+
+<!-- Formularios emergentes -->
+
+<!-- Formulario para agregar servicio -->
+<div id="form-agregar" class="form-popup">
+    <div class="form-container">
+        <h3>Agregar Nuevo Servicio</h3>
+        <form id="form-agregar-servicio">
+            <label for="nombre-servicio">Nombre del Servicio:</label>
+            <input type="text" id="nombre-servicio" name="nombre-servicio" required>
+
+            <label for="descripcion-servicio">Descripción:</label>
+            <textarea id="descripcion-servicio" name="descripcion-servicio" required></textarea>
+
+            <label for="precio-servicio">Precio:</label>
+            <input type="number" id="precio-servicio" name="precio-servicio" required>
+
+            <button type="submit" class="boton">Agregar</button>
+            <button type="button" class="boton-cerrar">Cerrar</button>
+        </form>
+    </div>
+</div>
+
+<!-- Formulario para eliminar servicio -->
+<div id="form-eliminar" class="form-popup">
+    <div class="form-container">
+        <h3>Eliminar Servicio</h3>
+        <p>¿Por qué deseas eliminar este servicio? (opcional)</p>
+        <textarea id="razon-eliminacion" name="razon-eliminacion"></textarea>
+        <button id="confirmar-eliminacion" class="boton">Aceptar</button>
+        <button type="button" class="boton-cerrar">Cerrar</button>
+    </div>
+</div>
+
+<!-- Formulario para editar servicio -->
+<div id="form-editar" class="form-popup">
+    <div class="form-container">
+        <h3>Editar Servicio</h3>
+        <form id="form-editar-servicio">
+            <label for="editar-nombre-servicio">Nombre del Servicio:</label>
+            <input type="text" id="editar-nombre-servicio" name="editar-nombre-servicio" required>
+
+            <label for="editar-descripcion-servicio">Descripción:</label>
+            <textarea id="editar-descripcion-servicio" name="editar-descripcion-servicio" required></textarea>
+
+            <label for="editar-precio-servicio">Precio:</label>
+            <input type="number" id="editar-precio-servicio" name="editar-precio-servicio" required>
+
+            <button type="submit" class="boton">Guardar Cambios</button>
+            <button type="button" class="boton-cerrar">Cerrar</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <div class="contenido-footer">
+            <!-- Sección con información de contacto y redes sociales -->
+        <div class="contacto">
+            <h3>Contacto</h3>
+            <a href="mailto:Movocompanycontact@gmail.com?Subject=Ingrese%20el%20asunto">Email: Movocompanycontact@gmail.com</a>
+            </div>
+            <div class="redes-sociales">
+                <h3>Redes Sociales</h3>
+                <a href="https://www.facebook.com/profile.php?id=61566403465579" class="social-icon">Facebook</a>
+                <a href="https://x.com/CompanyMovo_inc" class="social-icon">Twitter</a>
+                <a href="https://www.instagram.com/movo_inc/" class="social-icon">Instagram</a>
+            </div>
+        <div class="info-legal">
+            <h3>Información Legal</h3>
+            <a href="/Pagina Oficial/politica y privacidad/politica y privacidad.html">Política de Privacidad</a>
+            <a href="/Pagina Oficial/Registro/terminos.html">Términos de Servicio</a>
+        </div>
+    </div>
+        <!-- Sección de derechos de autor -->
+        <div class="copyright_footer">
+            <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+<script src="vista_prestador.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#Box_Formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  background-color: #3b9aff;
+  width: 50%;
+  height: auto;
+  padding: 20px;
+  border-radius: 10px; /*Redondea los bordes*/
+  margin: auto;
+}
+
+#Contenedor { /*Separa el formulario en dos columnas*/
+    display: flex;
+    justify-content: space-between; /* Distribuye el espacio entre las columnas */
+    width: 100%;
+}
+
+.columnas {
+    width: 48%; 
+    margin-right: 70px; /*Margen respecto del lado derecho*/
+}
+
+.columnas:last-child {
+    margin-right: 0; /*Quita el margen dercho de la ultima columna*/
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"], /*Selecciona los campos de entrada y el select*/
+select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px; /*Redondea los bordes*/
+    margin-bottom: 10px;
+    border: 1px solid #ccc; /*Añade un delgado borde*/
+}
+
+#Final {
+    text-align: center; /*Centra el contenido*/
+    margin-top: 20px;
+}
+
+.terminos-condiciones {
+  display: flex;
+  align-items: center; 
+  margin-bottom: 15px;
+  text-align: left; 
+}
+
+.terminos-condiciones input[type="checkbox"] {
+  margin-right: 10px; 
+}
+
+.terminos-condiciones label {
+  font-size: 14px;
+  color: #333;
+}
+
+.terminos-condiciones a {
+  color: #ffffff;
+  text-decoration: none; 
+}
+
+.terminos-condiciones a:hover {
+  text-decoration: underline; 
+}
+
+#BtnRegistro {
+    width: 50%;
+    padding: 10px;
+    background-color: #0288d1;
+    color: white;
+    font-size: 16px;
+    border: none; /*Le quita el borde*/
+    border-radius: 8px; /*Redondea los bordes*/
+    cursor: pointer; /*Cambia el estilo del mouse al pasar por encima*/
+}
+
+#BtnRegistro:hover {
+    background-color: #0277bd; /*Cambia el color del boton al pasar el mouse encima*/
+}
+
+#login-link {
+    display: block; /*Hace que el link ocupe todo el espacio disponible en su línea(ancho)*/
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;/* Elimina la decoración de subrayado que viene por defecto */
+}
+
+#login-link:hover {
+    text-decoration: underline; /*Agrega el subrayado de nuevo, pero solo cuando pasa el mouse encima*/
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold; /*convierte el texto en negrita*/
+    text-align: center;
+}
+
+#mensaje-error {
+  font-size: larger;
+  font-weight: bold;
+  color: rgb(255, 0, 0);
+  padding-bottom: 20px;
+}
+
+
+/*Estilos del header*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: white;
+  border-bottom: 2px solid #eaeaea;
+}
+
+.header-content {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+header .logo img {
+  width: 50px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+header .salir img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+header .logo img:hover {
+  transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
+}
+
+header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+nav a.active {
+  color: #007bff;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #0056b3;
+}
+
+/* Estilos del footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  margin-top: 40px;
+  bottom: 0; /* Añade un margen superior para separar el footer del contenido */
+  left: 0;
+  margin-top: auto;
+}
+
+
+
+.contenido-footer {
+    display: flex; /* Utiliza flexbox para organizar los elementos hijos dentro del footer */
+    justify-content: space-around;/* Distribuye el espacio restante de forma equitativa entre los elementos */
+}
+
+.contenido-footer div {
+    flex: 1;/* Cada div dentro de .contenido-footer ocupará el mismo ancho disponible */
+    margin: 0 10px;/* Margen horizontal entre los divs */
+}
+
+.contenido-footer h3 {
+    margin-top: 0;/* Elimina el margen superior de los encabezados dentro del footer */
+}
+
+.contenido-footer p, .contenido-footer a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;/* Elimina el subrayado de los enlaces por defecto */
+    display: block;/* Los convierte en elementos de bloque para que ocupen todo el ancho disponible */
+    margin-bottom: 5px;/* Añade margen inferior para separarlos visualmente */
+}
+
+.contenido-footer a:hover {
+    text-decoration: underline;/* Agrega un subrayado cuando se pasa el mouse sobre los enlaces */
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;/* Añade una línea superior al footer para separarlo del contenido principal */
+}

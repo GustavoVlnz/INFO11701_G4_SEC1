@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     
@@ -54,16 +55,9 @@
                 </div>
             </div>
 
-            <div class="graficos-container">
-                <h3>Gráficos de ventas</h3>
-                <div class="graficos">
-                    <div class="grafico">
-                        <img src="imagenes/grafica_mensual.png" alt="Grafico de pedidos del mes" style="width: 140%;">
-                    </div>
-                    <div class="grafico">
-                        <img src="imagenes/grafica_anual.png" alt="Grafico de pedidos del año" style="width: 140%;">
-                    </div>
-                </div>
+            <div id="graficoContainer">
+                <canvas id="miGrafico" width="900" height="450"></canvas> <!-- Primer grafico -->
+                <canvas id="graficoSeptiembre" width="900" height="450"></canvas> <!-- Segundo grafico -->
             </div>
 
             <div id="datos" class="datos">

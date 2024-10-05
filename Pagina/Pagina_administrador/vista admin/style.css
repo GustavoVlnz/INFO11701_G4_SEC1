@@ -188,23 +188,23 @@ nav a:hover {
     color: white;
 }
 
-/* Gráficos */
+/* Graficos */
 .graficos-container {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.graficos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+#graficoContainer {
+    display: flex;
+    justify-content: center; /* Centrar los gráficos en una sola fila */
+    gap: 50px; /* Espacio entre los gráficos */
+    margin: 20px 0;
 }
 
-.grafico img {
-    max-width: 60%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+#graficoContainer canvas {
+    max-width: 550px; /* Limita el tamaño máximo de los gráficos */
+    width: 50%; /* Asegura que los gráficos se ajusten al tamaño de su contenedor */
+    height: 100px; /* Ajuste automático de la altura */
 }
 
 /* Servicios PyMEs */

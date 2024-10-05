@@ -1,0 +1,188 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: white;
+    border-bottom: 2px solid #eaeaea;
+}
+
+.header-content {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+header .logo img:hover {
+    transform: rotate(20deg);
+}
+.salir img {
+    width: 50px;
+}
+
+nav {
+    display: flex;
+    justify-content: center; /* Centra las pestañas horizontalmente */
+    flex-grow: 1;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav a.active {
+    color: #007bff;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #0056b3;
+}
+
+.CerrarSesion img {
+    width: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.CerrarSesion img:hover {
+    transform: scale(1.2);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1200px; /* Ancho máximo del contenedor principal */
+    margin: 0 auto; /* Centrar el contenedor en la pantalla */
+}
+
+.Ventana {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.Ventana img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.Ventana h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.category{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 15px; /* Aumenta el padding para más espacio interno */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Añade transición para la sombra */
+    gap: 15px; /* Espacio entre imagen y texto */
+}
+
+.category img {
+    width: 60px; /* Tamaño de la imagen */
+    height: 60px;
+    border-radius: 10%; /* Redondear la imagen */
+}
+
+.category:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Efecto de sombra más intenso al pasar el ratón */
+    border: 2px solid #007bff; /* Borde azul al pasar el ratón */
+}
+
+/* Efecto de texto al pasar el ratón */
+.category span {
+    color: #333; /* Color del texto */
+    font-weight: bold; /* Hacer el texto en negrita */
+    transition: color 0.3s ease; /* Transición para el color */
+}
+
+.category:hover span {
+    color: #000000; /* Cambia el color del texto al azul al pasar el ratón */
+}
+
+/* Estilo del footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.contenido-footer {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contenido-footer div {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.contenido-footer h3 {
+    margin-top: 0;
+}
+
+.contenido-footer p, .contenido-footer a {
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contenido-footer a:hover {
+    text-decoration: underline;
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+}
+
+.social-icon {
+    color: rgb(254, 254, 254);
+}
+
+.info-legal a {
+    color: rgb(254, 254, 254);
+}

@@ -1,0 +1,117 @@
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Times New Roman", Times, serif;
+}
+
+#Box_Formulario {
+  background-color: #3b9aff;
+  width: 50%;
+  height: auto;
+  padding: 20px;
+  border-radius: 10px; /*Redondea los bordes*/
+  margin: auto;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"], /*Selecciona los campos de entrada y el select*/
+select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px; /*Redondea los bordes*/
+    margin-bottom: 10px;
+    border: 1px solid #ccc; /*Añade un delgado borde*/
+}
+
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px; 
+    text-align: center;
+}
+
+#terminos,
+#Login-link {
+  color: white;
+  text-decoration: none;
+}
+
+#terminos a:hover,
+#Login-link a:hover {
+  text-decoration: underline;
+}
+
+/*Estilos del header*/
+
+header #logo {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+header #logo img,
+header #logo-salir img {
+  width: 50px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+header #logo img:hover,
+header #logo-salir img:hover {
+  transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
+}
+
+header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+nav a.active {
+  color: #007bff;
+}
+
+nav a:hover {
+  color: #0056b3;
+}
+
+/* Estilos del footer */
+footer {
+  background-color: #333;
+
+}
+
+.contenido-footer h3 {
+    margin-top: 0;/* Elimina el margen superior de los encabezados dentro del footer */
+}
+
+.contenido-footer  {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;/* Elimina el subrayado de los enlaces por defecto */
+    margin-bottom: 5px;/* Añade margen inferior para separarlos visualmente */
+}
+
+.col-md-4  a:hover {
+    text-decoration: underline;/* Agrega un subrayado cuando se pasa el mouse sobre los enlaces */
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;/* Añade una línea superior al footer para separarlo del contenido principal */
+}

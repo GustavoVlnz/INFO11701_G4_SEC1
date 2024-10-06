@@ -77,7 +77,6 @@ body {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      font-family: Arial, sans-serif;
     }
     
   /*Estilos del header*/

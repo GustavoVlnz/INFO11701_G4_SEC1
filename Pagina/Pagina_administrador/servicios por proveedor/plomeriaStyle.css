@@ -1,0 +1,175 @@
+/* estilos.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+/* Estilo del encabezado principal */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+header .icono {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+header .icono img {
+    width: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+header .icono img:hover {
+    transform: rotate(20deg);
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav a.activo {
+    color: #007bff;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #0056b3;
+}
+
+.nav-link.inicio:hover, 
+.nav-link.perfil:hover {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.salir {
+    margin-left: auto;
+}
+
+.salir img {
+    width: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.salir img:hover {
+    transform: scale(1.2);
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Estilo para la sección de proveedores */
+#proveedores {
+    width: 100%;
+    padding: 10px;
+}
+
+.tarjeta-proveedor {
+    width: 80%; /* Ancho reducido al 80% */
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 10px auto; /* Margen superior/inferior de 10px y centrado horizontal con auto */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Estilo para los textos dentro de cada tarjeta */
+.tarjeta-proveedor h2 {
+    margin-top: 0;
+}
+
+.tarjeta-proveedor p {
+    margin: 5px 0;
+}
+button.ver-detalles {
+    background-color: #39B6FF;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button.ver-detalles:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.contenido-footer {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contenido-footer div {
+    margin: 0 20px;
+}
+
+.contenido-footer h3 {
+    margin-top: 0;
+}
+
+.contenido-footer p, .contenido-footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.contenido-footer a:hover {
+    text-decoration: underline;
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+}
+.info-legal a {
+    display: block;
+    margin-bottom: 5px; 
+}

@@ -24,6 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $sql . "<br>" . $db->error; #Si no funciona, enseña el error
     }
 
+    if ($rol == 'empresa'){
+        header("Location:../../Verificacion/FormVer.html");
+        exit();
+}
     // Cierra la conexion una vez insertados los datos
     $db->close();
 }

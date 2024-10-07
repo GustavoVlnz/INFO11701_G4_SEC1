@@ -21,39 +21,11 @@ header {
     padding: 20px 30px;
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-<<<<<<<< HEAD:PagoCarrito/PagoCarrito.css
 }
 
 .header-content {
     display: flex;
     align-items: center;
-========
->>>>>>>> Alex:Pagina/Pagina_administrador/PagoCarrito/PagoCarrito.css
-}
-
-.header-content {
-    display: flex;
-    align-items: center;
-<<<<<<<< HEAD:PagoCarrito/PagoCarrito.css
-    margin-right: 20px;
-  }
-  
-header .logo img {
-    width: 50px;
-    margin-right: 10px;
-    transition: transform 0.3s ease;
-  }
-  
-header .salir img {
-    width: 50px;
-    margin-right: 10px;
-  }
-  
-header .logo img:hover {
-    transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
-  }
-  
-========
 }
 
 header .icono {
@@ -71,7 +43,6 @@ header .icono img {
 header .icono img:hover {
     transform: rotate(20deg);
 }
->>>>>>>> Alex:Pagina/Pagina_administrador/PagoCarrito/PagoCarrito.css
 
 header h1 {
     font-size: 24px;

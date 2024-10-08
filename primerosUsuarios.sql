@@ -1,15 +1,15 @@
 CREATE TABLE IF NOT EXISTS usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
+    nombres VARCHAR(50) NOT NULL,
     apellidos VARCHAR(100) NOT NULL,
     rut VARCHAR(12) NOT NULL UNIQUE,
     genero ENUM("Masculino", "Femenino", "Otro") NOT NULL,
-    correo_electronico VARCHAR(100) NOT NULL UNIQUE,
-    contraseña VARCHAR(255) NOT NULL,
-    tipo_usuario ENUM("cliente", "administrador", "proveedor") NOT NULL
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    rol ENUM("cliente", "administrador", "proveedor") NOT NULL
 );
 
-INSERT INTO usuarios (nombre, apellidos, rut, genero, correo_electronico, contraseña, tipo_usuario) VALUES
+INSERT INTO usuarios (nombres, apellidos, rut, genero, email, password, rol) VALUES
 ("Juan", "Pérez García", "12345678-9", "Masculino", "juan.perez@gmail.com", MD5("contraseña123"), "cliente"),
 ("Ana", "López Díaz", "98765432-1", "Femenino", "ana.lopez@gmail.com", MD5("contraseña123"), "cliente"),
 ("Carlos", "Fernández Soto", "12312312-3", "Masculino", "carlos.fernandez@gmail.com", MD5("contraseña123"), "proveedor"),

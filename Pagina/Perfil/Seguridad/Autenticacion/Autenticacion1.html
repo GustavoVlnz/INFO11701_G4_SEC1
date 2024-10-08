@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autenticación - Paso 2</title>
+    <title>Autenticación - Paso 1</title>
     <link rel="stylesheet" href="Autenticacion.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
         </nav>
         <a href="/Pagina Oficial/Home/home.html">
             <div class="salir">
-                <img src="imagenes/salir.png" alt="Salir">
+                <img src="../../Images/logout.png" alt="Salir">
             </div>
         </a>
     </header>
@@ -29,7 +29,7 @@
             <ul>
                 <li><a href="../../InfoAcc/Info.html">Información de la cuenta</a></li>
                 <li><a href="../Seguridad.html">Seguridad</a></li>
-                <li><a href="../../HistorialServ/HistSev.html">Historial de servicios</a></li>
+                <li><a href="../../HistorialServ/HistSev.html">Historial servicios</a></li>
             </ul>
         </section>
 
@@ -38,11 +38,11 @@
                 <h2>Autenticación de dos pasos</h2>
             </div>
             <div class="seguridad">
-                <p>Introduce el código de verificación que te hemos enviado por correo.</p>
-                <form action="#">
-                    <input id="codigo" type="text" name="codigo" placeholder="Introduce el código" required>
+                <p>Introduce el correo para enviarte un correo y activar la autenticación de dos pasos.</p>
+                <form action="Autenticacion2.html" method="GET">
+                    <input type="email" name="correo" placeholder="Introduce tu correo" required>
                     <br><br>
-                    <button id="Boton" type="submit" >Verificar</button>
+                    <button id="Boton" type="submit">Enviar</button>
                 </form>
             </div>
         </section>

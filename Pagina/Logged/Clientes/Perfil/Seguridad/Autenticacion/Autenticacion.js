@@ -1,4 +1,4 @@
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 // Inicializa EmailJS con tu User ID
 (function () {
     emailjs.init('yznFfV3mCG_WiP22y'); // Sustituye por tu User ID de EmailJS

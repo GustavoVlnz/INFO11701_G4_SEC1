@@ -1,0 +1,371 @@
+/* General Styles */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+/* Estilo del encabezado principal */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+header .icono {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+header .icono img {
+    width: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+header .icono img:hover {
+    transform: rotate(20deg);
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav a.activo {
+    color: #007bff;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #0056b3;
+}
+
+.nav-link.inicio:hover, 
+.nav-link.perfil:hover {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.salir {
+    margin-left: auto;
+}
+
+.salir img {
+    width: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.salir img:hover {
+    transform: scale(1.2);
+}
+
+/* Horizontal Sidebar */
+.horizontal-menu {
+    display: flex;
+    justify-content: center;
+    background-color: #39B6FF;
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.horizontal-menu ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.horizontal-menu ul li {
+    margin: 0 20px;
+}
+
+.horizontal-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.horizontal-menu ul li a:hover {
+    background-color: #fff;
+    color: #000;
+    border-radius: 4px;
+}
+
+.horizontal-menu .icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 8px;
+}
+
+/* Main Content */
+.contenido-principal {
+    flex-grow: 1;
+    background-color: #f1f3f5;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.contenido-principal h2{
+    text-align: center;
+}
+
+.widgets {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.widget {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 48%;
+    text-align: center;
+}
+
+.datos {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.datos table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.datos th, .datos td {
+    border: 1px solid #eaeaea;
+    padding: 10px;
+    text-align: left;
+}
+
+.datos th {
+    background-color: #39B6FF;
+    color: white;
+}
+
+/* Graficos */
+.graficos-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#graficoContainer {
+    display: flex;
+    justify-content: center; /* Centrar los gráficos en una sola fila */
+    gap: 50px; /* Espacio entre los gráficos */
+    margin: 20px 0;
+}
+
+#graficoContainer canvas {
+    max-width: 550px; /* Limita el tamaño máximo de los gráficos */
+    width: 50%; /* Asegura que los gráficos se ajusten al tamaño de su contenedor */
+    height: 100px; /* Ajuste automático de la altura */
+}
+
+/* Servicios PyMEs */
+#servicios-pymes {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#servicios-pymes h2 {
+    text-align: center;
+    color: #333;
+}
+
+.servicio {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+.servicio h3 {
+    margin: 0;
+    color: #000;
+}
+
+.servicio p {
+    margin: 5px 0;
+    color: #7f8c8d;
+}
+
+.detalles-btn {
+    background-color: #39B6FF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.detalles-btn:hover {
+    background-color: #0056b3;
+}
+
+.detalles {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+}
+
+#reportes-usuarios {
+    max-width: 800px;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#reportes-usuarios h2 {
+    text-align: center;
+    color: #333;
+}
+
+.reporte {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+.reporte h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #000000;
+}
+
+.reporte p {
+    margin: 5px 0;
+    color: #7f8c8d;
+}
+
+.estado-reporte-btn {
+    background-color: #39B6FF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.estado-reporte-btn:hover {
+    background-color: #3498db;
+}
+
+.estado-reporte {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+}
+
+.estado-reporte p {
+    margin: 5px 0;
+    color: #34495e;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.contenido-footer {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contenido-footer div {
+    margin: 0 20px;
+}
+
+.contenido-footer h3 {
+    margin-top: 0;
+}
+
+.contenido-footer p, .contenido-footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.contenido-footer a:hover {
+    text-decoration: underline;
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+}
+.info-legal a {
+    display: block;
+    margin-bottom: 5px; 
+}

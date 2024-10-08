@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "usuario";
-$password = "contraseña";
-$dbname = "movo";
+$servername = "db.inf.uct.cl";
+$username = "acarrasco";
+$password = "Hellovro2019@";
+$dbname = "A2024_acarrasco";
 
 $db = new mysqli($servername, $username, $password, $dbname);
 

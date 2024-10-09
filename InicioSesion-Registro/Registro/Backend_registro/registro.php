@@ -11,11 +11,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $rut = $_POST['rut'];
     $genero = $_POST['genero'];
     $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Encriptar la contraseña
+    $password = $_POST['password'];
     $rol = $_POST['Rol'];
 
     // Consulta SQL para insertar los datos en la base de datos
-    $sql = "INSERT INTO usuarios (Nombres, Apellidos, IDuser, genero, Correo, password, rol) 
+    $sql = "INSERT INTO usuarios (nombres, apellidos, rut, genero, email, password, rol) 
             VALUES ('$nombres', '$apellidos', '$rut', '$genero', '$email', '$password', '$rol')";
 
     if ($db->query($sql) === TRUE) { #Verifica si se subieron los datos correctamente
@@ -24,6 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $sql . "<br>" . $db->error; #Si no funciona, enseña el error
     }
 
+    if ($rol == 'empresa'){
+        header("Location:../../Verificacion/FormVer.html");
+        exit();
+}
     // Cierra la conexion una vez insertados los datos
     $db->close();
 }

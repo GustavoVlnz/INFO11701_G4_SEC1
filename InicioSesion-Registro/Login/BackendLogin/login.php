@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['rol'] = $rol;
 
             // Redirigir al usuario a la página de inicio
-            header("Location: ../../Logged/Clientes/HomeLogeado/home.html");
+            header("Location: ../../../Logged/Clientes/HomeLogeado/home.html");
             exit();
         } else {
             // Usuario no encontrado o contraseña incorrecta

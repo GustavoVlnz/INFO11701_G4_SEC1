@@ -2,7 +2,7 @@
 
 include 'conexion.php'; // Hace la conexion con la base de datos
 
-// Verificar si el formulario ha sido enviado
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Recibe los datos del formulario
@@ -14,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Encriptar la contraseña
     $rol = $_POST['Rol'];
 
-    // Consulta SQL para insertar los datos en la base de datos
     $sql = "INSERT INTO usuarios (Nombres, Apellidos, IDuser, genero, Correo, password, rol) 
             VALUES ('$nombres', '$apellidos', '$rut', '$genero', '$email', '$password', '$rol')";
 

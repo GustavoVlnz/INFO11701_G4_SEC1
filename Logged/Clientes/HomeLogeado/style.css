@@ -473,17 +473,18 @@ form input:focus, form select:focus, form textarea:focus {/*pseudoclase que se a
     margin-bottom: 15px;
     background-color: #f9f9f9;
     padding: 15px;
-    border-radius: 8px; /* Bordes redondeados para las tarjetas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra de tarjeta */
-    display: flex; /* Para alinear la imagen y el texto horizontalmente */
-    align-items: center; /* Centrar verticalmente la imagen y el texto */
-    transition: transform 0.3s ease; /* Animación al pasar el mouse */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+    margin-right: 20px; /* Añade espacio horizontal entre las tarjetas */
 }
 
 .botones-cuenta img {
-    width: 40px; /* Tamaño de la imagen */
-    height: 40px; /* Asegura que sea cuadrada */
-    margin-right: 15px; /* Espacio entre la imagen y el texto */
+    width: 40px;
+    height: 40px;
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
 }
 
 .botones-cuenta a {

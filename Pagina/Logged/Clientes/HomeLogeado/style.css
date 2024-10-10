@@ -468,3 +468,40 @@ form input:focus, form select:focus, form textarea:focus {/*pseudoclase que se a
     cursor: pointer; 
     transition: background-color 0.3s ease;
 }
+
+.botones-cuenta {
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+    margin-right: 20px; /* Añade espacio horizontal entre las tarjetas */
+}
+
+.botones-cuenta img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
+}
+
+.botones-cuenta a {
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.botones-cuenta a:hover {
+    color: #37b5ff;
+}
+
+.botones-cuenta a img {
+    vertical-align: middle;
+}
+
+.botones-cuenta:hover {
+    transform: scale(1.05); /* Efecto de agrandar la tarjeta al pasar el mouse */
+}

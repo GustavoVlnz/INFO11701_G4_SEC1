@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($rol == 'empresa'){
-        header("Location:../../Verificacion/FormVer.html");
+        header("Location:../../../Logged/Clientes/HomeLogeado/home.html");
         exit();
 }
     // Cierra la conexion una vez insertados los datos

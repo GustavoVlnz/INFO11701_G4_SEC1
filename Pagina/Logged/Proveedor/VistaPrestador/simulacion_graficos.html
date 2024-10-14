@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas del Proveedor</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Estadísticas del Proveedor</h1>
+
+    <div class="chart-container">
+        <canvas id="pedidosChart" height="200"></canvas>
+        <canvas id="ingresosChart" height="200"></canvas>
+        <canvas id="calificacionesChart" height="200"></canvas>
+    </div>
+
+    <script>
+        // Obtener datos del servidor
+        fetch('Solicitud_datos.php')
+        .then(response => response.json())
+        .then(data => {
+            // Gráfico de Pedidos
+            new Chart(document.getElementById('pedidosChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Total Pedidos'],
+                    datasets: [{
+                        label: 'Pedidos Hechos',
+                        data: [data.total_pedidos],
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+
+            // Gráfico de Ingresos
+            new Chart(document.getElementById('ingresosChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Ingresos Totales'],
+                    datasets: [{
+                        label: 'Ingresos ($)',
+                        data: [data.ingresos_totales],
+                        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+
+            // Gráfico de Calificaciones
+            const calificacionesLabels = data.calificaciones.map(c => c.producto);
+            const calificacionesData = data.calificaciones.map(c => c.promedio_calificacion);
+            new Chart(document.getElementById('calificacionesChart'), {
+                type: 'bar',
+                data: {
+                    labels: calificacionesLabels,
+                    datasets: [{
+                        label: 'Calificación Promedio',
+                        data: calificacionesData,
+                        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+        })
+        .catch(error => console.error('Error al obtener datos:', error));
+    </script>
+</body>
+</html>

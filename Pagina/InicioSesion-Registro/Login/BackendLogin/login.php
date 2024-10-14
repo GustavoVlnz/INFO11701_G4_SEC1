@@ -1,48 +1,45 @@
 <?php
 session_start(); // Iniciar la sesión
+include 'conexion.php'; // Asegúrate de que 'conexion.php' conecta bien a la BD
 
-include 'conexion.php'; // Asegúrate de que 'conexion.php' establece la conexión a la base de datos correctamente
+header('Content-Type: application/json'); // Establecer la respuesta como JSON
 
-$error = ''; // Variable para almacenar el mensaje de error
-$executionError = ''; // Variable para almacenar errores de ejecución
+$error = ''; // Variable para errores lógicos
+$executionError = ''; // Variable para errores de ejecución
 
-// Establecer modo de error
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Esto permite que se lancen excepciones para errores de MySQLi
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Para capturar excepciones
 
-// Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
     try {
-        // Consulta para verificar el email y la contraseña, y obtener el rol del usuario
-        $sql = "SELECT rol FROM usuarios WHERE email = ? AND password = ?";
-        $stmt = $db->prepare($sql); // Cambiar $conn a $db
-        $stmt->bind_param("ss", $email, $password); // Vincular los parámetros
+        // Consulta para verificar usuario y contraseña
+        $sql = "SELECT rol FROM usuariosMOVO WHERE email = ? AND password = ?";
+        $stmt = $db->prepare($sql);
+        $stmt->bind_param("ss", $email, $password);
         $stmt->execute();
         $stmt->store_result();
         
-        // Si se encuentra el usuario en la base de datos
         if ($stmt->num_rows > 0) {
-            $stmt->bind_result($rol); // Obtener el rol del usuario
+            $stmt->bind_result($rol);
             $stmt->fetch();
 
-            // Asignar el rol a la sesión
+            // Guardar rol en la sesión
             $_SESSION['rol'] = $rol;
 
-            // Redirigir al usuario a la página de inicio
-            header("Location: ../../../Logged/Clientes/HomeLogeado/home.html");
-            exit();
+            // Devolver respuesta de éxito
+            echo json_encode(['success' => true, 'message' => 'Inicio de sesión exitoso.']);
         } else {
-            // Usuario no encontrado o contraseña incorrecta
-            $error = "Correo o contraseña incorrectos."; // Almacenar el mensaje de error
+            // Usuario no encontrado
+            echo json_encode(['success' => false, 'message' => 'Correo o contraseña incorrectos.']);
         }
     } catch (Exception $e) {
-        // Capturar errores de ejecución y almacenarlos en la variable $executionError
-        $executionError = "Error en la ejecución: " . $e->getMessage();
+        // Capturar errores de ejecución
+        echo json_encode(['success' => false, 'message' => 'Error: ' . $e->getMessage()]);
     }
 
     $stmt->close();
-    $db->close(); // Cambiar $conn a $db
+    $db->close();
 }
 ?>

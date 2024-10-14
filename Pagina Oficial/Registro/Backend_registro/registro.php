@@ -26,4 +26,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Cierra la conexion una vez insertados los datos
     $db->close();
 }
-?>

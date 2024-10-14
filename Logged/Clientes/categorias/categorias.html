@@ -4,81 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categorías de Servicios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-..." crossorigin="anonymous">
     <link rel="stylesheet" href="categorias.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="/images/icon.jpg" alt="Logo">
-            <h1>Movo</h1>
+    <header class="d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
+        <div class="d-flex align-items-center" id="logo">
+          <img src="logo.png" alt="Logo Movo" class="me-2" ">
+          <h1 class="m-0">MOVO</h1>
         </div>
         <nav>
-            <a href="../HomeLogeado/home.html" class="link">Inicio</a>
-            <a href="../../verificador.php" class="link">Perfil</a>
+          <a href="../../HomeSinLogear/home.html" >Inicio</a>
+          <a href="../../../Logged/Clientes/Perfil/InfoAcc/Info.html" >Perfil</a>
         </nav>
-        <a href="../../../HomeSinLogear/home.html">
-            <div class="salir">
-                <img src="/images/logout.png" alt="Salir">
-            </div>
-        </a>
+        <div id="logo-salir">
+          <img src="Images/logout.png" alt="Salir" style="width: 50px;">
+        </div>
     </header>
 
-    <div id="Lista_categoria">
-        <div class="category">
-            <img src="./images/hogar.png" alt="Hogar y Reparaciones">
-            <a href="../hacer pedido/hogar y reparaciones/codigos/hyr.html">Hogar y Reparaciones</a>
-        </div>
-        <div class="category">
-            <img src="./images/calendario.jpg" alt="Eventos y Entretenimiento">
-            <a href="../hacer pedido/eventos y entretenimiento/codigos/eye.html">Eventos y Entretenimiento</a>
-        </div>
-        <div class="category">
-            <img src="./images/camara.png" alt="Fotografía y Videografía">
-            <a href="../hacer pedido/fotografia y videografia/codigos/fyv.html">Fotografía y Videografía</a>
-        </div>
-        <div class="category">
-            <img src="/images/tecnologia.png" alt="Tecnología y Desarrollo">
-            <a href="../hacer pedido/categorias/tecnologia y desarrollo/codigos/tyd.html">Tecnología y Desarrollo</a>
-        </div>
-        <div class="category">
-            <img src="./images/salud.png" alt="Salud y Bienestar">
-            <a href="../hacer pedido/salud y bienestar/codigos/syb.html">Salud y Bienestar</a>
-        </div>
-        <div class="category">
-            <img src="./images/limpieza.png" alt="Limpieza y Mantenimiento">
-            <a href="../hacer pedido/limpieza y mantenimiento/codigos/lym.html">Limpieza y Mantenimiento</a>
-        </div>
-        <div class="category">
-            <img src="./images/transporte.png" alt="Transporte y Mudanza">
-            <a href="../hacer pedido/transporte y mudanza/codigos/tym.html">Transporte y Mudanza</a>
-        </div>
-        <div class="category">
-            <img src="./images/consultoria.png" alt="Consultoría y Asesoría">
-            <a href="../hacer pedido/consultoria y asesoria/codigos/cya.html">Consultoría y Asesoría</a>
+    <div class="container my-4">
+        <div id="Lista_categoria" class="row">
+            <div class="col-md-6 mb-4">
+                <div class="category d-flex align-items-center p-3 shadow-sm rounded bg-white">
+                    <img src="./images/hogar.png" alt="Hogar y Reparaciones" class="rounded-circle" width="60" height="60">
+                    <a href="../hacer pedido/hogar y reparaciones/codigos/hyr.html" class="ms-3 text-decoration-none text-dark fw-bold">Hogar y Reparaciones</a>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="category d-flex align-items-center p-3 shadow-sm rounded bg-white">
+                    <img src="./images/calendario.jpg" alt="Eventos y Entretenimiento" class="rounded-circle" width="60" height="60">
+                    <a href="../hacer pedido/eventos y entretenimiento/codigos/eye.html" class="ms-3 text-decoration-none text-dark fw-bold">Eventos y Entretenimiento</a>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="category d-flex align-items-center p-3 shadow-sm rounded bg-white">
+                    <img src="./images/camara.png" alt="Fotografía y Videografía" class="rounded-circle" width="60" height="60">
+                    <a href="../hacer pedido/fotografia y videografia/codigos/fyv.html" class="ms-3 text-decoration-none text-dark fw-bold">Fotografía y Videografía</a>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="category d-flex align-items-center p-3 shadow-sm rounded bg-white">
+                    <img src="/images/tecnologia.png" alt="Tecnología y Desarrollo" class="rounded-circle" width="60" height="60">
+                    <a href="../hacer pedido/categorias/tecnologia y desarrollo/codigos/tyd.html" class="ms-3 text-decoration-none text-dark fw-bold">Tecnología y Desarrollo</a>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="category d-flex align-items-center p-3 shadow-sm rounded bg-white">
+                    <img src="./images/salud.png" alt="Salud y Bienestar" class="rounded-circle" width="60" height="60">
+                    <a href="../hacer pedido/salud y bienestar/codigos/syb.html" class="ms-3 text-decoration-none text-dark fw-bold">Salud y Bienestar</a>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="category d-flex align-items-center p-3 shadow-sm rounded bg-white">
+                    <img src="./images/limpieza.png" alt="Limpieza y Mantenimiento" class="rounded-circle" width="60" height="60">
+                    <a href="../hacer pedido/limpieza y mantenimiento/codigos/lym.html" class="ms-3 text-decoration-none text-dark fw-bold">Limpieza y Mantenimiento</a>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="category d-flex align-items-center p-3 shadow-sm rounded bg-white">
+                    <img src="./images/transporte.png" alt="Transporte y Mudanza" class="rounded-circle" width="60" height="60">
+                    <a href="../hacer pedido/transporte y mudanza/codigos/tym.html" class="ms-3 text-decoration-none text-dark fw-bold">Transporte y Mudanza</a>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="category d-flex align-items-center p-3 shadow-sm rounded bg-white">
+                    <img src="./images/consultoria.png" alt="Consultoría y Asesoría" class="rounded-circle" width="60" height="60">
+                    <a href="../hacer pedido/consultoria y asesoria/codigos/cya.html" class="ms-3 text-decoration-none text-dark fw-bold">Consultoría y Asesoría</a>
+                </div>
+            </div>
         </div>
     </div>
+    
 
-    <footer>
-        <div class="contenido-footer">
-            <div class="contacto">
-                <h3>Contacto</h3>
-                <a href="mailto:Movocompanycontact@gmail.com?Subject=Ingrese%20el%20asunto">Email: Movocompanycontact@gmail.com</a>
+    <footer class=" text-white text-center py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Contacto</h3>
+                    <p>Email: contacto@movo.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Redes Sociales</h3>
+                    <a href="https://www.facebook.com/profile.php?id=61566403465579" class="contenido-footer">Facebook</a><br>
+                    <a href="https://x.com/CompanyMovo_inc" class="contenido-footer">Twitter</a><br>
+                    <a href="https://www.instagram.com/movo_inc/" class="contenido-footer">Instagram</a>
+                </div>
+                <div class="col-md-4 ">
+                    <h3>Información Legal</h3>
+                    <a href="../politica y privacidad/politica y privacidad.html" class="contenido-footer">Política de Privacidad</a><br>
+                    <a href="./terminos.html" class="contenido-footer">Términos de Servicio</a>
+                </div>
             </div>
-            <div class="redes-sociales">
-                <h3>Redes Sociales</h3>
-                <a href="https://www.facebook.com/profile.php?id=61566403465579" class="social-icon">Facebook</a>
-                <a href="https://x.com/CompanyMovo_inc" class="social-icon">Twitter</a>
-                <a href="https://www.instagram.com/movo_inc/" class="social-icon">Instagram</a>
-            </div>
-            <div class="info-legal">
-                <h3>Información Legal</h3>
-                <a href="../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html">Política de Privacidad</a>
-                <a href="../../../InicioSesion-Registro/Registro/terminos.html">Términos de Servicio</a>
-            </div>
-        </div>
-        <!-- Sección de derechos de autor -->
-        <div class="copyright_footer">
-            <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
+            <p class="mt-3">&copy; 2024 MOVO. Todos los derechos reservados.</p>
         </div>
     </footer>
 

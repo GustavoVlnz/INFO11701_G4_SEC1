@@ -14,17 +14,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Encriptar la contraseña
     $rol = $_POST['Rol'];
 
-    // Consulta SQL para insertar los datos en la base de datos
-    $sql = "INSERT INTO usuarios (Nombres, Apellidos, IDuser, genero, Correo, password, rol) 
-            VALUES ('$nombres', '$apellidos', '$rut', '$genero', '$email', '$password', '$rol')";
+    // Verificar si el IDuser (RUT) o el Correo ya existen
+    $sql_check = "SELECT * FROM usuarios WHERE IDuser = ? OR Correo = ?";
+    $stmt_check = $db->prepare($sql_check);
+    $stmt_check->bind_param("ss", $rut, $email);
+    $stmt_check->execute();
+    $result = $stmt_check->get_result();
 
-    if ($db->query($sql) === TRUE) { #Verifica si se subieron los datos correctamente
-        echo "Registro exitoso";
+    if ($result->num_rows > 0) {
+        // Si ya existe el RUT o el correo, mostrar un mensaje de error
+        echo "El RUT o el Correo ya están registrados.";
     } else {
-        echo "Error: " . $sql . "<br>" . $db->error; #Si no funciona, enseña el error
-    }
+        // Si no existen, inserta los nuevos datos
+        $sql_insert = "INSERT INTO usuarios (Nombres, Apellidos, IDuser, genero, Correo, password, rol) 
+                       VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $stmt_insert = $db->prepare($sql_insert);
+        $stmt_insert->bind_param("sssssss", $nombres, $apellidos, $rut, $genero, $email, $password, $rol); //cada s indica que el dato es string
 
+        if ($stmt_insert->execute()) {
+            echo "Registro exitoso";
+        } else {
+            echo "Error al registrar: " . htmlspecialchars($stmt_insert->error);
+        }
+
+        // Cerrar la sentencia de inserción
+        $stmt_insert->close();
+    }
     // Cierra la conexion una vez insertados los datos
+    $stmt_check->close();
     $db->close();
 }
 ?>

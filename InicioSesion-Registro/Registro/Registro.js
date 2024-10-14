@@ -14,3 +14,18 @@ document.getElementById('Formulario').addEventListener('submit', function(event)
         errorMessage.textContent = 'Las contraseñas no coinciden'; // Muestra el mensaje de error
     }
 });
+
+// Función para formatear el RUT a la forma 12.234.231-4
+document.getElementById('rut').addEventListener('input', function(event) {
+    const input = event.target;
+    let rut = input.value.replace(/\D/g, ''); // Eliminar todo lo que no sea dígito
+    
+    // Si el RUT tiene más de un dígito (cuando tiene texto), aplica formato
+    if (rut.length > 1) {
+        // Agregar los puntos y el guión de verificación
+        rut = rut.replace(/^(\d{1,2})(\d{3})(\d{3})([\dkK])?$/, "$1.$2.$3-$4");
+    }
+    
+    // Actualizar el valor en el campo de entrada
+    input.value = rut;
+});

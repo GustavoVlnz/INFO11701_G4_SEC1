@@ -1,5 +1,3 @@
-
-
 document.getElementById('Formulario').addEventListener('submit', function(event) {
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm-password').value;

@@ -1,0 +1,389 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f8;
+}
+
+/* Estilo para encabezados */
+h2, h3, h4 {
+    margin: 0;
+}
+
+/* Estilo del encabezado principal */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+header .logo img {
+    width: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+header .logo img:hover {
+    transform: rotate(20deg);
+}
+
+header h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav a.active {
+    color: #007bff;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #0056b3;
+}
+
+.cerrar_sesion {
+    margin-left: auto;
+}
+
+.cerrar_sesion img {
+    width: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.cerrar_sesion img:hover {
+    transform: scale(1.2);
+}
+
+/* Contenedor principal de la página */
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    padding-bottom: 100px;
+}
+
+/* Estilo para detalles del pedido */
+.detalles_pedido {
+    width: 80%;
+    max-width: 1200px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Estilo del ícono en detalles de pedido */
+.icono {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.icono img {
+    width: 40px;
+    margin-right: 15px;
+}
+
+.icono h2 {
+    font-size: 26px;
+    color: #333;
+}
+
+/* Estilo del contenido del pedido */
+.pedido {
+    padding: 20px;
+}
+
+.pedido h3 {
+    font-size: 22px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.pedido p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Información del proveedor */
+.info-proveedor {
+    margin-top: 20px;
+    border-top: 1px solid #eaeaea;
+    padding-top: 20px;
+}
+
+.info-proveedor h4 {
+    font-size: 18px;
+    color: #333;
+}
+
+.info-proveedor p {
+    font-size: 16px;
+}
+
+.info-proveedor .referencias {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.info-proveedor .referencias:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para el precio del servicio */
+.precio {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #eaeaea;
+}
+
+.precio h4 {
+    font-size: 18px;
+    color: #333;
+}
+
+.precio p {
+    font-size: 16px;
+    color: #007bff;
+}
+
+/* Estilo de los botones */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo del calendario */
+#calendario {
+    height: 40px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#calendario.visible {
+    opacity: 1;
+}
+
+/* Estilo para las reseñas */
+.reseñas {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+.reseñas .icono {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.reseñas .icono img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.reseñas .icono h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.reseñas .calificaciones {
+    display: flex;
+    flex-direction: column;
+}
+
+.reseñas .resumen {
+    margin-bottom: 20px;
+}
+
+.reseñas .resumen h3 {
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+}
+
+.reseñas .promedio {
+    font-size: 32px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.reseñas .total-reseñas {
+    font-size: 16px;
+    color: #555;
+}
+
+.reseñas .resena {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.reseñas .resena h4 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+}
+
+.reseñas .fecha {
+    font-size: 14px;
+    color: #888;
+    margin: 5px 0;
+}
+
+.reseñas .comentario {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Estilo del footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.contenido-footer {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contenido-footer div {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.contenido-footer h3 {
+    margin-top: 0;
+}
+
+.contenido-footer p, .contenido-footer a {
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contenido-footer a:hover {
+    text-decoration: underline;
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+}
+
+.social-icon {
+    color: rgb(254, 254, 254);
+}
+
+.info-legal a {
+    color: rgb(254, 254, 254);
+}
+
+.reseñas {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.icono {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.icono img {
+    width: 40px;
+    margin-right: 10px;
+}
+.calificaciones {
+    margin-top: 20px;
+}
+.reseña {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+form {
+    margin-top: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+textarea {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+}
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input[type="submit"] {
+    background-color: #37b5ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color: #28a745;
+}

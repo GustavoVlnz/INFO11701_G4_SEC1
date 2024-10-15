@@ -32,10 +32,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt_insert->bind_param("sssssss", $nombres, $apellidos, $rut, $genero, $email, $password, $rol); //cada s indica que el dato es string
 
         if ($stmt_insert->execute()) {
-            echo "Registro exitoso";
+            // Registro exitoso, ahora redirigir según el rol
+            if ($rol === 'cliente') {
+                header("Location: ../../../Logged/HomeLogeado/home.html"); // Redirige a home si es cliente
+            } else if ($rol === 'empresa') {
+                header("Location: ../../Verificacion/FormVer.html"); // Redirige a verificación si es empresa
+            }
+            exit(); // Detener el script después de redirigir
         } else {
             echo "Error al registrar: " . htmlspecialchars($stmt_insert->error);
         }
+
 
         // Cerrar la sentencia de inserción
         $stmt_insert->close();

@@ -27,3 +27,27 @@ document.getElementById('rut').addEventListener('input', function(event) {
     // Actualizar el valor en el campo de entrada
     input.value = rut;
 });
+//Funcion para desabilitar boton si no acepta los terminos
+document.addEventListener('DOMContentLoaded', function() {
+    const checkbox = document.querySelector('input[name="terminos"]');
+    const submitButton = document.getElementById('BtnRegistro');
+
+    // Inicialmente deshabilita el botón
+    submitButton.disabled = true;
+    submitButton.classList.add('btn-secondary'); // Color gris cuando está deshabilitado
+    submitButton.classList.remove('btn-primary'); // Quitar el color original
+
+    checkbox.addEventListener('change', function() {
+        if (checkbox.checked) {
+            // Si está marcado, habilita el botón
+            submitButton.disabled = false;
+            submitButton.classList.remove('btn-secondary');
+            submitButton.classList.add('btn-primary'); // Cambiar a color original
+        } else {
+            // Si no está marcado, deshabilita el botón
+            submitButton.disabled = true;
+            submitButton.classList.add('btn-secondary'); // Cambiar a gris
+            submitButton.classList.remove('btn-primary');
+        }
+    });
+});

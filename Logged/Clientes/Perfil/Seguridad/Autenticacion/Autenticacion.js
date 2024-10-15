@@ -1,8 +1,3 @@
-<<<<<<< HEAD:Pagina Oficial/Perfil/Seguridad/Autenticacion/Autenticacion.js
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-=======
-
->>>>>>> a7307865f6e6835c645e05ff2eeb68868ea52e39:Logged/Clientes/Perfil/Seguridad/Autenticacion/Autenticacion.js
 // Inicializa EmailJS con tu User ID
 (function () {
     emailjs.init('yznFfV3mCG_WiP22y'); // Sustituye por tu User ID de EmailJS

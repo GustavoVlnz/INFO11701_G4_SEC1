@@ -4,9 +4,9 @@ include 'conexion.inc';
 $sql = "SELECT nombre, descripcion, precio, proveedor, email_proveedor, telefono_proveedor FROM Servicio WHERE Verificado = 'aprobado'";
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
+if ($result->rowCount() > 0) {
     // Obtener el primer servicio aprobado
-    $row = $result->fetch_assoc();
+    $row = $result->fetch(PDO::FETCH_ASSOC);
 
     // Genera el codigo JavaScript que actualizara los elementos HTML
     echo '<script>
@@ -28,5 +28,6 @@ if ($result->num_rows > 0) {
     </script>';
 }
 
-$conn->close();
+
+
 

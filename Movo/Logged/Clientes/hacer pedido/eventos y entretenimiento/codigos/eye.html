@@ -23,38 +23,15 @@
     </header>
 
     <main>
-        <div class="servicios">
-            <div class="servicio">
-                <img src="../imagenes/alquiler_salon.png" alt="alquiler">
-                <h3>Alquiler Salon</h3>
-                <p>Precio: $40,000 CLP</p>
-                <button onclick="agregarServicio('Alquiler Salon', 40000)">Agregar</button>
-            </div>
-            <div class="servicio">
-                <img src="../imagenes/animacion_fiestas.png" alt="animacion">
-                <h3>Animación Fiestas</h3>
-                <p>Precio: $27,000 CLP</p>
-                <button onclick="agregarServicio('Animación Fiestas', 27000)">Agregar</button>
-            </div>
-            <div class="servicio">
-                <img src="../imagenes/eventos_corporativos.png" alt="eventos">
-                <h3>Eventos Corporativos</h3>
-                <p>Precio: $50,000 CLP</p>
-                <button onclick="agregarServicio('Eventos Corporativos', 50000)">Agregar</button>
-            </div>
-            <div class="servicio">
-                <img src="../imagenes/planificacion_bodas.png" alt="planificacion">
-                <h3>Planificación Bodas</h3>
-                <p>Precio: $35,000 CLP</p>
-                <button onclick="agregarServicio('Planificación Bodas', 35000)">Agregar</button>
-            </div>
+        <div class="servicios" id="servicios-container">
+            <!-- Los servicios se cargarán dinámicamente aquí -->
         </div>
 
         <div class="pedido">
             <h2>Tu Pedido</h2>
             <ul id="lista-pedido"></ul>
-            <button onclick="window.location.href='carpetaAmigo/confirmacion.html'">Confirmar Pedido</button> <!-- PAGINA DE PAGOOOOOOOOOOOOOOOO -->
-            <button onclick="window.location.href='categorias.html'">Volver a Categorías</button> <!-- BOTON PARA VOLVER A LA PAGINA DE CATEGORIAS -->
+            <button onclick="window.location.href='carpetaAmigo/confirmacion.html'">Confirmar Pedido</button>
+            <button onclick="window.location.href='categorias.html'">Volver a Categorías</button>
         </div>
     </main>
 
@@ -76,12 +53,11 @@
                 <a href="../../../../../InicioSesion-Registro/Registro/terminos.html">Términos de Servicio</a>
             </div>
         </div>
-        <!-- Sección de derechos de autor -->
         <div class="copyright_footer">
             <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <script src="eye.js"></script>
+    <script src="eye.js"></script> <!-- Archivo JavaScript separado -->
 </body>
 </html>

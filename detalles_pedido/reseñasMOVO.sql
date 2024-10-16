@@ -3,5 +3,5 @@ CREATE TABLE reseñasMOVO (
     usuario VARCHAR(100) NOT NULL,
     comentario TEXT NOT NULL,
     calificacion DECIMAL(2,1) NOT NULL,
-    fecha DATE NOT NULL
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

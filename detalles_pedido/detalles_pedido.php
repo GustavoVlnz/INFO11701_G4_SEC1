@@ -1,141 +1,107 @@
 <?php
-session_start(); // Iniciar la sesión
+// Incluir la conexión
+include 'conexionreseñas.php';
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Verificar si ya hay calificaciones almacenadas
-if (!isset($_SESSION['calificaciones'])) {
-    $_SESSION['calificaciones'] = []; // Inicializar si no existe
-}
-
-// Procesar la entrada del formulario
+// Verificar si el formulario ha sido enviado para insertar datos en la base de datos
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recoger datos del formulario
+    // Recibir los datos del formulario
     $usuario = $_POST['usuario'];
     $comentario = $_POST['comentario'];
     $calificacion = $_POST['calificacion'];
 
-    // Agregar nueva calificación al arreglo de la sesión
-    $_SESSION['calificaciones'][] = [
-        "usuario" => $usuario,
-        "fecha" => date("d/m/Y"), // Fecha actual en formato dd/mm/yyyy
-        "comentario" => $comentario,
-        "calificacion" => $calificacion
-    ];
+    // Consulta SQL para insertar los datos en la tabla
+    $sql = "INSERT INTO reseñasMOVO (usuario, comentario, calificacion) VALUES (?, ?, ?)";
+
+    // Usar la variable $db del archivo de conexión
+    $stmt = $db->prepare($sql);
+    $stmt->bind_param('ssd', $usuario, $comentario, $calificacion);
+
+    if ($stmt->execute()) {
+        // Generar la salida HTML para la nueva reseña
+        echo "<h4>$usuario</h4>";
+        echo "<p class='fecha'>" . date('Y-m-d') . "</p>"; // Puedes cambiar el formato de la fecha según lo necesites
+        echo "<p class='comentario'>$comentario</p>";
+    } else {
+        echo "Hubo un error al enviar el formulario: " . $stmt->error; // Mostrar el error
+    }
 }
 
-// Calcular calificación promedio
-$totalCalificaciones = 0;
-foreach ($_SESSION['calificaciones'] as $calificacion) {
-    $totalCalificaciones += $calificacion["calificacion"];
-}
-$promedioCalificacion = count($_SESSION['calificaciones']) > 0 ? $totalCalificaciones / count($_SESSION['calificaciones']) : 0;
+// Función para contar el total de reseñas
+function obtenerTotalResenas() {
+    global $db;
+    
+    $sql = "SELECT COUNT(*) AS total_reseñas FROM reseñasMOVO";
+    $result = $db->query($sql);
 
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        return $row['total_reseñas'];
+    } else {
+        return 0;
+    }
+}
+
+// Función para actualizar una reseña
+function actualizarResena($id, $comentario, $calificacion) {
+    global $db;
+    
+    $sql = "UPDATE reseñasMOVO SET comentario = ?, calificacion = ? WHERE id = ?";
+    
+    if ($stmt = $db->prepare($sql)) {
+        $stmt->bind_param("sdi", $comentario, $calificacion, $id);
+
+        if ($stmt->execute()) {
+            $stmt->close();
+            return "Reseña actualizada con éxito.";
+        } else {
+            return "Error al actualizar reseña: " . $stmt->error;
+        }
+    } else {
+        return "Error en la preparación de la consulta: " . $db->error;
+    }
+}
+
+// Función para eliminar una reseña
+function eliminarResena($id) {
+    global $db;
+    
+    $sql = "DELETE FROM reseñasMOVO WHERE id = ?";
+    
+    if ($stmt = $db->prepare($sql)) {
+        $stmt->bind_param("i", $id);
+
+        if ($stmt->execute()) {
+            $stmt->close();
+            return "Reseña eliminada con éxito.";
+        } else {
+            return "Error al eliminar reseña: " . $stmt->error;
+        }
+    } else {
+        return "Error en la preparación de la consulta: " . $db->error;
+    }
+}
+
+// Función para filtrar reseñas por calificación
+function obtenerResenasPorCalificacion($calificacionMinima) {
+    global $db;
+    
+    $sql = "SELECT * FROM reseñasMOVO WHERE calificacion >= ? ORDER BY fecha DESC";
+    
+    if ($stmt = $db->prepare($sql)) {
+        $stmt->bind_param("d", $calificacionMinima);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result;
+        } else {
+            return "No se encontraron reseñas con esta calificación.";
+        }
+    } else {
+        return "Error en la preparación de la consulta: " . $db->error;
+    }
+}
+
+// Cerrar la conexión a la base de datos
+mysqli_close($db);
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reseñas y Calificaciones</title>
-    <style>
-        .reseñas {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-        }
-        .icono {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .icono img {
-            width: 40px;
-            margin-right: 10px;
-        }
-        .calificaciones {
-            margin-top: 20px;
-        }
-        .reseña {
-            margin-top: 15px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #fff;
-        }
-        form {
-            margin-top: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        textarea {
-            width: 100%;
-            height: 60px;
-            margin-bottom: 10px;
-        }
-        input[type="text"],
-        input[type="number"] {
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        input[type="submit"] {
-            background-color: #37b5ff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 15px;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #28a745;
-        }
-    </style>
-</head>
-<body>
-    <div class="reseñas">
-        <div class="icono">
-            <img src="../images/review.png" alt="Reseñas">
-            <h2>Reseñas y Calificaciones</h2>
-        </div>
-
-        <div class="calificaciones">
-            <div class="resumen">
-                <h3>Calificación Promedio:</h3>
-                <p class="promedio"><?php echo number_format($promedioCalificacion, 1); ?>/5</p>
-                <p class="total-reseñas">(<?php echo count($_SESSION['calificaciones']); ?> reseñas)</p>
-            </div>
-
-            <?php foreach ($_SESSION['calificaciones'] as $reseña): ?>
-                <div class="reseña">
-                    <h4><?php echo htmlspecialchars($reseña["usuario"]); ?></h4>
-                    <p class="fecha"><?php echo htmlspecialchars($reseña["fecha"]); ?></p>
-                    <p class="comentario"><?php echo htmlspecialchars($reseña["comentario"]); ?></p>
-                </div>
-            <?php endforeach; ?>
-        </div>
-
-        <form method="post" action="">
-            <label for="usuario">Nombre:</label>
-            <input type="text" name="usuario" required>
-            
-            <label for="calificacion">Calificación (0-5):</label>
-            <input type="number" name="calificacion" min="0" max="5" step="0.1" required>
-            
-            <label for="comentario">Comentario:</label>
-            <textarea name="comentario" required></textarea>
-            
-            <input type="submit" value="Agregar Calificación">
-        </form>
-    </div>
-</body>
-</html>

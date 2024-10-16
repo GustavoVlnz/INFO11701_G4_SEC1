@@ -19,7 +19,7 @@ function redirigirPorRol($rol) {
             header("Location: ./Proveedor/VistaPrestador/VistaPrestador.html");
             break;
         case 'cliente':
-            header("Location: ./Clientes/Perfil/InfoAcc/Info.html");
+            header("Location: ./Clientes/Perfil/InfoAcc/Info.php");
             break;
         default:
             // Si el rol no es reconocido, redirigir a una página de error o login

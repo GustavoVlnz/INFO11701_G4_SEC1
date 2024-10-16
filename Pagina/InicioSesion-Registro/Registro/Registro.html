@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-..." crossorigin="anonymous">
-    <link rel="stylesheet" href="Registro.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="Registro.css">  
 </head>
 <body>
     <header class="d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
@@ -14,56 +13,59 @@
           <img src="Images/logo.png" alt="Logo Movo" class="me-2" ">
           <h1 class="m-0">MOVO</h1>
         </div>
-        <nav>
-          <a href="../../HomeSinLogear/home.html" >Inicio</a>
-        </nav>
-        <div id="logo-salir">
-          <img src="Images/logout.png" alt="Salir" style="width: 50px;">
-        </div>
+
     </header>
   
-    <div class="container my-5" id="Box_Formulario">
+    <div class="container my-5 card mx-auto p-4 shadow" id="Box_Formulario"> <!-- container para centralizar el contenido y padding para margen superior -->
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-8"> <!-- Bootstrap grid system para ajustar el tamaño del formulario -->
                 <h2 class="text-center">Registro</h2>
-                <form id="Formulario" class="needs-validation" novalidate>
+                <form id="Formulario" class="needs-validation" method="POST">
                     <div class="row">
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-6 mb-3"> <!-- Clase mb-3 para margen inferior -->
                             <label for="username" class="form-label">Nombres:</label>
                             <input type="text" id="username" name="username" class="form-control" placeholder="Ingrese sus nombres" required>
                         </div>
+
                         <div class="col-md-6 mb-3">
                             <label for="apellido" class="form-label">Apellidos:</label>
                             <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Ingrese sus apellidos" required>
                         </div>
+
                         <div class="col-md-6 mb-3">
                             <label for="rut" class="form-label">RUT:</label>
-                            <input type="text" id="rut" name="rut" class="form-control" placeholder="Ejemplo: 12.345.678-9" required>
+                            <input type="text" id="rut" name="rut" class="form-control" placeholder="Ejemplo: 12.345.678-9" maxlength="12" required>
                         </div>
+
                         <div class="col-md-6 mb-3">
                             <label for="genero" class="form-label">Género:</label>
-                            <select id="genero" name="genero" class="form-select" required>
+                            <select id="genero" name="genero" class="form-select">
                                 <option value="Masculino">Masculino</option>
                                 <option value="Femenino">Femenino</option>
                                 <option value="Otro">Otro</option>
                                 <option value="Prefiero no decirlo">Prefiero no decirlo</option>
                             </select>
                         </div>
+
                         <div class="col-md-6 mb-3">
                             <label for="email" class="form-label">Correo electrónico:</label>
                             <input type="email" id="email" name="email" class="form-control" placeholder="example@gmail.com" required>
                         </div>
+
                         <div class="col-md-6 mb-3">
                             <label for="password" class="form-label">Contraseña:</label>
                             <input type="password" id="password" name="password" class="form-control" required>
                         </div>
+
                         <div class="col-md-6 mb-3">
                             <label for="Rol" class="form-label">Tipo de usuario:</label>
-                            <select id="Rol" name="Rol" class="form-select" required>
+                            <select id="Rol" name="Rol" class="form-select">
                                 <option value="cliente">Cliente</option>
                                 <option value="empresa">Empresa</option>
                             </select>
+                            
                         </div>
+
                         <div class="col-md-6 mb-3">
                             <label for="confirm-password" class="form-label">Confirmar contraseña:</label>
                             <input type="password" id="confirm-password" name="confirm-password" class="form-control" required>
@@ -71,12 +73,12 @@
                     </div>
 
                     <div class="form-check mb-3">
-                        <input type="checkbox" name="terminos" class="form-check-input" required>
+                        <input type="checkbox"  name="terminos" class="form-check-input border-dark" required>
                         <label for="terminos" class="form-check-label">Acepto los <a id="terminos" href="terminos.html" target="_blank">términos y condiciones</a></label>
                     </div>
 
                     <button id="BtnRegistro" type="submit" class="btn btn-primary w-100">Registrarse</button>
-                    <a href="../Login/Login.html" id="Login-link" class="d-block text-center mt-3">¿Ya tienes una cuenta? Inicia sesión</a>
+                    <a href="../Login/Login.html" id="Login-link" class="d-block text-center mt-3 ">¿Ya tienes una cuenta? Inicia sesión</a>
                 </form>
             </div>
         </div>
@@ -96,6 +98,8 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
     <footer class=" text-white text-center py-4">
         <div class="container">
@@ -119,6 +123,7 @@
             <p class="mt-3">&copy; 2024 MOVO. Todos los derechos reservados.</p>
         </div>
     </footer>
-<script src="Registro.js"></script> 
+    <script src="Registro.js"></script>
+
 </body>
 </html>

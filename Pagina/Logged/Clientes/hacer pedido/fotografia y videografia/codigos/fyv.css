@@ -82,54 +82,55 @@ nav a:hover {
 }
 
 .salir img {
-    width: 30px;
+    width: 40px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
 .salir img:hover {
-    transform: scale(1.2);
+    transform: scale(1.3);
 }
 
+/* Servicios */
 .servicios {
-    display: flex;                  
-    justify-content: center;        
-    align-items: center;            
-    flex-wrap: wrap;                
-    gap: 30px;                      /* Aumentado el espacio entre los elementos */
-    margin: 20px;                  
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin: 20px;
 }
 
 .servicio {
-    background-color: white;      /* Fondo blanco para cada servicio */
-    padding: 20px;                  /* Espaciado interno */
-    border: 1px solid #eaeaea;    /* Borde de los elementos de servicio */
-    border-radius: 8px;             /* Bordes redondeados */
-    text-align: center;             /* Centra el texto dentro del servicio */
-    width: 300px;                   /* Ajusta el ancho según sea necesario */
+    background-color: white;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
 }
 
-button {
+.card-body h3 {
+    font-size: 20px;
+    color: #333;
+}
+
+/* Botones */
+button, .btn-pago, #lista-pedido button, .pedido button {
+    background-color: #3496ff;
     padding: 10px 15px;
-    background-color: #007BFF;  
-    color: white;                
-    border: none;                
-    border-radius: 5px;         
-    cursor: pointer;             
-    transition: background-color 0.3s, transform 0.3s; 
-    font-size: 16px;            
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px;
 }
 
-button:hover {
-    background-color: #0056b3;  
-    transform: scale(1.05);     
+button:hover, .btn-pago:hover, #lista-pedido button:hover, .pedido button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
-h2 {
-    color: #007BFF;
-    margin-bottom: 15px;
-}
-
+/* Pedido */
 .pedido {
     background-color: white;
     padding: 20px;
@@ -137,10 +138,7 @@ h2 {
     border-radius: 8px;
     max-width: 600px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.pedido h2 {
-    margin-bottom: 15px;
+    text-align: center;
 }
 
 footer {
@@ -188,66 +186,4 @@ footer {
 
 .info-legal a {
     color:rgb(254, 254, 254)
-}
-
-.btn-pago {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-.btn-pago:hover {
-    background-color: #0056b3;
-}
-
-#lista-pedido button {
-    margin-left: 10px; /* Ajusta el valor según sea necesario */
-    background-color: #d9534f; /* Color de fondo */
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    padding: 5px 10px; /* Espaciado interno */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    transition: background-color 0.3s; /* Transición suave al pasar el ratón */
-}
-
-#lista-pedido button:hover {
-    background-color: #c9302c; /* Color al pasar el ratón */
-}
-
-.pedido button {
-    margin-top: 15px; /* Ajusta el valor según sea necesario */
-    padding: 10px 20px; /* Espaciado interno */
-    background-color: #007BFF; /* Color de fondo */
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    transition: background-color 0.3s; /* Transición suave al pasar el ratón */
-}
-
-.pedido button:hover {
-    background-color: #0056b3; /* Color al pasar el ratón */
-}
-
-.servicio button {
-    margin-top: 10px; /* Ajusta el valor según sea necesario */
-    padding: 10px 15px; /* Espaciado interno */
-    background-color: #007BFF; /* Color de fondo */
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    transition: background-color 0.3s; /* Transición suave al pasar el ratón */
-}
-
-.servicio button:hover {
-    background-color: #0056b3; /* Color al pasar el ratón */
 }

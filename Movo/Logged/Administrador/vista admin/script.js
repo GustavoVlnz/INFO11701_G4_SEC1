@@ -18,11 +18,12 @@ function verEstado(id) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const usuariosElement = document.querySelector('#usuarios .widget:nth-child(1) p');
-    const serviciosActivosElement = document.querySelector('#usuarios .widget:nth-child(2) p');
-    const serviciosPendientesElement = document.querySelector('#usuarios .widget:nth-child(3) p');
+    // Selección por id
+    const usuariosElement = document.getElementById('total-usuarios');
+    const serviciosActivosElement = document.getElementById('servicios-activos');
+    const serviciosPendientesElement = document.getElementById('pedidos-pendientes');
 
-    fetch('admin.php') // Ruta hacia tu archivo PHP
+    fetch('admin.php')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al cargar los datos');
@@ -39,3 +40,4 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error al cargar los datos:', error);
         });
 });
+

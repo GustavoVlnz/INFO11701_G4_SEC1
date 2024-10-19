@@ -5,6 +5,7 @@ ini_set('display_errors', 1);
 // Incluir el archivo de conexión
 include "conex.php"; // Asegúrate de que el nombre y la ruta sean correctos
 
+// Configurar el encabezado para devolver JSON
 header('Content-Type: application/json');
 
 // Inicializar variables
@@ -13,11 +14,18 @@ $serviciosActivos = 0;
 $serviciosPendientes = 0;
 
 try {
+    // Verificar si la conexión es exitosa
+    if ($conn->connect_error) {
+        throw new Exception('Error de conexión a la base de datos: ' . $conn->connect_error);
+    }
+
     // Contar usuarios registrados
-    $result = $conn->query("SELECT COUNT(*) AS total FROM usuariosMOVO"); // Cambia 'usuarios' según tu tabla
+    $result = $conn->query("SELECT COUNT(*) AS total FROM usuariosMOVO"); // Cambia 'usuariosMOVO' según tu tabla
     if ($result) {
         $row = $result->fetch_assoc();
         $usuariosRegistrados = $row['total'];
+    } else {
+        throw new Exception('Error al obtener usuarios registrados: ' . $conn->error);
     }
 
     // Contar servicios activos
@@ -25,6 +33,8 @@ try {
     if ($result) {
         $row = $result->fetch_assoc();
         $serviciosActivos = $row['total'];
+    } else {
+        throw new Exception('Error al obtener servicios activos: ' . $conn->error);
     }
 
     // Contar servicios pendientes
@@ -32,6 +42,8 @@ try {
     if ($result) {
         $row = $result->fetch_assoc();
         $serviciosPendientes = $row['total'];
+    } else {
+        throw new Exception('Error al obtener servicios pendientes: ' . $conn->error);
     }
 
     // Devolver los resultados como JSON
@@ -40,10 +52,14 @@ try {
         'serviciosActivos' => $serviciosActivos,
         'serviciosPendientes' => $serviciosPendientes,
     ]);
-} catch (Exception $e) {
-    echo json_encode(['error' => $e->getMessage()]);
-}
 
-// Cerrar la conexión
-$conn->close();
+} catch (Exception $e) {
+    // Devolver un mensaje de error en formato JSON
+    echo json_encode(['error' => $e->getMessage()]);
+} finally {
+    // Cerrar la conexión si fue abierta
+    if (isset($conn) && $conn->ping()) {
+        $conn->close();
+    }
+}
 ?>

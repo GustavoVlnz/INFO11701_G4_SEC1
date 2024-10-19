@@ -25,17 +25,8 @@ btnAplicar.addEventListener('click', () => {
     }
 });
 
-// Evento para realizar el pago, mostrar el toast y redirigir
+
 btnPagar.addEventListener('click', () => {
     const total = parseFloat(totalPago.textContent.split('$')[1].replace(' CLP', ''));
-    
-    // Mostrar notificación toast
-    const toastElement = document.getElementById('liveToast');
-    const toast = new bootstrap.Toast(toastElement);
-    toast.show();
-
-    // Redirigir después de un tiempo
-    setTimeout(() => {
-        window.location.href = '../progreso y detalles/progresoPedido.html'; // Cambia por la URL a donde quieres redirigir
-    }, 3000); // 3 segundos antes de redirigir
+    alert(`Gracias por tu pago. El total es de $${total} CLP.`);
 });

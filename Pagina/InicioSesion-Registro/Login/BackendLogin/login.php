@@ -14,18 +14,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     try {
-        // Consulta para verificar usuario y contraseña
-        $sql = "SELECT rol FROM usuariosMOVO WHERE email = ? AND password = ?";
+        // Consulta para verificar usuario y contraseña, incluyendo el id_usuario
+        $sql = "SELECT idUsuarios, rol FROM usuariosMOVO WHERE email = ? AND password = ?";
         $stmt = $db->prepare($sql);
         $stmt->bind_param("ss", $email, $password);
         $stmt->execute();
         $stmt->store_result();
         
         if ($stmt->num_rows > 0) {
-            $stmt->bind_result($rol);
+            $stmt->bind_result($id_usuario, $rol); // Obtener id y rol
             $stmt->fetch();
 
-            // Guardar rol en la sesión
+            // Guardar id y rol en la sesión
+            $_SESSION['idUsuarios'] = $id_usuario;
             $_SESSION['rol'] = $rol;
 
             // Devolver respuesta de éxito

@@ -1,23 +1,26 @@
 <?php
-// Iniciar sesión para obtener el ID del usuario actual
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 
-// Comprobar si el usuario ha iniciado sesión
-if (!isset($_SESSION['IDuser'])) {
-    header("Location: ../../Login/Login.html"); // Redirigir al login si no ha iniciado sesión
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['idUsuarios'])) {
+    header("Location: ../../Login/Login.html");
     exit();
 }
 
 // Incluir archivo de conexión a la base de datos
-include 'conexion.php';  
+include 'conexion.inc';
 
 // Obtener el ID del usuario desde la sesión
-$user_id = $_SESSION['IDuser'];
+$id_usuario = $_SESSION['idUsuarios'];
 
 // Preparar la consulta para obtener los datos del usuario
-$sql = "SELECT nombre, email, telefono FROM usuarios WHERE id = ?";
+$sql = "SELECT nombres, email, rut FROM usuariosMOVO WHERE idUsuarios = ?";
 $stmt = $db->prepare($sql);
-$stmt->bind_param("i", $user_id);
+$stmt->bind_param("i", $id_usuario);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -26,8 +29,10 @@ if ($result->num_rows > 0) {
     $usuario = $result->fetch_assoc();
 } else {
     echo "Error: No se encontró el usuario.";
-    exit();
+    $usuario = null; // Asegúrate de que la variable esté definida, incluso si no se encuentra el usuario
 }
+
+// Si $usuario contiene datos, muestra la información. Si no, muestra un mensaje de error
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +47,7 @@ if ($result->num_rows > 0) {
 <body>
     <header class="d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
         <div class="d-flex align-items-center" id="logo">
-          <img src="../Images/logo.png" alt="Logo Movo" class="me-2" ">
+          <img src="../Images/logo.png" alt="Logo Movo" class="me-2">
           <h1 class="m-0">MOVO</h1>
         </div>
         <nav>
@@ -55,29 +60,42 @@ if ($result->num_rows > 0) {
     </header>
 
     <div id="perfil" class="container-fluid d-flex my-5">
-        <section class="sidebar bg-primary text-white p-4">
-            <ul class="list-unstyled">
-                <li><a href="#" class="text-white d-block py-2">Información de la cuenta</a></li>
-                <li><a href="../Seguridad/Seguridad.html" class="text-white d-block py-2">Seguridad</a></li>
-                <li><a href="../HistorialServ/HistSev.html" class="text-white d-block py-2">Historial de servicios</a></li>
-            </ul>
-        </section>
-    
-        <section class="info-perfil flex-grow-1 bg-white shadow-sm p-4 ms-3">
+        <section class="col-sm p-4 ms-3">
             <div class="header-perfil d-flex align-items-center mb-4">
                 <a href="#"><img src="../Images/user.png" alt="Foto de perfil" class="foto-perfil img-thumbnail"></a>
-                <h2 class="ms-3"><?php echo htmlspecialchars($usuario['nombre']); ?></h2>
+                <h2 class="ms-3">
+                    <?php
+                    if ($usuario) {
+                        echo htmlspecialchars($usuario['nombres']); // Asegúrate de que el valor existe
+                    } else {
+                        echo "Usuario no encontrado.";
+                    }
+                    ?>
+                </h2>
             </div>
             <div class="detalles">
                 <h3>Información</h3>
-                <p><b>Nombre:</b> <?php echo htmlspecialchars($usuario['nombre']); ?></p>
-                <p><b><a class="infos" href="Cambios/CambioNumero.html">Numero de teléfono:</a></b><?php echo htmlspecialchars($usuario['telefono']); ?></p>
-                <p><b><a class="infos" href="Cambios/CambioCorreo.html">Correo electrónico:</a></b> <?php echo htmlspecialchars($usuario['email']); ?></p>
+                <p><b>Nombre:</b> 
+                    <?php 
+                    if ($usuario) {
+                        echo htmlspecialchars($usuario['nombres']);
+                    } else {
+                        echo "N/A";
+                    }
+                    ?>
+                </p>
+                <p><b>Correo electrónico:</b> 
+                    <?php 
+                    if ($usuario) {
+                        echo htmlspecialchars($usuario['email']);
+                    } else {
+                        echo "N/A";
+                    }
+                    ?>
+                </p>
             </div>
         </section>
     </div>
-    
-
 
 <footer class=" text-white text-center py-4">
     <div class="container">
@@ -102,6 +120,5 @@ if ($result->num_rows > 0) {
     </div>
 </footer>
 
-    
 </body>
 </html>

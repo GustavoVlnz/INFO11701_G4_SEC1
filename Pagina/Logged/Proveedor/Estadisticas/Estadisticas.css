@@ -1,9 +1,13 @@
+/* Asegúrate de que el body esté alineado correctamente */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Hace que el body ocupe toda la altura de la pantalla */
 }
 
 /* Estilos del header */
@@ -16,59 +20,58 @@ header {
     color: black;
 }
 
-.logo img {
-    height: 80px; /* Establece la altura del logo */
+/* Ajustar el logo y el título MOVO */
+header .navbar-brand img {
+    margin-right: 10px;
+    height: 60px;
+    transition: 0.5s ease;
 }
 
-nav {
-    flex-grow: 1; /* Hace que el nav ocupe el espacio disponible */
-    margin-left: 100px; /* Margen a la izquierda del nav */
+header .navbar-brand img:hover {
+    transform: rotate(20deg);
 }
 
-nav ul {
-    list-style: none; /* Elimina los puntos que trae la lista desordenada*/
-    display: flex; /* Muestra los elementos de la lista en una fila */
-    gap: 10px; /* Espacio entre los elementos de la lista */
-    cursor: pointer; /* Cambia el cursor al pasar sobre la lista */
-    padding: 0; /* Elimina el padding de la lista */
-    margin: 0; /* Elimina el margen de la lista */
+header .navbar-brand span {
+    font-size: 24px;
 }
 
-nav ul li {
-    margin: 0; /* Elimina el margen de los elementos de la lista */
+/* Estilo para los enlaces de navegación */
+.nav-link {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000 !important;  /* Forzar color negro predeterminado */
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-nav ul li a {
-    color: black;
-    font-style: initial; /* Estilo de fuente inicial (sin cursiva) */
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    font-weight: bold; /* Texto en negrita */
-    padding: 10px 20px;
-    border-radius: 4px; /* Bordes redondeados de los enlaces */
+.nav-link:hover {
+    color: #0056b3 !important;  /* Cambiar a azul al hacer hover */
+    background-color: #f8f9fa;
+    border-radius: 5px;
 }
 
-nav ul li a:hover {
-    color: #37b5ff;
-    text-decoration: underline 3px; /* Subrayado del enlace con 3px de grosor */
+/* Estilo para centrar los enlaces */
+.navbar-nav {
+    gap: 30px;
 }
 
-
-/* Contenedor principal centrado */
-.main-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px auto;
-    width: 100%;
+/* Ajustar la imagen de cerrar sesión */
+.ms-auto img {
+    transition: transform 0.5s ease;
 }
 
-/* Contenido de texto y gráficos en una sola columna centrada */
+.ms-auto img:hover {
+    transform: scale(1.2);  /* Añadir un efecto de opacidad al pasar el mouse */
+}
+
+/* Ajusta el contenido a una anchura específica y lo centra */
 .content {
-    width: 60%;
+    width: 80%; /* Ajusta este valor según lo que necesites */
+    max-width: 1200px; /* Establece un ancho máximo para evitar que sea demasiado amplio */
     padding: 20px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 30px;
-    align-items: center;
 }
 
 /* Estilos para las secciones de contenido */
@@ -83,69 +86,96 @@ nav ul li a:hover {
 
 .content-section h2 {
     margin-top: 0;
-    font-weight: normal; /* Eliminar negritas de los títulos */
+    font-weight: normal;
 }
 
 .content-section p,
 .content-section ul {
     margin: 0;
-    font-weight: normal; /* Eliminar negritas de los párrafos */
+    font-weight: normal;
 }
+
 
 /* Sección de gráficos */
 .chart-container {
     background-color: white;
     padding: 20px;
-    width: 50%; /* Cambia el ancho de la sección de gráficos */
+    width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    margin: 0 auto; /* Centra la sección */
+    margin: 0 auto;
 }
 
 /* Ajustar el tamaño de los gráficos */
 .chart-container canvas {
-    max-width: 100%; /* Asegúrate de que el gráfico no exceda el ancho de su contenedor */
-    height: 300px; /* Ajusta la altura a tu preferencia */
-    margin: 20px 0; /* Espacio entre los gráficos */
+    width: 300px; /* Tamaño medio para el gráfico */
+    height: 300px;
+    margin: 20px 0;
 }
 
-/* Estilos del footer */
+#legend {
+    font-size: 20px; /* Tamaño de las leyendas */
+}
+
+#legend ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#legend li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#legend li span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(8, 8, 8); /* Añadir borde negro */
+}
+
+/* Footer */
 footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px;
-    bottom: 0;
+    padding: 20px;
     width: 100%;
 }
 
 .contenido-footer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
-    padding: 20px;
 }
 
 .contenido-footer div {
     flex: 1;
-    margin: 0 10px;
+    min-width: 200px;
 }
 
-.contenido-footer h3 {
-    margin-top: 0;
-    font-weight: normal; /* Eliminar negritas de los títulos del footer */
-}
-
-.contenido-footer p,
 .contenido-footer a {
     font-size: 15px;
     color: white;
     text-decoration: none;
+    display: block;
     margin-bottom: 5px;
-    font-weight: normal; /* Eliminar negritas de los párrafos del footer */
 }
 
 .contenido-footer a:hover {
     text-decoration: underline;
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    background-color: #222;
+    color: #ccc;
+    font-size: 14px;
 }
 
 

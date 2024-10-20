@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header class="d-flex justify-content-between align-items-center p-3 shadow-sm bg-white">
+        <div class="header-content d-flex align-items-center">
+            <div class="icono d-flex align-items-center me-3">
+                <img src="../../Clientes/Perfil/Images/logo.png" alt="Logo">
+                <h1 class="mb-0">MOVO</h1>
+            </div>
+        </div>
+        <nav class="nav">
+            <a href="../../Clientes/HomeLogeado/home.html" class="nav-link">Inicio</a>
+            <a href="../../Clientes/categorias/categorias.html" class="nav-link">Servicios</a>
+            <a href="#" class="nav-link">Perfil</a>
+        </nav>
+        <a href="../../../HomeSinLogear/home.html">
+            <div class="salir">
+                <img src="../../Clientes/Perfil/Images/logout.png" alt="Salir" class="img-fluid">
+            </div>
+        </a>
+    </header>
+    
+    <main class="estructura-admin container-fluid">
+        <!-- Título principal -->
+        <section class="mt-4">
+            <h1 class="text-center">Panel Administrador</h1>
+        </section>
+    
+        <!-- Menú de navegación con animaciones -->
+    <section class="mt-4 bg-light p-4 rounded shadow-sm">
+        <nav class="nav nav-pills justify-content-center" id="animated-menu">
+            <a href="#usuarios" class="nav-link d-flex align-items-center me-4">
+                <img src="imagenes/usuarios.png" alt="Usuarios" class="nav-icon me-2"> 
+                Usuarios
+            </a>
+            <a href="#servicios-pymes" class="nav-link d-flex align-items-center me-4">
+                <img src="imagenes/servicios.png" alt="Servicios" class="nav-icon me-2"> 
+                Servicios
+            </a>
+            <a href="#datos" class="nav-link d-flex align-items-center me-4">
+                <img src="imagenes/pedidos.png" alt="Pedidos" class="nav-icon me-2"> 
+                Pedidos
+            </a>
+            <a href="#reportes-usuarios" class="nav-link d-flex align-items-center">
+                <img src="imagenes/reportes.png" alt="Reportes" class="nav-icon me-2"> 
+                Reportes
+            </a>
+        </nav>
+    </section>
+
+<!-- Sección de estadísticas con diseño mejorado -->
+<section class="mt-5">
+    <div class="row text-center">
+        <!-- Cantidad de usuarios registrados -->
+        <div class="col-md-4 mb-4">
+            <div class="p-4 rounded shadow-sm stats-card">
+                <h3 class="stat-title">Usuarios Registrados</h3>
+                <p id="total-usuarios" class="display-4 stat-number"></p> <!-- Aquí puedes agregar el valor dinámico -->
+            </div>
+        </div>
+
+        <!-- Servicios Activos -->
+        <div class="col-md-4 mb-4">
+            <div class="p-4 rounded shadow-sm stats-card">
+                <h3 class="stat-title">Servicios Activos</h3>
+                <p id="servicios-activos" class="display-4 stat-number"></p> <!-- Aquí puedes agregar el valor dinámico -->
+            </div>
+        </div>
+
+        <!-- Pedidos Pendientes -->
+        <div class="col-md-4 mb-4">
+            <div class="p-4 rounded shadow-sm stats-card">
+                <h3 class="stat-title">Pedidos Pendientes</h3>
+                <p id="pedidos-pendientes" class="display-4 stat-number"></p> <!-- Aquí puedes agregar el valor dinámico -->
+            </div>
+        </div>
+    </div>
+</section>
+    
+        <!-- Gráficos de ventas -->
+        <section class="graficos-container my-5 bg-white p-4 rounded shadow-sm">
+            <h3 class="text-center">Gráficos de ventas</h3>
+            <div class="row">
+                <div class="grafico col-md-6">
+                    <img src="imagenes/grafica_mensual.png" alt="Grafico de pedidos del mes" class="img-fluid">
+                </div>
+                <div class="grafico col-md-6">
+                    <img src="imagenes/grafica_anual.png" alt="Grafico de pedidos del año" class="img-fluid">
+                </div>
+            </div>
+        </section>
+    
+        <!-- Últimos pedidos -->
+        <section id="datos" class="datos bg-white p-4 rounded shadow-sm my-5">
+            <h3 class="text-center">Últimos 5 Pedidos</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID Pedido</th>
+                        <th>Cliente</th>
+                        <th>Servicio</th>
+                        <th>Estado</th>
+                        <th>Fecha y Hora</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1581</td>
+                        <td>Juan Pérez</td>
+                        <td>Limpieza</td>
+                        <td>Completado</td>
+                        <td>2023-09-15 14:35</td>
+                    </tr>
+                    <tr>
+                        <td>5158</td>
+                        <td>María Gómez</td>
+                        <td>Chef</td>
+                        <td>En Progreso</td>
+                        <td>2023-09-15 12:20</td>
+                    </tr>
+                    <tr>
+                        <td>2143</td>
+                        <td>Carlos Díaz</td>
+                        <td>Electricista</td>
+                        <td>Completado</td>
+                        <td>2023-09-14 16:45</td>
+                    </tr>
+                    <tr>
+                        <td>9014</td>
+                        <td>Luisa Martínez</td>
+                        <td>Plomería</td>
+                        <td>Pendiente</td>
+                        <td>2023-09-14 09:30</td>
+                    </tr>
+                    <tr>
+                        <td>5612</td>
+                        <td>Pedro Castillo</td>
+                        <td>Carpintero</td>
+                        <td>Completado</td>
+                        <td>2023-09-13 17:15</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    
+        <!-- Solicitud de servicios -->
+        <section id="servicios-pymes" class="my-5">
+            <h2 class="text-center">Solicitud de Servicios</h2>
+            <div class="servicio mb-4 bg-white p-4 rounded shadow-sm">
+                <h3>Empresa: <span>Events Go</span></h3>
+                <p>Servicio: <span>Organización de Eventos</span></p>
+                <button class="btn btn-primary detalles-btn" onclick="mostrarDetalles(1)">Ver Detalles</button>
+                <div class="detalles mt-3" id="detalles-1">
+                    <p>Descripción: Nos especializamos en la planificación y ejecución de eventos en la comodidad de tu hogar.</p>
+                    <p>Precio: Depende del evento a realizar</p>
+                </div>
+            </div>
+    
+            <div class="servicio mb-4 bg-white p-4 rounded shadow-sm">
+                <h3>Empresa: <span>Tech Innovadores</span></h3>
+                <p>Servicio: <span>Mantención de electrodomésticos</span></p>
+                <button class="btn btn-primary detalles-btn" onclick="mostrarDetalles(2)">Ver Detalles</button>
+                <div class="detalles mt-3" id="detalles-2">
+                    <p>Descripción: Ofrecemos un servicio rápido y confiable de reparación de electrodomésticos en tu hogar.</p>
+                    <p>Precio Limpieza: $10.000</p>
+                    <p>Precio Arreglo: $30.000 a $50.000</p>
+                </div>
+            </div>
+    
+            <div class="servicio mb-4 bg-white p-4 rounded shadow-sm">
+                <h3>Empresa: <span>Cosmetic Plus</span></h3>
+                <p>Servicio: <span>Estilista</span></p>
+                <button class="btn btn-primary detalles-btn" onclick="mostrarDetalles(3)">Ver Detalles</button>
+                <div class="detalles mt-3" id="detalles-3">
+                    <p>Descripción: Disfruta de servicios de peluquería y estética en la comodidad de tu hogar.</p>
+                    <p>Precio: Sujeto a servicio que solicite.</p>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Reportes de usuarios -->
+        <section id="reportes-usuarios" class="my-5">
+            <h2 class="text-center">Reportes de Usuarios</h2>
+            <div class="reporte mb-4 bg-white p-4 rounded shadow-sm">
+                <h3>Usuario: <span>Luis Villa</span></h3>
+                <p>Servicio reportado: <span>Reparación de electrodomésticos</span></p>
+                <p>Descripción: <span>El técnico llegó tarde y no tenía las herramientas adecuadas para realizar la reparación.</span></p>
+                <button class="btn btn-primary estado-reporte-btn" onclick="verEstado(1)">Revisar Estado</button>
+                <div class="estado-reporte mt-3" id="estado-1">
+                    <p>Estado del reporte: Pendiente de revisión</p>
+                </div>
+            </div>
+    
+            <div class="reporte mb-4 bg-white p-4 rounded shadow-sm">
+                <h3>Usuario: <span>Maria Gómez</span></h3>
+                <p>Servicio reportado: <span>Organización de eventos</span></p>
+                <p>Descripción: <span>Hubo un mal manejo del tiempo durante la planificación del evento.</span></p>
+                <button class="btn btn-primary estado-reporte-btn" onclick="verEstado(2)">Revisar Estado</button>
+                <div class="estado-reporte mt-3" id="estado-2">
+                    <p>Estado del reporte: En proceso de resolución</p>
+                </div>
+            </div>
+    
+            <div class="reporte mb-4 bg-white p-4 rounded shadow-sm">
+                <h3>Usuario: <span>Carlos Hernández</span></h3>
+                <p>Servicio reportado: <span>Estilista a domicilio</span></p>
+                <p>Descripción: <span>El corte de cabello no se ajustó a lo que había solicitado.</span></p>
+                <button class="btn btn-primary estado-reporte-btn" onclick="verEstado(3)">Revisar Estado</button>
+                <div class="estado-reporte mt-3" id="estado-3">
+                    <p>Estado del reporte: Resuelto - Se ofreció un reembolso parcial.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+
+
+   <!-- Footer -->
+<footer class="text-white p-4 mt-4">
+    <div class="container">
+        <div class="row d-flex justify-content-between text-center">
+            <!-- Primera columna: Contacto -->
+            <div class="col-md-4">
+                <h3>Contacto</h3>
+                <a href="mailto:Movocompanycontact@gmail.com" class="text-white d-block">Movocompanycontact@gmail.com</a>
+            </div>
+
+            <!-- Segunda columna: Redes Sociales -->
+            <div class="col-md-4">
+                <h3>Redes Sociales</h3>
+                <a href="https://www.facebook.com/profile.php?id=61566403465579" class="text-white d-block">Facebook</a>
+                <a href="https://x.com/CompanyMovo_inc" class="text-white d-block">Twitter</a>
+                <a href="https://www.instagram.com/movo_inc/" class="text-white d-block">Instagram</a>
+            </div>
+
+            <!-- Tercera columna: Información Legal -->
+            <div class="col-md-4">
+                <h3>Información Legal</h3>
+                <a href="../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html" class="text-white d-block">Política de Privacidad</a>
+                <a href="../../../InicioSesion-Registro/Registro/terminos.html" class="text-white d-block">Términos de Servicio</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center mt-3">
+        <p class="mb-0">&copy; 2024 MOVO. Todos los derechos reservados.</p>
+    </div>
+</footer>
+    <script src="script.js"></script>
+    
+</body>
+</html>

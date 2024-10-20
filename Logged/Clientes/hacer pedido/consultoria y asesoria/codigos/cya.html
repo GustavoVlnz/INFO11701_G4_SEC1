@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoría y Asesoría</title>
+    <link rel="stylesheet" href="cya.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../imagenes/logo.png" alt="Logo Movo">
+            <h1 class="logo-text">MOVO</h1>
+        </div>
+        <nav>
+            <a href="../../../HomeLogeado/home.html" class="nav-link">Inicio</a>
+            <a href="#" class="nav-link active">Servicios</a>
+            <a href="../../../../verificador.php" class="nav-link">Perfil</a>
+        </nav>
+        <div class="salir">
+            <a href="../../../../../HomeSinLogear/home.html">
+            <img src="../imagenes/salir.png" alt="Salir">
+        </a>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="servicios row justify-content-center">
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="servicio card">
+                    <img src="../imagenes/asesoria_legal.png" class="card-img-top" alt="asesoria">
+                    <div class="card-body">
+                        <h3 class="card-title">Asesoría Financiera</h3>
+                        <p class="card-text">Precio: $20,000 CLP</p>
+                        <button class="btn btn-primary" onclick="agregarServicio('Asesoría Financiera', 20000)">Agregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="servicio card">
+                    <img src="../imagenes/consultoria_empresarial.png" class="card-img-top" alt="empresarial">
+                    <div class="card-body">
+                        <h3 class="card-title">Consultoría Empresarial</h3>
+                        <p class="card-text">Precio: $27,000 CLP</p>
+                        <button class="btn btn-primary" onclick="agregarServicio('Consultoría Empresarial', 27000)">Agregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="servicio card">
+                    <img src="../imagenes/consultoria_financiera.png" class="card-img-top" alt="financiera">
+                    <div class="card-body">
+                        <h3 class="card-title">Consultoría Financiera</h3>
+                        <p class="card-text">Precio: $10,000 CLP</p>
+                        <button class="btn btn-primary" onclick="agregarServicio('Consultoría Financiera', 10000)">Agregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="servicio card">
+                    <img src="../imagenes/coaching_personal.png" class="card-img-top" alt="coaching">
+                    <div class="card-body">
+                        <h3 class="card-title">Coaching Personal</h3>
+                        <p class="card-text">Precio: $15,000 CLP</p>
+                        <button class="btn btn-primary" onclick="agregarServicio('Coaching Personal', 15000)">Agregar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="pedido text-center mt-5">
+            <h2 class="text-primary">Tu Pedido</h2>
+            <ul id="lista-pedido" class="list-group mb-3"></ul>
+            <button class="btn btn-success btn-block mb-2" onclick="window.location.href='carpetaAmigo/confirmacion.html'">Confirmar Pedido</button>
+            <button class="btn btn-secondary btn-block" onclick="window.location.href='categorias.html'">Volver a Categorías</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="contenido-footer">
+            <div class="contacto">
+                <h3>Contacto</h3>
+                <a href="mailto:Movocompanycontact@gmail.com?Subject=Ingrese%20el%20asunto">Email: Movocompanycontact@gmail.com</a>
+            </div>
+            <div class="redes-sociales">
+                <h3>Redes Sociales</h3>
+                <a href="https://www.facebook.com/profile.php?id=61566403465579" class="social-icon">Facebook</a>
+                <a href="https://x.com/CompanyMovo_inc" class="social-icon">Twitter</a>
+                <a href="https://www.instagram.com/movo_inc/" class="social-icon">Instagram</a>
+            </div>
+            <div class="info-legal">
+                <h3>Información Legal</h3>
+                <a href="../../../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html">Política de Privacidad</a>
+                <a href="../../../../../InicioSesion-Registro/Registro/terminos.html">Términos de Servicio</a>
+            </div>
+        </div>
+        <!-- Sección de derechos de autor -->
+        <div class="copyright_footer">
+            <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="cya.js"></script>
+</body>
+</html>

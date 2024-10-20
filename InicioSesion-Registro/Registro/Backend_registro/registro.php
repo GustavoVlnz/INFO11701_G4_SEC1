@@ -1,47 +1,74 @@
 <?php
+include 'conexion.inc'; // Conexión a la base de datos
 
-include 'conexion.php'; // Hace la conexion con la base de datos
+header('Content-Type: application/json'); // Establece la respuesta como JSON
 
-// Verificar si el formulario ha sido enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    // Recibe los datos del formulario
+    // Recibir los datos del formulario
     $nombres = $_POST['username'];
     $apellidos = $_POST['apellido'];
     $rut = $_POST['rut'];
     $genero = $_POST['genero'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $confirm_password = $_POST['confirm-password']; // Confirmar contraseña
     $rol = $_POST['Rol'];
 
-    // Verificar si el IDuser (RUT) o el Correo ya existen
-    $sql_check = "SELECT * FROM usuarios WHERE IDuser = ? OR Correo = ?";
-    $stmt_check = $db->prepare($sql_check);
-    $stmt_check->bind_param("ss", $rut, $email);
-    $stmt_check->execute();
-    $result = $stmt_check->get_result();
-
-    if ($result->num_rows > 0) {
-        // Si ya existe el RUT o el correo, mostrar un mensaje de error
-        echo "El RUT o el Correo ya están registrados.";
-    } else {
-        // Si no existen, inserta los nuevos datos
-        $sql_insert = "INSERT INTO usuarios (Nombres, Apellidos, IDuser, genero, Correo, password, rol) 
-                       VALUES (?, ?, ?, ?, ?, ?, ?)";
-        $stmt_insert = $db->prepare($sql_insert);
-        $stmt_insert->bind_param("sssssss", $nombres, $apellidos, $rut, $genero, $email, $password, $rol); //cada s indica que el dato es string
-
-        if ($stmt_insert->execute()) {
-            echo "Registro exitoso";
-        } else {
-            echo "Error al registrar: " . htmlspecialchars($stmt_insert->error);
-        }
-
-        // Cerrar la sentencia de inserción
-        $stmt_insert->close();
+    // Validación: Verificar que las contraseñas coincidan
+    if ($password !== $confirm_password) {
+        echo json_encode([
+            'success' => false,
+            'message' => 'Las contraseñas no coinciden.'
+        ]);
+        exit();
     }
-    // Cierra la conexion una vez insertados los datos
-    $stmt_check->close();
+
+    // (Opcional) Validación adicional: verificar si el email ya está registrado
+    $email_check_sql = "SELECT * FROM usuariosMOVO WHERE email = '$email'";
+    $result = $db->query($email_check_sql);
+    if ($result->num_rows > 0) {
+        echo json_encode([
+            'success' => false,
+            'message' => 'El correo ya está registrado.'
+        ]);
+        exit();
+    }
+
+    // Consulta SQL para insertar los datos
+    $sql = "INSERT INTO usuariosMOVO (nombres, apellidos, rut, genero, email, password, rol) 
+            VALUES ('$nombres', '$apellidos', '$rut', '$genero', '$email', '$password', '$rol')";
+
+    try {
+        if ($db->query($sql) === TRUE) {
+            $response = [
+                'success' => true,
+                'message' => 'Registro exitoso.'
+            ];
+
+            // Si el rol es 'empresa' o 'cliente', incluir la URL de redirección en la respuesta
+            if ($rol == 'empresa') {
+                $response['redirect'] = "../../Logged/Clientes/HomeLogeado/home.html";
+            } elseif ($rol == 'cliente') {
+                $response['redirect'] = "../../Logged/Clientes/HomeLogeado/home.html";
+            }
+
+            echo json_encode($response);
+        } else {
+            // Enviar mensaje de error si la consulta falla
+            echo json_encode([
+                'success' => false,
+                'message' => 'Error al registrar: ' . $db->error
+            ]);
+        }
+    } catch (Exception $e) {
+        // Captura cualquier excepción y la envía como mensaje de error
+        echo json_encode([
+            'success' => false,
+            'message' => 'Error en la ejecución: ' . $e->getMessage()
+        ]);
+    }
+
+    // Cerrar la conexión
     $db->close();
 }
 ?>

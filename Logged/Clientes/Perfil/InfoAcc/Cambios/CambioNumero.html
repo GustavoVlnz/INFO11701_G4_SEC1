@@ -4,70 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cambiar Número de Teléfono</title>
-    <link rel="stylesheet" href="../../Seguridad/Autenticacion/Autenticacion.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-..." crossorigin="anonymous">
+    <link rel="stylesheet" href="Cambios.css">
 </head>
-<body>
-    <header>
-        <div class="logo">
-            <img src="../../Images/logo.png" alt="Logo Movo">
-            <h1>MOVO</h1>
+<body class="d-flex flex-column min-vh-100"> 
+    <header class="d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
+        <div class="d-flex align-items-center" id="logo">
+          <img src="../Images/logo.png" alt="Logo Movo" class="me-2">
+          <h1 class="m-0">MOVO</h1>
         </div>
         <nav>
-            <a href="../../../HomeLogeado/home.html">Inicio</a>
-            <a href="../../../categorias/categorias.html">Servicios</a>
+            <a href="../../HomeLogeado/home.html" >Inicio</a>
+            <a href="../../categorias/categorias.html" >Servicios</a>
         </nav>
-        <a href="../../../../../HomeSinLogear/home.html">
-            <div class="salir">
-                <img src="../../Images/logout.png" alt="Salir">
-            </div>
-        </a>
+        <div id="logo-salir">
+          <img src="../Images/logout.png" alt="Salir" style="width: 50px;">
+        </div>
     </header>
 
-    <div id="perfil">
-        <section class="sidebar">
-            <ul>
-                <li><a href="../../InfoAcc/Info.html">Información de la cuenta</a></li>
-                <li><a href="../../Seguridad/Seguridad.html">Seguridad</a></li>
-                <li><a href="../../HistorialServ/HistSev.html">Historial de servicios</a></li>
+    <div id="perfil" class="d-flex p-4 flex-grow-1">
+        <section class="sidebar bg-primary text-white p-4">
+            <ul class="list-unstyled">
+                <li><a href="#" class="text-white d-block py-2 sidebar-link">Información de la cuenta</a></li>
+                <li><a href="../Seguridad/Seguridad.html" class="text-white d-block py-2 sidebar-link">Seguridad</a></li>
+                <li><a href="../HistorialServ/HistSev.html" class="text-white d-block py-2 sidebar-link">Historial de servicios</a></li>
             </ul>
         </section>
-
-        <section class="info-seguridad">
-            <div class="header-seguridad">
+    
+        <section class="info-seguridad flex-grow-1 bg-white p-4 ms-3 shadow-sm rounded">
+            <div class="header-seguridad mb-4">
                 <h2>Cambiar Número de Teléfono</h2>
             </div>
-            <div >
-                <p>Introduce tu nuevo número de teléfono y presiona "Guardar" para actualizarlo.</p><br>
+            <div>
+                <p>Introduce tu nuevo número de teléfono y presiona "Guardar" para actualizarlo.</p>
                 <form action="#" method="POST">
-                    <input type="text" id="telefono" name="telefono" placeholder="+56912345678" required><br><br>
-                    <button id="Boton" type="submit">Guardar</button>
+                    <input type="text" id="telefono" name="telefono" class="form-control mb-3" placeholder="+56912345678" required>
+                    <button id="Boton" type="submit" class="btn btn-primary">Guardar</button>
                 </form>
             </div>
         </section>
     </div>
-
-    <footer>
-        <div class="contenido-footer">
-            <div class="contacto">
-                <h3>Contacto</h3>
-                <a href="mailto:Movocompanycontact@gmail.com?Subject=Ingrese%20el%20asunto">Email: Movocompanycontact@gmail.com</a>
+    
+    
+    <footer class="mt-auto text-white text-center py-4 ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Contacto</h3>
+                    <p>Email: contacto@movo.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Redes Sociales</h3>
+                    <a href="https://www.facebook.com/profile.php?id=61566403465579" class="contenido-footer">Facebook</a><br>
+                    <a href="https://x.com/CompanyMovo_inc" class="contenido-footer">Twitter</a><br>
+                    <a href="https://www.instagram.com/movo_inc/" class="contenido-footer">Instagram</a>
+                </div>
+                <div class="col-md-4">
+                    <h3>Información Legal</h3>
+                    <a href="/Pagina Oficial/politica y privacidad/politica y privacidad.html" class="contenido-footer">Política de Privacidad</a><br>
+                    <a href="/Pagina Oficial/Registro/terminos.html" class="contenido-footer">Términos de Servicio</a>
+                </div>
             </div>
-            <div class="redes-sociales">
-                <h3>Redes Sociales</h3>
-                <a href="https://www.facebook.com/profile.php?id=61566403465579" class="social-icon">Facebook</a>
-                <a href="https://x.com/CompanyMovo_inc" class="social-icon">Twitter</a>
-                <a href="https://www.instagram.com/movo_inc/" class="social-icon">Instagram</a>
-            </div>
-            <div class="info-legal">
-                <h3>Información Legal</h3>
-                <a href="../../../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html">Política de Privacidad</a>
-                <a href="../../../../../InicioSesion-Registro/Registro/terminos.html">Términos de Servicio</a>
-            </div>
-        </div>
-        <div class="copyright_footer">
-            <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
+            <p class="mt-3">&copy; 2024 MOVO. Todos los derechos reservados.</p>
         </div>
     </footer>
+        
     <script src="confirmacionCorreo.js"></script>
 </body>
 </html>

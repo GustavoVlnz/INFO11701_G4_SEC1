@@ -60,6 +60,16 @@ if ($result->num_rows > 0) {
     </header>
 
     <div id="perfil" class="container-fluid d-flex my-5">
+        <!-- Nueva sección de barra lateral -->
+        <section class="sidebar bg-primary text-white p-4">
+            <ul class="list-unstyled">
+                <li><a href="#" class="text-white d-block py-2">Información de la cuenta</a></li>
+                <li><a href="../Seguridad/Seguridad.html" class="text-white d-block py-2">Seguridad</a></li>
+                <li><a href="../HistorialServ/HistSev.html" class="text-white d-block py-2">Historial de servicios</a></li>
+            </ul>
+        </section>
+
+        <!-- Sección de información del perfil -->
         <section class="col-sm p-4 ms-3">
             <div class="header-perfil d-flex align-items-center mb-4">
                 <a href="#"><img src="../Images/user.png" alt="Foto de perfil" class="foto-perfil img-thumbnail"></a>

@@ -1,0 +1,377 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f8;
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+}
+
+/* Estilo para encabezados */
+h2, h3, h4 {
+    margin: 0;
+}
+
+/* Estilo del encabezado principal */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+header .logo img {
+    width: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+header .logo img:hover {
+    transform: rotate(20deg);
+}
+
+header h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav a.active {
+    color: #007bff;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #0056b3;
+}
+
+.cerrar_sesion {
+    margin-left: auto;
+}
+
+.cerrar_sesion img {
+    width: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.cerrar_sesion img:hover {
+    transform: scale(1.2);
+}
+
+.hacer-pedidos {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px; /* Ajusta el ancho según tu preferencia */
+    height: 100%;
+    overflow-y: auto; /* Si hay mucho contenido, que sea desplazable */
+    background-color: #f0f0f0;
+}
+
+/* Contenedor principal de la página */
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    padding-bottom: 100px;
+}
+
+/* Estilo para detalles del pedido */
+.detalles_pedido {
+    width: 80%;
+    max-width: 1200px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo del ícono en detalles de pedido */
+.icono {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.icono img {
+    width: 40px;
+    margin-right: 15px;
+}
+
+.icono h2 {
+    font-size: 26px;
+    color: #333;
+}
+
+/* Estilo del contenido del pedido */
+.pedido {
+    padding: 20px;
+}
+
+.pedido h3 {
+    font-size: 22px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.pedido p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Información del proveedor */
+.info-proveedor {
+    margin-top: 20px;
+    border-top: 1px solid #eaeaea;
+    padding-top: 20px;
+}
+
+.info-proveedor h4 {
+    font-size: 18px;
+    color: #333;
+}
+
+.info-proveedor p {
+    font-size: 16px;
+}
+
+.info-proveedor .referencias {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.info-proveedor .referencias:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para el precio del servicio */
+.precio {
+    margin-top: 20px;
+}
+
+.precio h4 {
+    font-size: 18px;
+    color: #333;
+}
+
+.precio p {
+    font-size: 22px;
+    color: #e74c3c;
+}
+
+/* Botones de acción */
+.horarios_btn, .contratar {
+    display: inline-block;
+    padding: 15px 15px;
+    margin-top: 3px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.horarios_btn:hover, .contratar:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para reseñas */
+.reseñas {
+    width: 80%; /* Aumenta el ancho al 80% del contenedor padre */
+    max-width: 800px; /* Puedes ajustar el límite superior según tus necesidades */
+    min-height: 400px; /* Aumenta la altura mínima a 400px o más */
+    margin: 30px auto; /* Centra el cuadro */
+    margin-top: -60px;
+    background-color: #ffffff; /* Color de fondo */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para un efecto 3D */
+    padding: 20px; /* Espaciado interno */
+}
+
+
+/* Calificaciones */
+.calificaciones {
+    margin-top: 20px;
+}
+
+.calificaciones .resumen {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinear a la izquierda */
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.calificaciones .promedio {
+    font-size: 24px;
+    color: #e74c3c;
+    margin: 0 10px; /* Espaciado a la izquierda y derecha */
+}
+
+.calificaciones label {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+.calificaciones .total-reseñas {
+    font-size: 16px;
+    color: #777; /* Color más tenue para las reseñas */
+    margin-left: 10px; /* Espaciado entre promedio y total de reseñas */
+}
+
+/* Estilo del botón "Ver más reseñas" */
+.ver-mas-btn {
+    background-color: #007BFF; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a pointer al pasar sobre el botón */
+    text-align: center; /* Alineación del texto */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 0; /* Asegura que no haya márgenes */
+    text-decoration: none; /* Elimina la subrayado */
+}
+
+.ver-mas-btn:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el cursor */
+    text-decoration: underline; /* Opcional: agrega subrayado al pasar el ratón */
+    color: #ffffff; /* Cambia el color al pasar el ratón si lo deseas */
+}
+
+.ver-mas-btn:active {
+    background-color: #004080; /* Color de fondo cuando el botón está presionado */
+}
+
+/* Estilo de cada reseña */
+.reseña {
+    margin: 15px 0;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 10px;
+}
+
+.reseña h4 {
+    font-size: 18px;
+    color: #333;
+}
+
+.reseña .fecha {
+    font-size: 14px;
+    color: #999;
+}
+
+.reseña .comentario {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Formulario para agregar calificaciones */
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 10px;
+}
+
+form input[type="text"], form input[type="number"], form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+form button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo del pie de página */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.contenido-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contenido-footer div {
+    flex: 1;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    align-items: center; /* Centra los elementos en la columna */
+}
+
+.contenido-footer .redes-sociales, .contenido-footer .politicas {
+    display: flex;
+    flex-direction: column; /* Coloca los enlaces uno encima del otro */
+    align-items: center; /* Mantiene los enlaces centrados horizontalmente */
+}
+
+.contenido-footer h3 {
+    margin-bottom: 10px;
+}
+
+.contenido-footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.contenido-footer a:hover {
+    text-decoration: underline;
+}
+
+.copyright_footer {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+}

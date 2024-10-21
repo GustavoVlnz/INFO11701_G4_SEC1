@@ -3,143 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Panel de Prestador de Servicios</title>
 </head>
 <body>
-    <header>
+
+    <!-- Header con Bootstrap -->
+    <header class="d-flex align-items-center justify-content-between p-3 bg-white shadow-sm">
         <!-- Sección para el logo de la empresa -->
-        <div class="logo">
-            <img src="Imagenes/Movo_Logo.png" alt="Logo de la empresa">
+        <div class="d-flex align-items-center">
+            <img src="../../Clientes/Perfil/Images/logo.png" alt="Logo de la empresa" class="logo">
+            <h1 class="titulo-empresa h3 mb-0">MOVO</h1>
         </div>
         <!-- Barra de navegación con enlaces internos -->
-        <nav>
-            <ul class="nav-links">
-                <li><a href="../../Clientes/HomeLogeado/home.html">INICIO</a></li>
-                <li><a href="../../Clientes/categorias/categorias.html">SERVICIOS</a></li>
-                <li><a href="#">PERFIL</a></li>
+        <nav class="nav justify-content-center">
+            <ul class="nav">
+                <li class="nav-item"><a href="../../Clientes/HomeLogeado/home.html" class="nav-link">INICIO</a></li>
+                <li class="nav-item"><a href="../../Clientes/categorias/categorias.html" class="nav-link">SERVICIOS</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">PERFIL</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="navbar">
+    <!-- Título principal con Bootstrap -->
+    <div class="navbar bg-light text-dark text-center p-3 shadow-sm">
         <h1>Panel del Prestador de Servicios</h1>
     </div>
 
-    <div class="container">
-        <div class="dashboard">
+    <!-- Contenedor principal -->
+    <div class="container mt-4">
+        <div class="row">
             <!-- Sidebar -->
-            <div class="sidebar">
+            <div class="col-md-3 sidebar bg-light p-3 shadow-sm">
                 <h3>Menú</h3>
-                <ul>
-                    <li>
-                        <a href="Solicitudes/Solicitudes.html">
-                            <img src="Imagenes/Solicitudes.png" alt="Solicitudes">
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <a href="../Gestion_servicios/Gestion.html" class="d-flex align-items-center">
+                            <img src="Imagenes/Gestion_servicios.png" alt="Gestion_servicios" class="mr-2">
+                            Servicios
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="../Solicitudes/Solicitudes.html" class="d-flex align-items-center">
+                            <img src="Imagenes/Solicitudes.png" alt="Solicitudes" class="mr-2">
                             Solicitudes
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <img src="Imagenes/Calendario.png" alt="Calendario" >
+                    <li class="mb-3">
+                        <a href="#" class="d-flex align-items-center">
+                            <img src="Imagenes/Calendario.png" alt="Calendario" class="mr-2">
                             Calendario
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <img src="Imagenes/Reseñas.png" alt="Reseñas">
+                    <li class="mb-3">
+                        <a href="#" class="d-flex align-items-center">
+                            <img src="Imagenes/Reseñas.png" alt="Reseñas" class="mr-2">
                             Reseñas
                         </a>
                     </li>
-                    <li>
-                        <a href="Estadisticas/Estadisticas.html">
-                            <img src="Imagenes/Estadisticas.png" alt="Estadísticas">
+                    <li class="mb-3">
+                        <a href="../Estadisticas/Estadisticas.html" class="d-flex align-items-center">
+                            <img src="Imagenes/Estadisticas.png" alt="Estadísticas" class="mr-2">
                             Estadísticas
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <img src="Imagenes/Perfil.png" alt="Perfil">
+                    <li class="mb-3">
+                        <a href="#" class="d-flex align-items-center">
+                            <img src="Imagenes/Perfil.png" alt="Perfil" class="mr-2">
                             Perfil
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <img src="Imagenes/CerrarSesion.png" alt="Cerrar Sesión">
+                    <li class="mb-3">
+                        <a href="#" class="d-flex align-items-center">
+                            <img src="Imagenes/CerrarSesion.png" alt="Cerrar Sesión" class="mr-2">
                             Cerrar Sesión
                         </a>
                     </li>
                 </ul>
-                
             </div>
 
-            <div class="content">
-                <div class="service-requests">
-                    <h2>Ultimas Solicitudes de Servicio</h2>
-                    <div class="service-item">
+            <!-- Contenido principal -->
+            <div class="col-md-9">
+                <!-- Solicitudes de servicios -->
+                <div class="mb-4 shadow-sm p-4 bg-white">
+                    <h2>Últimas Solicitudes de Servicio</h2>
+                    <div class="service-item mb-3 p-3 border rounded">
                         <p><strong>Cliente:</strong> Juan Pérez</p>
                         <p><strong>Servicio:</strong> Reparación de tuberías</p>
                         <p><strong>Fecha:</strong> 3 de Octubre, 10:00 AM</p>
-                        <button class="btn">Aceptar</button>
-                        <button class="btn btn-secondary">Rechazar</button>
+                        <button class="btn btn-success">Aceptar</button>
+                        <button class="btn btn-danger">Rechazar</button>
                     </div>
-                    <div class="service-item">
+                    <div class="service-item mb-3 p-3 border rounded">
                         <p><strong>Cliente:</strong> María López</p>
                         <p><strong>Servicio:</strong> Instalación de grifos</p>
                         <p><strong>Fecha:</strong> 5 de Octubre, 2:00 PM</p>
-                        <button class="btn">Aceptar</button>
-                        <button class="btn btn-secondary">Rechazar</button>
+                        <button class="btn btn-success">Aceptar</button>
+                        <button class="btn btn-danger">Rechazar</button>
                     </div>
                 </div>
 
-                <div class="reviews">
-                    <h2>Ultimas Reseñas Recibidas</h2>
-                    <div class="review-item">
+                <!-- Últimas reseñas -->
+                <div class="mb-4 shadow-sm p-4 bg-white">
+                    <h2>Últimas Reseñas Recibidas</h2>
+                    <div class="review-item mb-3 p-3 border rounded">
                         <p><strong>Reseña de Carlos:</strong> Muy profesional y puntual, ¡recomendado!</p>
                     </div>
-                    <div class="review-item">
+                    <div class="review-item mb-3 p-3 border rounded">
                         <p><strong>Reseña de Ana:</strong> Excelente servicio, volveré a contratarlo.</p>
                     </div>
                 </div>
 
-                <div class="stats">
+                <!-- Estadísticas -->
+                <div class="mb-4 shadow-sm p-4 bg-white">
                     <h2>Estadísticas</h2>
-                    <div class="stat-item">
-                        <p><strong>Servicios Completados:</strong> 15</p>
-                    </div>
-                    <div class="stat-item">
-                        <p><strong>Calificación Promedio:</strong> 4.8/5</p>
-                    </div>
-                    <div class="stat-item">
-                        <p><strong>Ingresos Totales:</strong> $340.000 CLP</p>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="stat-item p-3 border rounded">
+                                <p><strong>Servicios Completados:</strong> 15</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="stat-item p-3 border rounded">
+                                <p><strong>Calificación Promedio:</strong> 4.8/5</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="stat-item p-3 border rounded">
+                                <p><strong>Ingresos Totales:</strong> $340.000 CLP</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <div class="contenido-footer">
-            <div class="contacto">
+<!-- Footer -->
+<footer class="text-white p-4 mt-4">
+    <div class="container">
+        <div class="row d-flex justify-content-between text-center">
+            <!-- Primera columna: Contacto -->
+            <div class="col-md-4">
                 <h3>Contacto</h3>
-                <a href="mailto:Movocompanycontact@gmail.com?Subject=Ingrese%20el%20asunto">Email: Movocompanycontact@gmail.com</a>
+                <a href="mailto:Movocompanycontact@gmail.com" class="text-white d-block">Movocompanycontact@gmail.com</a>
             </div>
-            <div class="redes-sociales">
+
+            <!-- Segunda columna: Redes Sociales -->
+            <div class="col-md-4">
                 <h3>Redes Sociales</h3>
-                <a href="https://www.facebook.com/profile.php?id=61566403465579" class="social-icon">Facebook</a>
-                <a href="https://x.com/CompanyMovo_inc" class="social-icon">Twitter</a>
-                <a href="https://www.instagram.com/movo_inc/" class="social-icon">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=61566403465579" class="text-white d-block">Facebook</a>
+                <a href="https://x.com/CompanyMovo_inc" class="text-white d-block">Twitter</a>
+                <a href="https://www.instagram.com/movo_inc/" class="text-white d-block">Instagram</a>
             </div>
-            <div class="info-legal">
+
+            <!-- Tercera columna: Información Legal -->
+            <div class="col-md-4">
                 <h3>Información Legal</h3>
-                <a href="../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html">Política de Privacidad</a>
-                <a href="../../../InicioSesion-Registro/Registro/terminos.html">Términos de Servicio</a>
+                <a href="../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html" class="text-white d-block">Política de Privacidad</a>
+                <a href="../../../InicioSesion-Registro/Registro/terminos.html" class="text-white d-block">Términos de Servicio</a>
             </div>
         </div>
-        <!-- Sección de derechos de autor -->
-        <div class="copyright_footer">
-            <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center mt-3">
+        <p class="mb-0">&copy; 2024 MOVO. Todos los derechos reservados.</p>
+    </div>
+</footer>
 
 </body>
 </html>

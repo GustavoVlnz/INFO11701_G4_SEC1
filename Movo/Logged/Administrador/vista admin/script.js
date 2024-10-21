@@ -28,13 +28,22 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!response.ok) {
                 throw new Error('Error al cargar los datos');
             }
-            return response.json(); // Parsear los datos como JSON
+            return response.text(); // Cambiar a .text() para inspeccionar la respuesta
         })
-        .then(data => {
-            // Actualiza los elementos del HTML con los datos recibidos
-            usuariosElement.textContent = data.usuariosRegistrados;
-            serviciosActivosElement.textContent = data.serviciosActivos;
-            serviciosPendientesElement.textContent = data.serviciosPendientes;
+        .then(text => {
+            console.log('Respuesta recibida del servidor:', text); // Imprimir la respuesta completa para inspección
+
+            try {
+                const data = JSON.parse(text); // Intentar convertir la respuesta a JSON
+                console.log('Datos parseados:', data);
+
+                // Actualiza los elementos del HTML con los datos recibidos
+                usuariosElement.textContent = data.usuariosRegistrados;
+                serviciosActivosElement.textContent = data.serviciosActivos;
+                serviciosPendientesElement.textContent = data.serviciosPendientes;
+            } catch (error) {
+                console.error('Error al intentar parsear JSON:', error);
+            }
         })
         .catch(error => {
             console.error('Error al cargar los datos:', error);

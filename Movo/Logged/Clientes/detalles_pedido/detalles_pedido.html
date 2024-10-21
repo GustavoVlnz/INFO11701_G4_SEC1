@@ -1,40 +1,3 @@
-<?php
-include 'conexion.inc';
-// Obtener el ID del servicio (puede venir de una URL o formulario)
-$servicio_id = isset($_GET['id']) ? $_GET['id'] : 1; // Ejemplo: por defecto el ID es 1
-
-// Consulta para obtener los detalles del servicio
-$sql = "SELECT servicio.Descripcion AS servicio_descripcion, servicio.PrecioUnitario AS servicio_precio, 
-        tienda.NOMemp AS tienda_nombre, tienda.Descripcion AS tienda_descripcion, 
-        tienda.Contacto AS tienda_contacto, tienda.RRSS AS tienda_rrss
-        FROM servicio 
-        JOIN tienda ON servicio.IDProv = tienda.IDtienda
-        WHERE servicio.IDcontrato = ?"; //simbolo ? es un placeholder, que se llena mas tarde con el valor real.
-
-$stmt = $db->prepare($sql); //Prepara la consulta SQL utilizando la conexión a la base de datos
-$stmt->bind_param("i", $servicio_id); //asocia el valor real de $servicio_id con el ? que estaba en la consulta SQL.
-$stmt->execute();
-$result = $stmt->get_result(); //Recupera los resultados de la consulta 
-
-// Verificar si se encontró el servicio
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    // Asignar los valores de la consulta a variables
-    $servicio_nombre = $row['servicio_nombre'];
-    $servicio_descripcion = $row['servicio_descripcion'];
-    $servicio_precio = $row['servicio_precio'];
-    $proveedor_nombre = $row['proveedor_nombre'];
-    $proveedor_email = $row['proveedor_email'];
-    $proveedor_telefono = $row['proveedor_telefono'];
-} else {
-    echo "No se encontraron detalles para el servicio.";
-    exit;
-}
-
-$stmt->close();
-$db->close();
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -121,7 +84,7 @@ $db->close();
 >>>>>>>> a7307865f6e6835c645e05ff2eeb68868ea52e39:Logged/Clientes/detalles_pedido/detalles_pedido.html
         </div>
     
-        <form id="calificacionForm" action="detalles_pedido.php" method="POST">
+        <form method="post" action="">
             <label for="usuario">Nombre:</label>
             <input type="text" name="usuario" required>
             

@@ -7,7 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const nombreServicio = document.getElementById('nombre-servicio').value;
         const descripcion = document.getElementById('descripcion').value;
         const categoriaId = document.getElementById('categoria').value;
-        agregarServicio(nombreServicio, descripcion, categoriaId);
+        const precio = document.getElementById('precio').value;  // Capturar el precio
+
+        // Llamar a la función agregarServicio con el precio incluido
+        agregarServicio(nombreServicio, descripcion, categoriaId, precio);
     });
 });
 
@@ -39,7 +42,7 @@ function cargarServicios() {
                         <h5 class="card-title"><strong>Nombre:</strong> ${servicio.nombre_servicio}</h5>
                         <p class="card-text"><strong>Descripción:</strong> ${servicio.descripcion}</p>
                         <p class="card-text"><strong>Estado:</strong> 
-                            <span class="badge ${getEstadoClass(servicio.estado)} estado-grande">${servicio.estado}</span>
+                            <span class="badge ${getEstadoClass(servicio.estado_servicio)} estado-grande">${servicio.estado_servicio}</span>
                         </p>
                         <p class="card-text"><strong>Categoría:</strong> ${categorias[servicio.id_categoria]}</p>
                         <div>
@@ -56,8 +59,6 @@ function cargarServicios() {
         });
 }
 
-
-
 // Función para obtener la clase de estado
 function getEstadoClass(estado) {
     switch (estado) {
@@ -72,40 +73,44 @@ function getEstadoClass(estado) {
     }
 }
 
-function agregarServicio(nombre, descripcion, categoriaId) {
+function agregarServicio(nombre, descripcion, categoriaId, precio) {
     fetch('Gestion_phps/agregar.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nombre_servicio: nombre, descripcion: descripcion, categoria_id: categoriaId })
+        body: JSON.stringify({
+            nombre_servicio: nombre,
+            descripcion: descripcion,
+            id_categoria: categoriaId,
+            precio: precio  // Incluyendo el campo precio
+        })
     })
     .then(response => response.json())
     .then(data => {
-        if (data.success) {
-            cargarServicios();
+        if (data.mensaje) {
+            cargarServicios(); // Recargar servicios después de agregar uno nuevo
         } else {
-            alert('Error al agregar el servicio');
+            alert('Error al agregar el servicio: ' + data.error);
         }
+    })
+    .catch(error => {
+        console.error('Error al agregar el servicio:', error);
     });
 }
-
 document.addEventListener('click', function(e) {
     if (e.target && e.target.classList.contains('eliminar')) {
-        // Encontrar la tarjeta más cercana (card) desde el botón que fue clicado
         const card = e.target.closest('.card');
-        // Obtener el id del servicio desde el input hidden
         const idServicio = card.querySelector('.id-servicio').value;
 
-        // Confirmar antes de eliminar
         if (confirm('¿Seguro que deseas eliminar este servicio?')) {
             fetch('Gestion_phps/eliminar.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id: idServicio }) // Enviar el id del servicio al servidor
+                body: JSON.stringify({ id_servicio: idServicio })
             })
             .then(response => response.json())
             .then(data => {
-                if (data.success) {
-                    cargarServicios(); // Recargar la lista de servicios tras eliminar
+                if (data.mensaje) {
+                    cargarServicios();
                 } else {
                     alert('Error al eliminar el servicio: ' + data.error);
                 }
@@ -119,36 +124,34 @@ document.addEventListener('click', function(e) {
 
 document.addEventListener('click', function(e) {
     if (e.target && e.target.classList.contains('editar')) {
-        // Encontrar la tarjeta (card) más cercana desde el botón de "Editar"
         const card = e.target.closest('.card');
-
-        // Obtener los valores actuales desde los elementos del DOM
         const idServicio = card.querySelector('.id-servicio').value;
         const nombreActual = card.querySelector('.card-title').innerText.replace('Nombre: ', '');
         const descripcionActual = card.querySelector('.card-text').innerText.replace('Descripción: ', '');
         const categoriaActual = card.querySelector('.card-text + .card-text').innerText.replace('Categoría: ', '');
+        const precioActual = card.querySelector('.card-text + .card-text + .card-text').innerText.replace('Precio: ', ''); // Capturar el precio actual
 
-        // Pedimos al usuario que ingrese los nuevos valores
         const nuevoNombre = prompt('Editar nombre del servicio:', nombreActual);
         const nuevaDescripcion = prompt('Editar descripción del servicio:', descripcionActual);
         const nuevaCategoria = prompt('Editar categoría (1-8):', categoriaActual);
+        const nuevoPrecio = prompt('Editar precio del servicio:', precioActual); // Pedir nuevo precio
 
-        // Si se ingresan los nuevos valores, hacemos la solicitud de edición
-        if (nuevoNombre && nuevaDescripcion && nuevaCategoria) {
+        if (nuevoNombre && nuevaDescripcion && nuevaCategoria && nuevoPrecio) {
             fetch('Gestion_phps/editar.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    id: idServicio, // El id del servicio que se va a editar
-                    nombre_servicio: nuevoNombre, // Nuevo nombre del servicio
-                    descripcion: nuevaDescripcion, // Nueva descripción del servicio
-                    id_categoria: nuevaCategoria // Nueva categoría seleccionada (del 1 al 8)
+                    id_servicio: idServicio,
+                    nombre_servicio: nuevoNombre,
+                    descripcion: nuevaDescripcion,
+                    id_categoria: nuevaCategoria,
+                    precio: nuevoPrecio  // Incluir el nuevo precio
                 })
             })
             .then(response => response.json())
             .then(data => {
-                if (data.success) {
-                    cargarServicios(); // Recargar los servicios después de la edición
+                if (data.mensaje) {
+                    cargarServicios(); // Recargar servicios después de editar
                 } else {
                     alert('Error al editar el servicio: ' + data.error);
                 }
@@ -159,4 +162,3 @@ document.addEventListener('click', function(e) {
         }
     }
 });
-

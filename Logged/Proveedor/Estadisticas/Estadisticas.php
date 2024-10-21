@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 header('Content-Type: application/json');
 
 // Conexión a la base de datos (reemplaza los datos de conexión)
@@ -10,10 +12,10 @@ $dbname = "A2024_acarrasco";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Obtener servicios completados entre un rango de fechas (por ejemplo, año actual)
-$fecha_inicio = '2024-01-01';
-$fecha_fin = '2024-12-31';
+$fecha_inicio = '2023-01-01';
+$fecha_fin = '2023-12-31';
 $sql = "SELECT MONTH(fecha_completado) AS mes, COUNT(*) AS cantidad_servicios
-        FROM CompletadosMOVO
+        FROM Servicios_CompletadosMOVO
         WHERE fecha_completado BETWEEN '$fecha_inicio' AND '$fecha_fin'
         GROUP BY mes
         ORDER BY mes";

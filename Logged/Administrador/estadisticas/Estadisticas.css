@@ -1,6 +1,11 @@
 body {
     background-color: #ffffff;
     color: #000000;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
 }
 
 .container {
@@ -17,8 +22,7 @@ body {
     border-radius: 10px;
     margin-bottom: 40px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    height: 400px;
-    width: 100%;
+
 }
 
 h3 {
@@ -28,8 +32,8 @@ h3 {
 }
 
 canvas {
-    max-width: 90%; /* Asegura que el canvas no se expanda fuera del contenedor */
-    max-height: 90%;
+    max-width: 100%; /* Asegura que el canvas no se expanda fuera del contenedor */
+    max-height: 100%;
     display: block;
 }
 

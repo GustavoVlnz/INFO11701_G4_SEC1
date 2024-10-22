@@ -1,4 +1,4 @@
-document.getElementById('loginForm').addEventListener('submit', function (event) {
+document.getElementById('loginform').addEventListener('submit', function (event) {
     event.preventDefault(); // Evitar que el formulario recargue la página
 
     const email = document.getElementById('email').value;

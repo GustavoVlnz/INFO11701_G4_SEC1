@@ -29,7 +29,7 @@ try {
     }
 
     // Contar servicios activos
-    $result = $conn->query("SELECT COUNT(*) AS total FROM serviciosMOVO WHERE estado = 'activo'"); // Cambia 'serviciosMOVO' según tu tabla
+    $result = $conn->query("SELECT COUNT(*) AS total FROM Lista_ServiciosMOVO WHERE estado_servicio = 'activo'"); // Cambia 'serviciosMOVO' según tu tabla
     if ($result) {
         $row = $result->fetch_assoc();
         $serviciosActivos = $row['total'];
@@ -38,7 +38,7 @@ try {
     }
 
     // Contar servicios pendientes
-    $result = $conn->query("SELECT COUNT(*) AS total FROM serviciosMOVO WHERE estado = 'pendiente'"); // Cambia 'serviciosMOVO' según tu tabla
+    $result = $conn->query("SELECT COUNT(*) AS total FROM Lista_ServiciosMOVO WHERE estado_servicio = 'revision'"); // Cambia 'serviciosMOVO' según tu tabla
     if ($result) {
         $row = $result->fetch_assoc();
         $serviciosPendientes = $row['total'];

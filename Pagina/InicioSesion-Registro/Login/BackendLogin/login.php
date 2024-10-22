@@ -28,7 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Guardar id y rol en la sesión
             $_SESSION['idUsuarios'] = $id_usuario;
             $_SESSION['rol'] = $rol;
-
             // Devolver respuesta de éxito
             echo json_encode(['success' => true, 'message' => 'Inicio de sesión exitoso.']);
         } else {

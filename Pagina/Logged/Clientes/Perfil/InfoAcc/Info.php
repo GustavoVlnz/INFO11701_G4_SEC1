@@ -51,11 +51,13 @@ if ($result->num_rows > 0) {
           <h1 class="m-0">MOVO</h1>
         </div>
         <nav>
-          <a href="#" >Inicio</a>
-          <a href="#" >Servicios</a>
+          <a href="../../HomeLogeado/home.html" >Inicio</a>
+          <a href="../../categorias/categorias.html" >Servicios</a>
         </nav>
         <div id="logo-salir">
+          <a href="../../../../HomeSinLogear/home.html">
           <img src="../Images/logout.png" alt="Salir" style="width: 50px;">
+          </a>
         </div>
     </header>
 
@@ -122,8 +124,8 @@ if ($result->num_rows > 0) {
             </div>
             <div class="col-md-4 ">
                 <h3>Información Legal</h3>
-                <a href="/Pagina Oficial/politica y privacidad/politica y privacidad.html" class="contenido-footer">Política de Privacidad</a><br>
-                <a href="/Pagina Oficial/Registro/terminos.html" class="contenido-footer">Términos de Servicio</a>
+                <a href="../../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html" class="contenido-footer">Política de Privacidad</a><br>
+                <a href="../../../../InicioSesion-Registro/Registro/terminos.html" class="contenido-footer">Términos de Servicio</a>
             </div>
         </div>
         <p class="mt-3">&copy; 2024 MOVO. Todos los derechos reservados.</p>

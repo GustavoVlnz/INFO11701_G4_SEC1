@@ -42,6 +42,6 @@ Pago.addEventListener('click', () => {
 
     // Redirigir después de un tiempo
     setTimeout(() => {
-        window.location.href = '../progreso y detalles/progresoPedido.html'; // Cambia por la URL a donde quieres redirigir
-    }, 3000); // 3 segundos antes de redirigir
+        window.location.href = '../HomeLogeado/home.html'; // Cambia por la URL a donde quieres redirigir
+    }, 4000); // 4 segundos antes de redirigir
 });

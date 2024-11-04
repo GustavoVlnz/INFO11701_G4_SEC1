@@ -1,100 +1,101 @@
 /* Estilo global para el body y html */
-html, body {
-    height: 100%; /* Asegura que el body y el html ocupen toda la altura de la ventana */
-    margin: 0; /* Elimina el margen por defecto del body */
-}
-
-body {
-    display: flex;
-    flex-direction: column; /* Coloca los elementos en columna */
-}
-
-main {
-    flex: 1; /* Hace que el contenido principal ocupe el espacio restante */
-}
-
-section {
-    padding: 50px 20px; 
-    text-align: center; 
-    position: relative; /* Posiciona de forma relativa para futuras modificaciones */
-    margin: 0; /* Elimina márgenes predeterminados */
-    padding-top: 70px; /* Ajusta el padding superior teniendo en cuenta el header */
-}
+body { font-family: Arial, sans-serif;}
 
 /* Estilos del header */
 header {
-    display: flex; /* Usa un contenedor flexible para alinear los elementos */
-    justify-content: space-between; /* Espacia los elementos del header */
-    align-items: center; /* Centra los elementos verticalmente */
-    padding: 20px;
-    background-color: white; 
-    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.logo img {
-    height: 80px; /* Establece la altura del logo */
+.header-content {
+    display: flex;
+    align-items: center;
 }
+
+header .icono {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+header .icono img {
+    width: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+header .icono img:hover {
+    transform: rotate(20deg);
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
 
 nav {
-    flex-grow: 1; /* Hace que el nav ocupe el espacio disponible */
-    margin-left: 100px; /* Margen a la izquierda del nav */
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
 }
 
-nav ul {
-    list-style: none; /* Elimina los puntos que trae la lista desordenada*/
-    display: flex; /* Muestra los elementos de la lista en una fila */
-    gap: 10px; /* Espacio entre los elementos de la lista */
-    cursor: pointer; /* Cambia el cursor al pasar sobre la lista */
-    padding: 0; /* Elimina el padding de la lista */
-    margin: 0; /* Elimina el margen de la lista */
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
 }
 
-nav ul li {
-    margin: 0; /* Elimina el margen de los elementos de la lista */
+nav a.activo {
+    color: #007bff;
+    font-weight: bold;
 }
 
-nav ul li a {
-    color: black;
-    font-style: initial; /* Estilo de fuente inicial (sin cursiva) */
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    font-weight: bold; /* Texto en negrita */
-    padding: 10px 20px;
-    border-radius: 4px; /* Bordes redondeados de los enlaces */
+nav a:hover {
+    color: #0056b3;
 }
 
-nav ul li a:hover {
-    color: #37b5ff;
-    text-decoration: underline 3px; /* Subrayado del enlace con 3px de grosor */
-}
-
-.botones-cuenta {
-    display: flex; /* Usa un contenedor flexible para los botones de cuenta */
-    gap: 10px; /* Espacio entre los botones */
+.nav-link.inicio:hover, 
+.nav-link.perfil:hover {
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .btn {
-    display: inline-block; /* Muestra el botón en línea */
+    display: inline-flex; /* Muestra el botón como un contenedor flexible */
+    align-items: center; /* Alinea el contenido del botón verticalmente */
     padding: 12px 24px; /* Espaciado interno del botón */
-    font-size: 18px; 
+    font-size: 18px; /* Tamaño de la fuente */
     font-weight: bold; /* Texto en negrita */
-    color: #333;
-    background-color: white; 
-    border-style: groove; /* Estilo de borde del botón */
+    color: #333; /* Color del texto del botón */
+    background-color: white; /* Color de fondo del botón */
+    border: 1px solid #ccc; /* Color y estilo del borde */
     border-radius: 5px; /* Bordes redondeados del botón */
     text-decoration: none; /* Elimina el subrayado del texto del botón */
-    text-align: center; 
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición para el color de fondo y para la transformación */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición para el color de fondo y transformación */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
 }
 
 .btn:hover {
-    background-color: #37b5ff; 
+    background-color: #37b5ff; /* Color de fondo del botón al pasar el ratón */
     transform: scale(1.05); /* Aumenta el tamaño del botón al pasar el ratón */
 }
 
 .btn:active {
     transform: scale(0.98); /* Reduce el tamaño del botón cuando se hace clic */
 }
+
+.btn img {
+    max-height: 20px; /* Altura máxima de las imágenes en los botones */
+    margin-right: 5px; /* Espacio entre la imagen y el texto del botón */
+}
+
 
 /* Estilos Banner */
 .banner {
@@ -163,19 +164,10 @@ nav ul li a:hover {
     transform: scale(0.98); /* Reduce el tamaño del botón cuando se hace clic */
 }
 
-/* Estilos de la sección de información */
 .seccion-info {
-    display: flex; /* Usa un contenedor flexible para alinear los elementos internos */
-    align-items: center; 
-    padding: 40px 20px; 
-    background-color: white; 
-    color: #333; 
-    gap: 20px; /* Espacio entre los elementos de la sección */
-}
-
-.contenedor {
-    display: grid; /* Usa un diseño de cuadrícula para los elementos internos */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Crea columnas de ancho variable que se ajustan automáticamente */
+    padding: 40px 20px;
+    background-color: white;
+    color: #333;
 }
 
 .seccion-info.hidden {
@@ -186,222 +178,127 @@ nav ul li a:hover {
     display: flex; /* Muestra la sección cuando tiene la clase 'visible' */
 }
 
-.seccion-info .contenido {
-    padding: 20px;
-    border-style: dashed; /* Estilo de borde de los bloques de contenido */
-    border-color: black; 
-    border-radius: 6px; /* Bordes redondeados de los bloques de contenido */
-    border-width: 2px; /* Ancho del borde */
-}
-
 .seccion-info h2 {
-    font-size: 40px; 
-    margin-bottom: 20px; 
-    text-shadow: 1px 1px 2px #37b5ff; /* Sombra de texto para el encabezado */
-    color: black; 
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: black;
 }
 
 .seccion-info p {
-    font-size: 25px; 
-    font-style: italic; /* Estilo cursiva para el texto del párrafo */
-    line-height: 1.6; /* Altura de línea del párrafo */
-    margin: 0; /* Elimina el margen del párrafo */
-}
-
-.seccion-info img {
-    width: 70%; /* Hace que la imagen ocupe el 70% del ancho disponible en su contenedor */
-    height: auto; /* Mantiene las proporciones de la imagen */
-    padding: 0px 150px; 
-}
-
-/* Estilos seccion que muestra servicios */
-.seccion_servicio-section {
-    padding: 20px 10px; 
-    background-color: #f9f9f9; 
-    text-align: center; 
-}
-
-.seccion_servicio {
-    position: relative; /* Posiciona de forma relativa para los elementos internos */
-    width: 100%; /* Hace que ocupe todo el ancho de la pantalla */
-    top: 10px; /* Ajusta la posición vertical */
-}
-
-.slide {
-    display: block; /* Asegura que las diapositivas se muestren */
-    text-align: center; 
-    margin: 0; /* Elimina el margen alrededor de las diapositivas */
-}
-
-.slide img {
-    width: 100%; /* Hace que las imágenes ocupen todo el ancho del contenedor */
-    height: auto; /* Mantiene las proporciones de la imagen */
-    max-height: 500px; /* Establece una altura máxima para las imágenes */
-    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
-    padding: 0; /* Elimina el espaciado interno alrededor de las imágenes */
+    font-size: 25px;
+    font-style: italic;
+    line-height: 1.6;
 }
 
 .titulo_servicio {
-    position: absolute; /* Posiciona el título de servicio de forma absoluta dentro de la diapositiva */
-    bottom: 30%; 
-    top: 50%; 
-    left: 50%;
-    transform: translateX(-50%); /* Centra el título horizontalmente */
-    background-color: rgba(51, 51, 51, 0.8); /* Color de fondo con opacidad para el título */
-    color: white; 
-    padding: 10px; 
-    font-size: 60px; 
-    border-radius: 5px; /* Bordes redondeados del título */
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
 }
 
-.anterior, .siguiente {
-    cursor: pointer; /* Cambia el cursor al pasar sobre los botones de navegación */
-    position: absolute; /* Posiciona los botones de navegación de forma absoluta dentro del carrusel */
-    top: 50%; 
-    width: auto; /* Ancho automático para los botones */
-    margin-top: -22px; 
-    padding: 16px; 
-    color: white; 
-    font-weight: bold; /* Texto en negrita */
-    font-size: 18px; 
-    transition: 0.6s ease; /* Transición suave para el fondo y la posición de los botones */
-    user-select: none; /* Evita la selección del texto en los botones */
-    border-radius: 50%; /* Bordes redondeados para los botones */
-    background-color: rgba(0, 0, 0, 0.5); /* Color de fondo con opacidad para los botones */
+/* Estilos para la sección de servicios */
+.seccion_servicio {
+    margin-top: 20px; /* Espaciado superior */
 }
 
-.anterior {
-    left: 10px; /* Posiciona el botón anterior a la izquierda */
+.servicio {
+    text-align: center; /* Centra el texto dentro de cada servicio */
+    margin-bottom: 20px; /* Espaciado inferior entre los servicios */
+    display: flex;
+    flex-direction: column; /* Alinea imagen y título en vertical */
+    align-items: center; /* Centra el contenido horizontalmente */
 }
 
-.siguiente {
-    right: 10px; /* Posiciona el botón siguiente a la derecha */
+.servicio img {
+    width: 100%; /* Hace que las imágenes ocupen todo el ancho del contenedor */
+    height: auto; /* Mantiene las proporciones de la imagen */
+    max-height: 200px; /* Establece una altura máxima para las imágenes */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio asignado */
 }
 
-.anterior:hover, .siguiente:hover {
-    background-color: #333; /* Color de fondo al pasar el ratón sobre los botones */
+
+.seccion-info.hidden {
+    display: none; /* Oculta la sección cuando tiene la clase 'hidden' */
+}
+
+.seccion-info.visible {
+    display: flex; /* Muestra la sección cuando tiene la clase 'visible' */
 }
 
 /* Estilos seccion de Noticias */
+/* Estilos sección de Noticias */
 #noticias {
-padding-top: 35px;
-padding-bottom: 50px;
-background-color: #f4f4f4;
-text-align: center;
+    background-color: #f4f4f4;
 }
 
 #noticias h2 {
-font-size: 48px;
-margin-bottom: 10px;
+    font-size: 48px;
 }
 
 #noticias p {
-font-size: 24px;
-color: #666;
-margin-bottom: 40px;
+    font-size: 24px;
+    color: #666;
 }
 
-.noticias-grid {
-display: flex;
-gap: 20px;
-justify-content: center;
-flex-wrap: wrap;
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.noticias-post {
-background-color: white;
-border-radius: 8px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-overflow: hidden;
-width: 30%;
-}
-
-.noticias-post img {
-width: 100%;
-height: 200px;
-object-fit: cover;
-}
-
-.noticias-contenido {
-padding: 20px;
-}
-
-.noticias-contenido h3 {
-font-size: 1.6em;
-margin-bottom: 15px;
-}
-
-.noticias-contenido p {
-color: #666;
-line-height: 1.6;
-margin-bottom: 20px;
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
 }
 
 .btn-leer-mas {
-display: inline-block; /* Muestra el botón en línea */
-padding: 15px 30px; 
-font-size: 18px; 
-font-weight: bold; /* Texto en negrita */
-color: white; 
-background-color: #37b5ff; 
-border-radius: 5px; /* Bordes redondeados del botón */
-text-decoration: none; /* Elimina el subrayado del texto del botón */
-transition: background-color 0.3s ease, transform 0.3s ease; /* Transición para el color de fondo y la transformación */
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-leer-mas {
+    background-color: #37b5ff;
+    color: white;
 }
 
 .btn-leer-mas:hover {
-background-color: #1e90ff; 
-transform: scale(1.05); /* Aumenta el tamaño del botón al pasar el ratón */
+    background-color: #1e90ff; /* Color más oscuro al pasar el ratón */
 }
 
 .hidden {
-display: none;
+    display: none;
 }
 
 .visible {
-display: block; /* o cualquier estilo que necesites */
-}  
+    display: block;
+}
+
 
 /* Estilos del footer */
 footer {
     background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 2px;
-    position: flex;/* Fija el footer en la parte inferior de la página */
-    bottom: 0; /* Asegura que el footer esté pegado al borde inferior */
-    width: 100%;
-}
-
-.contenido-footer {
-    display: flex; /* Utiliza flexbox para organizar los elementos hijos dentro del footer */
-    justify-content: space-around;/* Distribuye el espacio restante de forma equitativa entre los elementos */
-}
-
-.contenido-footer div {
-    flex: 1;/* Cada div dentro de .contenido-footer ocupará el mismo ancho disponible */
-    margin: 0 10px;/* Margen horizontal entre los divs */
-}
-
-.contenido-footer h3 {
-    margin-top: 0;/* Elimina el margen superior de los encabezados dentro del footer */
-}
-
-.contenido-footer p, .contenido-footer a {
-    font-size: 15px;
-    color: white;
-    text-decoration: none;/* Elimina el subrayado de los enlaces por defecto */
-    display: block;/* Los convierte en elementos de bloque para que ocupen todo el ancho disponible */
-    margin-bottom: 5px;/* Añade margen inferior para separarlos visualmente */
-}
-
-.contenido-footer a:hover {
-    text-decoration: underline;/* Agrega un subrayado cuando se pasa el mouse sobre los enlaces */
-}
-
-.copyright_footer {
-    border-top: 1px solid #444;/* Añade una línea superior al footer para separarlo del contenido principal */
-}
+  
+  }
+  
+  .contenido-footer h3 {
+      margin-top: 0;/* Elimina el margen superior de los encabezados dentro del footer */
+  }
+  
+  .contenido-footer  {
+      font-size: 18px;
+      color: rgb(255, 255, 255);
+      text-decoration: none;/* Elimina el subrayado de los enlaces por defecto */
+      margin-bottom: 5px;/* Añade margen inferior para separarlos visualmente */
+  }
+  
+  .col-md-4  a:hover {
+      text-decoration: underline;/* Agrega un subrayado cuando se pasa el mouse sobre los enlaces */
+  }
+  
+  .copyright_footer {
+      border-top: 1px solid #444;/* Añade una línea superior al footer para separarlo del contenido principal */
+  }
 
 #contacto {
     padding: 40px 300px; 
@@ -413,52 +310,6 @@ footer {
     gap: 20px; /* Espacio entre los elementos */
 }
 
-#contactanos {
-    flex: 1; /* Ocupa la mitad del ancho */
-    display: flex;
-    flex-direction: column; /* Alinea el contenido verticalmente */
-    max-width: 600px; /* Ancho máximo */
-    background-color: #37b5ff;
-    border-radius: 30px;
-    padding: 40px;
-    font-size: 25px;
-}
-
-#formulario {
-    flex: 1; /* Ocupa la otra mitad */
-    max-width: 500px;
-    width: 100%; /* Ocupa el 100% del contenedor */
-}
-
-form {
-    background-color: #37b5ff; /* Fondo azul claro */
-    padding: 20px; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-form label {
-    display: block; 
-    margin-bottom: 5px;
-    color: white; /* Texto en blanco */
-}
-
-form input, form select, form textarea {
-    width: 95%; /* Ocupa casi todo el ancho del formulario */
-    padding: 10px;
-    margin-bottom: 15px; 
-    border: none; 
-    border-radius: 5px; 
-    background-color: #fff; /* Fondo blanco */
-    color: #333; /* Texto oscuro */
-    transition: all 0.3s ease;
-}
-
-form input:focus, form select:focus, form textarea:focus {/*pseudoclase que se aplica cuando un usuario interactua con él*/
-    outline: none;
-    border: 1px solid #333; /* Borde oscuro al hacer foco */
-}
-
 #button {
     background-color: #333; /* Fondo negro */
     color: white; 
@@ -467,4 +318,41 @@ form input:focus, form select:focus, form textarea:focus {/*pseudoclase que se a
     border-radius: 5px; 
     cursor: pointer; 
     transition: background-color 0.3s ease;
+}
+
+.botones-cuenta {
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+    margin-right: 20px; /* Añade espacio horizontal entre las tarjetas */
+}
+
+.botones-cuenta img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
+}
+
+.botones-cuenta a {
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.botones-cuenta a:hover {
+    color: #37b5ff;
+}
+
+.botones-cuenta a img {
+    vertical-align: middle;
+}
+
+.botones-cuenta:hover {
+    transform: scale(1.05); /* Efecto de agrandar la tarjeta al pasar el mouse */
 }

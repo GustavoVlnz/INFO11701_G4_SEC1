@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Panel de Prestador de Servicios</title>
+</head>
+<body>
+
+    <!-- Header con Bootstrap -->
+    <header class="d-flex align-items-center justify-content-between p-3 bg-white shadow-sm">
+        <!-- Sección para el logo de la empresa -->
+        <div class="d-flex align-items-center">
+            <img src="../../Clientes/Perfil/Images/logo.png" alt="Logo de la empresa" class="logo">
+            <h1 class="titulo-empresa h3 mb-0">MOVO</h1>
+        </div>
+        <!-- Barra de navegación con enlaces internos -->
+        <nav class="nav justify-content-center">
+            <ul class="nav">
+                <li class="nav-item"><a href="../../Clientes/HomeLogeado/home.html" class="nav-link">INICIO</a></li>
+                <li class="nav-item"><a href="../../Clientes/categorias/categorias.html" class="nav-link">SERVICIOS</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">PERFIL</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Título principal con Bootstrap -->
+    <div class="navbar bg-light text-dark text-center p-3 shadow-sm">
+        <h1>Panel del Prestador de Servicios</h1>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 sidebar bg-light p-3 shadow-sm">
+                <h3>Menú</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <a href="../Gestion_servicios/Gestion.html" class="d-flex align-items-center">
+                            <img src="Imagenes/servicios.png" alt="Gestion_servicios" class="mr-2">
+                            Servicios
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="../Solicitudes/Solicitudes.html" class="d-flex align-items-center">
+                            <img src="Imagenes/Solicitudes.png" alt="Solicitudes" class="mr-2">
+                            Solicitudes
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="d-flex align-items-center">
+                            <img src="Imagenes/Calendario.png" alt="Calendario" class="mr-2">
+                            Calendario
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="d-flex align-items-center">
+                            <img src="Imagenes/Reseñas.png" alt="Reseñas" class="mr-2">
+                            Reseñas
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="../Estadisticas/Estadisticas.html" class="d-flex align-items-center">
+                            <img src="Imagenes/Estadisticas.png" alt="Estadísticas" class="mr-2">
+                            Estadísticas
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="d-flex align-items-center">
+                            <img src="Imagenes/Perfil.png" alt="Perfil" class="mr-2">
+                            Perfil
+                        </a>
+                    </li>
+                    <li class="mb-3">
+                        <a href="#" class="d-flex align-items-center">
+                            <img src="Imagenes/CerrarSesion.png" alt="Cerrar Sesión" class="mr-2">
+                            Cerrar Sesión
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contenido principal -->
+            <div class="col-md-9">
+                <!-- Solicitudes de servicios -->
+                <div class="mb-4 shadow-sm p-4 bg-white">
+                    <h2>Últimas Solicitudes de Servicio</h2>
+                    <div class="service-item mb-3 p-3 border rounded">
+                        <p><strong>Cliente:</strong> Juan Pérez</p>
+                        <p><strong>Servicio:</strong> Reparación de tuberías</p>
+                        <p><strong>Fecha:</strong> 3 de Octubre, 10:00 AM</p>
+                        <button class="btn btn-success">Aceptar</button>
+                        <button class="btn btn-danger">Rechazar</button>
+                    </div>
+                    <div class="service-item mb-3 p-3 border rounded">
+                        <p><strong>Cliente:</strong> María López</p>
+                        <p><strong>Servicio:</strong> Instalación de grifos</p>
+                        <p><strong>Fecha:</strong> 5 de Octubre, 2:00 PM</p>
+                        <button class="btn btn-success">Aceptar</button>
+                        <button class="btn btn-danger">Rechazar</button>
+                    </div>
+                </div>
+
+                <!-- Últimas reseñas -->
+                <div class="mb-4 shadow-sm p-4 bg-white">
+                    <h2>Últimas Reseñas Recibidas</h2>
+                    <div class="review-item mb-3 p-3 border rounded">
+                        <p><strong>Reseña de Carlos:</strong> Muy profesional y puntual, ¡recomendado!</p>
+                    </div>
+                    <div class="review-item mb-3 p-3 border rounded">
+                        <p><strong>Reseña de Ana:</strong> Excelente servicio, volveré a contratarlo.</p>
+                    </div>
+                </div>
+
+                <!-- Estadísticas -->
+                <div class="mb-4 shadow-sm p-4 bg-white">
+                    <h2>Estadísticas</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="stat-item p-3 border rounded">
+                                <p><strong>Servicios Completados:</strong> 15</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="stat-item p-3 border rounded">
+                                <p><strong>Calificación Promedio:</strong> 4.8/5</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="stat-item p-3 border rounded">
+                                <p><strong>Ingresos Totales:</strong> $340.000 CLP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Footer -->
+<footer class="text-white p-4 mt-4">
+    <div class="container">
+        <div class="row d-flex justify-content-between text-center">
+            <!-- Primera columna: Contacto -->
+            <div class="col-md-4">
+                <h3>Contacto</h3>
+                <a href="mailto:Movocompanycontact@gmail.com" class="text-white d-block">Movocompanycontact@gmail.com</a>
+            </div>
+
+            <!-- Segunda columna: Redes Sociales -->
+            <div class="col-md-4">
+                <h3>Redes Sociales</h3>
+                <a href="https://www.facebook.com/profile.php?id=61566403465579" class="text-white d-block">Facebook</a>
+                <a href="https://x.com/CompanyMovo_inc" class="text-white d-block">Twitter</a>
+                <a href="https://www.instagram.com/movo_inc/" class="text-white d-block">Instagram</a>
+            </div>
+
+            <!-- Tercera columna: Información Legal -->
+            <div class="col-md-4">
+                <h3>Información Legal</h3>
+                <a href="../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html" class="text-white d-block">Política de Privacidad</a>
+                <a href="../../../InicioSesion-Registro/Registro/terminos.html" class="text-white d-block">Términos de Servicio</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center mt-3">
+        <p class="mb-0">&copy; 2024 MOVO. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+</body>
+</html>

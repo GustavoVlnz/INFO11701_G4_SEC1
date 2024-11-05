@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Estadisticas.css">
+    <title>Estadísticas - Prestador de Servicios</title>
+    <!-- Incluir Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-sm">
+        <div class="container-fluid">
+            <!-- Logo de la empresa y título MOVO -->
+            <a class="navbar-brand d-flex align-items-center">
+                <img src="../../Clientes/Perfil/Images/logo.png" alt="Logo de la empresa" height="50">
+                <span class="ms-2 fs-4 fw-bold">MOVO</span>
+            </a>
+    
+            <!-- Links de navegación centrados -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-center" href="../../Clientes/HomeLogeado/home.html">INICIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-center" href="../../Clientes/categorias/categorias.html">SERVICIOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-center" href="#">PERFIL</a>
+                    </li>
+                </ul>
+            </div>
+    
+            <!-- Imagen para cerrar sesión alineada a la derecha -->
+            <a href="#" class="ms-auto">
+                <img src="../../Clientes/Perfil/Images/logout.png" alt="Cerrar sesión" height="40">
+            </a>
+        </div>
+    </header>
+
+    <div class="navbar">
+        <h1>Estadísticas del Prestador de Servicios</h1>
+    </div>
+        <div class="container my-5">
+            <!-- Sección de contenido de texto -->
+            <div class="content">
+                <!-- Bienvenida -->
+                <div class="content-section">
+                    <h2>Bienvenido a tu panel de estadísticas</h2>
+                    <p>
+                        Aquí podrás ver un resumen completo de tus actividades y desempeño como prestador de servicios. Utiliza esta información para mejorar tus resultados, incrementar la satisfacción de los clientes y optimizar tu tiempo de trabajo.
+                    </p>
+                </div>
+        
+                <!-- Resumen General -->
+                <div class="content-section">
+                    <h2>Resumen General</h2>
+                    <p>En lo que va del año, has completado un total de <strong id="total_servicios"></strong> servicios exitosamente. La mayoría de estos han sido en las categorías de <strong>limpieza</strong> y <strong>reparaciones menores</strong>. Tu tasa de éxito es del <strong>95%</strong>, lo que te posiciona entre los mejores prestadores de servicios de la plataforma.</p>
+                    <p>Tu promedio de calificación es de <strong id="promedio_calificacion"></strong> lo que demuestra un nivel medio de satisfacción de tus clientes.</p>
+                </div>
+
+                <!-- Servicios más solicitados -->
+                <div class="content-section">
+                    <h2>Servicios más solicitados</h2>
+                    <ul id="servicios_mas_solicitados">
+                        <!-- Los servicios más solicitados se insertarán aquí -->
+                    </ul>
+                    <p>Estos datos te ayudarán a entender qué servicios son más demandados en tu área.</p>
+                </div>
+
+                <!-- Sección de gráficos -->
+                <div class="chart-container content-section">
+                    <h3>Servicios Completados por Mes</h3>
+                    <canvas id="completedServicesChart"></canvas>
+                </div>
+        
+                <div class="chart-container content-section">
+                    <h3>Ganancias durante el Año</h3>
+                    <canvas id="earningsChart"></canvas>
+                </div>
+        
+                <div class="chart-container content-section" style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="flex: 1; margin-left: 50px;">
+                        <h3>Calificación Promedio</h3>
+                        <canvas id="averageRatingChart"></canvas>
+                    </div>
+                    <div id="legend" style="flex: 1; margin-right: 50px; display: flex; flex-direction: column; align-items: flex-end;">
+                        <!-- Leyendas se insertarán dinámicamente aquí -->
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white pt-4">
+        <div class="contenido-footer d-flex justify-content-around flex-wrap">
+            <div class="contacto">
+                <h3>Contacto</h3>
+                <a href="mailto:Movocompanycontact@gmail.com?Subject=Ingrese%20el%20asunto">Email: Movocompanycontact@gmail.com</a>
+            </div>
+            <div class="redes-sociales">
+                <h3>Redes Sociales</h3>
+                <a href="https://www.facebook.com/profile.php?id=61566403465579" class="social-icon">Facebook</a>
+                <a href="https://x.com/CompanyMovo_inc" class="social-icon">Twitter</a>
+                <a href="https://www.instagram.com/movo_inc/" class="social-icon">Instagram</a>
+            </div>
+            <div class="info-legal">
+                <h3>Información Legal</h3>
+                <a href="../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html">Política de Privacidad</a>
+                <a href="../../../InicioSesion-Registro/Registro/terminos.html">Términos de Servicio</a>
+            </div>
+        </div>
+        <div class="text-center py-3">
+            <p class="mb-0">&copy; 2024 MOVO. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    <script src="Estadisticas.js"></script>
+</body>
+</html>

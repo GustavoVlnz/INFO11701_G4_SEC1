@@ -1,0 +1,161 @@
+html, body {
+    height: 100%; /* Hace que el html y el body ocupen todo el alto de la ventana */
+    margin: 0; /* Elimina márgenes por defecto del body */
+    display: flex; /* Usar flexbox para organizar el layout */
+    flex-direction: column; /* Organiza los hijos en una columna */
+}
+
+/* Estilo del contenido principal */
+main {
+    flex: 1; /* Permite que el contenido principal crezca y ocupe el espacio restante */
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.table-container {
+    margin: 20px auto;
+    width: 80%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+th {
+    background-color: #37b5ff;
+    color: white;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.logo{
+    height: 50px; /* Establece la altura del logo */
+    margin-right: 10px;
+    transition: transform 0.6s ease;
+}
+
+.logo:hover {
+    transform: rotate(20deg);
+}
+
+/* Estilos para el contenedor del nav */
+nav {
+    flex-grow: 1; /* Hace que el nav ocupe el espacio disponible */
+    display: flex; /* Flexbox para centrar el contenido */
+    justify-content: center; /* Centra los enlaces horizontalmente */
+    margin-left: 0; /* Elimina el margen izquierdo */
+}
+
+/* Estilos para la lista de navegación */
+nav ul {
+    list-style: none; /* Elimina los puntos que trae la lista desordenada */
+    display: flex; /* Muestra los elementos de la lista en una fila */
+    gap: 20px; /* Espacio entre los elementos de la lista */
+    cursor: pointer; /* Cambia el cursor al pasar sobre la lista */
+    padding: 0; /* Elimina el padding de la lista */
+    margin: 0; /* Elimina el margen de la lista */
+}
+
+/* Estilos para los elementos de la lista */
+nav ul li {
+    margin: 0; /* Elimina el margen de los elementos de la lista */
+}
+
+/* Estilos para los enlaces de navegación */
+nav ul li a {
+    color: black;
+    font-style: initial; /* Estilo de fuente inicial (sin cursiva) */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    font-weight: bold; /* Texto en negrita */
+    padding: 10px 20px;
+    border-radius: 4px; /* Bordes redondeados de los enlaces */
+    transition: color 0.3s ease; /* Animación suave para el color */
+}
+
+/* Estilo para el hover en los enlaces */
+nav ul li a:hover {
+    color: #37b5ff; /* Color azul/celeste al pasar el mouse (puedes ajustar este color) */
+    text-decoration: underline 3px; /* Subrayado del enlace con 3px de grosor */
+}
+
+.boton-volver-atras {
+    display: flex; /* Usa un contenedor flexible para los botones de cuenta */
+    gap: 10px; /* Espacio entre los botones */
+}
+
+.boton-volver-atras img {
+    width: 60px; /* Ajusta el ancho de la imagen */
+    height: auto; /* Mantén la proporción de la imagen */
+}
+
+/* Estilos del footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+.contenido-footer {
+    display: flex;
+    flex-wrap: wrap; /* Flexbox para organizar los elementos, con wrap para que se ajusten en pantallas pequeñas */
+    justify-content: space-around; /* Distribuye de manera equitativa */
+}
+
+.contenido-footer div {
+    flex: 1;
+    min-width: 200px; /* Asegura que las columnas no se hagan demasiado pequeñas en pantallas pequeñas */
+}
+
+.contenido-footer h3 {
+    margin-top: 0; /* Elimina el margen superior de los encabezados */
+    font-size: 24px; /* Ajusta el tamaño del título */
+}
+
+.contenido-footer a {
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contenido-footer a:hover {
+    text-decoration: underline;
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;
+    padding-top: 10px; /* Añadir separación para que el borde superior no esté tan pegado al texto */
+    background-color: #222; /* Un tono más oscuro para diferenciación visual */
+    color: #ccc; /* Texto ligeramente más claro para contraste */
+    font-size: 14px;
+}

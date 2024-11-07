@@ -15,7 +15,7 @@ include 'conexion.inc';
 $user_id = $_SESSION['IDuser'];
 
 // Preparar la consulta para obtener los datos del usuario
-$sql = "SELECT nombre, email, telefono FROM usuarios WHERE id = ?";
+$sql = "SELECT nombres, apellidos, rut, genero, email, direccion, telefono FROM usuarios WHERE idUsuarios = ?";
 $stmt = $db->prepare($sql);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
@@ -28,6 +28,7 @@ if ($result->num_rows > 0) {
     echo "Error: No se encontró el usuario.";
     exit();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -66,17 +67,24 @@ if ($result->num_rows > 0) {
         <section class="info-perfil flex-grow-1 bg-white shadow-sm p-4 ms-3">
             <div class="header-perfil d-flex align-items-center mb-4">
                 <a href="#"><img src="../Images/user.png" alt="Foto de perfil" class="foto-perfil img-thumbnail"></a>
-                <h2 class="ms-3"><?php echo htmlspecialchars($usuario['nombre']); ?></h2>
+                <h2 class="ms-3"><?php echo htmlspecialchars($usuario['nombre'] . " " . $usuario['apellido']); ?></h2>
             </div>
             <div class="detalles">
                 <h3>Información</h3>
-                <p><b>Nombre:</b> <?php echo htmlspecialchars($usuario['nombre']); ?></p>
-                <p><b><a class="infos" href="Cambios/CambioNumero.html">Numero de teléfono:</a></b><?php echo htmlspecialchars($usuario['telefono']); ?></p>
-                <p><b><a class="infos" href="Cambios/CambioCorreo.html">Correo electrónico:</a></b> <?php echo htmlspecialchars($usuario['email']); ?></p>
+                <p><b>Nombre:</b> <input type="text" id="nombre" value="<?php echo htmlspecialchars($usuario['nombres']); ?>" disabled></p>
+                <p><b>Apellido:</b> <input type="text" id="apellido" value="<?php echo htmlspecialchars($usuario['apellidos']); ?>" disabled></p>
+                <p><b>RUT:</b> <input type="text" id="rut" value="<?php echo htmlspecialchars($usuario['rut']); ?>" disabled readonly></p>
+                <p><b>Género:</b> <input type="text" id="genero" value="<?php echo htmlspecialchars($usuario['genero']); ?>" disabled></p>
+                <p><b>Correo electrónico:</b> <input type="email" id="email" value="<?php echo htmlspecialchars($usuario['email']); ?>" disabled></p>
+                <p><b>Dirección:</b> <input type="text" id="direccion" value="<?php echo htmlspecialchars($usuario['direccion']); ?>" disabled></p>
+                <p><b>Teléfono:</b> <input type="text" id="telefono" value="<?php echo htmlspecialchars($usuario['telefono']); ?>" disabled></p>
+        
+                <button onclick="habilitarEdicion()">Editar Perfil</button>
+                <button onclick="guardarCambios()" style="display: none;" id="guardarBtn">Guardar Cambios</button>
             </div>
         </section>
     </div>
-    
+
 
 
 <footer class=" text-white text-center py-4">
@@ -101,6 +109,7 @@ if ($result->num_rows > 0) {
         <p class="mt-3">&copy; 2024 MOVO. Todos los derechos reservados.</p>
     </div>
 </footer>
+<script src="Info.js"></script>
 
     
 </body>

@@ -18,7 +18,7 @@ $direccion = $_POST['direccion'];
 $telefono = $_POST['telefono'];
 
 // Preparar la consulta de actualización
-$sql = "UPDATE usuarios SET nombres = ?, apellidos = ?, genero = ?, email = ?, direccion = ?, telefono = ? WHERE idUsuarios = ?";
+$sql = "UPDATE usuariosMOVO SET nombres = ?, apellidos = ?, genero = ?, email = ?, direccion = ?, telefono = ? WHERE idUsuarios = ?";
 $stmt = $db->prepare($sql);
 $stmt->bind_param("ssssssi", $nombre, $apellido, $genero, $email, $direccion, $telefono, $user_id);
 

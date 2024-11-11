@@ -15,7 +15,7 @@ include 'conexion.inc';
 $user_id = $_SESSION['IDuser'];
 
 // Preparar la consulta para obtener los datos del usuario
-$sql = "SELECT nombres, apellidos, rut, genero, email, direccion, telefono FROM usuarios WHERE idUsuarios = ?";
+$sql = "SELECT nombres, apellidos, rut, genero, email, direccion, telefono FROM usuariosMOVO WHERE idUsuarios = ?";
 $stmt = $db->prepare($sql);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();

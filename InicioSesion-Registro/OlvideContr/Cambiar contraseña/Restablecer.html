@@ -17,19 +17,23 @@
     </header>
    
 
- 
-    <form id="Formulario" action="Restablecer.php" method="post">
-        <div class="mb-3">
-            <label for="password" class="form-label">Nueva Contraseña:</label>
-            <input type="password" id="password" name="password" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="confirm-password" class="form-label">Confirmar contraseña:</label>
-            <input type="password" id="confirm-password" name="confirm-password" class="form-control" required>
-        </div>
-        <button id="Confirmar" type="submit" class="btn btn-primary w-100">Enviar</button>
-        <div id="mensaje-error" class="alert alert-danger d-none mt-2" role="alert"></div>
-    </form>
+<div class="container my-5">
+    <div id="Codigo" class="card mx-auto p-4 shadow" style="max-width: 500px;">
+        <h2 class="text-center mb-4">Restablece tu contraseña</h2>
+        <form id="Formulario" action="Restablecer.php" method="post">
+            <div class="mb-3">
+                <label for="password" class="form-label">Nueva Contraseña:</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="confirm-password" class="form-label">Confirmar contraseña:</label>
+                <input type="password" id="confirm-password" name="confirm-password" class="form-control" required>
+            </div>
+            <button id="Confirmar" type="submit" class="btn btn-primary w-100">Enviar</button>
+            <div id="mensaje-error" class="alert alert-danger d-none mt-2" role="alert"></div>
+        </form>
+    </div>
+</div>
     
 
  

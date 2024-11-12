@@ -1,23 +1,27 @@
-// Función para verificar el código ingresado por el usuario
-function verificarCodigo(event) {
-    event.preventDefault();  // Prevenir el envío normal del formulario
 
-    const codigoIngresado = document.getElementById('Code').value;  // Obtener el código ingresado por el usuario
-    const codigoGuardado = localStorage.getItem('codigoConfirmacion');  // Obtener el código almacenado en localStorage
+document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const codigoIngresado = document.getElementById("codigo").value;
+    const codigoGuardado = localStorage.getItem("codigo_verificacion");
+    const correo = localStorage.getItem("correo");
 
     if (codigoIngresado === codigoGuardado) {
-        alert('Código verificado correctamente. Puedes proceder a cambiar tu contraseña.');
-        // Aquí puedes redirigir al usuario a la página de cambio de contraseña
-        window.location.href = 'Restablecer.html';  // Cambia esto por la ruta de tu página de cambio de contraseña
+        fetch("activarVerificacion.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ correo: correo })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.exito) {
+                alert("Autenticación en dos pasos activada.");
+                window.location.href = "../../InfoAcc/Info.php";
+            } else {
+                alert("Error al activar la autenticación.");
+            }
+        })
+        .catch(error => console.error("Error:", error));
     } else {
-        alert('El código ingresado es incorrecto. Por favor, verifica e intenta nuevamente.');
+        alert("El código ingresado es incorrecto.");
     }
-}
-
-document.getElementById('Confirmar').addEventListener('click', verificarCodigo);
-
-// Evento para reenviar el código al correo
-document.getElementById('Reenviar').addEventListener('click', function() {
-    // Redirige al usuario de vuelta a la página de ingreso del correo para enviar un nuevo código
-    window.location.href = 'Correo.html';  
 });

@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hashedPassword = password_hash($nuevaContrasena, PASSWORD_DEFAULT);
 
     // Actualizar la contraseña en la base de datos
-    $stmt = $db->prepare("UPDATE usuariosMOVO SET Contrasena = ? WHERE Correo = ?");
+    $stmt = $db->prepare("UPDATE usuariosMOVO SET password = ? WHERE email = ?");
     $stmt->bind_param("ss", $hashedPassword, $correo);
 
     if ($stmt->execute()) {

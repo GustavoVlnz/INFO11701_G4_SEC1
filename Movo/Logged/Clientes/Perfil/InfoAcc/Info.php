@@ -3,7 +3,7 @@
 session_start();
 
 // Comprobar si el usuario ha iniciado sesión
-if (!isset($_SESSION['IDuser'])) {
+if (!isset($_SESSION['idUsuarios'])) {
     header("Location: ../../Login/Login.html"); // Redirigir al login si no ha iniciado sesión
     exit();
 }
@@ -12,7 +12,7 @@ if (!isset($_SESSION['IDuser'])) {
 include 'conexion.inc';  
 
 // Obtener el ID del usuario desde la sesión
-$user_id = $_SESSION['IDuser'];
+$user_id = $_SESSION['idUsuarios'];
 
 // Preparar la consulta para obtener los datos del usuario
 $sql = "SELECT nombres, apellidos, rut, genero, email, direccion, telefono FROM usuariosMOVO WHERE idUsuarios = ?";
@@ -56,34 +56,39 @@ if ($result->num_rows > 0) {
     </header>
 
     <div id="perfil" class="container-fluid d-flex my-5">
-        <section class="sidebar bg-primary text-white p-4">
-            <ul class="list-unstyled">
-                <li><a href="#" class="text-white d-block py-2">Información de la cuenta</a></li>
-                <li><a href="../Seguridad/Seguridad.html" class="text-white d-block py-2">Seguridad</a></li>
-                <li><a href="../HistorialServ/HistSev.html" class="text-white d-block py-2">Historial de servicios</a></li>
-            </ul>
-        </section>
-    
-        <section class="info-perfil flex-grow-1 bg-white shadow-sm p-4 ms-3">
-            <div class="header-perfil d-flex align-items-center mb-4">
-                <a href="#"><img src="../Images/user.png" alt="Foto de perfil" class="foto-perfil img-thumbnail"></a>
-                <h2 class="ms-3"><?php echo htmlspecialchars($usuario['nombre'] . " " . $usuario['apellido']); ?></h2>
-            </div>
-            <div class="detalles">
-                <h3>Información</h3>
-                <p><b>Nombre:</b> <input type="text" id="nombre" value="<?php echo htmlspecialchars($usuario['nombres']); ?>" disabled></p>
-                <p><b>Apellido:</b> <input type="text" id="apellido" value="<?php echo htmlspecialchars($usuario['apellidos']); ?>" disabled></p>
-                <p><b>RUT:</b> <input type="text" id="rut" value="<?php echo htmlspecialchars($usuario['rut']); ?>" disabled readonly></p>
-                <p><b>Género:</b> <input type="text" id="genero" value="<?php echo htmlspecialchars($usuario['genero']); ?>" disabled></p>
-                <p><b>Correo electrónico:</b> <input type="email" id="email" value="<?php echo htmlspecialchars($usuario['email']); ?>" disabled></p>
-                <p><b>Dirección:</b> <input type="text" id="direccion" value="<?php echo htmlspecialchars($usuario['direccion']); ?>" disabled></p>
-                <p><b>Teléfono:</b> <input type="text" id="telefono" value="<?php echo htmlspecialchars($usuario['telefono']); ?>" disabled></p>
-        
-                <button onclick="habilitarEdicion()">Editar Perfil</button>
-                <button onclick="guardarCambios()" style="display: none;" id="guardarBtn">Guardar Cambios</button>
-            </div>
-        </section>
-    </div>
+    <section class="sidebar bg-primary text-white p-4">
+        <ul class="list-unstyled">
+            <li><a href="#" class="text-white d-block py-2">Información de la cuenta</a></li>
+            <li><a href="../Seguridad/Seguridad.html" class="text-white d-block py-2">Seguridad</a></li>
+            <li><a href="../HistorialServ/HistSev.html" class="text-white d-block py-2">Historial de servicios</a></li>
+        </ul>
+    </section>
+
+    <section class="info-perfil bg-white shadow-sm p-4 ms-3">
+        <div class="header-perfil d-flex align-items-center mb-4">
+            <a href="#"><img src="../Images/user.png" alt="Foto de perfil" class="foto-perfil img-thumbnail"></a>
+        </div>
+        <div class="detalles">
+            <h3>Información del Cliente</h3>
+            <p><b>Nombre:</b> <input type="text" id="nombres" value="<?php echo htmlspecialchars($usuario['nombres']); ?>" disabled></p>
+            <p><b>Apellido:</b> <input type="text" id="apellidos" value="<?php echo htmlspecialchars($usuario['apellidos']); ?>" disabled></p>
+            <p><b>RUT:</b> <input type="text" id="rut" value="<?php echo htmlspecialchars($usuario['rut']); ?>" disabled readonly></p>
+            <p><b>Género:</b> 
+                <select id="genero" disabled>
+                    <option value="Masculino" <?php if ($usuario['genero'] == 'Masculino') echo 'selected'; ?>>Masculino</option>
+                    <option value="Femenino" <?php if ($usuario['genero'] == 'Femenino') echo 'selected'; ?>>Femenino</option>
+                    <option value="Otro" <?php if ($usuario['genero'] == 'Otro') echo 'selected'; ?>>Otro</option>
+                </select>
+            </p>
+            <p><b>Correo electrónico:</b> <input type="email" id="email" value="<?php echo htmlspecialchars($usuario['email']); ?>" disabled></p>
+            <p><b>Dirección:</b> <input type="text" id="direccion" value="<?php echo htmlspecialchars($usuario['direccion']); ?>" disabled></p>
+            <p><b>Teléfono:</b> <input type="text" id="telefono" value="<?php echo htmlspecialchars($usuario['telefono']); ?>" disabled></p>
+
+            <button onclick="habilitarEdicion()">Editar Perfil</button>
+            <button onclick="guardarCambios()" style="display: none;" id="guardarBtn">Guardar Cambios</button>
+        </div>
+    </section>
+</div>
 
 
 

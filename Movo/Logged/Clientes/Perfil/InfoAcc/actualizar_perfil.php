@@ -2,12 +2,12 @@
 session_start();
 include 'conexion.inc';
 
-if (!isset($_SESSION['IDuser'])) {
+if (!isset($_SESSION['idUsuarios'])) {
     echo "Error: Sesión no iniciada.";
     exit();
 }
 
-$user_id = $_SESSION['IDuser'];
+$user_id = $_SESSION['idUsuarios'];
 
 // Obtener datos del formulario
 $nombre = $_POST['nombres'];

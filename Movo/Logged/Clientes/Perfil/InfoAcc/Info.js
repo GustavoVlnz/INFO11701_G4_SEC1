@@ -1,6 +1,6 @@
 function habilitarEdicion() {
-    document.getElementById("nombre").disabled = false;
-    document.getElementById("apellido").disabled = false;
+    document.getElementById("nombres").disabled = false;
+    document.getElementById("apellidos").disabled = false;
     document.getElementById("genero").disabled = false;
     document.getElementById("email").disabled = false;
     document.getElementById("direccion").disabled = false;
@@ -9,8 +9,8 @@ function habilitarEdicion() {
 }
 
 function guardarCambios() {
-    const nombre = document.getElementById("nombre").value;
-    const apellido = document.getElementById("apellido").value;
+    const nombres = document.getElementById("nombres").value;
+    const apellidos = document.getElementById("apellidos").value;
     const genero = document.getElementById("genero").value;
     const email = document.getElementById("email").value;
     const direccion = document.getElementById("direccion").value;
@@ -21,7 +21,7 @@ function guardarCambios() {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: `nombre=${encodeURIComponent(nombre)}&apellido=${encodeURIComponent(apellido)}&genero=${encodeURIComponent(genero)}&email=${encodeURIComponent(email)}&direccion=${encodeURIComponent(direccion)}&telefono=${encodeURIComponent(telefono)}`
+        body: `nombres=${encodeURIComponent(nombres)}&apellidos=${encodeURIComponent(apellidos)}&genero=${encodeURIComponent(genero)}&email=${encodeURIComponent(email)}&direccion=${encodeURIComponent(direccion)}&telefono=${encodeURIComponent(telefono)}`
     })
     .then(response => response.text())
     .then(data => {

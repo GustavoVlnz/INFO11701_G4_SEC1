@@ -157,6 +157,68 @@ h2 {
     background-color: #0056b3;
 }
 
+.metodo-pago {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    display: none; /* Inicialmente oculto */
+}
+
+.metodo-pago h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#opciones-pago {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.btn-confirmar-pago {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-confirmar-pago:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para los campos de tarjeta */
+#tarjeta-info {
+    margin-top: 15px;
+}
+
+#tarjeta-info div {
+    margin-bottom: 10px;
+}
+
+#tarjeta-info input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.oculto {
+    display: none;
+}
+
 footer {
     background-color: #333;
     color: white;

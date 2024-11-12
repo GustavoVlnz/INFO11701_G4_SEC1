@@ -49,6 +49,40 @@
         <button class="btn-pago">Pagar</button>
     </section>
 
+    <!-- Sección para seleccionar el método de pago -->
+    <div class="metodo-pago" id="metodo-pago" style="display: none;">
+        <h3>Selecciona tu método de pago</h3>
+        <select id="opciones-pago">
+            <option value="">Selecciona...</option>
+            <option value="efectivo">Efectivo</option>
+            <option value="tarjeta-debito">Tarjeta de Débito</option>
+            <option value="tarjeta-credito">Tarjeta de Crédito</option>
+            <option value="transferencia">Transferencia Bancaria</option>
+        </select>
+        
+        <!-- Campos para tarjeta de débito/crédito (ocultos inicialmente) -->
+        <div id="tarjeta-info" class="oculto">
+            <div>
+                <label for="nombre-tarjeta">Nombre en la tarjeta:</label>
+                <input type="text" id="nombre-tarjeta" placeholder="Nombre en la tarjeta" required />
+            </div>
+            <div>
+                <label for="numero-tarjeta">Número de tarjeta:</label>
+                <input type="text" id="numero-tarjeta" placeholder="XXXX XXXX XXXX XXXX" maxlength="16" required />
+            </div>
+            <div>
+                <label for="fecha-expiracion">Fecha de expiración:</label>
+                <input type="month" id="fecha-expiracion" required />
+            </div>
+            <div>
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" placeholder="XXX" maxlength="4" required />
+            </div>
+        </div>
+
+        <button class="btn-confirmar-pago">Confirmar pago</button>
+    </div>
+
     <footer>
         <div class="contenido-footer">
                 <!-- Sección con información de contacto y redes sociales -->
@@ -73,6 +107,6 @@
                 <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
             </div>
         </footer>
-    <script src="pagos.js"></script>
+    <script src="pagoSs.js"></script>
 </body>
 </html>

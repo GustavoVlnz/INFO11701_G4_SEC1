@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Si el rol es 'empresa' o 'cliente', incluir la URL de redirección en la respuesta
             if ($rol == 'empresa') {
-                $response['redirect'] = "../../InicioSesion-Registro/Verificacion/FormVer.html";
+                $response['redirect'] = "../../Verificacion/FormVer.html";
             } elseif ($rol == 'cliente') {
                 $response['redirect'] = "../../Logged/Clientes/HomeLogeado/home.html";
             }

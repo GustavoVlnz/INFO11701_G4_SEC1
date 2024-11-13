@@ -72,19 +72,51 @@ body { font-family: Arial, sans-serif;}
   padding: 5px;
 }
 
-/* Centrar los botones debajo de las columnas */
-.detalles button {
-  display: block;
-  margin: 20px auto 0;
+/* Estilo para el contenedor de detalles */
+.detalles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.detalles p {
+  width: 48%; /* Cada campo ocupará el 48% para alinearse en dos columnas */
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.detalles p b {
+  width: 40%;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.detalles input, .detalles select {
+  width: 55%;
+  padding: 5px;
+}
+
+/* Estilos para el contenedor de botones */
+.botones {
+  width: 100%; /* Los botones ocuparán toda la línea */
+  text-align: center; /* Centrar los botones dentro del div */
+  margin-top: 20px; /* Espacio entre los botones y los campos de entrada */
+}
+
+/* Estilo para los botones */
+.botones button {
   padding: 8px 20px;
   background-color: #007bff;
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 4px;
+  margin: 0 10px; /* Espacio entre los botones */
 }
 
-.detalles button:hover {
+.botones button:hover {
   background-color: #0056b3;
 }
 

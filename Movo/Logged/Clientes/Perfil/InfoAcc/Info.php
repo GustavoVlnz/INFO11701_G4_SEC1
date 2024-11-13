@@ -84,8 +84,10 @@ if ($result->num_rows > 0) {
             <p><b>Dirección:</b> <input type="text" id="direccion" value="<?php echo htmlspecialchars($usuario['direccion']); ?>" disabled></p>
             <p><b>Teléfono:</b> <input type="text" id="telefono" value="<?php echo htmlspecialchars($usuario['telefono']); ?>" disabled></p>
 
-            <button onclick="habilitarEdicion()">Editar Perfil</button>
-            <button onclick="guardarCambios()" style="display: none;" id="guardarBtn">Guardar Cambios</button>
+            <div class="botones">
+                <button onclick="habilitarEdicion()">Editar Perfil</button>
+                <button onclick="guardarCambios()" style="display: none;" id="guardarBtn">Guardar Cambios</button>
+            </div>
         </div>
     </section>
 </div>

@@ -22,3 +22,15 @@ document.getElementById("ordenar-servicios").addEventListener("click", function(
     // Alternar el valor de la variable para el siguiente clic
     ordenAscendente = !ordenAscendente;
 });
+
+document.getElementById("filtro-servicio").addEventListener("input", function() {
+    const filtro = this.value.toLowerCase(); // Valor del filtro en minúsculas
+    const filas = document.querySelectorAll("#tabla-servicios-solicitados tr");
+
+    filas.forEach(fila => {
+        const servicio = fila.cells[0].textContent.toLowerCase(); // Obtiene el texto de la primera columna
+        // Muestra u oculta la fila según coincida o no con el filtro
+        fila.style.display = servicio.includes(filtro) ? "" : "none";
+    });
+});
+

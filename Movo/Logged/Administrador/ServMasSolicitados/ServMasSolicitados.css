@@ -171,3 +171,8 @@ footer {
 .btn-ordenar-servicios:focus {
     outline: none; /* Quita el borde de enfoque */
 }
+
+.input-group {
+    max-width: 300px;
+    margin: 0 auto;
+}

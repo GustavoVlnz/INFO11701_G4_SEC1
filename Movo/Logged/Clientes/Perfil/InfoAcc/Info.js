@@ -13,7 +13,7 @@ function mostrarToast(message) {
     toastMessage.textContent = message;
 
     const toastEl = document.getElementById('liveToast');
-    const toast = new bootstrap.Toast(toastEl);
+    const toast = new bootstrap.Toast(toastEl, { autohide: true, delay: 5000 });  // Duración de 5 segundos
     toast.show();
 }
 
@@ -35,12 +35,11 @@ function guardarCambios() {
     })
     .then(response => response.text())
     .then(data => {
+        console.log(data);  // Verificar el mensaje en la consola
         mostrarToast(data);  // Mostrar el mensaje en el Toast
-        location.reload();  // Recargar la página para actualizar los datos
+        setTimeout(() => location.reload(), 3000); 
     })
-    .catch(error => {
-        console.error("Error:", error);
-        mostrarToast("Error al actualizar el perfil.");  // Mostrar mensaje de error en el Toast
-    });
+    .catch(error => console.error("Error:", error));
 }
+
 

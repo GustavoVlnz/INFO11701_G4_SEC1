@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 // Conexión a la base de datos
 $servername = "db.inf.uct.cl"; // Ajusta estos valores según tu configuración
 $username = "acarrasco";
@@ -20,20 +22,28 @@ if ($id_proveedor <= 0) {
 }
 $id_categoria = isset($_GET['id_categoria']) ? intval($_GET['id_categoria']) : 0;
 
-// Consulta a la base de datos
+// Consulta a la base de datos para obtener detalles del servicio
 $sql = "SELECT nombre_servicio, proveedor_nombre, descripcion_larga, precio_servicio FROM Lista_ServiciosMOVO WHERE id_proveedor = ?";
 $stmt = $conexion->prepare($sql);
 $stmt->bind_param("i", $id_proveedor);
 $stmt->execute();
 $resultado = $stmt->get_result();
+$servicio = $resultado->fetch_assoc();
 
-if ($resultado->num_rows > 0) {
-    $servicio = $resultado->fetch_assoc();
-} else {
-    echo "No se encontraron detalles para el proveedor seleccionado.";
-    exit;
-}
 
+
+// Consulta para obtener reseñas del servicio completado y datos del cliente
+$sql_reviews = "
+    SELECT reseñas, fecha_completado, calificacion, cliente, idCliente, nombres, apellidos 
+    FROM Servicios_CompletadosMOVO
+    LEFT JOIN clientesMOVO ON cliente = idMOVOcliente
+    LEFT JOIN usuariosMOVO ON idCliente = idUsuarios
+    WHERE proveedor = ?
+";
+$stmt_reviews = $conexion->prepare($sql_reviews);
+$stmt_reviews->bind_param("i", $id_proveedor);
+$stmt_reviews->execute();
+$resultado_reviews = $stmt_reviews->get_result();
 // Cerrar la conexión
 $stmt->close();
 $conexion->close();
@@ -62,19 +72,46 @@ $conexion->close();
         <img src="../Perfil/Images/logout.png" alt="Salir" style="width: 50px;">
     </div>
 </header>
-    <div class="container my-5">
-        <div class="card detalle-card shadow-lg">
+<div class="container my-5">
+    <!-- Detalle del servicio -->
+    <?php if ($servicio): ?>
+        <div class="card detalle-card shadow-lg mb-4">
             <div class="card-header bg-primary text-white">
-                <h3><?php echo htmlspecialchars($servicio['nombre_servicio']); ?></h3>
+                <h3><?php echo htmlspecialchars($servicio['nombre_servicio'] ?? 'Servicio no disponible'); ?></h3>
             </div>
             <div class="card-body">
-                <h5 class="card-title">Proveedor: <?php echo htmlspecialchars($servicio['proveedor_nombre']); ?></h5>
-                <p class="card-text"><?php echo htmlspecialchars($servicio['descripcion_larga']); ?></p>
-                <p class="card-text"><strong>Precio: </strong>$<?php echo number_format($servicio['precio_servicio'], 2); ?></p>
+                <h5 class="card-title">Proveedor: <?php echo htmlspecialchars($servicio['proveedor_nombre'] ?? 'Desconocido'); ?></h5>
+                <p class="card-text"><?php echo htmlspecialchars($servicio['descripcion_larga'] ?? 'Sin descripción'); ?></p>
+                <p class="card-text"><strong>Precio: </strong>$<?php echo number_format($servicio['precio_servicio'] ?? 0, 2); ?></p>
                 <a href="../servicio_categoria/plantilla.php?id=<?php echo $id_categoria; ?>" class="btn btn-primary btn-animado">Volver a la lista de servicios</a>
             </div>
         </div>
+    <?php else: ?>
+        <p class="alert alert-warning">No se encontraron detalles para el servicio solicitado.</p>
+    <?php endif; ?>
+
+    <!-- Sección de Reseñas -->
+    <div class="card detalle-card shadow-lg">
+        <div class="card-header bg-secondary text-white">
+            <h3>Reseñas del Servicio</h3>
+        </div>
+        <div class="card-body">
+            <?php if ($resultado_reviews && $resultado_reviews->num_rows > 0): ?>
+                <?php while ($review = $resultado_reviews->fetch_assoc()): ?>
+                        <div class="review-container">
+                            <p class="card-text"><strong>Cliente:</strong> <?php echo htmlspecialchars(($review['nombres'] ?? 'Nombre no disponible') . ' ' . ($review['apellidos'] ?? '')); ?></p>
+                            <p class="card-text"><strong>Reseña:</strong> <?php echo htmlspecialchars($review['reseñas'] ?? 'Sin reseña'); ?></p>
+                            <p class="card-text"><strong>Calificación:</strong> <?php echo htmlspecialchars($review['calificacion'] ?? 'Sin calificación'); ?></p>
+                            <p class="card-text"><small class="text-muted">Fecha: <?php echo htmlspecialchars($review['fecha_completado'] ?? 'Fecha no disponible'); ?></small></p>
+                        </div>
+                        </div>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <p class="alert alert-info">No hay reseñas disponibles para este proveedor.</p>
+            <?php endif; ?>
+        </div>
     </div>
+</div>
 <footer class=" text-white text-center py-4">
     <div class="container">
         <div class="row">

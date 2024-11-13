@@ -4,6 +4,16 @@ include 'conexion.php'; // Asegúrate de que 'conexion.php' conecta bien a la BD
 
 header('Content-Type: application/json'); // Establecer la respuesta como JSON
 
+// Clave de encriptación (debe ser segura y almacenada de forma segura)
+define('ENCRYPTION_KEY', 'F_VH39JUfZPOBFTJNWGXSmf4qHFhWRhW9a2kG8GoMpA='); // Debe coincidir con la clave utilizada en el registro
+define('ENCRYPTION_METHOD', 'AES-256-CBC');
+
+// Función para desencriptar datos
+function decryptData($data, $key) {
+    list($encrypted_data, $iv) = explode('::', base64_decode($data), 2);
+    return openssl_decrypt($encrypted_data, ENCRYPTION_METHOD, $key, 0, $iv);
+}
+
 $error = ''; // Variable para errores lógicos
 $executionError = ''; // Variable para errores de ejecución
 
@@ -13,33 +23,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    try {
-        // Consulta para verificar usuario y contraseña, incluyendo el id_usuario
-        $sql = "SELECT idUsuarios, rol FROM usuariosMOVO WHERE email = ? AND password = ?";
-        $stmt = $db->prepare($sql);
-        $stmt->bind_param("ss", $email, $password);
-        $stmt->execute();
-        $stmt->store_result();
-        
-        if ($stmt->num_rows > 0) {
+    // Consulta para obtener el usuario por correo electrónico
+    $stmt = $conexion->prepare("SELECT idUsuarios, password, rol FROM usuarios WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($id_usuario, $hashed_password, $rol);
+        $stmt->fetch();
+
+        // Verificar la contraseña desencriptando el hash almacenado
+        $decrypted_password = decryptData($hashed_password, ENCRYPTION_KEY);
+        if ($password === $decrypted_password) {
             $stmt->bind_result($id_usuario, $rol); // Obtener id y rol
             $stmt->fetch();
 
             // Guardar id y rol en la sesión
             $_SESSION['idUsuarios'] = $id_usuario;
             $_SESSION['rol'] = $rol;
-            // Devolver respuesta de éxito
             echo json_encode(['success' => true, 'message' => 'Inicio de sesión exitoso.']);
         } else {
-            // Usuario no encontrado
-            echo json_encode(['success' => false, 'message' => 'Correo o contraseña incorrectos.']);
+            echo json_encode(['success' => false, 'message' => 'Contraseña incorrecta.']);
         }
-    } catch (Exception $e) {
-        // Capturar errores de ejecución
-        echo json_encode(['success' => false, 'message' => 'Error: ' . $e->getMessage()]);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Usuario no encontrado.']);
     }
 
     $stmt->close();
-    $db->close();
+    $conexion->close();
+} else {
+    echo json_encode(['success' => false, 'message' => 'Solicitud inválida.']);
 }
 ?>

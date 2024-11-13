@@ -53,6 +53,16 @@ nav a:hover {
     transform: scale(1.05);
 }
 
+.review-container {
+    display: inline-block;
+    padding: 5px 10px; /* Ajusta el padding según tus necesidades */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9; /* Fondo opcional */
+}
+
 /* Estilos del footer */
 footer {
     background-color: #333;

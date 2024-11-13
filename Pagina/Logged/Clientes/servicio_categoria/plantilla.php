@@ -41,7 +41,7 @@ while ($servicio = $resultado_servicios->fetch_assoc()) {
 <body>
 <header class="d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
         <div class="d-flex align-items-center" id="logo">
-          <img src="logo.png" alt="Logo Movo" class="me-2" ">
+          <img src="../Perfil/Images/logo.png" alt="Logo Movo" class="me-2" ">
           <h1 class="m-0">MOVO</h1>
         </div>
         <nav>
@@ -49,7 +49,7 @@ while ($servicio = $resultado_servicios->fetch_assoc()) {
           <a href="../../verificador.php" >Perfil</a>
         </nav>
         <div id="logo-salir">
-          <img src="images/logout.png" alt="Salir" style="width: 50px;">
+          <img src="../Perfil/Images/logout.png" alt="Salir" style="width: 50px;">
         </div>
     </header>
 
@@ -77,7 +77,7 @@ while ($servicio = $resultado_servicios->fetch_assoc()) {
                             <p class="card-text flex-grow-1"><?php echo htmlspecialchars($datos['descripcion_corta']); ?></p> <!-- flex-grow-1 permite que esta sección crezca y mantenga uniformidad -->
 
                             <!-- Lista desplegable de proveedores -->
-                            <select class="form-select mb-3" id="select-<?php echo htmlspecialchars($nombre_servicio); ?>" name="select-<?php echo htmlspecialchars($nombre_servicio); ?>">
+                            <select class="form-select mb-3" data-servicio-id="<?php echo $id_servicio; ?>" id="select-<?php echo htmlspecialchars($nombre_servicio); ?>" name="select-<?php echo htmlspecialchars($nombre_servicio); ?>">
                                 <option selected>Seleccione un proveedor</option>
                                 <?php
                                 foreach ($datos['servicios'] as $servicio) {
@@ -94,7 +94,7 @@ while ($servicio = $resultado_servicios->fetch_assoc()) {
                             <!-- Botones alineados uniformemente al final -->
                             <div class="mt-auto"> <!-- mt-auto empuja estos elementos hacia la parte inferior del contenedor -->
                                 <button class="btn btn-success agregar-carrito-btn mb-2" data-id="<?php echo $id_servicio; ?>" data-nombre="<?php echo htmlspecialchars($nombre_servicio); ?>">Agregar al Carrito</button>
-                                <a href="../detalle_pedido/detalle.php?proveedor_id=<?php echo isset($proveedor) ? $proveedor['id_proveedor'] : ''; ?>&id_categoria=<?php echo $categoria_id; ?>" class="btn btn-primary mb-2" id="detalle-pedido-<?php echo isset($proveedor) ? $proveedor['id_proveedor'] : 'default'; ?>">Ver detalles</a>
+                                <button class="btn btn-primary mb-2 ver-detalles-btn" data-id="<?php echo $id_servicio; ?>">Ver detalles</button>
                             </div>
                         </div>
                     </div>
@@ -109,7 +109,7 @@ while ($servicio = $resultado_servicios->fetch_assoc()) {
             <!-- Botones del carrito -->
             <div class="mt-3">
                 <button id="boton-pagar" class="btn btn-primary" style="display: none;">Pagar</button>
-                <a id="boton-volver" href="categorias.html" class="btn btn-secondary">Volver a Categorías</a>
+                <a id="boton-volver" href="../categorias/categorias.html" class="btn btn-secondary">Volver a Categorías</a>
             </div>
         </div>
     </div>
@@ -136,6 +136,10 @@ while ($servicio = $resultado_servicios->fetch_assoc()) {
             <p class="mt-3">&copy; 2024 MOVO. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <!-- Definición de categoriaId desde PHP -->
+    <script>
+        const categoriaId = <?php echo isset($categoria_id) ? $categoria_id : 0; ?>;
+    </script>
     <script src="plantilla.js"></script>
 </body>
 </html>

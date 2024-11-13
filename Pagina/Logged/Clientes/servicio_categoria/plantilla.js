@@ -6,7 +6,30 @@ document.addEventListener('DOMContentLoaded', function () {
     const botonPagar = document.getElementById('boton-pagar');
     const botonVolver = document.getElementById('boton-volver'); // Asegúrate de tener este botón definido en tu HTML
     const enlacesDetalle = document.querySelectorAll('[id^="detalle-pedido-"]');
+    const botonesDetalles = document.querySelectorAll('.ver-detalles-btn');
     const serviciosEnCarrito = new Set(); // Set para limitar servicios únicos
+
+    botonesDetalles.forEach(boton => {
+        boton.addEventListener('click', function () {
+            const cardBody = boton.closest('.card-body');
+            const selectProveedor = cardBody.querySelector('.form-select');
+            const nuevoProveedorId = selectProveedor.value;
+
+            // Validar si se ha seleccionado un proveedor
+            if (!nuevoProveedorId || nuevoProveedorId === 'Seleccione un proveedor') {
+                alert('Por favor, seleccione un proveedor antes de ver los detalles.');
+                return;
+            }
+
+            // Construcción del enlace utilizando categoriaId
+            if (categoriaId !== 0) {
+                const enlace = `../detalle_pedido/detalle.php?proveedor_id=${nuevoProveedorId}&id_categoria=${categoriaId}`;
+                window.location.href = enlace;
+            } else {
+                console.error('El ID de la categoría no es válido.');
+            };
+        });
+    });
 
     if (!botonesAgregar || !listaCarrito || !carritoVacio || !botonPagar || !botonVolver || !enlacesDetalle) {
         console.error('Algunos elementos clave no están definidos. Verifique su HTML.');

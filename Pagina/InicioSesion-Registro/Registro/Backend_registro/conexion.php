@@ -1,14 +1,14 @@
 <?php
-$servername = "db.inf.uct.cl";
+$host = "db.inf.uct.cl";
 $username = "acarrasco";
 $password = "Hellovro2019@";
 $dbname = "A2024_acarrasco";
 
 // Crear conexion con la bd
-$db = new mysqli($servername, $username, $password, $dbname);
+$conexion = new mysqli($host, $username, $password, $dbname);
 
 // Verificar conexion
-if ($db->connect_error) {
-    die("Conexión fallida: " . $db->connect_error);
+if ($conexion->connect_error) {
+    die("Conexión fallida: " . $conexion->connect_error);
 }
 ?>

@@ -8,6 +8,16 @@ function habilitarEdicion() {
     document.getElementById("guardarBtn").style.display = "inline";
 }
 
+function mostrarToast(message) {
+    const toastMessage = document.getElementById('toastMessage');
+    toastMessage.textContent = message;
+
+    const toastEl = document.getElementById('liveToast');
+    const toast = new bootstrap.Toast(toastEl);
+    toast.show();
+}
+
+
 function guardarCambios() {
     const nombres = document.getElementById("nombres").value;
     const apellidos = document.getElementById("apellidos").value;
@@ -25,8 +35,12 @@ function guardarCambios() {
     })
     .then(response => response.text())
     .then(data => {
-        alert(data);  // Mostrar mensaje de confirmación o error
+        mostrarToast(data);  // Mostrar el mensaje en el Toast
         location.reload();  // Recargar la página para actualizar los datos
     })
-    .catch(error => console.error("Error:", error));
+    .catch(error => {
+        console.error("Error:", error);
+        mostrarToast("Error al actualizar el perfil.");  // Mostrar mensaje de error en el Toast
+    });
 }
+

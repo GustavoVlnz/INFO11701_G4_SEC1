@@ -159,3 +159,15 @@ footer {
     color: #ccc; /* Texto ligeramente más claro para contraste */
     font-size: 14px;
 }
+
+.btn-ordenar-servicios {
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    color: white; /* Color del texto (flecha) blanco */
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-ordenar-servicios:focus {
+    outline: none; /* Quita el borde de enfoque */
+}

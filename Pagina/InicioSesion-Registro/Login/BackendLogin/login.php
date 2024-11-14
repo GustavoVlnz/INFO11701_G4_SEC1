@@ -1,5 +1,4 @@
 <?php
-session_start(); // Iniciar la sesión
 include 'conexion.php'; // Asegúrate de que 'conexion.php' conecta bien a la BD
 
 header('Content-Type: application/json'); // Establecer la respuesta como JSON
@@ -20,11 +19,15 @@ $executionError = ''; // Variable para errores de ejecución
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Para capturar excepciones
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start(); // Inicia la sesión solo si no hay una activa
+    }
+
     $email = $_POST['email'];
     $password = $_POST['password'];
 
     // Consulta para obtener el usuario por correo electrónico
-    $stmt = $conexion->prepare("SELECT idUsuarios, password, rol FROM usuarios WHERE email = ?");
+    $stmt = $conexion->prepare("SELECT idUsuarios, password, rol FROM usuariosMOVO WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
@@ -34,12 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->fetch();
 
         // Verificar la contraseña desencriptando el hash almacenado
-        $decrypted_password = decryptData($hashed_password, ENCRYPTION_KEY);
+        $decrypted_password = decryptData($hashed_password, ENCRYPTION_KEY); // Usa tu función personalizada
         if ($password === $decrypted_password) {
-            $stmt->bind_result($id_usuario, $rol); // Obtener id y rol
-            $stmt->fetch();
-
-            // Guardar id y rol en la sesión
             $_SESSION['idUsuarios'] = $id_usuario;
             $_SESSION['rol'] = $rol;
             echo json_encode(['success' => true, 'message' => 'Inicio de sesión exitoso.']);

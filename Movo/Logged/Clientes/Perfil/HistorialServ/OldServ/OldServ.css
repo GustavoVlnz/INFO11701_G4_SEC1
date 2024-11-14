@@ -1,55 +1,42 @@
-body {
-    background-color: #ffffff;
-    color: #000000;
-    font-family: Arial, sans-serif;
+
+.sidebar {
+    width: 200px;
+  }
+  
+.sidebar-link {
+    text-decoration: none;
+  }
+  
+.sidebar-link:hover {
+    text-decoration: underline;
+  }
+  
+.historial {
+    margin-left: 20px;
+    background-color: white;
+  }
+
+.card {
+    transition: transform 0.3s ease;
 }
 
-h1 {
-  text-align: center;
+.card:hover {
+    transform: translateY(-5px);
 }
-
-.container {
-    margin-top: 50px;
-}
-
-.chart-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra los gráficos horizontalmente */
-    justify-content: center; /* Centra los gráficos verticalmente */
-    background-color: #e7e7e7;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-
-}
-
-h3 {
-    color: #000000;
-    margin-bottom: 20px;
-    text-align: center; /* Centra el texto del título */
-}
-
-canvas {
-    max-width: 100%; /* Asegura que el canvas no se expanda fuera del contenedor */
-    max-height: 100%;
-    display: block;
-}
-
-
-h2 {
-    text-align: center;
-    color: #000000;
-    margin-bottom: 30px;
-}
-
-
-
-
-
-/*Estilos del header*/
-
+  
+.infos {
+    color: #0277bd;
+    text-decoration: none;
+  }
+  
+.infos:hover, #borrar:hover {
+    text-decoration: underline;
+  }
+  
+body {font-family: Arial, sans-serif;}
+  
+  /*Estilos del header*/
+  
 header #logo {
     display: flex;
     align-items: center;
@@ -89,20 +76,16 @@ nav a:hover {
     color: #0056b3;
   }
   
-  /* Estilos del footer */
+/* Estilos del footer */
 footer {
     background-color: #333;
+  
   }
   
-footer h3 {
-    color: #ffffff;
-}
-
 .contenido-footer h3 {
       margin-top: 0;/* Elimina el margen superior de los encabezados dentro del footer */
   }
   
-
 .contenido-footer  {
       font-size: 18px;
       color: rgb(255, 255, 255);

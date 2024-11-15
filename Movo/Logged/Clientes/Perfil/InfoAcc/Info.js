@@ -42,4 +42,15 @@ function guardarCambios() {
     .catch(error => console.error("Error:", error));
 }
 
+function validarTelefono(input) {
+    // Eliminar caracteres no numéricos, excepto el prefijo + y espacios
+    input.value = input.value.replace(/[^\d\s\+]/g, "");
 
+    // Validar el formato específico
+    const regex = /^\+56 9 \d{4} \d{4}$/;
+    if (!regex.test(input.value)) {
+        input.setCustomValidity("Formato inválido. Use el formato +569");
+    } else {
+        input.setCustomValidity("");
+    }
+}

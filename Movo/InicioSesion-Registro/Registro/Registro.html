@@ -69,6 +69,15 @@
                             <input type="password" id="confirm-password" name="confirm-password" class="form-control" required>
                         </div>
 
+                        <div class="col-md-6 mb-3">
+                            <label for="telefono" class="form-label">Teléfono:</label>
+                            <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="+569" maxlength="12" required pattern="^\+56 9 \d{4} \d{4}$" oninput="validarTelefono(this)">
+                        </div>
+    
+                        <div class="col-md-6 mb-3">
+                            <label for="direccion" class="form-label">Dirección:</label>
+                            <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Ingrese su dirección" maxlength="40" required>
+                        </div>
                         
                         <div id="mensaje-error" class="alert alert-danger d-none mt-2" role="alert"></div>
                     </div>

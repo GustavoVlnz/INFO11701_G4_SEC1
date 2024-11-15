@@ -82,7 +82,7 @@ if ($result->num_rows > 0) {
             </p>
             <p><b>Correo electrónico:</b> <input type="email" id="email" value="<?php echo htmlspecialchars($usuario['email']); ?>" disabled></p>
             <p><b>Dirección:</b> <input type="text" id="direccion" value="<?php echo htmlspecialchars($usuario['direccion']); ?>" disabled></p>
-            <p><b>Teléfono:</b> <input type="text" id="telefono" value="<?php echo htmlspecialchars($usuario['telefono']); ?>" disabled></p>
+            <p><b>Teléfono:</b> <input type="text" id="telefono" value="<?php echo htmlspecialchars($usuario['telefono']); ?>" disabled placeholder="+569" maxlength="12" required pattern="^\+56 9 \d{4} \d{4}$" oninput="validarTelefono(this)"></p>
 
             <div class="botones">
                 <button onclick="habilitarEdicion()">Editar Perfil</button>

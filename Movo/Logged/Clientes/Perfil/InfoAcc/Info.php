@@ -3,7 +3,7 @@
 session_start();
 
 // Comprobar si el usuario ha iniciado sesión
-if (!isset($_SESSION['IDuser'])) {
+if (!isset($_SESSION['idUsuarios'])) {
     header("Location: ../../Login/Login.html"); // Redirigir al login si no ha iniciado sesión
     exit();
 }
@@ -12,10 +12,10 @@ if (!isset($_SESSION['IDuser'])) {
 include 'conexion.inc';  
 
 // Obtener el ID del usuario desde la sesión
-$user_id = $_SESSION['IDuser'];
+$user_id = $_SESSION['idUsuarios'];
 
 // Preparar la consulta para obtener los datos del usuario
-$sql = "SELECT nombre, email, telefono FROM usuarios WHERE id = ?";
+$sql = "SELECT nombres, apellidos, rut, genero, email, direccion, telefono FROM usuariosMOVO WHERE idUsuarios = ?";
 $stmt = $db->prepare($sql);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
@@ -28,6 +28,7 @@ if ($result->num_rows > 0) {
     echo "Error: No se encontró el usuario.";
     exit();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -55,28 +56,57 @@ if ($result->num_rows > 0) {
     </header>
 
     <div id="perfil" class="container-fluid d-flex my-5">
-        <section class="sidebar bg-primary text-white p-4">
-            <ul class="list-unstyled">
-                <li><a href="#" class="text-white d-block py-2">Información de la cuenta</a></li>
-                <li><a href="../Seguridad/Seguridad.html" class="text-white d-block py-2">Seguridad</a></li>
-                <li><a href="../HistorialServ/HistSev.html" class="text-white d-block py-2">Historial de servicios</a></li>
-            </ul>
-        </section>
-    
-        <section class="info-perfil flex-grow-1 bg-white shadow-sm p-4 ms-3">
-            <div class="header-perfil d-flex align-items-center mb-4">
-                <a href="#"><img src="../Images/user.png" alt="Foto de perfil" class="foto-perfil img-thumbnail"></a>
-                <h2 class="ms-3"><?php echo htmlspecialchars($usuario['nombre']); ?></h2>
+    <section class="sidebar bg-primary text-white p-4">
+        <ul class="list-unstyled">
+            <li><a href="#" class="text-white d-block py-2">Información de la cuenta</a></li>
+            <li><a href="../Seguridad/Seguridad.html" class="text-white d-block py-2">Seguridad</a></li>
+            <li><a href="../HistorialServ/HistSev.html" class="text-white d-block py-2">Historial de servicios</a></li>
+        </ul>
+    </section>
+
+    <section class="info-perfil bg-white shadow-sm p-4 ms-3">
+        <div class="header-perfil d-flex align-items-center mb-4">
+            <a href="#"><img src="../Images/user.png" alt="Foto de perfil" class="foto-perfil img-thumbnail"></a>
+        </div>
+        <div class="detalles">
+            <h3>Información del Cliente</h3>
+            <p><b>Nombre:</b> <input type="text" id="nombres" value="<?php echo htmlspecialchars($usuario['nombres']); ?>" disabled></p>
+            <p><b>Apellido:</b> <input type="text" id="apellidos" value="<?php echo htmlspecialchars($usuario['apellidos']); ?>" disabled></p>
+            <p><b>RUT:</b> <input type="text" id="rut" value="<?php echo htmlspecialchars($usuario['rut']); ?>" disabled readonly></p>
+            <p><b>Género:</b> 
+                <select id="genero" disabled>
+                    <option value="Masculino" <?php if ($usuario['genero'] == 'Masculino') echo 'selected'; ?>>Masculino</option>
+                    <option value="Femenino" <?php if ($usuario['genero'] == 'Femenino') echo 'selected'; ?>>Femenino</option>
+                    <option value="Otro" <?php if ($usuario['genero'] == 'Otro') echo 'selected'; ?>>Otro</option>
+                </select>
+            </p>
+            <p><b>Correo electrónico:</b> <input type="email" id="email" value="<?php echo htmlspecialchars($usuario['email']); ?>" disabled></p>
+            <p><b>Dirección:</b> <input type="text" id="direccion" value="<?php echo htmlspecialchars($usuario['direccion']); ?>" disabled></p>
+            <p><b>Teléfono:</b> <input type="text" id="telefono" value="<?php echo htmlspecialchars($usuario['telefono']); ?>" disabled placeholder="+569" maxlength="12" required pattern="^\+56 9 \d{4} \d{4}$" oninput="validarTelefono(this)"></p>
+
+            <div class="botones">
+                <button onclick="habilitarEdicion()">Editar Perfil</button>
+                <button onclick="guardarCambios()" style="display: none;" id="guardarBtn">Guardar Cambios</button>
             </div>
-            <div class="detalles">
-                <h3>Información</h3>
-                <p><b>Nombre:</b> <?php echo htmlspecialchars($usuario['nombre']); ?></p>
-                <p><b><a class="infos" href="Cambios/CambioNumero.html">Numero de teléfono:</a></b><?php echo htmlspecialchars($usuario['telefono']); ?></p>
-                <p><b><a class="infos" href="Cambios/CambioCorreo.html">Correo electrónico:</a></b> <?php echo htmlspecialchars($usuario['email']); ?></p>
-            </div>
-        </section>
+        </div>
+    </section>
     </div>
-    
+
+<!-- Contenedor para el Toast -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="toast-header" class="toast-header">
+                <img src="Images/logo.png" class="rounded me-2 img-fluid" alt="Logo MOVO" style="width: 40px; height: 40px;">
+                <strong class="me-auto">MOVO</strong>
+                <small>Ahora</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="toastMessage">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 <footer class=" text-white text-center py-4">
@@ -101,6 +131,7 @@ if ($result->num_rows > 0) {
         <p class="mt-3">&copy; 2024 MOVO. Todos los derechos reservados.</p>
     </div>
 </footer>
+<script src="Info.js"></script>
 
     
 </body>

@@ -15,23 +15,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     try {
-        // Consulta para verificar el email y la contraseña, y obtener el rol del usuario
-        $sql = "SELECT rol FROM usuarios WHERE email = ? AND password = ?";
-        $stmt = $db->prepare($sql); // Cambiar $conn a $db
+        // Consulta para verificar el email, contraseña y verificación del usuario
+        $sql = "SELECT rol, verificacion FROM usuarios WHERE email = ? AND password = ?";
+        $stmt = $db->prepare($sql); 
         $stmt->bind_param("ss", $email, $password); // Vincular los parámetros
         $stmt->execute();
         $stmt->store_result();
         
         // Si se encuentra el usuario en la base de datos
         if ($stmt->num_rows > 0) {
-            $stmt->bind_result($rol); // Obtener el rol del usuario
+            $stmt->bind_result($rol, $verificacion); // Obtener el rol y el estado de verificación del usuario
             $stmt->fetch();
 
             // Asignar el rol a la sesión
             $_SESSION['rol'] = $rol;
 
-            // Redirigir al usuario a la página de inicio
-            header("Location: ../../../Logged/Clientes/HomeLogeado/home.html");
+            // Redirigir según el estado de verificación
+            if ($verificacion) {
+                header("Location: verificacion.html");
+            } else {
+                header("Location: ../../../Logged/Clientes/HomeLogeado/home.html");
+            }
             exit();
         } else {
             // Usuario no encontrado o contraseña incorrecta

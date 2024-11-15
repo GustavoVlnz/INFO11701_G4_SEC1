@@ -1,24 +1,125 @@
 body { font-family: Arial, sans-serif;}
 
+#perfil {
+  display: flex;
+}
+
+/* Establece el ancho fijo para la barra de navegación */
+.sidebar {
+  width: 250px;
+  min-width: 200px;
+  flex-shrink: 0;
+}
+
+/* La sección de información del perfil ocupará el resto del espacio */
+.info-perfil {
+  flex-grow: 1;
+  max-width: 800px;
+  margin-left: 20px;
+  text-align: center; /* Centra el contenido dentro de la sección */
+}
+
+/* Cabecera de perfil */
+.header-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Estilo para la imagen del perfil */
 .foto-perfil {
-  width: 100px;
-  height: 100px;
-  border-radius: 40%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
 }
 
-.infos {
-  color: #0277bd;
-  text-decoration: none;
+/* Centrar el encabezado "Información" */
+.detalles h3 {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  text-align: center; /* Centra el texto */
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
-.infos:hover {
-  text-decoration: underline;
+/* Contenedor de detalles en dos columnas */
+.detalles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.sidebar ul li a {
-  text-decoration: none;
-
+/* Estilos para los campos de entrada */
+.detalles p {
+  width: 48%; 
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
 }
+
+/* Etiquetas en negrita */
+.detalles p b {
+  width: 40%;
+  text-align: right;
+  margin-right: 10px;
+}
+
+/* Estilo de los inputs y select */
+.detalles input, .detalles select {
+  width: 55%;
+  padding: 5px;
+}
+
+/* Estilo para el contenedor de detalles */
+.detalles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.detalles p {
+  width: 48%; /* Cada campo ocupará el 48% para alinearse en dos columnas */
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.detalles p b {
+  width: 40%;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.detalles input, .detalles select {
+  width: 55%;
+  padding: 5px;
+}
+
+/* Estilos para el contenedor de botones */
+.botones {
+  width: 100%; /* Los botones ocuparán toda la línea */
+  text-align: center; /* Centrar los botones dentro del div */
+  margin-top: 20px; /* Espacio entre los botones y los campos de entrada */
+}
+
+/* Estilo para los botones */
+.botones button {
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 0 10px; /* Espacio entre los botones */
+}
+
+.botones button:hover {
+  background-color: #0056b3;
+}
+
 
 /*Estilos del header*/
 

@@ -2,16 +2,26 @@ document.getElementById('Formulario').addEventListener('submit', function(event)
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm-password').value;
     const errorMessage = document.getElementById('mensaje-error');
-    //Crea las constantes con info del html
-       
-    errorMessage.textContent = ''; // Limpiar mensaje de error predeterminado
     
-    // Comparar contraseñas
+    errorMessage.classList.add('d-none'); // Ocultar mensaje de error inicialmente
+    
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    
+    // Validar fortaleza de la contraseña
+    if (!passwordRegex.test(password)) {
+        event.preventDefault(); 
+        errorMessage.textContent = 'La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas y numeros.';
+        errorMessage.classList.remove('d-none'); // Mostrar mensaje de error
+    }
+    
+    // Validar que ambas contraseñas coincidan
     if (password !== confirmPassword) {
-        event.preventDefault();  // Evita el envio del formulario
-        errorMessage.textContent = 'Las contraseñas no coinciden'; // Muestra el mensaje de error
+        event.preventDefault(); 
+        errorMessage.textContent = 'Las contraseñas no coinciden.';
+        errorMessage.classList.remove('d-none'); 
     }
 });
+
 
 // Función para formatear el RUT a la forma 12.234.231-4
 document.getElementById('rut').addEventListener('input', function(event) {
@@ -51,3 +61,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+function validarTelefono(input) {
+    const regex = /^\+56 9 \d{4} \d{4}$/;
+    if (!regex.test(input.value)) {
+        input.setCustomValidity("Formato inválido. Use el formato +56 9.");
+    } else {
+        input.setCustomValidity("");
+    }
+}

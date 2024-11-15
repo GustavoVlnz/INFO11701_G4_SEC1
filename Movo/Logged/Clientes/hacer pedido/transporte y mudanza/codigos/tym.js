@@ -1,16 +1,21 @@
-// Función para agregar un servicio a la lista de pedidos
-function agregarServicio(nombre, precio) {
-    const listaPedido = JSON.parse(localStorage.getItem('pedido')) || []; // Obtener la lista del localStorage
+// Función para agregar un proveedor a la lista de pedidos
+function agregarProveedor(servicioNombre, selectElement) {
+    const listaPedido = JSON.parse(localStorage.getItem('pedido')) || [];
+    const proveedorSeleccionado = selectElement.options[selectElement.selectedIndex].text;
+    const precio = parseFloat(proveedorSeleccionado.split('- $')[1].replace(' CLP', '')); // Obtener el precio del proveedor
 
     // Verificar si el servicio ya está en la lista
-    const servicioExistente = listaPedido.find(servicio => servicio.nombre === nombre);
+    const servicioExistente = listaPedido.find(servicio => servicio.nombre === servicioNombre);
     
     if (servicioExistente) {
-        alert('Este servicio ya ha sido agregado a tu pedido.');
-        return; // No agregar si ya existe
+        // Si el servicio ya existe, actualizar con el nuevo proveedor
+        servicioExistente.proveedor = proveedorSeleccionado;
+        servicioExistente.precio = precio;
+    } else {
+        // Si el servicio no existe, agregarlo a la lista con el proveedor seleccionado
+        listaPedido.push({ nombre: servicioNombre, proveedor: proveedorSeleccionado, precio });
     }
 
-    listaPedido.push({ nombre, precio }); // Agregar el nuevo servicio
     localStorage.setItem('pedido', JSON.stringify(listaPedido)); // Guardar la lista actualizada
     mostrarPedido(); // Mostrar la lista actualizada en la página
 }
@@ -23,7 +28,7 @@ function mostrarPedido() {
 
     listaPedido.forEach((servicio, index) => {
         const li = document.createElement('li');
-        li.textContent = `${servicio.nombre} - $${servicio.precio}`;
+        li.textContent = `${servicio.nombre} (${servicio.proveedor})`;
         
         // Crear un botón de eliminar
         const btnEliminar = document.createElement('button');
@@ -45,3 +50,11 @@ function eliminarServicio(index) {
 
 // Al cargar la página, mostrar los servicios guardados
 document.addEventListener('DOMContentLoaded', mostrarPedido);
+
+// Detectar cambios en los selects y agregar los proveedores seleccionados
+document.querySelectorAll('.ver-proveedor').forEach(selectElement => {
+    selectElement.addEventListener('change', function() {
+        const servicioNombre = this.parentElement.querySelector('h3').textContent;
+        agregarProveedor(servicioNombre, this);
+    });
+});

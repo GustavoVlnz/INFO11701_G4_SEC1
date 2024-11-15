@@ -1,29 +1,42 @@
-body {
-    font-family: Arial, sans-serif;
+
+.sidebar {
+    width: 200px;
+  }
+  
+.sidebar-link {
+    text-decoration: none;
+  }
+  
+.sidebar-link:hover {
+    text-decoration: underline;
+  }
+  
+.historial {
+    margin-left: 20px;
+    background-color: white;
+  }
+
+.card {
+    transition: transform 0.3s ease;
 }
 
-.informacion-servicio {
-    margin-bottom: 20px;
+.card:hover {
+    transform: translateY(-5px);
 }
-
-input, .btn {
-    border-radius: 5px;
-}
-
-input[type="text"] {
-    width: 100%;
-}
-
-.btn-primary {
-    background-color: #007BFF;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-}
-
-/*Estilos del header*/
-
+  
+.infos {
+    color: #0277bd;
+    text-decoration: none;
+  }
+  
+.infos:hover, #borrar:hover {
+    text-decoration: underline;
+  }
+  
+body {font-family: Arial, sans-serif;}
+  
+  /*Estilos del header*/
+  
 header #logo {
     display: flex;
     align-items: center;

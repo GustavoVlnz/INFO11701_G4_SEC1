@@ -27,33 +27,53 @@
             <div class="servicio">
                 <img src="../imagenes/carga_descarga.png" alt="carga">
                 <h3>Carga / Descarga</h3>
-                <p>Precio: $15,000 CLP</p>
-                <button onclick="agregarServicio('Carga Descarga', 15.000)">Agregar</button>
+                <select class="ver-proveedor" class="proveedores">
+                    <option disabled selected>Selecciona un proveedor</option>
+                    <option>Carga Express - $16,000 CLP</option>
+                    <option>Descargax - $17,500 CLP</option>
+                    <option>Carga y Decargas  - $15,500 CLP</option>
+                </select>
             </div>
+    
             <div class="servicio">
                 <img src="../imagenes/mudanza_local.png" alt="local">
                 <h3>Mudanza Local</h3>
-                <p>Precio: $20.000 CLP</p>
-                <button onclick="agregarServicio('Mudanza Local', 20.000)">Agregar</button>
+                <select class="ver-proveedor" class="proveedores">
+                    <option disabled selected>Selecciona un proveedor</option>
+                    <option>Locales - $21,000 CLP</option>
+                    <option>MudanzaFast - $22,000 CLP</option>
+                    <option>Mudanza Segura- $20,500 CLP</option>
+                </select>
             </div>
+    
             <div class="servicio">
                 <img src="../imagenes/mudanza_nacional.png" alt="nacional">
                 <h3>Mudanza Nacional</h3>
-                <p>Precio: $30.000 CLP</p>
-                <button onclick="agregarServicio('Mudanza Nacional', 30.000)">Agregar</button>
+                <select class="ver-proveedor" class="proveedores">
+                    <option disabled selected>Selecciona un proveedor</option>
+                    <option>Mudanza Confiable- $31,000 CLP</option>
+                    <option>Nacional Mudanza - $32,500 CLP</option>
+                    <option>rapidosYseguros- $30,500 CLP</option>
+                </select>
             </div>
+    
             <div class="servicio">
                 <img src="../imagenes/transporte_muebles.png" alt="muebles">
                 <h3>Transporte Muebles</h3>
-                <p>Precio: $25.000 CLP</p>
-                <button onclick="agregarServicio('Transporte Muebles', 20.000)">Agregar</button>
+                <select class="ver-proveedor" class="proveedores">
+                    <option disabled selected>Selecciona un proveedor</option>
+                    <option>Muebleria Mac - $26,000 CLP</option>
+                    <option>Muebles la Familia - $27,500 CLP</option>
+                    <option>MuebleriaFasty - $25,500 CLP</option>
+                </select>
             </div>
         </div>
+    </main>
 
         <div class="pedido">
             <h2>Tu Pedido</h2>
             <ul id="lista-pedido"></ul>
-            <button onclick="window.location.href='carpetaAmigo/confirmacion.html'">Confirmar Pedido</button> <!-- PAGINA DE PAGOOOOOOOOOOOOOOOO -->
+            <button onclick="window.location.href='/Movo/Logged/Clientes/PagoCarrito/PagoCarrito.html'">Confirmar Pedido</button> <!-- PAGINA DE PAGOOOOOOOOOOOOOOOO -->
             <button onclick="window.location.href='categorias.html'">Volver a Categorías</button> <!-- BOTON PARA VOLVER A LA PAGINA DE CATEGORIAS -->
         </div>
     </main>

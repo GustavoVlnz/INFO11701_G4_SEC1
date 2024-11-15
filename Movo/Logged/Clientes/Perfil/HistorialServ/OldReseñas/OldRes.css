@@ -1,13 +1,3 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-#perfil {
-  display: flex;
-  padding: 20px;
-  flex-grow: 1;
-}
 
 .sidebar {
   width: 200px;
@@ -15,16 +5,23 @@ body {
 
 .sidebar-link {
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
 .sidebar-link:hover {
-  color: #007bff;
+  text-decoration: underline;
 }
 
-.info-seguridad {
+.historial {
   margin-left: 20px;
   background-color: white;
+}
+
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .infos {
@@ -36,11 +33,16 @@ body {
   text-decoration: underline;
 }
 
-#borrar {
-  color: red;
-}
+body {font-family: Arial, sans-serif;}
 
 /*Estilos del header*/
+
+header #logo {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
 header #logo img,
 header #logo-salir img {
   width: 50px;
@@ -64,6 +66,10 @@ nav a {
   color: #333;
   font-size: 16px;
   transition: color 0.3s ease;
+}
+
+nav a.active {
+  color: #007bff;
 }
 
 nav a:hover {

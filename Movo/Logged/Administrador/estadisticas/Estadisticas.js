@@ -1,71 +1,64 @@
-// Gráfico circular de pedidos
-const pedidosChartCtx = document.getElementById('pedidosChart').getContext('2d');
-const pedidosChart = new Chart(pedidosChartCtx, {
-    type: 'doughnut',
-    data: {
-        labels: ['Completados', 'En Proceso', 'No Realizados'],
-        datasets: [{
-            data: [55, 30, 15], // Reemplazar con datos desde la base de datos
-            backgroundColor: ['#00d9ff', '#ffc107', '#dc3545'],
-            hoverBackgroundColor: ['#00a7cc', '#e0a800', '#c82333']
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false
-    }
-});
+document.addEventListener('DOMContentLoaded', function () {
+    // Gráfico de Pedidos (ya implementado)
+    fetch('pedidos.php')
+        .then(response => response.json())
+        .then(data => {
+            const ctx1 = document.getElementById('graficoPedidos').getContext('2d');
+            new Chart(ctx1, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Completados', 'En Proceso', 'No Realizados'],
+                    datasets: [{
+                        label: 'Pedidos',
+                        data: [data.completados, data.en_proceso, data.no_realizados],
+                        backgroundColor: ['#00d9ff', '#ffca28', '#ff5722'],
+                        borderColor: ['#fff', '#fff', '#fff'],
+                        borderWidth: 2
+                    }]
+                }
+            });
+        });
 
-// Gráfico de líneas para usuarios activos
-const usuariosActivosCtx = document.getElementById('usuariosActivosChart').getContext('2d');
-const usuariosActivosChart = new Chart(usuariosActivosCtx, {
-    type: 'line',
-    data: {
-        labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'], // Datos por día
-        datasets: [{
-            label: 'Semana Actual',
-            data: [120, 150, 180, 170, 160, 190, 220], // Datos desde la base de datos
-            borderColor: '#00d9ff',
-            fill: false
-        }, {
-            label: 'Semana Anterior',
-            data: [110, 140, 160, 150, 140, 170, 200],
-            borderColor: '#ff9800',
-            fill: false
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
+    // Gráfico Circular de Géneros
+    fetch('generousuario.php')
+        .then(response => response.json())
+        .then(data => {
+            const ctx2 = document.getElementById('graficoGenero').getContext('2d');
+            new Chart(ctx2, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Masculino', 'Femenino', 'Otro'],
+                    datasets: [{
+                        label: 'Distribución por Género',
+                        data: [data.masculino, data.femenino, data.otro],
+                        backgroundColor: ['#00d9ff', '#ffca28', '#ff5722'],
+                        borderColor: ['#fff', '#fff', '#fff'],
+                        borderWidth: 2
+                    }]
+                }
+            });
+        });
 
-// Gráfico de líneas para servicios activos
-const serviciosChartCtx = document.getElementById('serviciosChart').getContext('2d');
-const serviciosChart = new Chart(serviciosChartCtx, {
-    type: 'line',
-    data: {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
-        datasets: [{
-            label: 'Servicios Activos',
-            data: [50, 60, 70, 90, 100, 130, 150], // Datos de la base de datos
-            borderColor: '#00d9ff',
-            fill: true,
-            backgroundColor: 'rgba(0, 217, 255, 0.2)'
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
+    // Gráfico de Servicios Activos (ya implementado)
+    fetch('servicios_activos.php')
+        .then(response => response.json())
+        .then(data => {
+            const fechas = data.map(item => item.fecha);
+            const serviciosActivos = data.map(item => item.servicios_activos);
+            const ctx3 = document.getElementById('graficoServicios').getContext('2d');
+            new Chart(ctx3, {
+                type: 'line',
+                data: {
+                    labels: fechas,
+                    datasets: [{
+                        label: 'Servicios Activos',
+                        data: serviciosActivos,
+                        backgroundColor: '#ffca28',
+                        borderColor: '#ffca28',
+                        fill: false,
+                        tension: 0.1
+                    }]
+                }
+            });
+        });
 });

@@ -1,0 +1,236 @@
+<<<<<<< HEAD
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+#Codigo {
+    background-color: #f9f9f9; /* Este color se puede ajustar según sea necesario */
+    border-radius: 10px;
+}
+
+#Reenviar {
+    text-decoration: none;
+}
+
+#Reenviar:hover {
+    text-decoration: underline;
+}
+
+/* Estilos del header */
+header #logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+header #logo img,
+header #logo-salir img {
+    width: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+header #logo img:hover,
+header #logo-salir img:hover {
+    transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
+  }
+  
+header h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+=======
+/*Estilos del header*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: white;
+    border-bottom: 2px solid #eaeaea;
+}
+
+.header-content {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+header .logo img {
+    width: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+header .salir img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+header .logo img:hover {
+    transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+>>>>>>> Alex
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
+<<<<<<< HEAD
+  }
+  
+nav a.active {
+    color: #007bff;
+  }
+  
+nav a:hover {
+    color: #0056b3;
+  }
+=======
+}
+
+nav a.active {
+    color: #007bff;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #0056b3;
+}
+
+
+#Codigo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    background-color: #3b9aff;
+    width: 40%;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px; /*Redondea los bordes*/
+    margin: auto;
+}
+  
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+  
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+  
+label {
+    display: block; /*Hace que el "titulo" ocupe todo el espacio disponible en su línea(ancho)*/
+    margin-bottom: 5px;
+    font-weight: bold; /*Pone el texto en negrita*/
+    color: #555;
+}
+  
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /*hace que el ancho y alto especificados incluyan el padding y el borde*/
+    margin-bottom: 15px;
+}
+  
+#Confirmar , #Reenviar {
+    background-color: #0288d1;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: auto;/*Cambia el estilo del mouse al pasar por encima*/
+}
+>>>>>>> Alex
+  
+
+/* Estilos del footer */
+footer {
+    background-color: #333;
+<<<<<<< HEAD
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+=======
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    margin-top: 40px;
+    bottom: 0; /* Añade un margen superior para separar el footer del contenido */
+    left: 0;
+    margin-top: auto;
+}
+  
+  
+  
+.contenido-footer {
+      display: flex; /* Utiliza flexbox para organizar los elementos hijos dentro del footer */
+      justify-content: space-around;/* Distribuye el espacio restante de forma equitativa entre los elementos */
+}
+  
+.contenido-footer div {
+      flex: 1;/* Cada div dentro de .contenido-footer ocupará el mismo ancho disponible */
+      margin: 0 10px;/* Margen horizontal entre los divs */
+}
+  
+.contenido-footer h3 {
+      margin-top: 0;/* Elimina el margen superior de los encabezados dentro del footer */
+}
+  
+.contenido-footer p, .contenido-footer a {
+      font-size: 18px;
+      color: white;
+      text-decoration: none;/* Elimina el subrayado de los enlaces por defecto */
+      display: block;/* Los convierte en elementos de bloque para que ocupen todo el ancho disponible */
+      margin-bottom: 5px;/* Añade margen inferior para separarlos visualmente */
+}
+  
+.contenido-footer a:hover {
+      text-decoration: underline;/* Agrega un subrayado cuando se pasa el mouse sobre los enlaces */
+}
+  
+.copyright_footer {
+      border-top: 1px solid #444;/* Añade una línea superior al footer para separarlo del contenido principal */
+}
+  
+>>>>>>> Alex

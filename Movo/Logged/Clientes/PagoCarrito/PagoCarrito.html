@@ -4,101 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pago</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-..." crossorigin="anonymous">
     <link rel="stylesheet" href="PagoCarrito.css">
 </head>
 <body>
-    <header class="d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
-        <div class="d-flex align-items-center" id="logo">
-          <img src="Images/logo.png" alt="Logo Movo" class="me-2" ">
-          <h1 class="m-0">MOVO</h1>
+    <header>
+        <div class="logo">
+            <img src="../Perfil/Images/logo.png" alt="Logo Movo">
+            <h1>Movo</h1>
         </div>
         <nav>
-          <a href="#" >Inicio</a>
-          <a href="#" >Servicios</a>
-          <a href="#">Perfil</a>
+            <a href="../HomeLogeado/home.html">Inicio</a>
+            <a href="../categorias/categorias.html">Servicios</a>
+            <a href="../../verificador.php">Perfil</a>
         </nav>
-        <div id="logo-salir">
-          <img src="Images/logout.png" alt="Salir" style="width: 50px;">
+        <div class="salir">
+            <img src="../Perfil/Images/logout.png" alt="Salir">
         </div>
     </header>
 
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-lg-6 mb-4">
-                <section class="informacion-servicio border border-primary p-3 my-3 rounded shadow">
-                    <h2 class="text-primary">Detalles del Servicio</h2>
-                    <p><b>Servicio Solicitado:</b> Servicio Técnico de Ordenadores</p>
-                    <p><b>Fecha del Servicio:</b> 20 de septiembre, 2024</p>
-                    <p><b>Prestador del Servicio:</b> Benjamin Valenzuela</p>
-                    <p><b>Duración:</b> 4 horas</p>
-                    <p><b>Precio unitario:</b> $50.000 CLP</p>
-                    <p><b>Cantidad:</b> 2</p>
-                </section>
+    <section class="informacion-servicio">
+        <h2>Detalles del Servicio</h2>
+        <p><b>Servicio Solicitado:</b> Servicio Tecnico de Ordenadores</p>
+        <p><b>Fecha del Servicio:</b> 20 de septiembre, 2024</p>
+        <p><b>Prestador del Servicio:</b> Benjamin Valenzuela</p>
+        <p><b>Duración:</b> 4 horas</p>
+        <p><b>Precio unitario:</b> $50.000 CLP</p>
+        <p><b>Cantidad:</b> 2</p>
+    </section>
+    <section class="informacion-servicio">
+        <h2>Detalles del Servicio</h2>
+        <p><b>Servicio Solicitado:</b> Aseo a la casa</p>
+        <p><b>Fecha del Servicio:</b> 30 de agosto, 2024</p>
+        <p><b>Prestador del Servicio:</b> Ana Ramirez</p>
+        <p><b>Duración:</b> 5 horas</p>
+        <p><b>Precio unitario:</b> $100.000 CLP</p>
+        <p><b>Cantidad:</b> 1</p>
+    </section>
+    <section class="informacion-servicio">
+        <h2>Detalles del Servicio</h2>
+        <p><b>Servicio Solicitado:</b> Chef personal </p>
+        <p><b>Fecha del Servicio:</b> 12 de agosto, 2012</p>
+        <p><b>Prestador del Servicio:</b> Victor Valenzuela</p>
+        <p><b>Duración:</b> 4 horas</p>
+        <p><b>Precio unitario:</b> $40.000 CLP</p>
+        <p><b>Cantidad:</b> 3</p>
+    </section>
+
+    <section class="detalle-pago">
+        <h2>Resumen de Pago</h2>
+        <p><b>Precio servicios:</b> $320.000 CLP</p>
+        <p><b>IVA (19%):</b> $60.800</p>
+        <p><b>Descuento:</b> $5.000 CLP</p>
+        <p><b>Total a pagar:</b> $380.800 CLP</p>
+        <label for="codigo-descuento"><b>¿Tienes un código de descuento?</b></label> <br>
+        <input type="text" id="codigo-descuento" placeholder="Ingresa tu código">
+        <button class="btn-aplicar">Aplicar</button>
+
+        <button class="btn-pago">Pagar</button>
+    </section>
+
+    <!-- Sección para seleccionar el método de pago -->
+    <div class="metodo-pago" id="metodo-pago" style="display: none;">
+        <h3>Selecciona tu método de pago</h3>
+        <select id="opciones-pago">
+            <option value="">Selecciona...</option>
+            <option value="efectivo">Efectivo</option>
+            <option value="tarjeta-debito">Tarjeta de Débito</option>
+            <option value="tarjeta-credito">Tarjeta de Crédito</option>
+            <option value="transferencia">Transferencia Bancaria</option>
+        </select>
+        
+        <!-- Campos para tarjeta de débito/crédito (ocultos inicialmente) -->
+        <div id="tarjeta-info" class="oculto">
+            <div>
+                <label for="nombre-tarjeta">Nombre en la tarjeta:</label>
+                <input type="text" id="nombre-tarjeta" placeholder="Nombre en la tarjeta" required />
             </div>
-            <div class="col-lg-6 mb-4">
-                <section class="informacion-servicio border border-primary p-3 my-3 rounded shadow">
-                    <h2 class="text-primary">Detalles del Servicio</h2>
-                    <p><b>Servicio Solicitado:</b> Aseo a la casa</p>
-                    <p><b>Fecha del Servicio:</b> 30 de agosto, 2024</p>
-                    <p><b>Prestador del Servicio:</b> Ana Ramirez</p>
-                    <p><b>Duración:</b> 5 horas</p>
-                    <p><b>Precio unitario:</b> $100.000 CLP</p>
-                    <p><b>Cantidad:</b> 1</p>
-                </section>
+            <div>
+                <label for="numero-tarjeta">Número de tarjeta:</label>
+                <input type="text" id="numero-tarjeta" placeholder="XXXX XXXX XXXX XXXX" maxlength="16" required />
             </div>
-            <div class="col-lg-6 mb-4">
-                <section class="informacion-servicio border border-primary p-3 my-3 rounded shadow">
-                    <h2 class="text-primary">Detalles del Servicio</h2>
-                    <p><b>Servicio Solicitado:</b> Chef personal</p>
-                    <p><b>Fecha del Servicio:</b> 12 de agosto, 2012</p>
-                    <p><b>Prestador del Servicio:</b> Victor Valenzuela</p>
-                    <p><b>Duración:</b> 4 horas</p>
-                    <p><b>Precio unitario:</b> $40.000 CLP</p>
-                    <p><b>Cantidad:</b> 3</p>
-                </section>
+            <div>
+                <label for="fecha-expiracion">Fecha de expiración:</label>
+                <input type="month" id="fecha-expiracion" required />
+            </div>
+            <div>
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" placeholder="XXX" maxlength="4" required />
             </div>
         </div>
-    
-        <section class="detalle-pago border border-primary p-3 my-3 rounded shadow">
-            <h2 class="text-primary">Resumen de Pago</h2>
-            <p><b>Precio servicios:</b> $320.000 CLP</p>
-            <p><b>IVA (19%):</b> $60.800</p>
-            <p><b>Descuento:</b> $5.000 CLP</p>
-            <p><b>Total a pagar:</b> $380.800 CLP</p>
-    
-            <label for="codigo-descuento"><b>¿Tienes un código de descuento?</b></label>
-            <div class="input-group my-3">
-                <input type="text" id="codigo-descuento" class="form-control" placeholder="Ingresa tu código">
-                <button class="btn btn-primary" type="button">Aplicar</button>
-            </div>
-    
-            <button class="btn btn-primary btn-block w-100">Pagar</button>
-        </section>
+
+        <button class="btn-confirmar-pago">Confirmar pago</button>
     </div>
-    
-    <footer class=" text-white text-center py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h3>Contacto</h3>
-                    <p>Email: contacto@movo.com</p>
-                </div>
-                <div class="col-md-4">
-                    <h3>Redes Sociales</h3>
-                    <a href="https://www.facebook.com/profile.php?id=61566403465579" class="contenido-footer">Facebook</a><br>
-                    <a href="https://x.com/CompanyMovo_inc" class="contenido-footer">Twitter</a><br>
-                    <a href="https://www.instagram.com/movo_inc/" class="contenido-footer">Instagram</a>
-                </div>
-                <div class="col-md-4 ">
-                    <h3>Información Legal</h3>
-                    <a href="/Pagina Oficial/politica y privacidad/politica y privacidad.html" class="contenido-footer">Política de Privacidad</a><br>
-                    <a href="/Pagina Oficial/Registro/terminos.html" class="contenido-footer">Términos de Servicio</a>
-                </div>
+
+    <footer>
+        <div class="contenido-footer">
+            <div class="contacto">
+                <h3>Contacto</h3>
+                <a href="mailto:Movocompanycontact@gmail.com?Subject=Ingrese%20el%20asunto">Email: Movocompanycontact@gmail.com</a>
             </div>
-            <p class="mt-3">&copy; 2024 MOVO. Todos los derechos reservados.</p>
+            <div class="redes-sociales">
+                <h3>Redes Sociales</h3>
+                <a href="https://www.facebook.com/profile.php?id=61566403465579" class="social-icon">Facebook</a>
+                <a href="https://x.com/CompanyMovo_inc" class="social-icon">Twitter</a>
+                <a href="https://www.instagram.com/movo_inc/" class="social-icon">Instagram</a>
+            </div>
+            <div class="info-legal">
+                <h3>Información Legal</h3>
+                <a href="../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html">Política de Privacidad</a>
+                <a href="../../../InicioSesion-Registro/Registro/terminos.html">Términos de Servicio</a>
+            </div>
+        </div>
+        <!-- Sección de derechos de autor -->
+        <div class="copyright_footer">
+            <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
         </div>
     </footer>
+
     <script src="PagoCarrito.js"></script>
 </body>
 </html>

@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             body: formData
         })
-        .then(response => response.json())
+        .then(response => response.json()) // Procesar la respuesta como JSON
         .then(data => {
             const toastMessage = document.getElementById('toastMessage');
             const toastEl = document.getElementById('liveToast');
@@ -59,14 +59,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 toastMessage.textContent = data.message; // Mensaje de éxito
                 toast.show();
 
-                // Redirigir si es empresa o cliente
-                if (data.redirect) {
+                // Redirigir al usuario según el rol
+                if (data.rol === 'empresa') {
                     setTimeout(() => {
-                        window.location.href = data.redirect;
+                        window.location.href = '../Verificacion/FormVer.html'; // Redirige a empresa
                     }, 2000);
+                } else if (data.rol === 'cliente') {
+                    setTimeout(() => {
+                        window.location.href = '../../Logged/Clientes/HomeLogeado/home.html'; // Redirige a cliente
+                    }, 2000);
+                } else {
+                    console.error('Rol no reconocido:', data.rol); // Manejo de errores en caso de un valor inesperado
                 }
             } else {
-                toastMessage.textContent = data.message; // Mensaje de error
+                toastMessage.textContent = data.message; // Mensaje de error (correo ya registrado u otro error)
                 toast.show();
             }
         })
@@ -80,3 +86,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+

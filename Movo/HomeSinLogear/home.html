@@ -3,200 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>MOVO</title>
 </head>
 <body>
-    <header>
-        <!-- Sección para el logo de la empresa -->
-        <div class="logo">
-            <img src="Imagenes/Movo_Logo.png" alt="Logo de la empresa">
+    <header class="container-fluid bg-light py-3 d-flex justify-content-between align-items-center">
+        <!-- Logo de la empresa -->
+        <div class="d-flex align-items-center">
+            <img src="Imagenes/logo.png" alt="Logo" class="logo">
+            <h1 class="titulo-empresa h3 mb-0">Movo</h1>
         </div>
-        <!-- Barra de navegación con enlaces internos -->
+    
+        <!-- Barra de navegación con enlaces centrados -->
         <nav>
             <ul class="nav-links">
-                <li><a href="#INICIO">INICIO</a></li>
-                <li><a href="#contacto">CONTACTO</a></li>
+                <li class="nav-item">
+                    <a href="../../Clientes/HomeLogeado/home.html" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../../Clientes/categorias/categorias.html" class="nav-link">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </li>
             </ul>
         </nav>
-        <!-- Botones para iniciar sesión o registrarse -->
-        <div class="botones-cuenta">
-            <a href="../InicioSesion-Registro/Login/Login.html" class="btn">Iniciar Sesión</a>
-            <a href="../InicioSesion-Registro/Registro/Registro.html" class="btn">Registrarse</a>
+    
+        <div class="d-flex">
+            <a href="../Login/Login.html" class="btn btn-outline-secondary">Iniciar Sesión</a>
+            <a href="../Registro/Registro.html" class="btn btn-outline-secondary">Registrarse</a>
         </div>
     </header>
+    
 
-    <!-- Sección principal de bienvenida -->
-    <div class="banner">
-        <h1>Bienvenido a Nuestro Sitio</h1>
-        <p>Descubre nuestros servicios y productos diseñados para mejorar tu vida. Únete a nuestra comunidad y comienza a disfrutar de beneficios exclusivos.</p>
-        <a href="#" id="descubre-mas" class="btn">Descubre Más</a>
+    <div class="banner d-flex flex-column justify-content-center align-items-center text-center" style="background-image: url('./Imagenes/Movo_Banner.jpg');">
+        <div class="overlay"></div>
+        <h1 class="display-4">Bienvenido a Nuestro Sitio</h1>
+        <p class="lead">Descubre nuestros servicios y productos diseñados para mejorar tu vida. Únete a nuestra comunidad y comienza a disfrutar de beneficios exclusivos.</p>
+        <a href="#" id="descubre-mas" class="btn btn-primary">Descubre Más</a>
     </div>
 
     <!-- Sección de información adicional sobre la empresa -->
     <section id="mas-info" class="seccion-info hidden">
-        <div class="bloque-texto">
-            <div class="contenedor">
-                <!-- Primer bloque de  con explicacion -->
-                <div class="contenido">
+        <div class="container">
+            <div class="row">
+                <!-- Primer bloque de texto con explicación -->
+                <div class="col-md-6">
                     <h2>¿Qué es MOVO?</h2>
                     <p>MOVO es una innovadora plataforma diseñada para conectar a clientes con proveedores de servicios verificados, creando un puente seguro y eficiente entre ambos. En MOVO, nos comprometemos a ofrecer una experiencia personalizada que se adapta a las necesidades individuales de nuestros usuarios.
                         Nuestra plataforma abarca una amplia gama de servicios, desde reparaciones domésticas hasta la organización de eventos. Cada proveedor de servicios en MOVO ha sido cuidadosamente seleccionado y verificado para garantizar la calidad y confianza en cada tarea que realizan. Ya sea que necesites arreglar una avería en tu hogar, contratar un chef para una cena especial o planificar una fiesta inolvidable, MOVO te brinda acceso a profesionales confiables y capacitados.
                         Con MOVO, tu tranquilidad es nuestra prioridad. Nos esforzamos por proporcionar un servicio que no solo cumpla con tus expectativas, sino que las supere, garantizando una experiencia sin complicaciones y adaptada a tus necesidades específicas.</p>
                 </div>
                 <!-- Segundo bloque de texto con una imagen representativa -->
-                <div class="contenido">
-                    <img src="Imagenes/Movo_Info.png" alt="Imagen de referencia para la información">
+                <div class="col-md-6">
+                    <img src="Imagenes/Movo_Info.png" alt="Imagen de referencia para la información" class="img-fluid">
                 </div>
             </div>
+    
             <h2>Algunos de nuestros principales servicios:</h2>
             <!-- Sección de servicios -->
-            <div id="seccion_servicio" class="seccion_servicio">
-                <!-- Cada 'slide' representa una imagen y su título -->
-                <div class="slide">
-                    <img src="Imagenes/Servicio_de_limpieza.jpg" alt="Servicio 1">
+            <div id="seccion_servicio" class="seccion_servicio row">
+                <!-- Cada servicio se presenta en una columna -->
+                <div class="col-md-3 servicio">
+                    <img src="Imagenes/Servicio_de_limpieza.jpg" alt="Servicio 1" class="img-fluid">
                     <div class="titulo_servicio">Servicio de Limpieza</div>
                 </div>
-                <div class="slide">
-                    <img src="Imagenes/Organizacion_de_eventos.png" alt="Servicio 2">
+                <div class="col-md-3 servicio">
+                    <img src="Imagenes/Organizacion_de_eventos.png" alt="Servicio 2" class="img-fluid">
                     <div class="titulo_servicio">Organización de Eventos</div>
                 </div>
-                <div class="slide">
-                    <img src="Imagenes/Reparaciones_hogar.jpg" alt="Servicio 3">
+                <div class="col-md-3 servicio">
+                    <img src="Imagenes/ConstruccionHogar.jpeg" alt="Servicio 3" class="img-fluid">
                     <div class="titulo_servicio">Reparaciones a Domicilio</div>
                 </div>
-                <div class="slide">
-                    <img src="Imagenes/Servicios_medicos.png" alt="Servicio 4">
+                <div class="col-md-3 servicio">
+                    <img src="Imagenes/Servicios_medicos.png" alt="Servicio 4" class="img-fluid">
                     <div class="titulo_servicio">Servicios Médicos</div>
                 </div>
-                <!-- Botones para navegar entre las imágenes -->
-                <a class="anterior" onclick="moveSlide(-1)">&#10094;</a> <!-- Botón para la imagen anterior -->
-                <a class="siguiente" onclick="moveSlide(1)">&#10095;</a> <!-- Botón para la imagen siguiente -->
             </div>
         </div>
     </section>
-
-    <section id="noticias">
-        <div class="container">
-          <h2>Noticias y Actualizaciones</h2>
-          <p>Descubre las últimas noticias, eventos y tendencias. Mantente informado con nuestras actualizaciones periódicas y análisis en profundidad de los temas más relevantes.</p>
-          
-          <div class="noticias-grid">
-            <article class="noticias-post">
-              <img src="Imagenes/Delivery.jpg" alt="Noticia 1">
-              <div class="noticias-contenido">
-                <h3>Delivery</h3>
-                <p>Estudio revela las preferencias de los chilenos en torno al popular servicio de delivery.</p>
-                <a href="#" class="btn-leer-mas">Leer más</a>
-              </div>
-              <div class="masInfo hidden">
-                <p>- El servicio de delivery en Chile ha crecido de manera exponencial en los últimos años, especialmente impulsado por la pandemia de COVID-19. Este crecimiento se debe a un cambio en las preferencias del consumidor, que busca mayor comodidad y opciones variadas para recibir productos a domicilio, desde alimentos hasta artículos de uso cotidiano.</p>
-                <p>- Se estima que el mercado de delivery en Chile ha crecido alrededor de un 30-40% anual en los últimos años, especialmente durante la pandemia.</p>
-                <p>- El estudio indicó que cerca del 45% de las órdenes de delivery corresponden a alimentos y bebidas, mientras que el resto incluye productos de supermercado, farmacia y otros.</p>
-                <p>- En promedio, los usuarios realizan al menos 1-2 pedidos de delivery por semana, lo que demuestra la integración de este servicio en su rutina diaria.</p>
-              </div>
-            </article>
-      
-            <article class="noticias-post">
-              <img src="Imagenes/SectorConstruccion.jpg" alt="Noticia 2">
-              <div class="noticias-contenido">
-                <h3>Sector Construcción</h3>
-                <p>Estudio Longitudinal Empleo-Covid-19 UC: ocupados de la construcción pasaron de 564 mil a 916 mil en un año.</p>
-                <a href="#" class="btn-leer-mas">Leer más</a>
-              </div>
-              <div class="masInfo hidden">
-                <p>- El sector de construcción en Chile se muestra dinámico y en evolución, con un fuerte enfoque en la sostenibilidad y la modernización. La recuperación post-pandemia ha revitalizado el empleo y la inversión, aunque aún persisten desafíos que requieren atención.</p>
-                <p>- El sector de la construcción contribuye aproximadamente con un 7-10% al PIB nacional, aunque esta cifra puede variar anualmente.</p>
-                <p>- Tras la pandemia, el sector ha mostrado señales de recuperación. En 2021, el número de ocupados en la construcción aumentó de 564,000 a 916,000, lo que representa un crecimiento del 62% en el empleo en este sector.</p>
-              </div>
-            </article>
-      
-            <article class="noticias-post">
-              <img src="Imagenes/OrganizacionDeEventos.jpg" alt="Noticia 3">
-              <div class="noticias-contenido">
-                <h3>Organizacion de eventos</h3>
-                <p>Eventos en Chile: Nuevo estudio detalla cómo la industria de los espectáculos se recuperó tras la pandemia.</p>
-                <a href="#" class="btn-leer-mas">Leer más</a>
-              </div>
-              <div class="masInfo hidden">
-                <p>- El sector de organización de eventos en Chile está en un proceso de transformación y adaptación, buscando no solo recuperarse de la pandemia, sino también evolucionar hacia prácticas más sostenibles y tecnológicas. Con una demanda en aumento y un enfoque en la calidad, se espera que esta industria siga creciendo en los próximos años.</p>
-                <p>- Se estima que el sector de eventos contribuye con más de $1,000 millones al PIB nacional, abarcando desde eventos corporativos hasta festivales culturales.</p>
-                <p>- Aproximadamente el 65% de los organizadores de eventos han reportado un aumento en la demanda de eventos híbridos (presenciales y virtuales), lo que refleja un cambio en las preferencias de los asistentes.</p>
-                <p>- Los eventos corporativos representan alrededor del 50% de la industria, seguidos por eventos sociales (bodas, cumpleaños) y culturales (festivales, conciertos).</p>
-              </div>
-            </article>
-          </div>
-        </div>
-    </section>
-
-    <section id="contacto">
-        <div id="formulario">
-        <form id="contactForm">
-            <label for="name">Nombres:</label>
-            <input type="text" id="name" name="name" required><br><br>
-
-            <label for="lastname">Apellidos:</label>
-            <input type="text" id="lastname" name="lastname" required><br><br>
-
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required><br><br>
-
-            <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono" required><br><br>
-
-            <label for="options">Motivo:</label>
-            <select id="options" name="options" required>
-                <option value="" disabled selected>Selecciona una opción</option>
-                <option value="option1">Problemas con el pedido</option>
-                <option value="option2">Problemas con la cuenta</option>
-                <option value="option3">Problemas con el cobro</option>
-                <option value="option4">Problemas con la pagina</option>
-                <option value="option5">Problemas de promociones o códigos de descuento</option>
-                <option value="option6">Reembolsos y cancelaciones</option>
-            </select>
-
-            <label for="message">Mensaje:</label><br>
-            <textarea id="message" name="message" rows="5" required></textarea><br><br>
-
-            <input id="button" type="submit" value="Enviar Formulario">
-        </form>
-        </div>
-        <div id="contactanos">
-            <h2>Contactanos</h2>
-            <!-- Formulario de contacto -->
-            <p>¿Tienes alguna pregunta o necesitas más información? Nuestro equipo está aquí para brindarte asistencia. Puedes llamarnos, enviarnos un correo, o completar el siguiente formulario y nos pondremos en contacto contigo lo antes posible.</p>
-        
-            <p><strong>Horario de atención:</strong><br>
-            Lunes a Viernes: 9:00 AM - 6:00 PM<br>
-            Sábados y Domingos: 10:00 AM - 2:00 PM<br>
-            </div>
-    </section>
-
     
-    <footer>
-        <div class="contenido-footer">
-                <!-- Sección con información de contacto y redes sociales -->
-            <div class="contacto">
-                <h3>Contacto</h3>
-                <a href="mailto:Movocompanycontact@gmail.com?Subject=Ingrese%20el%20asunto">Email: Movocompanycontact@gmail.com</a>
-                </div>
-                <div class="redes-sociales">
-                    <h3>Redes Sociales</h3>
-                    <a href="https://www.facebook.com/profile.php?id=61566403465579" class="social-icon">Facebook</a>
-                    <a href="https://x.com/CompanyMovo_inc" class="social-icon">Twitter</a>
-                    <a href="https://www.instagram.com/movo_inc/" class="social-icon">Instagram</a>
-                </div>
-            <div class="info-legal">
-                <h3>Información Legal</h3>
-                <a href="../InicioSesion-Registro/politica y privacidad/politica y privacidad.html">Política de Privacidad</a>
-                <a href="../InicioSesion-Registro/Registro/terminos.html">Términos de Servicio</a>
+    <section id="noticias" class="py-5 bg-light text-center">
+        <div class="container">
+            <h2 class="display-4 mb-3">Noticias y Actualizaciones</h2>
+            <p class="lead text-muted mb-4">Descubre las últimas noticias, eventos y tendencias. Mantente informado con nuestras actualizaciones periódicas y análisis en profundidad de los temas más relevantes.</p>
+            
+            <div class="row">
+                <article class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="Imagenes/Delivery.jpg" class="card-img-top" alt="Noticia 1">
+                        <div class="card-body">
+                            <h3 class="card-title">Delivery</h3>
+                            <p class="card-text">Estudio revela las preferencias de los chilenos en torno al popular servicio de delivery.</p>
+                            <a href="#" class="btn btn-primary btn-leer-mas">Leer más</a>
+                        </div>
+                        <div class="masInfo hidden">
+                            <p>- El servicio de delivery en Chile ha crecido de manera exponencial en los últimos años, especialmente impulsado por la pandemia de COVID-19. Este crecimiento se debe a un cambio en las preferencias del consumidor, que busca mayor comodidad y opciones variadas para recibir productos a domicilio, desde alimentos hasta artículos de uso cotidiano.</p>
+                            <p>- Se estima que el mercado de delivery en Chile ha crecido alrededor de un 30-40% anual en los últimos años, especialmente durante la pandemia.</p>
+                            <p>- El estudio indicó que cerca del 45% de las órdenes de delivery corresponden a alimentos y bebidas, mientras que el resto incluye productos de supermercado, farmacia y otros.</p>
+                            <p>- En promedio, los usuarios realizan al menos 1-2 pedidos de delivery por semana, lo que demuestra la integración de este servicio en su rutina diaria.</p>
+                        </div>
+                    </div>
+                </article>
+    
+                <article class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="Imagenes/SectorConstruccion.jpg" class="card-img-top" alt="Noticia 2">
+                        <div class="card-body">
+                            <h3 class="card-title">Sector Construcción</h3>
+                            <p class="card-text">Estudio Longitudinal Empleo-Covid-19 UC: ocupados de la construcción pasaron de 564 mil a 916 mil en un año.</p>
+                            <a href="#" class="btn btn-primary btn-leer-mas">Leer más</a>
+                        </div>
+                        <div class="masInfo hidden">
+                            <p>- El sector de construcción en Chile se muestra dinámico y en evolución, con un fuerte enfoque en la sostenibilidad y la modernización. La recuperación post-pandemia ha revitalizado el empleo y la inversión, aunque aún persisten desafíos que requieren atención.</p>
+                            <p>- El sector de la construcción contribuye aproximadamente con un 7-10% al PIB nacional, aunque esta cifra puede variar anualmente.</p>
+                            <p>- Tras la pandemia, el sector ha mostrado señales de recuperación. En 2021, el número de ocupados en la construcción aumentó de 564,000 a 916,000, lo que representa un crecimiento del 62% en el empleo en este sector.</p>
+                        </div>
+                    </div>
+                </article>
+    
+                <article class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="Imagenes/OrganizacionDeEventos.jpg" class="card-img-top" alt="Noticia 3">
+                        <div class="card-body">
+                            <h3 class="card-title">Organizacion de eventos</h3>
+                            <p class="card-text">Eventos en Chile: Nuevo estudio detalla cómo la industria de los espectáculos se recuperó tras la pandemia.</p>
+                            <a href="#" class="btn btn-primary btn-leer-mas">Leer más</a>
+                        </div>
+                        <div class="masInfo hidden">
+                            <p>- El sector de organización de eventos en Chile está en un proceso de transformación y adaptación, buscando no solo recuperarse de la pandemia, sino también evolucionar hacia prácticas más sostenibles y tecnológicas. Con una demanda en aumento y un enfoque en la calidad, se espera que esta industria siga creciendo en los próximos años.</p>
+                            <p>- Se estima que el sector de eventos contribuye con más de $1,000 millones al PIB nacional, abarcando desde eventos corporativos hasta festivales culturales.</p>
+                            <p>- Aproximadamente el 65% de los organizadores de eventos han reportado un aumento en la demanda de eventos híbridos (presenciales y virtuales), lo que refleja un cambio en las preferencias de los asistentes.</p>
+                            <p>- Los eventos corporativos representan alrededor del 50% de la industria, seguidos por eventos sociales (bodas, cumpleaños) y culturales (festivales, conciertos).</p>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
-            <!-- Sección de derechos de autor -->
-            <div class="copyright_footer">
-                <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
+    </section>
+    
+    <section id="contacto" class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="formulario" class="card mx-auto p-4 shadow" style="max-width: 500px;">
+                        <h2 class="text-center mb-4">Contáctanos</h2>
+                        <form id="contactForm" action="Comentarios.php" method="POST">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nombres:</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastname" class="form-label">Apellidos:</label>
+                                <input type="text" id="lastname" name="lastname" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo Electrónico:</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Teléfono:</label>
+                                <input type="tel" id="telefono" name="telefono" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="options" class="form-label">Motivo:</label>
+                                <select id="options" name="options" class="form-select" required>
+                                    <option value="" disabled selected>Selecciona una opción</option>
+                                    <option value="option1">Problemas con el pedido</option>
+                                    <option value="option2">Problemas con la cuenta</option>
+                                    <option value="option3">Problemas con el cobro</option>
+                                    <option value="option4">Problemas con la página</option>
+                                    <option value="option5">Problemas de promociones o códigos de descuento</option>
+                                    <option value="option6">Reembolsos y cancelaciones</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Mensaje:</label>
+                                <textarea id="message" name5="message" class="form-control" rows="5" required></textarea>
+                            </div>
+                            <button id="button" type="submit" class="btn btn-primary w-100 mb-3" style="background-color: #37b5ff; color: white;">Enviar Formulario</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="contactanos" class="col-md-6 d-flex align-items-center justify-content-center">
+                    <div class="card mx-auto p-4 shadow" style="max-width: 500px;">
+                        <h2 class="text-center mb-4">Contáctanos</h2>
+                        <p>¿Tienes alguna pregunta o necesitas más información? Nuestro equipo está aquí para brindarte asistencia. Puedes llamarnos, enviarnos un correo, o completar el siguiente formulario y nos pondremos en contacto contigo lo antes posible.</p>
+                        <p><strong>Horario de atención:</strong><br>
+                        Lunes a Viernes: 9:00 AM - 6:00 PM<br>
+                        Sábados y Domingos: 10:00 AM - 2:00 PM</p>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <footer class=" text-white text-center py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Contacto</h3>
+                    <p>Email: contacto@movo.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Redes Sociales</h3>
+                    <a href="https://www.facebook.com/profile.php?id=61566403465579" class="contenido-footer">Facebook</a><br>
+                    <a href="https://x.com/CompanyMovo_inc" class="contenido-footer">Twitter</a><br>
+                    <a href="https://www.instagram.com/movo_inc/" class="contenido-footer">Instagram</a>
+                </div>
+                <div class="col-md-4 ">
+                    <h3>Información Legal</h3>
+                    <a href="../politica y privacidad/politica y privacidad.html" class="contenido-footer">Política de Privacidad</a><br>
+                    <a href="./terminos.html" class="contenido-footer">Términos de Servicio</a>
+                </div>
+            </div>
+            <p class="mt-3">&copy; 2024 MOVO. Todos los derechos reservados.</p>
+        </div>
     </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

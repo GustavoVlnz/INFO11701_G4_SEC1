@@ -1,27 +1,14 @@
 <?php
-<<<<<<< HEAD
-// Iniciar sesión para obtener el ID del usuario actual
+
 session_start();
 
 // Comprobar si el usuario ha iniciado sesión
 if (!isset($_SESSION['idUsuarios'])) {
     header("Location: ../../Login/Login.html"); // Redirigir al login si no ha iniciado sesión
-=======
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-session_start();
-
-// Verificar si el usuario ha iniciado sesión
-if (!isset($_SESSION['idUsuarios'])) {
-    header("Location: ../../Login/Login.html");
->>>>>>> Alex
     exit();
 }
 
 // Incluir archivo de conexión a la base de datos
-<<<<<<< HEAD
 include 'conexion.inc';  
 
 // Obtener el ID del usuario desde la sesión
@@ -31,17 +18,6 @@ $user_id = $_SESSION['idUsuarios'];
 $sql = "SELECT nombres, apellidos, rut, genero, email, direccion, telefono FROM usuariosMOVO WHERE idUsuarios = ?";
 $stmt = $db->prepare($sql);
 $stmt->bind_param("i", $user_id);
-=======
-include 'conexion.inc';
-
-// Obtener el ID del usuario desde la sesión
-$id_usuario = $_SESSION['idUsuarios'];
-
-// Preparar la consulta para obtener los datos del usuario
-$sql = "SELECT nombres, email, rut FROM usuariosMOVO WHERE idUsuarios = ?";
-$stmt = $db->prepare($sql);
-$stmt->bind_param("i", $id_usuario);
->>>>>>> Alex
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -50,16 +26,10 @@ if ($result->num_rows > 0) {
     $usuario = $result->fetch_assoc();
 } else {
     echo "Error: No se encontró el usuario.";
-<<<<<<< HEAD
-    exit();
-}
-
-=======
     $usuario = null; // Asegúrate de que la variable esté definida, incluso si no se encuentra el usuario
 }
 
 // Si $usuario contiene datos, muestra la información. Si no, muestra un mensaje de error
->>>>>>> Alex
 ?>
 
 <!DOCTYPE html>
@@ -74,17 +44,6 @@ if ($result->num_rows > 0) {
 <body>
     <header class="d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
         <div class="d-flex align-items-center" id="logo">
-<<<<<<< HEAD
-          <img src="../Images/logo.png" alt="Logo Movo" class="me-2" ">
-          <h1 class="m-0">MOVO</h1>
-        </div>
-        <nav>
-          <a href="#" >Inicio</a>
-          <a href="#" >Servicios</a>
-        </nav>
-        <div id="logo-salir">
-          <img src="../Images/logout.png" alt="Salir" style="width: 50px;">
-=======
           <img src="../Images/logo.png" alt="Logo Movo" class="me-2">
           <h1 class="m-0">MOVO</h1>
         </div>
@@ -96,12 +55,10 @@ if ($result->num_rows > 0) {
           <a href="../../../../HomeSinLogear/home.html">
           <img src="../Images/logout.png" alt="Salir" style="width: 50px;">
           </a>
->>>>>>> Alex
         </div>
     </header>
 
     <div id="perfil" class="container-fluid d-flex my-5">
-<<<<<<< HEAD
     <section class="sidebar bg-primary text-white p-4">
         <ul class="list-unstyled">
             <li><a href="#" class="text-white d-block py-2">Información de la cuenta</a></li>
@@ -155,55 +112,6 @@ if ($result->num_rows > 0) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
 
-=======
-        <!-- Nueva sección de barra lateral -->
-        <section class="sidebar bg-primary text-white p-4">
-            <ul class="list-unstyled">
-                <li><a href="#" class="text-white d-block py-2">Información de la cuenta</a></li>
-                <li><a href="../Seguridad/Seguridad.html" class="text-white d-block py-2">Seguridad</a></li>
-                <li><a href="../HistorialServ/HistSev.html" class="text-white d-block py-2">Historial de servicios</a></li>
-            </ul>
-        </section>
-
-        <!-- Sección de información del perfil -->
-        <section class="col-sm p-4 ms-3">
-            <div class="header-perfil d-flex align-items-center mb-4">
-                <a href="#"><img src="../Images/user.png" alt="Foto de perfil" class="foto-perfil img-thumbnail"></a>
-                <h2 class="ms-3">
-                    <?php
-                    if ($usuario) {
-                        echo htmlspecialchars($usuario['nombres']); // Asegúrate de que el valor existe
-                    } else {
-                        echo "Usuario no encontrado.";
-                    }
-                    ?>
-                </h2>
-            </div>
-            <div class="detalles">
-                <h3>Información</h3>
-                <p><b>Nombre:</b> 
-                    <?php 
-                    if ($usuario) {
-                        echo htmlspecialchars($usuario['nombres']);
-                    } else {
-                        echo "N/A";
-                    }
-                    ?>
-                </p>
-                <p><b>Correo electrónico:</b> 
-                    <?php 
-                    if ($usuario) {
-                        echo htmlspecialchars($usuario['email']);
-                    } else {
-                        echo "N/A";
-                    }
-                    ?>
-                </p>
-            </div>
-        </section>
-    </div>
-
->>>>>>> Alex
 <footer class=" text-white text-center py-4">
     <div class="container">
         <div class="row">
@@ -219,26 +127,15 @@ if ($result->num_rows > 0) {
             </div>
             <div class="col-md-4 ">
                 <h3>Información Legal</h3>
-<<<<<<< HEAD
-                <a href="/Pagina Oficial/politica y privacidad/politica y privacidad.html" class="contenido-footer">Política de Privacidad</a><br>
-                <a href="/Pagina Oficial/Registro/terminos.html" class="contenido-footer">Términos de Servicio</a>
-=======
                 <a href="../../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html" class="contenido-footer">Política de Privacidad</a><br>
                 <a href="../../../../InicioSesion-Registro/Registro/terminos.html" class="contenido-footer">Términos de Servicio</a>
->>>>>>> Alex
             </div>
         </div>
         <p class="mt-3">&copy; 2024 MOVO. Todos los derechos reservados.</p>
     </div>
 </footer>
-<<<<<<< HEAD
 <script src="Info.js"></script>
 
     
 </body>
 </html>
-=======
-
-</body>
-</html>
->>>>>>> Alex

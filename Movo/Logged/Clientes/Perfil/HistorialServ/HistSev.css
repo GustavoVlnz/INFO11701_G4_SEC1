@@ -1,37 +1,38 @@
-#perfil {
-  display: flex;
-  padding: 20px;
-}
-
-.sidebar {
-  width: 200px;
-}
-
-.sidebar-link {
-  text-decoration: none;
-}
-
-.sidebar-link:hover {
-  text-decoration: underline;
-}
-
-.historial {
-  margin-left: 20px;
-  background-color: white;
-}
-
-.servicio img {
-  max-width: 50px;
-  max-height: 50px;
-  margin-right: 20px;
-}
-
-.detalles-servicio h3 {
-  font-size: 18px;
+body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-body {font-family: Arial, sans-serif;}
+#Box_Verificacion {
+  width: 50%;
+  padding: 20px;
+  border-radius: 10px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #000000;
+}
+
+textarea {
+  resize: vertical;
+}
+
+
+#BtnVerify:hover {
+  background-color: #0277bd;
+}
 
 /*Estilos del header*/
 

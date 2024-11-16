@@ -88,3 +88,35 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+document.getElementById('Formulario').addEventListener('submit', function(event) {
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+    const errorMessage = document.getElementById('mensaje-error');
+    
+    errorMessage.classList.add('d-none'); // Ocultar mensaje de error inicialmente
+    
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    
+    // Validar fortaleza de la contraseña
+    if (!passwordRegex.test(password)) {
+        event.preventDefault(); 
+        errorMessage.textContent = 'La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas y numeros.';
+        errorMessage.classList.remove('d-none'); // Mostrar mensaje de error
+    }
+    
+    // Validar que ambas contraseñas coincidan
+    if (password !== confirmPassword) {
+        event.preventDefault(); 
+        errorMessage.textContent = 'Las contraseñas no coinciden.';
+        errorMessage.classList.remove('d-none'); 
+    }
+});
+
+function validarTelefono(input) {
+    const regex = /^\+56 9 \d{4} \d{4}$/;
+    if (!regex.test(input.value)) {
+        input.setCustomValidity("Formato inválido. Use el formato +56 9.");
+    } else {
+        input.setCustomValidity("");
+    }
+}

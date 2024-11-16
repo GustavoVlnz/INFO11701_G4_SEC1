@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración - Gráficos</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="Estadisticas.css"> 
+    <link rel="stylesheet" href="Estadisticas.css"> <
 </head>
 <body>
 
@@ -15,40 +15,41 @@
           <h1 class="m-0">MOVO</h1>
         </div>
         <nav>
-            <a href="../../Clientes/HomeLogeado/home.html" class="nav-link">Inicio</a>
-            <a href="../../verificador.php" class="nav-link">Perfil</a>
-            <a href="../../Clientes/categorias/categorias.html" class="nav-link">Servicios</a>
+          <a href="../HomeLogeado/home.html" >Inicio</a>
+          <a href="../categorias/categorias.html" >Servicios</a>
+          <a href="../Perfil/InfoAcc/Info.php" >Perfil</a>
         </nav>
         <div id="logo-salir">
           <img src="../vista admin/imagenes/salir.png" alt="Salir" style="width: 50px;">
         </div>
     </header>
 
-<div class="container">
-    <h2>Gráficos Administrativos</h2>
-
-    <!-- Gráfico circular de pedidos -->
-    <div class="chart-container">
-        <h3>Pedidos</h3>
-        <canvas id="pedidosChart"></canvas>
-    </div>
-
-    <!-- Gráfico de líneas para usuarios activos -->
-    <div class="chart-container">
-        <h3>Usuarios Activos por Día</h3>
-        <canvas id="usuariosActivosChart"></canvas>
-    </div>
-
-    <!-- Gráfico de líneas para servicios activos -->
-    <div class="chart-container">
-        <h3>Servicios Activos</h3>
-        <canvas id="serviciosChart"></canvas>
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="Estadisticas.js"></script> 
-
+    <main>
+        <section class="container">
+            <h1>Gráficos Administrativos</h1>
+    
+            <!-- Gráfico Circular para Pedidos -->
+            <div class="chart-container">
+                <h3>Pedidos</h3>
+                <canvas id="graficoPedidos"></canvas>
+            </div>
+    
+            <!-- Nuevo: Gráfico Circular para Distribución de Géneros -->
+            <div class="chart-container">
+                <h3>Distribución por Género</h3>
+                <canvas id="graficoGenero"></canvas>
+            </div>
+    
+            <!-- Gráfico Lineal para Servicios Activos -->
+            <div class="chart-container">
+                <h3>Servicios Activos</h3>
+                <canvas id="graficoServicios"></canvas>
+            </div>
+        </section>
+    </main>
+    
+    
+    
 <footer class=" text-white text-center py-4">
     <div class="container">
         <div class="row">
@@ -71,6 +72,10 @@
         <p class="mt-3">&copy; 2024 MOVO. Todos los derechos reservados.</p>
     </div>
 </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="Estadisticas.js"></script> 
 
 </body>
 </html>

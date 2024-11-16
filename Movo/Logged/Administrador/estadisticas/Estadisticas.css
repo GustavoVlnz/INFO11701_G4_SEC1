@@ -1,6 +1,11 @@
 body {
     background-color: #ffffff;
     color: #000000;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
 }
 
 .container {
@@ -17,8 +22,7 @@ body {
     border-radius: 10px;
     margin-bottom: 40px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    height: 400px;
-    width: 100%;
+
 }
 
 h3 {
@@ -28,8 +32,8 @@ h3 {
 }
 
 canvas {
-    max-width: 90%; /* Asegura que el canvas no se expanda fuera del contenedor */
-    max-height: 90%;
+    max-width: 100%; /* Asegura que el canvas no se expanda fuera del contenedor */
+    max-height: 100%;
     display: block;
 }
 
@@ -40,15 +44,12 @@ h2 {
     margin-bottom: 30px;
 }
 
+
+
+
+
 /*Estilos del header*/
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background-color: white;
-  border-bottom: 2px solid #eaeaea;
-}
+
 header #logo {
     display: flex;
     align-items: center;
@@ -72,20 +73,13 @@ header h1 {
     margin: 0;
   }
   
-/* Navegación en el encabezado */
-nav {
-  display: flex;
-  justify-content: center;
-  flex-grow: 1;
-}
-
 nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
   
 nav a.active {
     color: #007bff;

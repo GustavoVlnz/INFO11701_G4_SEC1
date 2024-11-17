@@ -1,0 +1,214 @@
+body { font-family: Arial, sans-serif;}
+
+<<<<<<< HEAD
+#perfil {
+  display: flex;
+}
+
+/* Establece el ancho fijo para la barra de navegación */
+.sidebar {
+  width: 250px;
+  min-width: 200px;
+  flex-shrink: 0;
+}
+
+/* La sección de información del perfil ocupará el resto del espacio */
+.info-perfil {
+  flex-grow: 1;
+  max-width: 800px;
+  margin-left: 20px;
+  text-align: center; /* Centra el contenido dentro de la sección */
+}
+
+/* Cabecera de perfil */
+.header-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Estilo para la imagen del perfil */
+.foto-perfil {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Centrar el encabezado "Información" */
+.detalles h3 {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  text-align: center; /* Centra el texto */
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Contenedor de detalles en dos columnas */
+.detalles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Estilos para los campos de entrada */
+.detalles p {
+  width: 48%; 
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* Etiquetas en negrita */
+.detalles p b {
+  width: 40%;
+  text-align: right;
+  margin-right: 10px;
+}
+
+/* Estilo de los inputs y select */
+.detalles input, .detalles select {
+  width: 55%;
+  padding: 5px;
+}
+
+/* Estilo para el contenedor de detalles */
+.detalles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.detalles p {
+  width: 48%; /* Cada campo ocupará el 48% para alinearse en dos columnas */
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.detalles p b {
+  width: 40%;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.detalles input, .detalles select {
+  width: 55%;
+  padding: 5px;
+}
+
+/* Estilos para el contenedor de botones */
+.botones {
+  width: 100%; /* Los botones ocuparán toda la línea */
+  text-align: center; /* Centrar los botones dentro del div */
+  margin-top: 20px; /* Espacio entre los botones y los campos de entrada */
+}
+
+/* Estilo para los botones */
+.botones button {
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 0 10px; /* Espacio entre los botones */
+}
+
+.botones button:hover {
+  background-color: #0056b3;
+}
+
+
+=======
+.foto-perfil {
+  width: 100px;
+  height: 100px;
+  border-radius: 40%;
+}
+
+.infos {
+  color: #0277bd;
+  text-decoration: none;
+}
+
+.infos:hover {
+  text-decoration: underline;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+
+}
+
+>>>>>>> Alex
+/*Estilos del header*/
+
+header #logo {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+header #logo img,
+header #logo-salir img {
+  width: 50px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+header #logo img:hover,
+header #logo-salir img:hover {
+  transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
+}
+
+header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+nav a.active {
+  color: #007bff;
+}
+
+nav a:hover {
+  color: #0056b3;
+}
+
+/* Estilos del footer */
+footer {
+  background-color: #333;
+
+}
+
+.contenido-footer h3 {
+    margin-top: 0;/* Elimina el margen superior de los encabezados dentro del footer */
+}
+
+.contenido-footer  {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;/* Elimina el subrayado de los enlaces por defecto */
+    margin-bottom: 5px;/* Añade margen inferior para separarlos visualmente */
+}
+
+.col-md-4  a:hover {
+    text-decoration: underline;/* Agrega un subrayado cuando se pasa el mouse sobre los enlaces */
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;/* Añade una línea superior al footer para separarlo del contenido principal */
+}
+  
+  
+  

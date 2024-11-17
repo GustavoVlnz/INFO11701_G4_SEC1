@@ -1,0 +1,215 @@
+body {
+    display: flex;
+    flex-direction: column; /* Establece la dirección de los elementos como columna */
+    min-height: 100vh; /* Asegura que el body ocupe al menos la altura de la ventana */
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden; /* Evitar desplazamiento horizontal en toda la página */
+}
+h1, h2 {
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+header .logo img {
+    width: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+header .logo img:hover {
+    transform: rotate(20deg);
+}
+
+header h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav a.active {
+    color: #007bff;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #0056b3;
+}
+
+.cerrar_sesion {
+    margin-left: auto;
+}
+
+.cerrar_sesion img {
+    width: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.cerrar_sesion img:hover {
+    transform: scale(1.2);
+}
+
+main {
+    padding: 30px;
+}
+
+#horarios-disponibles {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: fixed; /* Establece un diseño fijo para la tabla */
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    word-wrap: break-word; /* Permitir que el texto se ajuste dentro de las celdas */
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo del footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.contenido-footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+
+.contenido-footer div {
+    flex: 1;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    align-items: center; /* Centra los elementos en la columna */
+}
+
+.contenido-footer .redes-sociales, .contenido-footer .politicas {
+    display: flex;
+    flex-direction: column; /* Coloca los enlaces uno encima del otro */
+    align-items: center; /* Mantiene los enlaces centrados horizontalmente */
+}
+
+
+.contenido-footer h3 {
+    margin-top: 0;
+}
+
+.contenido-footer p, 
+.contenido-footer a {
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.contenido-footer a:hover {
+    text-decoration: underline;
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Sección de contacto en el footer */
+#contacto {
+    padding: 40px 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    color: white;
+}
+
+#contactanos {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    background-color: #37b5ff;
+    border-radius: 30px;
+    padding: 40px;
+    font-size: 25px;
+}
+
+/* Estilos adicionales */
+.fecha {
+    font-size: 14px;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .formulario-reseña {
+        margin-top: 20px;
+    }
+
+    footer {
+        justify-content: center;
+    }
+}

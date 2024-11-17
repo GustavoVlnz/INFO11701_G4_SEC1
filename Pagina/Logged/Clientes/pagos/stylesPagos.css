@@ -26,78 +26,88 @@ header {
     align-items: center;
     padding: 20px 30px;
     background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #f1f1f1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.header-content {
+/* Estilo del logo */
+#logo {
     display: flex;
     align-items: center;
 }
 
-header .icono {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-}
-
-header .icono img {
+#logo img {
     width: 50px;
     margin-right: 10px;
     transition: transform 0.3s ease;
 }
 
-header .icono img:hover {
-    transform: rotate(20deg);
+#logo img:hover {
+    transform: rotate(15deg);
 }
 
-header h1 {
-    font-size: 24px;
+#logo h1 {
+    font-size: 1.8rem;
     margin: 0;
+    color: #333;
+    font-family: 'Arial', sans-serif;
 }
 
-
+/* Estilo del menú de navegación */
 nav {
     display: flex;
-    justify-content: center;
-    flex-grow: 1;
+    gap: 20px; /* Espaciado entre los enlaces */
 }
 
 nav a {
-    margin: 0 15px;
     text-decoration: none;
     color: #333;
-    font-size: 16px;
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+nav a:hover {
+    color: #007bff;
+    font-weight: bold;
 }
 
 nav a.activo {
     color: #007bff;
     font-weight: bold;
+    border-bottom: 2px solid #007bff;
 }
 
-nav a:hover {
-    color: #0056b3;
-}
-
-.nav-link.inicio:hover, 
-.nav-link.perfil:hover {
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.salir {
-    margin-left: auto;
-}
-
-.salir img {
-    width: 30px;
+/* Botón de salida */
+#logo-salir img {
+    width: 40px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.salir img:hover {
-    transform: scale(1.2);
+#logo-salir img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
 }
+
+/* Responsivo */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        margin-top: 10px;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    #logo-salir img {
+        width: 35px;
+    }
+}
+
 
 .informacion-servicio, .detalle-pago {
     background-color: white;

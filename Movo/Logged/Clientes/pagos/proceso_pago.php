@@ -67,7 +67,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['servicios'])) {
             $stmtInsert->execute();
             $stmtInsert->close();
         }
-        echo "Pago procesado exitosamente.";
+        // Redirigir a la página con la animación después de que todo se haya procesado
+        header("Location: ./exito/exito.html");
+        exit();
     } else {
         echo "Error: No se recibieron servicios para procesar.";
     }

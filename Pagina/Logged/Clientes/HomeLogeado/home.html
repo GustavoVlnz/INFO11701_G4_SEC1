@@ -31,26 +31,23 @@
         </nav>
     
         <!-- Botones de acción -->
-        <div class="boton-volver-atras">
-            <a href="../../../HomeSinLogear/home.html">
+        <div class="d-flex">
+            <a href="../../../HomeSinLogear/home.html" class="btn btn-outline-secondary">
                 <img src="Imagenes/CerrarSesion.png" alt="Cerrar Sesión" class="img-fluid">
                 Cerrar Sesión
             </a>
-            <a href="../../verificador.php">
+            <a href="../../verificador.php" class="btn btn-outline-secondary">
                 <img src="Imagenes/Perfil.png" alt="Perfil" class="img-fluid">
                 Perfil
             </a>
         </div>
     </header>
     
-    
-    <div class="banner d-flex flex-column justify-content-center align-items-center text-center" style="background-image: url('./Imagenes/Movo_Banner.jpg');">
-        <div class="overlay"></div>
-        <h1 class="display-4">Bienvenido a Nuestro Sitio</h1>
-        <p class="lead">Descubre nuestros servicios y productos diseñados para mejorar tu vida. Únete a nuestra comunidad y comienza a disfrutar de beneficios exclusivos.</p>
-        <a href="#" id="descubre-mas" class="btn btn-primary">Descubre Más</a>
+    <div class="banner">
+        <img src="Imagenes/SERVICIOSBANNER.png" alt="">
+        <a id="descubre-mas" class="btn btn-primary">Descubre Más</a>
     </div>
-
+    
     <!-- Sección de información adicional sobre la empresa -->
     <section id="mas-info" class="seccion-info hidden">
         <div class="container">
@@ -70,7 +67,7 @@
     
             <h2>Algunos de nuestros principales servicios:</h2>
             <!-- Sección de servicios -->
-            <div id="seccion_servicio" class="seccion_servicio row">
+            <div id="seccion-servicio" class="seccion-servicio row">
                 <!-- Cada servicio se presenta en una columna -->
                 <div class="col-md-3 servicio">
                     <img src="Imagenes/Servicio_de_limpieza.jpg" alt="Servicio 1" class="img-fluid">
@@ -104,7 +101,7 @@
                         <div class="card-body">
                             <h3 class="card-title">Delivery</h3>
                             <p class="card-text">Estudio revela las preferencias de los chilenos en torno al popular servicio de delivery.</p>
-                            <a href="#" class="btn btn-primary btn-leer-mas">Leer más</a>
+                            <a class="btn btn-primary btn-leer-mas">Leer más</a>
                         </div>
                         <div class="masInfo hidden">
                             <p>- El servicio de delivery en Chile ha crecido de manera exponencial en los últimos años, especialmente impulsado por la pandemia de COVID-19. Este crecimiento se debe a un cambio en las preferencias del consumidor, que busca mayor comodidad y opciones variadas para recibir productos a domicilio, desde alimentos hasta artículos de uso cotidiano.</p>
@@ -121,7 +118,7 @@
                         <div class="card-body">
                             <h3 class="card-title">Sector Construcción</h3>
                             <p class="card-text">Estudio Longitudinal Empleo-Covid-19 UC: ocupados de la construcción pasaron de 564 mil a 916 mil en un año.</p>
-                            <a href="#" class="btn btn-primary btn-leer-mas">Leer más</a>
+                            <a class="btn btn-primary btn-leer-mas">Leer más</a>
                         </div>
                         <div class="masInfo hidden">
                             <p>- El sector de construcción en Chile se muestra dinámico y en evolución, con un fuerte enfoque en la sostenibilidad y la modernización. La recuperación post-pandemia ha revitalizado el empleo y la inversión, aunque aún persisten desafíos que requieren atención.</p>
@@ -137,7 +134,7 @@
                         <div class="card-body">
                             <h3 class="card-title">Organizacion de eventos</h3>
                             <p class="card-text">Eventos en Chile: Nuevo estudio detalla cómo la industria de los espectáculos se recuperó tras la pandemia.</p>
-                            <a href="#" class="btn btn-primary btn-leer-mas">Leer más</a>
+                            <a class="btn btn-primary btn-leer-mas">Leer más</a>
                         </div>
                         <div class="masInfo hidden">
                             <p>- El sector de organización de eventos en Chile está en un proceso de transformación y adaptación, buscando no solo recuperarse de la pandemia, sino también evolucionar hacia prácticas más sostenibles y tecnológicas. Con una demanda en aumento y un enfoque en la calidad, se espera que esta industria siga creciendo en los próximos años.</p>
@@ -154,20 +151,30 @@
     <section id="contacto" class="my-5">
         <div class="container">
             <div class="row">
+                <!-- Columna izquierda: Información -->
+                <div class="col-md-6 d-flex flex-column justify-content-center align-items-start">
+                    <h2 class="mb-4">Contacto<br>¡Trabajemos Juntos!</h2>
+                    <p>Si deseas consultar mayor información sobre nuestros servicios o tienes alguna duda al respecto, no dudes en solicitar una consultoría gratuita y uno de nuestros asesores te contactará a la brevedad.</p>
+                    <p class="mb-1"><strong>Contáctanos vía WhatsApp:</strong> +52 55 7977 1949</p>
+                    <p class="mb-3"><strong>Email:</strong> contacto@9db.com.mx</p>
+                    <p><strong>Dirección:</strong><br>Av. Jesús del Monte No. 39 B – 801 B, Col Jesús del Monte C.P. 54764 Huixquilucan Edo. De México (Interlomas)</p>
+                </div>
+    
+                <!-- Columna derecha: Formulario -->
                 <div class="col-md-6">
                     <div id="formulario" class="card mx-auto p-4 shadow" style="max-width: 500px;">
-                        <h2 class="text-center mb-4">Contáctanos</h2>
+                        <h2 class="text-center mb-4">¿Quieres saber más?</h2>
                         <form id="contactForm" action="Comentarios.php" method="POST">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Nombres:</label>
+                                <label for="name" class="form-label">Nombre:</label>
                                 <input type="text" id="name" name="name" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label for="lastname" class="form-label">Apellidos:</label>
+                                <label for="lastname" class="form-label">Apellido:</label>
                                 <input type="text" id="lastname" name="lastname" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label for="email" class="form-label">Correo Electrónico:</label>
+                                <label for="email" class="form-label">Correo empresarial:</label>
                                 <input type="email" id="email" name="email" class="form-control" required>
                             </div>
                             <div class="mb-3">
@@ -175,37 +182,45 @@
                                 <input type="tel" id="telefono" name="telefono" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label for="options" class="form-label">Motivo:</label>
-                                <select id="options" name="options" class="form-select" required>
-                                    <option value="" disabled selected>Selecciona una opción</option>
-                                    <option value="option1">Problemas con el pedido</option>
-                                    <option value="option2">Problemas con la cuenta</option>
-                                    <option value="option3">Problemas con el cobro</option>
-                                    <option value="option4">Problemas con la página</option>
-                                    <option value="option5">Problemas de promociones o códigos de descuento</option>
-                                    <option value="option6">Reembolsos y cancelaciones</option>
+                                <label for="empresa" class="form-label">Empresa:</label>
+                                <input type="text" id="empresa" name="empresa" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="empleados" class="form-label">Número de empleados:</label>
+                                <select id="empleados" name="empleados" class="form-select" required>
+                                    <option value="" disabled selected>Seleccionar</option>
+                                    <option value="1-10">1-10</option>
+                                    <option value="11-50">11-50</option>
+                                    <option value="51-200">51-200</option>
+                                    <option value="200+">200+</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="message" class="form-label">Mensaje:</label>
-                                <textarea id="message" name5="message" class="form-control" rows="5" required></textarea>
+                                <label for="servicio" class="form-label">¿En qué servicio estás interesado?</label>
+                                <select id="servicio" name="servicio" class="form-select" required>
+                                    <option value="" disabled selected>Seleccionar</option>
+                                    <option value="consultoria">Consultoría</option>
+                                    <option value="desarrollo">Desarrollo</option>
+                                    <option value="otro">Otro</option>
+                                </select>
                             </div>
-                            <button id="button" type="submit" class="btn btn-primary w-100 mb-3" style="background-color: #37b5ff; color: white;">Enviar Formulario</button>
+                            <div class="mb-3">
+                                <label for="presupuesto" class="form-label">¿Cuál es tu presupuesto asignado?</label>
+                                <select id="presupuesto" name="presupuesto" class="form-select" required>
+                                    <option value="" disabled selected>Seleccionar</option>
+                                    <option value="bajo">Menos de $10,000</option>
+                                    <option value="medio">$10,000 - $50,000</option>
+                                    <option value="alto">Más de $50,000</option>
+                                </select>
+                            </div>
+                            <button id="button" type="submit" class="btn btn-primary w-100" style="background-color: #37b5ff; color: white;">Enviar Formulario</button>
                         </form>
-                    </div>
-                </div>
-                <div id="contactanos" class="col-md-6 d-flex align-items-center justify-content-center">
-                    <div class="card mx-auto p-4 shadow" style="max-width: 500px;">
-                        <h2 class="text-center mb-4">Contáctanos</h2>
-                        <p>¿Tienes alguna pregunta o necesitas más información? Nuestro equipo está aquí para brindarte asistencia. Puedes llamarnos, enviarnos un correo, o completar el siguiente formulario y nos pondremos en contacto contigo lo antes posible.</p>
-                        <p><strong>Horario de atención:</strong><br>
-                        Lunes a Viernes: 9:00 AM - 6:00 PM<br>
-                        Sábados y Domingos: 10:00 AM - 2:00 PM</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
 
     <footer class=" text-white text-center py-4">
         <div class="container">
@@ -230,10 +245,10 @@
         </div>
     </footer>
     
+    <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>

@@ -1,4 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const readMoreButtons = document.querySelectorAll('.btn-leer-mas');
+
+    readMoreButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault(); // Evita que el enlace navegue a otra página
+
+            // Encuentra el contenedor de más información correspondiente al botón
+            const moreInfo = button.closest('.card').querySelector('.masInfo');
+
+            if (moreInfo.classList.contains('hidden')) {
+                moreInfo.classList.remove('hidden'); // Muestra la información
+                moreInfo.classList.add('visible'); // Opcional: agregar una clase visible si tienes estilos específicos
+                button.textContent = 'Ocultar'; // Cambia el texto del botón
+            } else {
+                moreInfo.classList.remove('visible'); // Opcional: remover clase visible si tienes estilos específicos
+                moreInfo.classList.add('hidden'); // Oculta la información
+                button.textContent = 'Leer más'; // Cambia el texto del botón de vuelta
+            }
+        });
+    });
     // --- Funcionalidad para mostrar/ocultar la bandeja de notificaciones ---
     document.getElementById('boton-notificaciones').addEventListener('click', () => {
         const bandeja = document.getElementById('bandeja-notificaciones');
@@ -39,27 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
             SeccionServicio.classList.add('hidden'); // Oculta la sección de servicios
             DescubreMasBtn.textContent = 'Descubre Más'; // Cambia el texto del botón de vuelta a "Descubre Más"
         }
-    });
-
-    // --- Funcionalidad "Leer Más" ---
-    const readMoreButtons = document.querySelectorAll('.btn-leer-mas');
-
-    readMoreButtons.forEach(button => {
-        button.addEventListener('click', (event) => {
-            event.preventDefault(); // Evita el comportamiento por defecto del enlace
-
-            const moreInfo = button.closest('.noticias-post').querySelector('.masInfo'); // Selecciona la sección de más información correspondiente
-
-            if (moreInfo.classList.contains('hidden')) { // Si la sección está oculta
-                moreInfo.classList.remove('hidden'); // Muestra la información
-                moreInfo.classList.add('visible'); // (opcional) añade clase visible si necesitas estilos específicos
-                button.textContent = 'Ocultar'; // Cambia el texto del botón
-            } else {
-                moreInfo.classList.remove('visible'); // (opcional) quita clase visible si la usaste
-                moreInfo.classList.add('hidden'); // Oculta la información
-                button.textContent = 'Leer más'; // Cambia el texto del botón de vuelta
-            }
-        });
     });
 
     // Función para mostrar las diapositivas del carrusel

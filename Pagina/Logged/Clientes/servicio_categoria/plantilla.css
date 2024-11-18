@@ -1,0 +1,197 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Container Styling */
+.container {
+    padding: 20px;
+}
+
+/* Card Styling */
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: none;
+    border-radius: 10px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 15px;
+}
+
+/* Title Styling */
+.card-title {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Button Styling */
+.btn {
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+    border-radius: 5px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.agregar-carrito-btn {
+    margin-bottom: 10px;
+}
+
+/* Dropdown Styling */
+.form-select {
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Animation for Cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.6s ease-in-out;
+}
+
+/* Consistent Alignment for Buttons */
+.mt-auto .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/* Animación al agregar al carrito */
+@keyframes addToCart {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(0);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes removeFromCart {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+}
+
+/* Clase para aplicar la animación al agregar */
+.animate-add {
+    animation: addToCart 0.4s ease-out;
+}
+
+/* Clase para aplicar la animación al eliminar */
+.animate-remove {
+    animation: removeFromCart 0.3s ease-in forwards; /* forwards asegura que se mantenga el estado final */
+}
+
+/*Estilos del header*/
+header #logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+  
+header #logo img,
+header #logo-salir img {
+    width: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+  
+header #logo img:hover,
+header #logo-salir img:hover {
+    transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
+}
+  
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+  
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+  
+nav a.active {
+    color: #007bff;
+}
+  
+nav a:hover {
+    color: #0056b3;
+}
+
+/* Estilos del footer */
+footer {
+    background-color: #333;
+  
+}
+  
+.contenido-footer h3 {
+      margin-top: 0;/* Elimina el margen superior de los encabezados dentro del footer */
+  }
+  
+.contenido-footer  {
+      font-size: 18px;
+      color: rgb(255, 255, 255);
+      text-decoration: none;/* Elimina el subrayado de los enlaces por defecto */
+      margin-bottom: 5px;/* Añade margen inferior para separarlos visualmente */
+  }
+  
+.col-md-4  a:hover {
+      text-decoration: underline;/* Agrega un subrayado cuando se pasa el mouse sobre los enlaces */
+  }
+  
+.copyright_footer {
+      border-top: 1px solid #444;/* Añade una línea superior al footer para separarlo del contenido principal */
+  }

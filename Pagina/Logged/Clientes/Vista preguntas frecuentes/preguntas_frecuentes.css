@@ -1,4 +1,4 @@
-/* Reseteo y configuración inicial de márgenes y padding */
+/* Estilos generales */
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +15,7 @@ body {
     min-height: 100vh;
 }
 
-/* Estilo para el header */
+/* Encabezado */
 header {
     display: flex;
     justify-content: space-between;
@@ -39,7 +39,7 @@ header .logo img {
 }
 
 header .logo img:hover {
-    transform: rotate(20deg); /* la imagen rota cuando el ratón pasa sobre ella */
+    transform: rotate(20deg);
 }
 
 /* Título en el encabezado */
@@ -87,9 +87,8 @@ nav a:hover {
     transform: scale(1.3);
 }
 
-/* Estilos para la información del servicio */
-.informacion-servicio, .detalle-pago {
-    background-color: white;
+/* Contenido principal */
+main {
     padding: 20px;
     flex-grow: 1;
     background-color: #fff;
@@ -114,12 +113,11 @@ h2 {
 
 .faq-item {
     margin-bottom: 15px;
-}
-
-/* Estilos para el resumen de pago */
-.detalle-pago p {
-    font-size: 18px;
-    margin-bottom: 10px;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .faq-item:hover {
@@ -143,82 +141,14 @@ h2 {
 .faq-answer {
     display: none; /* Ocultar respuestas por defecto */
     padding: 10px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 20px;
 }
 
-.btn-pago:hover {
-    background-color: #0056b3;
+/* Estilos para elementos interactivos */
+.faq-item.open .faq-answer {
+    display: block; /* Mostrar respuestas cuando se activa */
 }
 
-.metodo-pago {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: 20px auto;
-    display: none; /* Inicialmente oculto */
-}
-
-.metodo-pago h3 {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-#opciones-pago {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.btn-confirmar-pago {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.btn-confirmar-pago:hover {
-    background-color: #0056b3;
-}
-
-/* Estilo para los campos de tarjeta */
-#tarjeta-info {
-    margin-top: 15px;
-}
-
-#tarjeta-info div {
-    margin-bottom: 10px;
-}
-
-#tarjeta-info input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.oculto {
-    display: none;
-}
-
-/* Estilos del footer */
+/* Pie de página */
 footer {
     background-color: #333;
     color: white;
@@ -258,13 +188,7 @@ footer .contenido-footer a:hover {
 
 footer .copyright_footer {
     border-top: 1px solid #444;
-}
-
-/* Estilos para los iconos de redes sociales */
-.social-icon {
-    color: rgb(254, 254, 254);
-}
-
-.info-legal a {
-    color: rgb(254, 254, 254);
+    padding-top: 10px;
+    margin-top: 10px;
+    font-size: 14px;
 }

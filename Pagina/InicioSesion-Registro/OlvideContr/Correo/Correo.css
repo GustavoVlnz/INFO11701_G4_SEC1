@@ -1,40 +1,3 @@
-<<<<<<< HEAD
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    min-height: 100vh;
-}
-
-#Correo {
-    background-color: #f9f9f9; /* Este color se puede ajustar según sea necesario */
-    border-radius: 10px;
-}
-
-/* Estilos del header */
-header #logo {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-  }
-  
-header #logo img,
-header #logo-salir img {
-    width: 50px;
-    margin-right: 10px;
-    transition: transform 0.3s ease;
-  }
-  
-header #logo img:hover,
-header #logo-salir img:hover {
-    transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
-  }
-  
-header h1 {
-    font-size: 24px;
-    margin: 0;
-  }
-  
-=======
 /*Estilos del header*/
 header {
     display: flex;
@@ -84,25 +47,12 @@ nav {
     flex-grow: 1;
 }
 
->>>>>>> Alex
 nav a {
     margin: 0 15px;
     text-decoration: none;
     color: #333;
     font-size: 16px;
     transition: color 0.3s ease;
-<<<<<<< HEAD
-  }
-  
-nav a.active {
-    color: #007bff;
-  }
-  
-nav a:hover {
-    color: #0056b3;
-  }
-  
-=======
 }
 
 nav a.active {
@@ -166,23 +116,10 @@ input[type="email"] {
     cursor: pointer;/*Cambia el estilo del mouse al pasar por encima*/
 }
 
->>>>>>> Alex
 
 /* Estilos del footer */
 footer {
     background-color: #333;
-<<<<<<< HEAD
-}
-
-footer a {
-    color: #fff;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-=======
     color: white;
     text-align: center;
     padding: 10px;
@@ -225,4 +162,3 @@ footer a:hover {
       border-top: 1px solid #444;/* Añade una línea superior al footer para separarlo del contenido principal */
 }
   
->>>>>>> Alex

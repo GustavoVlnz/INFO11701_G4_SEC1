@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vista de Reseñas - MOVO</title>
+    <title>Vista de Reseñas</title>
     <link rel="stylesheet" href="vistareseñas.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <h1>MOVO</h1>
+            <img src="images/icon.jpg" alt="Logo">
+            <h1>Movo</h1>
         </div>
         <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Servicios</a>
-            <a href="#" class="activo">Perfil</a>
+            <a href="/Pagina Oficial/Home/home.html">Inicio</a>
+            <a href="/Pagina Oficial/categorias/categorias.html" class="active">Servicios</a>
+            <a href="/Pagina Oficial/Perfil/InfoAcc/Info.html">Perfil</a>
         </nav>
-        <div class="salir">
-            <span>Salir</span>
+        <div class="cerrar_sesion">
+            <img src="images/logout.png" alt="Cerrar Sesión">
         </div>
     </header>
 
@@ -25,23 +26,45 @@
         <section class="lista-reseñas">
             <h2>Reseñas de Usuarios</h2>
             <article class="reseña">
-                <h3>Juan Pérez</h3>
+                <h3>Juan Pérez <span class="fecha">05/10/2024</span></h3>
                 <p>"Servicio rápido y eficiente. Muy recomendable."</p>
+                <div class="estrellas">★★★★★</div>
             </article>
             <article class="reseña">
-                <h3>María López</h3>
+                <h3>María López <span class="fecha">02/10/2024</span></h3>
                 <p>"Tuve algunos problemas con la reserva, pero lo solucionaron rápidamente."</p>
+                <div class="estrellas">★★★★☆</div>
+            </article>
+            <article class="reseña">
+                <h3>Pedro González <span class="fecha">30/09/2024</span></h3>
+                <p>"Excelente experiencia, repetiré sin duda."</p>
+                <div class="estrellas">★★★★★</div>
+            </article>
+            <article class="reseña">
+                <h3>Ana Martínez <span class="fecha">25/09/2024</span></h3>
+                <p>"El servicio fue bueno, pero tardó más de lo esperado."</p>
+                <div class="estrellas">★★★☆☆</div>
             </article>
         </section>
 
         <section class="formulario-reseña">
             <h2>Escribe tu Reseña</h2>
-            <form action="#" method="POST">
+            <form id="reseñaForm" action="#" method="POST">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
 
                 <label for="reseña">Reseña:</label>
                 <textarea id="reseña" name="reseña" rows="4" required></textarea>
+
+                <label for="calificacion">Calificación:</label>
+                <select id="calificacion" name="calificacion" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="5">★★★★★ - Excelente</option>
+                    <option value="4">★★★★☆ - Muy bueno</option>
+                    <option value="3">★★★☆☆ - Bueno</option>
+                    <option value="2">★★☆☆☆ - Regular</option>
+                    <option value="1">★☆☆☆☆ - Malo</option>
+                </select>
 
                 <button type="submit">Enviar Reseña</button>
             </form>

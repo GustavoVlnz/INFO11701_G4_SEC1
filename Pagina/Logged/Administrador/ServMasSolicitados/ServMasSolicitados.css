@@ -100,6 +100,36 @@ nav ul li a {
     transition: color 0.3s ease; /* Animación suave para el color */
 }
 
+
+
+/* Menú de navegación */
+.nav-pills .nav-link {
+    color: #007bff;
+    background-color: #e9ecef;
+    margin: 0 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+.salir {
+    margin-left: auto;
+}
+
+.salir img {
+    width: 40px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.salir img:hover {
+    transform: scale(1.2);
+}
+
 /* Estilo para el hover en los enlaces */
 nav ul li a:hover {
     color: #37b5ff; /* Color azul/celeste al pasar el mouse (puedes ajustar este color) */

@@ -11,7 +11,7 @@
     
     <header class="d-flex justify-content-between align-items-center p-3 shadow-sm bg-white">
         <div class="header-content d-flex align-items-center">
-            <div class="icono d-flex align-items-center me-3">
+            <div class="icono d-flex align-items-center me-3" id="logo">
                 <img src="../../Clientes/Perfil/Images/logo.png" alt="Logo">
                 <h1 class="mb-0">MOVO</h1>
             </div>
@@ -19,7 +19,6 @@
         <nav class="nav">
             <a href="../../Clientes/HomeLogeado/home.html" class="nav-link">Inicio</a>
             <a href="../../Clientes/categorias/categorias.html" class="nav-link">Servicios</a>
-            <a href="#" class="nav-link">Perfil</a>
         </nav>
         <a href="../../../HomeSinLogear/home.html">
             <div class="salir">
@@ -35,26 +34,15 @@
         </section>
     
         <!-- Menú de navegación con animaciones -->
-    <section class="mt-4 bg-light p-4 rounded shadow-sm">
-        <nav class="nav nav-pills justify-content-center" id="animated-menu">
-            <a href="../usuarios/usuarios.html" class="nav-link d-flex align-items-center me-4">
-                <img src="imagenes/usuarios.png" alt="Usuarios" class="nav-icon me-2"> 
-                Usuarios
-            </a>
-            <a href="../servicios/servicios.html" class="nav-link d-flex align-items-center me-4">
-                <img src="imagenes/servicios.png" alt="Servicios" class="nav-icon me-2"> 
-                Servicios
-            </a>
-            <a href="../estadisticas/Estadisticas.html" class="nav-link d-flex align-items-center me-4">
-                <img src="imagenes/pedidos.png" alt="Pedidos" class="nav-icon me-2"> 
-                Estadisticas
-            </a>
-            <a href="../reportes/reportes.html" class="nav-link d-flex align-items-center">
-                <img src="imagenes/reportes.png" alt="Reportes" class="nav-icon me-2"> 
-                Reportes
-            </a>
-        </nav>
-    </section>
+        <section class="bg-light p-4 rounded shadow-sm">
+            <nav class="nav nav-pills justify-content-center">
+                <a href="../usuarios/usuarios.html" class="nav-link">Usuarios</a>
+                <a href="../servicios/servicios.html" class="nav-link">Servicios</a>
+                <a href="../estadisticas/Estadisticas.html" class="nav-link">Estadísticas</a>
+                <a href="../reportes/reportes.html" class="nav-link">Reportes</a>
+                <a href="../Comentarios/SistemaDeComentarios.html" class="nav-link ">Moderación de Comentarios</a>
+            </nav>
+        </section>
 
 <!-- Sección de estadísticas con diseño mejorado -->
 <section class="mt-5">
@@ -151,10 +139,10 @@
             </table>
         </section>
     
-        <!-- Solicitud de servicios -->
-        <section id="servicios-pymes" class="my-5">
-            <h2 class="text-center">Solicitud de Servicios</h2>
-            <div class="servicio mb-4 bg-white p-4 rounded shadow-sm">
+
+        <section id="servicios-pymes" class="section-container">
+            <h2>Solicitud de Servicios</h2>
+            <div class="servicio">
                 <h3>Empresa: <span>Events Go</span></h3>
                 <p>Servicio: <span>Organización de Eventos</span></p>
                 <button class="btn btn-primary detalles-btn" onclick="mostrarDetalles(1)">Ver Detalles</button>
@@ -187,9 +175,9 @@
         </section>
     
         <!-- Reportes de usuarios -->
-        <section id="reportes-usuarios" class="my-5">
-            <h2 class="text-center">Reportes de Usuarios</h2>
-            <div class="reporte mb-4 bg-white p-4 rounded shadow-sm">
+        <section id="reportes-usuarios" class="section-container">
+            <h2>Reportes de Usuarios</h2>
+            <div class="reporte">
                 <h3>Usuario: <span>Luis Villa</span></h3>
                 <p>Servicio reportado: <span>Reparación de electrodomésticos</span></p>
                 <p>Descripción: <span>El técnico llegó tarde y no tenía las herramientas adecuadas para realizar la reparación.</span></p>

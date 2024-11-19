@@ -4,50 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pago</title>
-<<<<<<< HEAD
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-..." crossorigin="anonymous">
     <link rel="stylesheet" href="stylesPagos.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="icono">
-                <img src="../Perfil/Images/logo.png" alt="Logo">
-                <h1>Movo</h1>
-            </div>
+
+    <header class="d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
+        <div class="d-flex align-items-center" id="logo">
+            <img src="Images/logo.png" alt="Logo Movo" class="me-2">
+            <h1 class="m-0">MOVO</h1>
         </div>
         <nav>
             <a href="../HomeLogeado/home.html">Inicio</a>
             <a href="../categorias/categorias.html">Servicios</a>
             <a href="../../verificador.php">Perfil</a>
         </nav>
-        <a href="../../../HomeSinLogear/home.html">
-            <div class="salir">
-                <img src="../Perfil/Images/logout.png" alt="Salir">
-            </div>
-        </a>
-    </header>
-
-
-    <section class="informacion-servicio">
-        <h2>Detalles del Servicio</h2>
-        <p><b>Servicio Solicitado:</b> Servicio Tecnico de Ordenadores</p>
-=======
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-..." crossorigin="anonymous">
-    <link rel="stylesheet" href="stylesPagos.css">
-</head>
-<body>
-    <header class="d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
-        <div class="d-flex align-items-center" id="logo">
-          <img src="Images/logo.png" alt="Logo Movo" class="me-2" ">
-          <h1 class="m-0">MOVO</h1>
-        </div>
-        <nav>
-          <a href="../HomeLogeado/home.html" >Inicio</a>
-          <a href="../categorias/categorias.html" >Servicios</a>
-          <a href="../../verificador.php">Perfil</a>
-        </nav>
         <div id="logo-salir">
-          <img src="Images/logout.png" alt="Salir" style="width: 50px;">
+            <img src="Images/logout.png" alt="Salir">
         </div>
     </header>
 
@@ -55,25 +30,17 @@
     <section class="informacion-servicio border border-primary p-3 my-3 rounded shadow">
         <h2 class="text-primary">Detalles del Servicio</h2>
         <p><b>Servicio Solicitado:</b> Servicio Técnico de Ordenadores</p>
->>>>>>> Alex
         <p><b>Fecha del Servicio:</b> 20 de septiembre, 2024</p>
         <p><b>Prestador del Servicio:</b> Benjamin Valenzuela</p>
         <p><b>Duración:</b> 4 horas</p>
     </section>
-<<<<<<< HEAD
-
-    <section class="detalle-pago">
-        <h2>Resumen de Pago</h2>
-=======
     
     <section class="detalle-pago border border-primary p-3 my-3 rounded shadow">
         <h2 class="text-primary">Resumen de Pago</h2>
->>>>>>> Alex
         <p><b>Precio:</b> $50.000 CLP</p>
         <p><b>IVA (19%):</b> $9.500 CLP</p>
         <p><b>Descuento:</b> $5.000 CLP</p>
         <p><b>Total a pagar:</b> $54.500 CLP</p>
-<<<<<<< HEAD
 
         <label for="codigo-descuento"><b>¿Tienes un código de descuento?</b></label> <br>
         <input type="text" id="codigo-descuento" placeholder="Ingresa tu código">
@@ -82,39 +49,80 @@
         <button class="btn-pago">Pagar</button>
     </section>
 
-    <!-- Sección para seleccionar el método de pago -->
-    <div class="metodo-pago" id="metodo-pago" style="display: none;">
-        <h3>Selecciona tu método de pago</h3>
-        <select id="opciones-pago">
-            <option value="">Selecciona...</option>
-            <option value="efectivo">Efectivo</option>
-            <option value="tarjeta-debito">Tarjeta de Débito</option>
-            <option value="tarjeta-credito">Tarjeta de Crédito</option>
-            <option value="transferencia">Transferencia Bancaria</option>
-        </select>
-        
-        <!-- Campos para tarjeta de débito/crédito (ocultos inicialmente) -->
-        <div id="tarjeta-info" class="oculto">
-            <div>
-                <label for="nombre-tarjeta">Nombre en la tarjeta:</label>
-                <input type="text" id="nombre-tarjeta" placeholder="Nombre en la tarjeta" required />
-            </div>
-            <div>
-                <label for="numero-tarjeta">Número de tarjeta:</label>
-                <input type="text" id="numero-tarjeta" placeholder="XXXX XXXX XXXX XXXX" maxlength="16" required />
-            </div>
-            <div>
-                <label for="fecha-expiracion">Fecha de expiración:</label>
-                <input type="month" id="fecha-expiracion" required />
-            </div>
-            <div>
-                <label for="cvv">CVV:</label>
-                <input type="text" id="cvv" placeholder="XXX" maxlength="4" required />
+    <div class="payment-container">
+        <h2 class="text-center">Selecciona un método de pago:</h2>
+        <!-- Métodos de Pago Principales -->
+        <div class="payment-methods">
+            <div class="method-grid">
+                <!-- Columna 1 -->
+                <div class="method">
+                    <input type="radio" id="efectivo" name="metodoPago" value="efectivo">
+                    <label for="efectivo">
+                        <div class="circle"></div>
+                        Efectivo
+                    </label>
+                </div>
+                <div class="method">
+                    <input type="radio" id="transferencia" name="metodoPago" value="transferencia">
+                    <label for="transferencia">
+                        <div class="circle"></div>
+                        Transferencia Bancaria
+                    </label>
+                </div>
+                <!-- Columna 2 -->
+                <div class="method">
+                    <input type="radio" id="debito" name="metodoPago" value="debito">
+                    <label for="debito">
+                        <div class="circle"></div>
+                        Débito
+                    </label>
+                </div>
+                <div class="method">
+                    <input type="radio" id="credito" name="metodoPago" value="credito">
+                    <label for="credito">
+                        <div class="circle"></div>
+                        Crédito
+                    </label>
+                </div>
             </div>
         </div>
-
-        <button class="btn-confirmar-pago">Confirmar pago</button>
+    
+        <!-- Métodos Alternativos -->
+        <div class="payment-apps">
+            <h3 class="text-center">Métodos de pago alternativos:</h3>
+            <div class="app-logos">
+                <a href="https://www.somosmach.com/" target="_blank" title="Ir a Mach">
+                    <img src="Images/mach.png" alt="Mach" class="app-logo">
+                </a>
+                <a href="https://www.mercadopago.com/" target="_blank" title="Ir a Mercado Pago">
+                    <img src="Images/mercadopago.png" alt="Mercado Pago" class="app-logo">
+                </a>
+                <a href="https://www.paypal.com/" target="_blank" title="Ir a PayPal">
+                    <img src="Images/paypall.jpg" alt="PayPal" class="app-logo">
+                </a>
+                <a href="https://www.tenpo.cl/" target="_blank" title="Ir a Tenpo">
+                    <img src="Images/tenpo.png" alt="Tenpo" class="app-logo">
+                </a>
+            </div>
+        </div>
     </div>
+    
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="toast-header" class="toast-header">
+                <img src="./Images/logo.png" class="rounded me-2 img-fluid" alt="Logo MOVO" style="width: 40px; height: 40px;">
+                <strong class="me-auto">MOVO</strong>
+                <small>Ahora</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Tu pedido due realizado con exito!
+            </div>
+        </div>
+    </div>
+
+
 
     <footer>
         <div class="contenido-footer">
@@ -141,57 +149,5 @@
             </div>
         </footer>
     <script src="pagoSs.js"></script>
-=======
-    
-        <div class="form-group">
-            <label for="codigo-descuento"><b>¿Tienes un código de descuento?</b></label>
-            <input type="text" id="codigo-descuento" class="form-control" placeholder="Ingresa tu código">
-        </div>
-    
-        <button id="Desc" class="btn btn-primary mt-2">Aplicar</button>
-        <button id="Pago" class="btn btn-success mt-3 btn-block">Pagar</button>
-    </section>
-
-    <!-- Notificación Toast -->
-    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div id="toast-header" class="toast-header">
-                <img src="../Perfil/Images/logo.png" class="rounded me-2 img-fluid" alt="Logo MOVO" style="width: 40px; height: 40px;">
-                <strong class="me-auto">MOVO</strong>
-                <small>Ahora</small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body" id="toastMessage">
-                Pedido realizado exitosamente.
-            </div>
-        </div>
-    </div>
-    
-
-    <footer class=" text-white text-center py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h3>Contacto</h3>
-                    <p>Email: contacto@movo.com</p>
-                </div>
-                <div class="col-md-4">
-                    <h3>Redes Sociales</h3>
-                    <a href="https://www.facebook.com/profile.php?id=61566403465579" class="contenido-footer">Facebook</a><br>
-                    <a href="https://x.com/CompanyMovo_inc" class="contenido-footer">Twitter</a><br>
-                    <a href="https://www.instagram.com/movo_inc/" class="contenido-footer">Instagram</a>
-                </div>
-                <div class="col-md-4 ">
-                    <h3>Información Legal</h3>
-                    <a href="../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html" class="contenido-footer">Política de Privacidad</a><br>
-                    <a href="../../../InicioSesion-Registro/Registro/terminos.html" class="contenido-footer">Términos de Servicio</a>
-                </div>
-            </div>
-            <p class="mt-3">&copy; 2024 MOVO. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="pagoss.js"></script>
->>>>>>> Alex
 </body>
 </html>

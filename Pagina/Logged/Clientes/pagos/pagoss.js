@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-const precioServicio = 320000;  // Precio del servicio
+const precioServicio = 54500;  // Precio del servicio
 const iva = 0.19;  // IVA aplicable
 const descuentoInput = document.getElementById('codigo-descuento');  // Input para el código de descuento
 const btnAplicar = document.querySelector('.btn-aplicar');  // Botón para aplicar descuento
@@ -10,48 +9,43 @@ const opcionesPago = document.getElementById('opciones-pago');  // Selector de m
 const tarjetaInfo = document.getElementById('tarjeta-info');  // Información de tarjeta
 const btnConfirmarPago = document.querySelector('.btn-confirmar-pago');  // Botón para confirmar el pago
 
+// Función para mostrar el toast con un mensaje y un tipo (success, danger, etc.)
+function mostrarToast(mensaje, tipo) {
+    const toastEl = document.getElementById('liveToast');
+    const toastMessage = document.querySelector('.toast-body');
+    
+    // Cambiar mensaje y estilo según el tipo
+    toastMessage.textContent = mensaje;
+    toastEl.className = `toast align-items-center text-bg-${tipo} border-0`;
+    
+    // Mostrar el toast
+    const toast = new bootstrap.Toast(toastEl);
+    toast.show();
+}
+
 // Calcular el total con IVA y descuento
 function calcularTotal(descuento) {
-    const totalConIva = precioServicio + (precioServicio * iva);  // Total con IVA
-    const totalFinal = totalConIva - descuento;  // Total final con descuento
+    const totalConIva = precioServicio + (precioServicio * iva); // Total con IVA
+    const totalFinal = totalConIva - descuento; // Total final con descuento
     return totalFinal;
 }
 
-// Aplicar descuento
+
+// Evento para aplicar descuento
 btnAplicar.addEventListener('click', () => {
-    const descuento = parseFloat(descuentoInput.value) || 0;  // Obtener descuento (si no es válido, usar 0)
-    const totalFinal = calcularTotal(descuento);  // Calcular el total con el descuento
-    totalPago.textContent = `Total a pagar: $${totalFinal.toFixed(0)} CLP`;  // Mostrar el total
-=======
+    const descuento = parseFloat(descuentoInput.value) || 0; // Obtener descuento (si no es válido, usar 0)
+    const totalFinal = calcularTotal(descuento); // Calcular el total con el descuento
+    totalPago.textContent = `Total a pagar: $${totalFinal.toFixed(0)} CLP`; // Mostrar el total
 
-const precioServicio = 50000; 
-const iva = 0.19;
-const descuentoInput = document.getElementById('codigo-descuento');
-const btnAplicar = document.querySelector('.btn-aplicar');
-const totalPago = document.querySelector('.detalle-pago p:nth-of-type(4)'); // Selecciona el párrafo del total
-const btnPagar = document.querySelector('.btn-pago');
-
-
-function calcularTotal(descuento) {
-    const totalConIva = precioServicio + (precioServicio * iva);
-    const totalFinal = totalConIva - descuento;
-    return totalFinal;
-}
-
-Desc.addEventListener('click', () => {
-    const descuento = parseFloat(descuentoInput.value) || 0;
-    const totalFinal = calcularTotal(descuento);
-    
-
-    totalPago.textContent = `Total a pagar: $${totalFinal.toFixed(0)} CLP`;
->>>>>>> Alex
-    
-    if (descuentoInput.value === "") {
-        alert("Por favor, ingresa un código de descuento válido.");
+    if (!descuentoInput.value) {
+        // Mostrar mensaje de error
+        mostrarToast('Por favor, ingresa un código de descuento válido.');
+    } else {
+        // Mostrar mensaje de éxito
+        mostrarToast('Descuento aplicado correctamente.');
     }
 });
 
-<<<<<<< HEAD
 // Mostrar las opciones de pago cuando se hace clic en 'Pagar'
 btnPagar.addEventListener('click', () => {
     metodoPago.style.display = 'block';  // Muestra las opciones de pago
@@ -68,11 +62,17 @@ opcionesPago.addEventListener('change', () => {
     }
 });
 
-// Confirmar pago con tarjeta
+// Evento para confirmar el pago
 btnConfirmarPago.addEventListener('click', () => {
-    const metodoSeleccionado = opcionesPago.value;  // Método de pago seleccionado
-    const total = parseFloat(totalPago.textContent.split('$')[1].replace(' CLP', ''));  // Obtener el total del pago
-    
+    const metodoSeleccionado = opcionesPago.value; // Método de pago seleccionado
+    const total = totalPago.textContent.split('$')[1].replace(' CLP', '').trim();
+    // Elimina las comas o puntos que se usan como separadores de miles antes de convertir a número
+    const totalSinMiles = total.replace('.', ''); // Elimina el punto como separador de miles
+    // Convierte a número
+    const totalNumero = parseFloat(totalSinMiles);
+    // Formatea el número de nuevo con punto como separador de miles
+    const totalFormateado = totalNumero.toLocaleString('es-CL'); // 'es-CL' es el formato para Chile // Obtener el total del pago
+
     // Validación de campos de tarjeta
     if ((metodoSeleccionado === 'tarjeta-debito' || metodoSeleccionado === 'tarjeta-credito') &&
         (!document.getElementById('nombre-tarjeta').value ||
@@ -80,30 +80,10 @@ btnConfirmarPago.addEventListener('click', () => {
          !document.getElementById('fecha-expiracion').value ||
          !document.getElementById('cvv').value)) {
         
-        alert('Por favor, rellene todos los campos de la tarjeta.');
+        mostrarToast('Por favor, rellene todos los campos de la tarjeta.');
         return;
     }
-    
-    alert(`Pago confirmado con ${metodoSeleccionado}. Total: $${total} CLP.`);
-=======
 
-Pago.addEventListener('click', () => {
-    const total = parseFloat(totalPago.textContent.split('$')[1].replace(' CLP', ''));
-    alert(`Gracias por tu pago. El total es de $${total} CLP.`);
-});
-
-// Evento para realizar el pago, mostrar el toast y redirigir
-Pago.addEventListener('click', () => {
-    const total = parseFloat(totalPago.textContent.split('$')[1].replace(' CLP', ''));
-    
-    // Mostrar notificación toast
-    const toastElement = document.getElementById('liveToast');
-    const toast = new bootstrap.Toast(toastElement);
-    toast.show();
-
-    // Redirigir después de un tiempo
-    setTimeout(() => {
-        window.location.href = '../HomeLogeado/home.html'; // Cambia por la URL a donde quieres redirigir
-    }, 4000); // 4 segundos antes de redirigir
->>>>>>> Alex
+    // Mostrar mensaje de confirmación
+    mostrarToast(`Pago confirmado. Total: $${totalFormateado} CLP.`);
 });

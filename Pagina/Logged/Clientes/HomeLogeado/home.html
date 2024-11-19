@@ -31,26 +31,26 @@
         </nav>
     
         <!-- Botones de acción -->
-        <div class="boton-volver-atras">
-            <a href="../../../HomeSinLogear/home.html">
-                <img src="Imagenes/CerrarSesion.png" alt="Cerrar Sesión" class="img-fluid">
-                Cerrar Sesión
-            </a>
-            <a href="../../verificador.php">
+        <div class="d-flex">
+            <a href="../../verificador.php" class="btn btn-outline-secondary">
                 <img src="Imagenes/Perfil.png" alt="Perfil" class="img-fluid">
                 Perfil
+            </a>
+            <a href="../../../HomeSinLogear/home.html" class="btn btn-outline-secondary">
+                <img src="Imagenes/CerrarSesion.png" alt="Cerrar Sesión" class="img-fluid">
+                Cerrar Sesión
             </a>
         </div>
     </header>
     
-    
-    <div class="banner d-flex flex-column justify-content-center align-items-center text-center" style="background-image: url('./Imagenes/Movo_Banner.jpg');">
-        <div class="overlay"></div>
-        <h1 class="display-4">Bienvenido a Nuestro Sitio</h1>
-        <p class="lead">Descubre nuestros servicios y productos diseñados para mejorar tu vida. Únete a nuestra comunidad y comienza a disfrutar de beneficios exclusivos.</p>
-        <a href="#" id="descubre-mas" class="btn btn-primary">Descubre Más</a>
+    <div class="banner-container">
+        <div class="banner">
+            <img src="Imagenes/SERVICIOSBANNER.png" alt="Banner de Servicios">
+            <a id="descubre-mas" class="btn btn-primary">Descubre Más</a>
+        </div>
     </div>
 
+    
     <!-- Sección de información adicional sobre la empresa -->
     <section id="mas-info" class="seccion-info hidden">
         <div class="container">
@@ -70,7 +70,7 @@
     
             <h2>Algunos de nuestros principales servicios:</h2>
             <!-- Sección de servicios -->
-            <div id="seccion_servicio" class="seccion_servicio row">
+            <div id="seccion-servicio" class="seccion-servicio row">
                 <!-- Cada servicio se presenta en una columna -->
                 <div class="col-md-3 servicio">
                     <img src="Imagenes/Servicio_de_limpieza.jpg" alt="Servicio 1" class="img-fluid">
@@ -104,13 +104,13 @@
                         <div class="card-body">
                             <h3 class="card-title">Delivery</h3>
                             <p class="card-text">Estudio revela las preferencias de los chilenos en torno al popular servicio de delivery.</p>
-                            <a href="#" class="btn btn-primary btn-leer-mas">Leer más</a>
+                            <a class="btn btn-primary btn-leer-mas">Leer más</a>
                         </div>
                         <div class="masInfo hidden">
                             <p>- El servicio de delivery en Chile ha crecido de manera exponencial en los últimos años, especialmente impulsado por la pandemia de COVID-19. Este crecimiento se debe a un cambio en las preferencias del consumidor, que busca mayor comodidad y opciones variadas para recibir productos a domicilio, desde alimentos hasta artículos de uso cotidiano.</p>
-                            <p>- Se estima que el mercado de delivery en Chile ha crecido alrededor de un 30-40% anual en los últimos años, especialmente durante la pandemia.</p>
+                            <p><strong>- Se estima que el mercado de delivery en Chile ha crecido alrededor de un 30-40% anual en los últimos años, especialmente durante la pandemia.</strong></p>
                             <p>- El estudio indicó que cerca del 45% de las órdenes de delivery corresponden a alimentos y bebidas, mientras que el resto incluye productos de supermercado, farmacia y otros.</p>
-                            <p>- En promedio, los usuarios realizan al menos 1-2 pedidos de delivery por semana, lo que demuestra la integración de este servicio en su rutina diaria.</p>
+                            <p><strong>- En promedio, los usuarios realizan al menos 1-2 pedidos de delivery por semana, lo que demuestra la integración de este servicio en su rutina diaria.</strong></p>
                         </div>
                     </div>
                 </article>
@@ -121,11 +121,11 @@
                         <div class="card-body">
                             <h3 class="card-title">Sector Construcción</h3>
                             <p class="card-text">Estudio Longitudinal Empleo-Covid-19 UC: ocupados de la construcción pasaron de 564 mil a 916 mil en un año.</p>
-                            <a href="#" class="btn btn-primary btn-leer-mas">Leer más</a>
+                            <a class="btn btn-primary btn-leer-mas">Leer más</a>
                         </div>
                         <div class="masInfo hidden">
                             <p>- El sector de construcción en Chile se muestra dinámico y en evolución, con un fuerte enfoque en la sostenibilidad y la modernización. La recuperación post-pandemia ha revitalizado el empleo y la inversión, aunque aún persisten desafíos que requieren atención.</p>
-                            <p>- El sector de la construcción contribuye aproximadamente con un 7-10% al PIB nacional, aunque esta cifra puede variar anualmente.</p>
+                            <p><strong>- El sector de la construcción contribuye aproximadamente con un 7-10% al PIB nacional, aunque esta cifra puede variar anualmente.</strong></p>
                             <p>- Tras la pandemia, el sector ha mostrado señales de recuperación. En 2021, el número de ocupados en la construcción aumentó de 564,000 a 916,000, lo que representa un crecimiento del 62% en el empleo en este sector.</p>
                         </div>
                     </div>
@@ -137,13 +137,13 @@
                         <div class="card-body">
                             <h3 class="card-title">Organizacion de eventos</h3>
                             <p class="card-text">Eventos en Chile: Nuevo estudio detalla cómo la industria de los espectáculos se recuperó tras la pandemia.</p>
-                            <a href="#" class="btn btn-primary btn-leer-mas">Leer más</a>
+                            <a class="btn btn-primary btn-leer-mas">Leer más</a>
                         </div>
                         <div class="masInfo hidden">
                             <p>- El sector de organización de eventos en Chile está en un proceso de transformación y adaptación, buscando no solo recuperarse de la pandemia, sino también evolucionar hacia prácticas más sostenibles y tecnológicas. Con una demanda en aumento y un enfoque en la calidad, se espera que esta industria siga creciendo en los próximos años.</p>
-                            <p>- Se estima que el sector de eventos contribuye con más de $1,000 millones al PIB nacional, abarcando desde eventos corporativos hasta festivales culturales.</p>
+                            <p><strong>- Se estima que el sector de eventos contribuye con más de $1,000 millones al PIB nacional, abarcando desde eventos corporativos hasta festivales culturales.</strong></p>
                             <p>- Aproximadamente el 65% de los organizadores de eventos han reportado un aumento en la demanda de eventos híbridos (presenciales y virtuales), lo que refleja un cambio en las preferencias de los asistentes.</p>
-                            <p>- Los eventos corporativos representan alrededor del 50% de la industria, seguidos por eventos sociales (bodas, cumpleaños) y culturales (festivales, conciertos).</p>
+                            <p><strong>- Los eventos corporativos representan alrededor del 50% de la industria, seguidos por eventos sociales (bodas, cumpleaños) y culturales (festivales, conciertos).</strong></p>
                         </div>
                     </div>
                 </article>
@@ -153,10 +153,20 @@
     
     <section id="contacto" class="my-5">
         <div class="container">
-            <div class="row">
+            <div class="row align-items-center">
+                <!-- Columna de texto explicativo -->
+                <div class="col-md-6 d-flex flex-column justify-content-center align-items-start">
+                    <h2 class="mb-4">Contacto<br>¡Trabajemos Juntos!</h2>
+                    <p>¿Tienes alguna pregunta o necesitas más informacion? Nuestro equipo está aquí para brindarte asistencia. Puedes llamarnos, enviarnos un correo, o completar el siguiente formulario y nos pondremos en contacto contigo lo antes posible</p>
+                    <p class="mb-1"><strong>Horario de atención:</strong> </p>
+                    <p class="mb-3">Lunes a Viernes: 9:00 AM - 6:00 PM<br>
+                    Sábados y Domingos: 10:00 AM - 2:00 PM</p>
+                </div>
+                
+                <!-- Columna del formulario -->
                 <div class="col-md-6">
                     <div id="formulario" class="card mx-auto p-4 shadow" style="max-width: 500px;">
-                        <h2 class="text-center mb-4">Contáctanos</h2>
+                        <h2 class="text-center mb-4">Formulario de Contacto</h2>
                         <form id="contactForm" action="Comentarios.php" method="POST">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nombres:</label>
@@ -182,30 +192,22 @@
                                     <option value="option2">Problemas con la cuenta</option>
                                     <option value="option3">Problemas con el cobro</option>
                                     <option value="option4">Problemas con la página</option>
-                                    <option value="option5">Problemas de promociones o códigos de descuento</option>
+                                    <option value="option5">Promociones o descuentos</option>
                                     <option value="option6">Reembolsos y cancelaciones</option>
                                 </select>
                             </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label">Mensaje:</label>
-                                <textarea id="message" name5="message" class="form-control" rows="5" required></textarea>
+                                <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
                             </div>
-                            <button id="button" type="submit" class="btn btn-primary w-100 mb-3" style="background-color: #37b5ff; color: white;">Enviar Formulario</button>
+                            <button id="button" type="submit" class="btn btn-primary w-100 mb-3">Enviar Formulario</button>
                         </form>
-                    </div>
-                </div>
-                <div id="contactanos" class="col-md-6 d-flex align-items-center justify-content-center">
-                    <div class="card mx-auto p-4 shadow" style="max-width: 500px;">
-                        <h2 class="text-center mb-4">Contáctanos</h2>
-                        <p>¿Tienes alguna pregunta o necesitas más información? Nuestro equipo está aquí para brindarte asistencia. Puedes llamarnos, enviarnos un correo, o completar el siguiente formulario y nos pondremos en contacto contigo lo antes posible.</p>
-                        <p><strong>Horario de atención:</strong><br>
-                        Lunes a Viernes: 9:00 AM - 6:00 PM<br>
-                        Sábados y Domingos: 10:00 AM - 2:00 PM</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
 
     <footer class=" text-white text-center py-4">
         <div class="container">

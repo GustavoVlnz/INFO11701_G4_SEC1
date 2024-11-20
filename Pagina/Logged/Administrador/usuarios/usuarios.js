@@ -1,41 +1,135 @@
-// Array de usuarios de ejemplo
-const usuarios = [
-    { id: 12345, nombre: 'Lucía Fernández', correo: 'lucia.fernandez@gmail.com' },
-    { id: 23456, nombre: 'Alejandro Martínez', correo: 'alejandro.martinez@hotmail.com' },
-    { id: 34567, nombre: 'Sofía Ramírez', correo: 'sofia.ramirez@gmail.com' },
-    { id: 45678, nombre: 'Diego Torres', correo: 'diego.torres@hotmail.com' },
-    { id: 56789, nombre: 'Camila Ortega', correo: 'camila.ortega@gmail.com' },
-    { id: 67890, nombre: 'Mateo Jiménez', correo: 'mateo.jimenez@hotmail.com' },
-    { id: 78901, nombre: 'Valentina Castro', correo: 'valentina.castro@gmail.com' },
-    { id: 89012, nombre: 'Bruno Morales', correo: 'bruno.morales@hotmail.com' },
-    { id: 90123, nombre: 'Isabella Mendoza', correo: 'isabella.mendoza@gmail.com' },
-    { id: 12346, nombre: 'Felipe Ríos', correo: 'felipe.rios@hotmail.com' },
-    { id: 23457, nombre: 'Natalia Gómez', correo: 'natalia.gomez@gmail.com' },
-    { id: 34568, nombre: 'Javier Ruiz', correo: 'javier.ruiz@hotmail.com' },
-    { id: 45679, nombre: 'Mariana Castro', correo: 'mariana.castro@gmail.com' },
-    { id: 56780, nombre: 'Luis Herrera', correo: 'luis.herrera@hotmail.com' },
-    { id: 67891, nombre: 'Victoria Díaz', correo: 'victoria.diaz@gmail.com' },
-    { id: 78902, nombre: 'Gonzalo Pérez', correo: 'gonzalo.perez@hotmail.com' },
-    { id: 89013, nombre: 'Renata Silva', correo: 'renata.silva@gmail.com' },
-    { id: 90124, nombre: 'Marco Peña', correo: 'marco.pena@hotmail.com' },
-    { id: 12347, nombre: 'Ángela Soto', correo: 'angela.soto@gmail.com' },
-    { id: 23458, nombre: 'Cristian Villanueva', correo: 'cristian.villanueva@hotmail.com' },
-    { id: 34569, nombre: 'Lina Romero', correo: 'lina.romero@gmail.com' },
-    { id: 45680, nombre: 'Nicolás Salazar', correo: 'nicolas.salazar@hotmail.com' }
-];
+document.addEventListener("DOMContentLoaded", function () {
+    const tbody = document.querySelector("#tabla-usuarios tbody");
 
-const tablaUsuarios = document.querySelector('#tabla-usuarios tbody');
+    // Cargar los usuarios desde el servidor
+    fetch("MostrarUsuarios.php")
+        .then(response => response.json())
+        .then(data => {
+            tbody.innerHTML = ""; // Limpia el tbody antes de insertar datos
+            data.forEach(usuario => {
+                // Crear la fila principal del usuario
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${usuario.idUsuarios}</td>
+                    <td>${usuario.nombres}</td>
+                    <td>${usuario.apellidos}</td>
+                    <td>${usuario.email}</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" onclick="mostrarFormulario(${usuario.idUsuarios}, '${usuario.nombres}', '${usuario.apellidos}', '${usuario.email}')">Editar</button>
+                        <button class="btn btn-danger btn-sm" onclick="eliminarUsuario(${usuario.idUsuarios})">Eliminar</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
 
-usuarios.forEach(usuario => {
-    const fila = document.createElement('tr');
-    fila.innerHTML = `
-        <td>${usuario.id}</td>
-        <td>${usuario.nombre}</td>
-        <td>${usuario.correo}</td>
-        <td>
-            <button class="btn btn-editar">Editar</button>
-            <button class="btn btn-eliminar">Eliminar</button>
-        </td>
-    `;
-    tablaUsuarios.appendChild(fila);
+                // Crear la fila oculta para el formulario de edición
+                const formRow = document.createElement("tr");
+                formRow.style.display = "none";
+                formRow.setAttribute("form-row", "true"); // Etiqueta para identificar las filas de formularios
+                formRow.innerHTML = `
+                    <td colspan="5">
+                        <form id="form-editar-${usuario.idUsuarios}" onsubmit="guardarCambios(event, ${usuario.idUsuarios})">
+                            <div class="mb-2">
+                                <label>Nombre:</label>
+                                <input type="text" name="nombres" value="${usuario.nombres}" class="form-control" required>
+                            </div>
+                            <div class="mb-2">
+                                <label>Apellidos:</label>
+                                <input type="text" name="apellidos" value="${usuario.apellidos}" class="form-control" required>
+                            </div>
+                            <div class="mb-2">
+                                <label>Correo:</label>
+                                <input type="email" name="email" value="${usuario.email}" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-sm">Guardar</button>
+                            <button type="button" class="btn btn-secondary btn-sm" onclick="ocultarFormulario(${usuario.idUsuarios})">Cancelar</button>
+                        </form>
+                    </td>
+                `;
+                tbody.appendChild(formRow);
+            });
+        })
+        .catch(error => console.error("Error al cargar los usuarios:", error));
 });
+
+// Función para mostrar el formulario de edición
+function mostrarFormulario(id, nombres, apellidos, email) {
+    // Oculta cualquier formulario visible
+    document.querySelectorAll("tr[form-row]").forEach(row => {
+        row.style.display = "none";
+    });
+
+    // Muestra el formulario específico para el usuario
+    const formRow = document.querySelector(`#form-editar-${id}`).parentNode.parentNode;
+    formRow.style.display = "table-row";
+}
+
+// Función para ocultar el formulario de edición
+function ocultarFormulario(id) {
+    const formRow = document.querySelector(`#form-editar-${id}`).parentNode.parentNode;
+    if (formRow) {
+        formRow.style.display = "none"; // Oculta la fila del formulario
+    }
+}
+
+// Función para guardar los cambios realizados en el formulario
+function guardarCambios(event, id) {
+    event.preventDefault();
+
+    const form = document.querySelector(`#form-editar-${id}`);
+    const formData = new FormData(form);
+
+    formData.append("idUsuarios", id);
+
+    fetch("ActualizarUsuario.php", {
+        method: "POST",
+        body: new URLSearchParams(formData)
+    })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+
+            if (data.includes("Usuario actualizado correctamente")) {
+                // Actualiza la tabla con los nuevos datos
+                const filas = document.querySelectorAll("#tabla-usuarios tbody tr");
+                filas.forEach(fila => {
+                    const idCelda = fila.querySelector("td:first-child").textContent;
+                    if (idCelda == id) {
+                        fila.children[1].textContent = formData.get("nombres");
+                        fila.children[2].textContent = formData.get("apellidos");
+                        fila.children[3].textContent = formData.get("email");
+                    }
+                });
+
+                ocultarFormulario(id); // Oculta el formulario al finalizar
+            }
+        })
+        .catch(error => console.error("Error al actualizar el usuario:", error));
+}
+
+// Función para eliminar un usuario
+function eliminarUsuario(id) {
+    if (!confirm("¿Estás seguro de que deseas eliminar este usuario?")) {
+        return;
+    }
+
+    fetch("EliminarUsuario.php", {
+        method: "POST",
+        body: new URLSearchParams({ idUsuarios: id })
+    })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+
+            if (data.includes("Usuario eliminado correctamente")) {
+                // Elimina la fila del usuario de la tabla
+                const filas = document.querySelectorAll("#tabla-usuarios tbody tr");
+                filas.forEach(fila => {
+                    const idCelda = fila.querySelector("td:first-child").textContent;
+                    if (idCelda == id) {
+                        fila.remove();
+                    }
+                });
+            }
+        })
+        .catch(error => console.error("Error al eliminar el usuario:", error));
+}

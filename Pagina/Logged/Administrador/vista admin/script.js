@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', function () {
             data.ultimosPedidos.forEach(pedido => {
                 pedidosTable.innerHTML += `
                     <tr>
-                        <td>${pedido.idPedido}</td>
+                        <td>${pedido.id_servicio}</td>
                         <td>${pedido.cliente}</td>
-                        <td>${pedido.servicio}</td>
+                        <td>${pedido.servicio_solicitado}</td>
                         <td>${pedido.estado}</td>
-                        <td>${pedido.fecha_hora}</td>
+                        <td>${pedido.fecha_solicitud}</td>
                     </tr>`;
             });
 
@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', function () {
             data.solicitudesServicios.forEach((servicio, index) => {
                 solicitudesContainer.innerHTML += `
                     <div class="servicio mb-4 bg-white p-4 rounded shadow-sm">
-                        <h3>Empresa: <span>${servicio.empresa}</span></h3>
+                        <h3>Empresa: <span>${servicio.proveedor}</span></h3>
                         <p>Servicio: <span>${servicio.servicio}</span></p>
-                        <p>Descripción: ${servicio.descripcion}</p>
-                        <p>Precio: ${servicio.precio}</p>
+                        <p>Descripción: ${servicio.reseñas}</p>
+                        <p>Precio: ${servicio.ganancia}</p>
                     </div>`;
             });
 

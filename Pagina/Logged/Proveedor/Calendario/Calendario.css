@@ -1,0 +1,158 @@
+/* Contenedor principal de la pestaña del calendario */
+.calendar-tab {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Título de la pestaña */
+.calendar-tab h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+/* Contenedor del calendario */
+.calendar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Estilo del input de calendario */
+#datepicker {
+    font-size: 16px;
+    padding: 10px;
+    width: 300px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+#datepicker:focus {
+    outline: none;
+    border-color: #37b5ff;
+}
+
+/* Contenedor de los eventos */
+#event-container {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#event-container h3 {
+    font-size: 20px;
+    color: #333333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Lista de eventos */
+#event-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#event-list li {
+    font-size: 16px;
+    color: #555555;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+#event-list li:last-child {
+    border-bottom: none;
+}
+
+#event-list li:hover {
+    background-color: #e6f4ff;
+}
+
+/* Botón personalizado */
+.btn {
+    background-color: #37b5ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin: 10px;
+}
+
+.btn:hover {
+    background-color: #2a93d8;
+}
+
+.btn-secondary {
+    background-color: #e74c3c;
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #c0392b;
+}
+
+.add-event-section {
+    width: 300px; /* Ajustamos el ancho del formulario */
+    margin: 30px auto; /* Centramos el formulario */
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-event-section h3 {
+    font-size: 18px; /* Reducimos el tamaño del título */
+    color: #333333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.add-event-section input {
+    width: 100%;
+    padding: 8px; /* Ajustamos el tamaño del campo de entrada */
+    margin-bottom: 10px; /* Reducimos el espacio entre el input y el botón */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px; /* Reducimos el tamaño del texto en el input */
+    box-sizing: border-box;
+}
+
+.add-event-section .btn {
+    display: block;
+    width: 100%;
+    background-color: #37b5ff;
+    color: white;
+    padding: 10px; /* Ajustamos el padding del botón */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px; /* Reducimos el tamaño del texto en el botón */
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.add-event-section .btn:hover {
+    background-color: #2a93d8;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+    <!-- Pikaday CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+    <link rel="stylesheet" href="Calendario.css">
+</head>
+<body>
+    <h1 style="text-align:center;">Calendario</h1>
+
+    <!-- Campo de entrada para el calendario -->
+    <div style="text-align: center; margin: 20px;">
+        <label for="datepicker">Selecciona una fecha:</label>
+        <input type="text" id="datepicker" placeholder="Selecciona una fecha">
+    </div>
+
+    <!-- Contenedor para mostrar eventos -->
+    <div id="event-container" style="text-align: center; margin: 20px;">
+        <h3>Eventos:</h3>
+        <ul id="event-list"></ul>
+    </div>
+
+    <!-- Formulario para agregar eventos -->
+    <div class="add-event-section">
+        <h3>Agregar Evento</h3>
+        <input type="text" id="event-title" placeholder="Título del Evento">
+        <button class="btn" id="add-event-btn">Agregar Evento</button>
+    </div>
+
+    <!-- Pikaday JS -->
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    <script src="Calendario.js"></script>
+</body>
+</html>

@@ -1,51 +1,60 @@
 document.addEventListener('DOMContentLoaded', function () {
     const formAgregar = document.getElementById('form-agregar');
     if (formAgregar) {
-        formAgregar.addEventListener('submit', function (e) {
+        formAgregar.addEventListener('submit', async function (e) {
             e.preventDefault();
 
-            // Capturar y limpiar los datos del formulario
-            const nombreServicio = limpiarDato(document.getElementById('nombre-servicio').value);
-            const descripcionCorta = limpiarDato(document.getElementById('descripcion-corta').value);
-            const descripcionLarga = limpiarDato(document.getElementById('descripcion-larga').value);
-            const categoriaId = parseInt(document.getElementById('categoria').value, 10);
-            const precio = parseFloat(document.getElementById('precio').value);
+            try {
+                // Capturar y limpiar los datos del formulario
+                const nombreServicio = limpiarDato(document.getElementById('nombre-servicio').value);
+                const descripcionCorta = limpiarDato(document.getElementById('descripcion-corta').value);
+                const descripcionLarga = limpiarDato(document.getElementById('descripcion-larga').value);
+                const categoriaId = parseInt(document.getElementById('categoria').value);
+                const precio = parseFloat(document.getElementById('precio').value);
 
-            // Validar los datos antes de enviarlos
-            if (!nombreServicio || !descripcionCorta || !descripcionLarga || isNaN(categoriaId) || isNaN(precio) || precio < 0) {
-                alert('Por favor, rellene todos los campos correctamente.');
-                return;
-            }
+                // Validar los datos antes de enviarlos
+                if (!nombreServicio || !descripcionCorta || !descripcionLarga || isNaN(categoriaId) || isNaN(precio) || precio < 0) {
+                    alert('Por favor, rellene todos los campos correctamente.');
+                    return;
+                }
 
-            // Crear un objeto de datos para enviar
-            const datosServicio = {
-                nombre_servicio: nombreServicio,
-                descripcion_corta: descripcionCorta,
-                descripcion_larga: descripcionLarga,
-                id_categoria: categoriaId,
-                precio_servicio: precio
-            };
+                // Crear un objeto de datos para enviar
+                const datosServicio = {
+                    nombre_servicio: nombreServicio,
+                    descripcion_corta: descripcionCorta,
+                    descripcion_larga: descripcionLarga,
+                    id_categoria: categoriaId,
+                    precio_servicio: precio
+                };
 
-            // Enviar datos al servidor mediante fetch
-            fetch('Gestion_phps/agregar.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(datosServicio)
-            })
-            .then(response => response.json()) // Se espera que el servidor devuelva JSON
-            .then(data => {
+                // Verificar el JSON que se enviará (útil para depuración)
+                console.log('Datos a enviar:', datosServicio);
+
+                // Enviar datos al servidor mediante fetch
+                const response = await fetch('Gestion_phps/agregar.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(datosServicio)
+                });
+
+                // Verificar que la respuesta sea válida
+                if (!response.ok) {
+                    throw new Error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
+                }
+
+                // Procesar la respuesta del servidor
+                const data = await response.json();
                 if (data.success) {
                     alert('Servicio agregado exitosamente. Nombre del proveedor: ' + data.nombre_proveedor);
                 } else {
                     alert('Error al agregar el servicio: ' + data.error);
                 }
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error('Error en la solicitud:', error);
-            });
+                alert('Hubo un problema al intentar enviar los datos. Verifique la consola para más detalles.');
+            }
         });
     }
-
     // Función para limpiar datos
     function limpiarDato(dato) {
         return dato.trim().replace(/<\/?[^>]+(>|$)/g, ""); // Eliminar espacios y etiquetas HTML

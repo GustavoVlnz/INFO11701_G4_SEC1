@@ -16,13 +16,28 @@ try {
 
     $id_usuario = $_SESSION['idUsuarios'];
 
-    // Leer y decodificar los datos JSON
-    $rawInput = file_get_contents('php://input');
-    error_log("Cuerpo recibido: " . $rawInput);
+    // Obtener el nombre del proveedor basado en el ID del usuario
+    $query_proveedor = "SELECT nombres FROM usuariosMOVO WHERE idUsuarios = ?";
+    $stmt_proveedor = $conexion->prepare($query_proveedor);
+    if (!$stmt_proveedor) {
+        throw new Exception('Error al preparar la consulta para obtener el nombre del proveedor: ' . $conexion->error);
+    }
 
-    $data = json_decode($rawInput, true);
+    $stmt_proveedor->bind_param("i", $id_usuario);
+    if (!$stmt_proveedor->execute()) {
+        throw new Exception('Error al ejecutar la consulta para obtener el proveedor: ' . $stmt_proveedor->error);
+    }
+
+    $stmt_proveedor->bind_result($nombre);
+    if (!$stmt_proveedor->fetch()) {
+        throw new Exception('No se encontró un proveedor con el ID proporcionado.');
+    }
+    $nombre_proveedor = trim($nombre);
+    $stmt_proveedor->close();
+
+    // Leer y decodificar los datos JSON
+    $data = json_decode(file_get_contents('php://input'), true);
     if (!$data) {
-        error_log("Error de JSON: " . json_last_error_msg());
         throw new Exception('No se recibió un JSON válido.');
     }
 
@@ -41,8 +56,8 @@ try {
     $estado_servicio = 'en revisión';
     $query_insert = "
         INSERT INTO Lista_ServiciosMOVO 
-        (nombre_servicio, descripcion_corta, descripcion_larga, id_categoria, precio_servicio, estado_servicio, idUsuario, id_proveedor)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        (nombre_servicio, descripcion_corta, descripcion_larga, id_categoria, precio_servicio, estado_servicio, proveedor_nombre, idUsuario, id_proveedor)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     ";
     $stmt_insert = $conexion->prepare($query_insert);
     if (!$stmt_insert) {
@@ -50,13 +65,14 @@ try {
     }
 
     $stmt_insert->bind_param(
-        "sssidsii",
+        "sssidssii",
         $nombre_servicio,
         $descripcion_corta,
         $descripcion_larga,
         $categoria_id,
         $precio_servicio,
         $estado_servicio,
+        $nombre_proveedor,
         $id_usuario,
         $id_usuario
     );
@@ -70,6 +86,8 @@ try {
     // Respuesta de éxito
     $response['success'] = true;
     $response['message'] = 'Servicio agregado exitosamente.';
+    $response['nombre_proveedor'] = $nombre_proveedor;
+
 } catch (Exception $e) {
     // Capturar cualquier error y enviarlo en la respuesta
     $response['error'] = $e->getMessage();
@@ -78,3 +96,4 @@ try {
     // Enviar la respuesta en formato JSON
     echo json_encode($response);
 }
+?>

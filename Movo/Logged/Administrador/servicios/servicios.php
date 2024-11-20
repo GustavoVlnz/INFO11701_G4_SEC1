@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Consulta SQL para obtener los servicios
-$sql = "SELECT id_servicio, nombre_servicio, descripcion, precio_servicio FROM Lista_ServiciosMOVO";
+$sql = "SELECT id_servicio, nombre_servicio, descripcion_corta, precio_servicio FROM Lista_ServiciosMOVO";
 $result = $conn->query($sql);
 
 $servicios = array();

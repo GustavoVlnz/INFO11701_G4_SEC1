@@ -2,43 +2,31 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 header('Content-Type: application/json');
-<<<<<<< HEAD
-
-// Incluye la conexión a la base de datos
 include 'conexion.php';
+session_start(); // Asegúrate de que la sesión esté iniciada
 
-// Consulta a la base de datos para obtener los servicios
-$query = "SELECT id_servicio, nombre_servicio, descripcion, estado, id_categoria FROM serviciosMOVO";
-$resultado = $conexion->query($query);
+if (isset($_SESSION['idUsuarios'])) {
+    $id_usuario = $_SESSION['idUsuarios'];
 
-$servicios = array();
+    $query = "SELECT id_servicio, nombre_servicio, descripcion_corta, descripcion_larga, id_categoria, precio_servicio, estado_servicio, fecha_registrado 
+              FROM Lista_ServiciosMOVO WHERE idUsuario = ?";
+    
+    if ($stmt = $conexion->prepare($query)) {
+        $stmt->bind_param("i", $id_usuario);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
 
-// Recorre los resultados de la consulta
-while ($fila = $resultado->fetch_assoc()) {
-    $servicios[] = $fila;
-}
+        $servicios = array();
+        while ($fila = $resultado->fetch_assoc()) {
+            $servicios[] = $fila;
+        }
 
-// Devuelve los resultados en formato JSON
-echo json_encode($servicios);
-=======
-include 'conexion.php';
-
-// Obtener todos los servicios
-$sql = "SELECT id_servicio, proveedor_nombre, nombre_servicio, id_categoria, descripcion, estado_servicio, precio_servicio, fecha_registrado 
-        FROM Lista_ServiciosMOVO";
-$result = $conn->query($sql);
-
-$servicios = [];
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $servicios[] = $row;
+        echo json_encode($servicios);
+        $stmt->close();
+    } else {
+        echo json_encode(['success' => false, 'error' => 'Error en la preparación de la consulta.']);
     }
-    echo json_encode($servicios);
 } else {
-    echo json_encode(["mensaje" => "No se encontraron servicios"]);
+    echo json_encode(['success' => false, 'error' => 'Usuario no autenticado.']);
 }
-
-$conn->close();
->>>>>>> Alex
 ?>

@@ -1,51 +1,33 @@
 <?php
-<<<<<<< HEAD
 header('Content-Type: application/json');
 include 'conexion.php';
+session_start(); // Asegúrate de que la sesión esté iniciada
 
-// Decodifica el JSON recibido
-$data = json_decode(file_get_contents('php://input'), true);
+if (isset($_SESSION['idUsuarios'])) {
+    $id_usuario = $_SESSION['idUsuarios'];
+    $data = json_decode(file_get_contents('php://input'), true);
 
-// Verifica si se ha enviado el ID del servicio
-if (isset($data['id'])) {
-    $id_servicio = $data['id'];
+    if (isset($data['id'])) {
+        $id_servicio = $data['id'];
+        $query = "DELETE FROM Lista_ServiciosMOVO WHERE id_servicio = ? AND idUsuario = ?";
+        if ($stmt = $conexion->prepare($query)) {
+            $stmt->bind_param("ii", $id_servicio, $id_usuario);
+            $stmt->execute();
+            
+            if ($stmt->affected_rows > 0) {
+                echo json_encode(['success' => true]);
+            } else {
+                echo json_encode(['success' => false, 'error' => 'No se encontró el servicio para este usuario o no existe.']);
+            }
 
-    // Prepara la consulta SQL para eliminar el servicio
-    $query = "DELETE FROM serviciosMOVO WHERE id_servicio = ?";
-    
-    // Prepara la sentencia
-    if ($stmt = $conexion->prepare($query)) {
-        $stmt->bind_param("i", $id_servicio); // Vincula el id como entero
-        $stmt->execute();
-        
-        if ($stmt->affected_rows > 0) {
-            echo json_encode(['success' => true]);
+            $stmt->close();
         } else {
-            echo json_encode(['success' => false, 'error' => 'No se encontró el servicio a eliminar.']);
+            echo json_encode(['success' => false, 'error' => 'Error en la preparación de la consulta.']);
         }
-
-        $stmt->close();
     } else {
-        echo json_encode(['success' => false, 'error' => 'Error en la preparación de la consulta.']);
+        echo json_encode(['success' => false, 'error' => 'Datos incompletos.']);
     }
 } else {
-    echo json_encode(['success' => false, 'error' => 'No se recibió el id del servicio.']);
-=======
-include 'conexion.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id_servicio = $_POST['id_servicio'];
-
-    // Eliminar el servicio
-    $sql = "DELETE FROM Lista_ServiciosMOVO WHERE id_servicio='$id_servicio'";
-
-    if ($conn->query($sql) === TRUE) {
-        echo json_encode(["mensaje" => "Servicio eliminado exitosamente"]);
-    } else {
-        echo json_encode(["error" => "Error al eliminar el servicio: " . $conn->error]);
-    }
-
-    $conn->close();
->>>>>>> Alex
+    echo json_encode(['success' => false, 'error' => 'Usuario no autenticado.']);
 }
 ?>

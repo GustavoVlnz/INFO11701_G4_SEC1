@@ -54,24 +54,28 @@
                     <h2>Servicios Actuales</h2>
                     <!-- Aquí se cargarán los servicios desde la base de datos -->
                 </div>
-
                 <!-- Formulario para agregar servicio -->
                 <div class="border p-4 bg-white shadow">
                     <h2>Agregar nuevo servicio</h2>
                     <form id="form-agregar">
                         <div class="form-group">
                             <label for="nombre-servicio">Nombre del servicio</label>
-                            <input type="text" class="form-control" id="nombre-servicio" placeholder="Nombre del servicio" required>
+                            <input type="text" class="form-control" id="nombre-servicio" name="nombre-servicio" placeholder="Nombre del servicio" required>
                         </div>
-
+                        
                         <div class="form-group">
-                            <label for="descripcion">Descripción</label>
-                            <textarea class="form-control" id="descripcion" placeholder="Descripción del servicio" required></textarea>
+                            <label for="descripcion-corta">Descripción Corta</label>
+                            <input type="text" class="form-control" id="descripcion-corta" name="descripcion-corta" placeholder="Descripción corta del servicio" required>
                         </div>
-
+                        
+                        <div class="form-group">
+                            <label for="descripcion-larga">Descripción Larga</label>
+                            <textarea class="form-control" id="descripcion-larga" name="descripcion-larga" placeholder="Descripción larga del servicio" required></textarea>
+                        </div>
+                        
                         <div class="form-group">
                             <label for="categoria">Categoría</label>
-                            <select class="form-control" id="categoria" required>
+                            <select class="form-control" id="categoria" name="categoria" required>
                                 <option value="1">Categoría 1</option>
                                 <option value="2">Categoría 2</option>
                                 <option value="3">Categoría 3</option>
@@ -83,10 +87,9 @@
                             </select>
                         </div>
 
-                        <!-- Campo para el precio del servicio -->
                         <div class="form-group">
                             <label for="precio">Precio (CLP)</label>
-                            <input type="number" class="form-control" id="precio" placeholder="Precio del servicio" required min="0">
+                            <input type="number" class="form-control" id="precio" name="precio" placeholder="Precio del servicio" required min="0">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Agregar Servicio</button>

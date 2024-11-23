@@ -1,32 +1,27 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+session_start(); // Iniciar sesión
 header('Content-Type: application/json');
-include 'conexion.php';
-session_start(); // Asegúrate de que la sesión esté iniciada
+include 'conexion.php'; // Conexión a la base de datos
 
-if (isset($_SESSION['idUsuarios'])) {
-    $id_usuario = $_SESSION['idUsuarios'];
-
-    $query = "SELECT id_servicio, nombre_servicio, descripcion_corta, descripcion_larga, id_categoria, precio_servicio, estado_servicio, fecha_registrado 
-              FROM Lista_ServiciosMOVO WHERE idUsuario = ?";
-    
-    if ($stmt = $conexion->prepare($query)) {
-        $stmt->bind_param("i", $id_usuario);
-        $stmt->execute();
-        $resultado = $stmt->get_result();
-
-        $servicios = array();
-        while ($fila = $resultado->fetch_assoc()) {
-            $servicios[] = $fila;
-        }
-
-        echo json_encode($servicios);
-        $stmt->close();
-    } else {
-        echo json_encode(['success' => false, 'error' => 'Error en la preparación de la consulta.']);
-    }
-} else {
-    echo json_encode(['success' => false, 'error' => 'Usuario no autenticado.']);
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['idUsuarios'])) {
+    echo json_encode(["success" => false, "error" => "Usuario no autenticado"]);
+    exit;
 }
+
+// Obtener el ID del usuario desde la sesión
+$id_prestador = $_SESSION['idUsuarios'];
+
+// Consultar los servicios del usuario autenticado
+$query = $conexion->prepare("SELECT * FROM Lista_ServiciosMOVO WHERE id_prestador = ?");
+$query->bind_param("i", $id_prestador);
+$query->execute();
+$result = $query->get_result();
+
+$servicios = [];
+while ($row = $result->fetch_assoc()) {
+    $servicios[] = $row;
+}
+
+echo json_encode($servicios);
 ?>

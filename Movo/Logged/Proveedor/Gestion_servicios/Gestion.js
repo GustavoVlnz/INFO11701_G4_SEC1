@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    cargarServicios();
     const formAgregar = document.getElementById('form-agregar');
     if (formAgregar) {
         formAgregar.addEventListener('submit', async function (e) {
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Procesar la respuesta del servidor
                 const data = await response.json();
                 if (data.success) {
-                    alert('Servicio agregado exitosamente. Nombre del proveedor: ' + data.nombre_proveedor);
+                    alert('Servicio agregado exitosamente.');
                 } else {
                     alert('Error al agregar el servicio: ' + data.error);
                 }

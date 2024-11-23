@@ -23,51 +23,49 @@ if (!isset($_SESSION['idUsuarios'])) {
 }
 
 $idUsuario = $_SESSION['idUsuarios'];
-$nombreCliente = "Cliente desconocido"; // Valor por defecto si no se encuentra el nombre
 
-// Obtener el nombre del cliente mediante idUsuario
-$sqlCliente = "SELECT nombres FROM usuariosMOVO WHERE idUsuarios = ?";
-$stmtCliente = $conn->prepare($sqlCliente);
-$stmtCliente->bind_param("i", $idUsuario);
-$stmtCliente->execute();
-$resultCliente = $stmtCliente->get_result();
-if ($resultCliente->num_rows > 0) {
-    $rowCliente = $resultCliente->fetch_assoc();
-    $nombreCliente = $rowCliente['nombres'];
-}
-$stmtCliente->close();
-
+// Verificar si la solicitud es POST y si se recibieron servicios
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['servicios'])) {
     $servicios = json_decode($_POST['servicios'], true);
 
     if (is_array($servicios) && !empty($servicios)) {
+        $fechaSolicitud = date("Y-m-d H:i:s"); // Fecha actual
+
         foreach ($servicios as $servicio) {
             $idServicio = intval($servicio['servicioId']);
+            $idPrestador = intval($servicio['proveedorId']); // Id del prestador enviado desde el carrito
 
-            // Consulta para obtener el nombre del servicio
-            $sqlServicio = "SELECT nombre_servicio FROM Lista_ServiciosMOVO WHERE id_servicio = ?";
+            // Consultar datos del servicio
+            $sqlServicio = "
+                SELECT nombre_servicio
+                FROM Lista_ServiciosMOVO 
+                WHERE id_servicio = ? AND id_prestador = ?";
             $stmtServicio = $conn->prepare($sqlServicio);
-            $stmtServicio->bind_param("i", $idServicio);
+            $stmtServicio->bind_param("ii", $idServicio, $idPrestador);
             $stmtServicio->execute();
             $resultServicio = $stmtServicio->get_result();
-            $nombreServicio = 'Nombre desconocido'; // Valor por defecto si no se encuentra el servicio
+
             if ($resultServicio->num_rows > 0) {
                 $rowServicio = $resultServicio->fetch_assoc();
                 $nombreServicio = $rowServicio['nombre_servicio'];
+
+                // Insertar datos en la tabla Servicios_SolicitadosMOVO
+                $sqlInsert = "
+                    INSERT INTO Servicios_SolicitadosMOVO 
+                    (id_solicitante, id_servicio, id_prestador, servicio_solicitado, estado_solicitud, fecha_solicitud) 
+                    VALUES (?, ?, ?, ?, 'pendiente', ?)";
+                $stmtInsert = $conn->prepare($sqlInsert);
+                $stmtInsert->bind_param("iiiss", $idUsuario, $idServicio, $idPrestador, $nombreServicio, $fechaSolicitud);
+                $stmtInsert->execute();
+                $stmtInsert->close();
+            } else {
+                echo "Error: El servicio con ID $idServicio no se encontró para el prestador $idPrestador.";
             }
+
             $stmtServicio->close();
-
-            $fechaSolicitud = date("Y-m-d H:i:s"); // Fecha actual
-
-            // Insertar los datos en la tabla Servicios_SolicitadosMOVO
-            $sqlInsert = "INSERT INTO Servicios_SolicitadosMOVO (idUsuario, id_servicio, servicio_solicitado, estado, fecha_solicitud, cliente) 
-                          VALUES (?, ?, ?, 'pendiente', ?, ?)";
-            $stmtInsert = $conn->prepare($sqlInsert);
-            $stmtInsert->bind_param("iisss", $idUsuario, $idServicio, $nombreServicio, $fechaSolicitud, $nombreCliente);
-            $stmtInsert->execute();
-            $stmtInsert->close();
         }
-        // Redirigir a la página con la animación después de que todo se haya procesado
+
+        // Redirigir a la página de éxito
         header("Location: ./exito/exito.html");
         exit();
     } else {

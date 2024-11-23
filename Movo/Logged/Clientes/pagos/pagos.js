@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const mostrarFormulario = document.getElementById('mostrarFormulario');
     const formularioPago = document.getElementById('formularioPago');
     const confirmarPago = document.getElementById('confirmarPago');
-    const serviciosJson = document.getElementById('dataServicios').textContent;
-    console.log('Contenido JSON recibido:', serviciosJson);
-    let servicios = JSON.parse(serviciosJson); // Aquí puede haber un problema si el JSON no es válido
+    const serviciosDetalles = document.getElementById('serviciosDetalles').textContent;
+    console.log('Contenido JSON recibido:', serviciosDetalles);
+    let servicios = JSON.parse(serviciosDetalles); // Aquí puede haber un problema si el JSON no es válido
 
     // Verificar los datos cargados
     console.log('Servicios cargados:', servicios);
@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     if (botonPagar) {
         botonPagar.addEventListener('click', () => {
-            // Mostrar los métodos de pago
             metodosPago.classList.remove('d-none');
             metodosPago.scrollIntoView({ behavior: 'smooth' });
         });
@@ -40,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (mostrarFormulario) {
         mostrarFormulario.addEventListener('click', () => {
-            // Mostrar el formulario de pago
             formularioPago.classList.remove('d-none');
             formularioPago.scrollIntoView({ behavior: 'smooth' });
         });

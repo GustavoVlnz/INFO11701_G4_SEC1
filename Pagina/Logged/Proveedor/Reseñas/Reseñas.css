@@ -1,0 +1,108 @@
+/* Header */
+.header {
+    background-color: white;
+    color: black;
+}
+
+.logo {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover{
+    transform: rotate(15deg);
+}
+
+.titulo-empresa {
+    font-size: 24px;
+}
+
+/* Navegación */
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav a {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    color: #37b5ff;
+}
+
+/* Estilos para las reseñas */
+.review-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.review-item p {
+    margin: 5px 0;
+}
+
+.review-item strong {
+    color: #333;
+}
+
+/* Diseño para la sección de reseñas */
+h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.review-item .d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review-item .d-flex p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.review-item .d-flex p strong {
+    font-weight: bold;
+}
+
+/* Estilos para las estrellas */
+.review-item .star-rating {
+    color: #ffcc00;
+}
+
+.review-item .star-rating span {
+    font-size: 1.2rem;
+}
+
+/* Footer */
+footer {
+    background-color: #444;
+    color: white;
+    padding: 20px;
+}
+
+footer h3 {
+    font-size: 26px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer .text-center {
+    text-align: center;
+}

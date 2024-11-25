@@ -129,3 +129,22 @@ form input:focus, form select:focus {
     display: none !important;
     opacity: 0 !important;
 }
+
+header #logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+header #logo img,
+header #logo-salir img {
+    width: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+header #logo img:hover,
+header #logo-salir img:hover {
+    transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
+  }
+  

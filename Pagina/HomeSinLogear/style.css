@@ -93,21 +93,6 @@ nav {
 }
 
 
-/* Estilos Banner */
-.banner {
-    position: relative; /* Posiciona el banner de forma relativa para los elementos internos */
-    background-image: url(./Imagenes/Movo_Banner.jpg);
-    background-size: cover; /* Cubre el área del banner con la imagen de fondo */
-    background-position: center 1100px; /* Posición de la imagen de fondo */
-    text-align: center;
-    padding: 100px 20px;
-    display: flex; /* Usa un contenedor flexible para alinear los elementos internos */
-    flex-direction: column; /* Coloca los elementos internos en una columna */
-    justify-content: center; /* Centra verticalmente los elementos */
-    align-items: center; 
-    color: white;
-}
-
 .banner::before {
     content: ""; /* Crea un pseudo-elemento vacío */
     position: absolute; /* Posiciona el pseudo-elemento de forma absoluta */

@@ -1,9 +1,4 @@
 <?php
-<<<<<<< HEAD
-
-=======
-// Iniciar sesión para obtener el ID del usuario actual
->>>>>>> Alex
 session_start();
 
 // Comprobar si el usuario ha iniciado sesión
@@ -30,16 +25,10 @@ if ($result->num_rows > 0) {
     $usuario = $result->fetch_assoc();
 } else {
     echo "Error: No se encontró el usuario.";
-<<<<<<< HEAD
     $usuario = null; // Asegúrate de que la variable esté definida, incluso si no se encuentra el usuario
 }
 
 // Si $usuario contiene datos, muestra la información. Si no, muestra un mensaje de error
-=======
-    exit();
-}
-
->>>>>>> Alex
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +43,6 @@ if ($result->num_rows > 0) {
 <body>
     <header class="d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
         <div class="d-flex align-items-center" id="logo">
-<<<<<<< HEAD
           <img src="../Images/logo.png" alt="Logo Movo" class="me-2">
           <h1 class="m-0">MOVO</h1>
         </div>
@@ -66,17 +54,6 @@ if ($result->num_rows > 0) {
           <a href="../../../../HomeSinLogear/home.html">
           <img src="../Images/logout.png" alt="Salir" style="width: 50px;">
           </a>
-=======
-          <img src="../Images/logo.png" alt="Logo Movo" class="me-2" ">
-          <h1 class="m-0">MOVO</h1>
-        </div>
-        <nav>
-          <a href="#" >Inicio</a>
-          <a href="#" >Servicios</a>
-        </nav>
-        <div id="logo-salir">
-          <img src="../Images/logout.png" alt="Salir" style="width: 50px;">
->>>>>>> Alex
         </div>
     </header>
 
@@ -149,13 +126,8 @@ if ($result->num_rows > 0) {
             </div>
             <div class="col-md-4 ">
                 <h3>Información Legal</h3>
-<<<<<<< HEAD
                 <a href="../../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html" class="contenido-footer">Política de Privacidad</a><br>
                 <a href="../../../../InicioSesion-Registro/Registro/terminos.html" class="contenido-footer">Términos de Servicio</a>
-=======
-                <a href="/Pagina Oficial/politica y privacidad/politica y privacidad.html" class="contenido-footer">Política de Privacidad</a><br>
-                <a href="/Pagina Oficial/Registro/terminos.html" class="contenido-footer">Términos de Servicio</a>
->>>>>>> Alex
             </div>
         </div>
         <p class="mt-3">&copy; 2024 MOVO. Todos los derechos reservados.</p>

@@ -51,6 +51,18 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error("Error al cargar los usuarios:", error));
 });
 
+function mostrarNotificacion(mensaje) {
+    const toastBody = document.querySelector('#liveToast .toast-body');
+    toastBody.textContent = mensaje;
+
+    const toastEl = document.getElementById('liveToast');
+    const toast = new bootstrap.Toast(toastEl, { delay: 3000 }); // Configura un retraso de 3 segundos
+    toast.show();
+}
+
+mostrarNotificacion("Notificación de prueba");
+
+
 // Función para mostrar el formulario de edición
 function mostrarFormulario(id, nombres, apellidos, email) {
     // Oculta cualquier formulario visible
@@ -86,7 +98,7 @@ function guardarCambios(event, id) {
     })
         .then(response => response.text())
         .then(data => {
-            alert(data);
+            mostrarNotificacion(data);
 
             if (data.includes("Usuario actualizado correctamente")) {
                 // Actualiza la tabla con los nuevos datos
@@ -104,6 +116,7 @@ function guardarCambios(event, id) {
             }
         })
         .catch(error => console.error("Error al actualizar el usuario:", error));
+        mostrarNotificacion("Hubo un error al actualizar el usuario."); // Notificación en caso de error
 }
 
 function eliminarUsuario(id) {
@@ -134,4 +147,11 @@ function eliminarUsuario(id) {
             console.error("Error al eliminar el usuario:", error);
             mostrarNotificacion("Hubo un error al eliminar el usuario.");
         });
+}
+
+function recargarTabla() {
+    setTimeout(() => {
+        // Lógica para cargar los datos de la tabla
+        cargarDatosTabla();
+    }, 3000); // Espera 3 segundos antes de recargar la tabla
 }

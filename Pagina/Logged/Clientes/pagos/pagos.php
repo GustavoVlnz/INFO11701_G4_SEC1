@@ -75,6 +75,22 @@ $conn->close();
     <link href="stylesPagos.css" rel="stylesheet">
 </head>
 <body>
+
+<header class="d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
+        <div class="d-flex align-items-center" id="logo">
+            <img src="Images/logo.png" alt="Logo Movo" class="me-2">
+            <h1 class="m-0">MOVO</h1>
+        </div>
+        <nav>
+            <a href="../HomeLogeado/home.html">Inicio</a>
+            <a href="../categorias/categorias.html">Servicios</a>
+            <a href="../../verificador.php">Perfil</a>
+        </nav>
+        <div id="logo-salir">
+            <img src="Images/logout.png" alt="Salir">
+        </div>
+    </header>
+
 <div class="container d-flex justify-content-center align-items-center my-5">
         <div class="card shadow-sm" style="max-width: 700px; width: 100%;">
             <div class="card-header bg-primary text-white text-center">
@@ -103,8 +119,26 @@ $conn->close();
                             <option value="tarjeta_credito">Tarjeta de Crédito</option>
                             <option value="tarjeta_debito">Tarjeta de Débito</option>
                             <option value="transferencia">Transferencia Bancaria</option>
-                            <option value="paypal">PayPal</option>
+                            <option value="Efectivo">Efectivo</option>
                         </select>
+                        
+                    <div class="payment-apps">
+                        <h3 class="text-center">Métodos de pago alternativos:</h3>
+                        <div class="app-logos">
+                            <a href="https://www.somosmach.com/" target="_blank" title="Ir a Mach">
+                                <img src="Images/mach.png" alt="Mach" class="app-logo">
+                            </a>
+                            <a href="https://www.mercadopago.com/" target="_blank" title="Ir a Mercado Pago">
+                                <img src="Images/mercadopago.png" alt="Mercado Pago" class="app-logo">
+                            </a>
+                            <a href="https://www.paypal.com/" target="_blank" title="Ir a PayPal">
+                                <img src="Images/paypall.jpg" alt="PayPal" class="app-logo">
+                            </a>
+                            <a href="https://www.tenpo.cl/" target="_blank" title="Ir a Tenpo">
+                                <img src="Images/tenpo.png" alt="Tenpo" class="app-logo">
+                            </a>
+                        </div>
+                    </div>
                         <button id="mostrarFormulario" class="btn btn-primary mt-3">Continuar</button>
                     </div>
 
@@ -132,6 +166,31 @@ $conn->close();
             </div>
         </div>
     </div>
+
+    <footer>
+        <div class="contenido-footer">
+                <!-- Sección con información de contacto y redes sociales -->
+            <div class="contacto">
+                <h3>Contacto</h3>
+                <a href="mailto:Movocompanycontact@gmail.com?Subject=Ingrese%20el%20asunto">Email: Movocompanycontact@gmail.com</a>
+                </div>
+                <div class="redes-sociales">
+                    <h3>Redes Sociales</h3>
+                    <a href="https://www.facebook.com/profile.php?id=61566403465579" class="social-icon">Facebook</a>
+                    <a href="https://x.com/CompanyMovo_inc" class="social-icon">Twitter</a>
+                    <a href="https://www.instagram.com/movo_inc/" class="social-icon">Instagram</a>
+                </div>
+            <div class="info-legal">
+                <h3>Información Legal</h3>
+                <a href="../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html">Política de Privacidad</a>
+                <a href="../../../InicioSesion-Registro/Registro/terminos.html">Términos de Servicio</a>
+            </div>
+        </div>
+            <!-- Sección de derechos de autor -->
+            <div class="copyright_footer">
+                <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
+            </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script type="application/json" id="serviciosDetalles">

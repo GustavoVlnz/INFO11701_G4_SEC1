@@ -3,10 +3,15 @@ function capitalize(word) {
     return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 }
 
-/// Función que llama a Solicitudes.php y obtiene los datos de los servicios
+// Función que llama a Solicitudes.php y obtiene los datos de los servicios
 function cargarServicios() {
     fetch('Solicitudes.php')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error HTTP: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             if (data.success) {
                 // Limpiar las tablas
@@ -15,13 +20,9 @@ function cargarServicios() {
                 // Recorrer los servicios y colocarlos en la tabla correspondiente
                 data.data.forEach(servicio => {
                     const fila = crearFilaServicio(servicio);
-                    if (servicio.estado === 'pendiente') {
-                        document.querySelector('#tabla-pendientes').appendChild(fila);
-                    } else if (servicio.estado === 'aceptado') {
-                        document.querySelector('#tabla-aceptados tbody').appendChild(fila);
-                    } else if (servicio.estado === 'rechazado') {
-                        document.querySelector('#tabla-rechazados tbody').appendChild(fila);
-                    } else if (servicio.estado === 'realizado') {
+                    if (servicio.estado.toLowerCase() === 'pendiente') {
+                        document.querySelector('#tabla-pendientes tbody').appendChild(fila);
+                    } else if (servicio.estado.toLowerCase() === 'finalizado') {
                         document.querySelector('#tabla-completados tbody').appendChild(fila);
                     }
                 });
@@ -32,20 +33,20 @@ function cargarServicios() {
         .catch(error => console.error('Error en la solicitud:', error));
 }
 
-/// Función para crear una fila de servicio y aplicar las clases CSS correctas
+// Función para crear una fila de servicio
 function crearFilaServicio(servicio) {
     const tr = document.createElement('tr');
 
-    // Extraer solo la parte de la fecha (sin la hora)
-    const soloFecha = servicio.fecha.split(' ')[0];  // Esto elimina la hora si está presente
+    // Formato de fecha: solo la parte de la fecha (sin la hora)
+    const soloFecha = servicio.fecha.split(' ')[0];
 
     tr.innerHTML = `
-        <td>#${servicio.idUsuario}</td> <!-- N° de Solicitud: idUsuario -->
-        <td>${servicio.cliente}</td> <!-- Cliente -->
+        <td>#${servicio.id_solicitud}</td> <!-- N° de Solicitud -->
+        <td>${servicio.id_solicitante}</td> <!-- ID del Solicitante -->
         <td>${soloFecha}</td> <!-- Fecha sin hora -->
-        <td>${servicio.descripcion}</td> <!-- Descripción del servicio -->
+        <td>${servicio.nombre_servicio}</td> <!-- Nombre del Servicio -->
         <td><span class="status ${getStatusClass(servicio.estado)}">${capitalize(servicio.estado)}</span></td>
-        <td>${crearAcciones(servicio.estado, servicio.idUsuario)}</td> <!-- Acciones basadas en idUsuario -->
+        <td>${crearAcciones(servicio.estado, servicio.id_solicitud)}</td> <!-- Acciones basadas en id_solicitud -->
     `;
 
     return tr;
@@ -53,14 +54,10 @@ function crearFilaServicio(servicio) {
 
 // Función para obtener la clase de estilo correspondiente al estado
 function getStatusClass(estado) {
-    switch(estado) {
+    switch (estado.toLowerCase()) {
         case 'pendiente':
             return 'status-pending';
-        case 'aceptado':
-            return 'status-accepted';
-        case 'rechazado':
-            return 'status-canceled';
-        case 'realizado':
+        case 'finalizado':
             return 'status-completed';
         default:
             return '';
@@ -68,36 +65,34 @@ function getStatusClass(estado) {
 }
 
 // Función para crear los botones de acción según el estado
-function crearAcciones(estado, idUsuario) {  // Basado en idUsuario
-    if (estado === 'pendiente') {
-        return `
-            <button class="btn btn-success btn-sm" onclick="cambiarEstado(this, 'aceptado', ${idUsuario})">Aceptar</button>
-            <button class="btn btn-danger btn-sm" onclick="cambiarEstado(this, 'rechazado', ${idUsuario})">Rechazar</button>
-        `;
-    } else if (estado === 'aceptado') {
-        return `<button class="btn btn-primary btn-sm" onclick="cambiarEstado(this, 'completado', ${idUsuario})">Marcar como Completado</button>`;
+function crearAcciones(estado, idSolicitud) {
+    if (estado.toLowerCase() === 'pendiente') {
+        return `<button class="btn btn-primary btn-sm" onclick="cambiarEstado(this, 'realizado', ${idSolicitud})">Marcar como Completado</button>`;
     }
-    return ''; // No hay acciones para rechazados o completados
+    return ''; // No hay acciones para servicios ya realizados
 }
 
 // Función para limpiar todas las tablas antes de cargar los servicios
 function limpiarTablas() {
-    document.querySelector('#tabla-pendientes').innerHTML = '';
-    document.querySelector('#tabla-aceptados tbody').innerHTML = '';
-    document.querySelector('#tabla-rechazados tbody').innerHTML = '';
+    document.querySelector('#tabla-pendientes tbody').innerHTML = '';
     document.querySelector('#tabla-completados tbody').innerHTML = '';
 }
 
 // Función para cambiar el estado de un servicio
-function cambiarEstado(boton, nuevoEstado, idUsuario) {
+function cambiarEstado(boton, nuevoEstado, idSolicitud) {
     fetch('cambiar_estado.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ id: idUsuario, estado: nuevoEstado })  // Basado en idUsuario
+        body: JSON.stringify({ id: idSolicitud})
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(data => {
         if (data.success) {
             const fila = boton.closest('tr');
@@ -107,21 +102,16 @@ function cambiarEstado(boton, nuevoEstado, idUsuario) {
             estadoSpan.textContent = capitalize(nuevoEstado);
             estadoSpan.className = 'status ' + getStatusClass(nuevoEstado);
 
-            // Mover la fila a la tabla correspondiente
-            if (nuevoEstado === 'aceptado') {
-                document.querySelector('#tabla-aceptados tbody').appendChild(fila);
-                fila.querySelector('td:last-child').innerHTML = `<button class="btn btn-primary btn-sm" onclick="cambiarEstado(this, 'completado', ${idUsuario})">Marcar como Completado</button>`;
-            } else if (nuevoEstado === 'rechazado') {
-                document.querySelector('#tabla-rechazados tbody').appendChild(fila);
-                fila.querySelector('td:last-child').innerHTML = ''; // Elimina las acciones
-            } else if (nuevoEstado === 'realizado') {
+            // Mover la fila a la tabla de completados
+            if (nuevoEstado.toLowerCase() === 'finalizado') {
                 document.querySelector('#tabla-completados tbody').appendChild(fila);
                 fila.querySelector('td:last-child').innerHTML = ''; // Elimina las acciones
             }
         } else {
             alert('Error al cambiar el estado');
         }
-    });
+    })
+    .catch(error => console.error('Error al cambiar el estado:', error));
 }
 
 // Llamar a la función para cargar los servicios cuando la página esté lista

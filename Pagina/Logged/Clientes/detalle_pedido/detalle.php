@@ -1,8 +1,9 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
+
 // Conexión a la base de datos
-$servername = "db.inf.uct.cl"; // Ajusta estos valores según tu configuración
+$servername = "db.inf.uct.cl";
 $username = "acarrasco";
 $password = "Hellovro2019@";
 $dbname = "A2024_acarrasco";
@@ -14,36 +15,49 @@ if ($conexion->connect_error) {
     die("Conexión fallida: " . $conexion->connect_error);
 }
 
-// Verificar si se ha proporcionado un ID de proveedor
+// Verificar los parámetros de la solicitud
 $id_proveedor = isset($_GET['proveedor_id']) ? intval($_GET['proveedor_id']) : 0;
-if ($id_proveedor <= 0) {
-    echo "ID de proveedor no válido.";
+$id_categoria = isset($_GET['id_categoria']) ? intval($_GET['id_categoria']) : 0;
+$id_servicio = isset($_GET['id_servicio']) ? intval($_GET['id_servicio']) : 0;
+
+if ($id_proveedor <= 0 || $id_categoria <= 0 || $id_servicio <= 0) {
+    echo "Parámetros no válidos.";
     exit;
 }
-$id_categoria = isset($_GET['id_categoria']) ? intval($_GET['id_categoria']) : 0;
 
-// Consulta a la base de datos para obtener detalles del servicio
-$sql = "SELECT nombre_servicio, proveedor_nombre, descripcion_larga, precio_servicio FROM Lista_ServiciosMOVO WHERE id_proveedor = ?";
+// Consulta para obtener los detalles del servicio
+$sql = "
+    SELECT 
+        ls.nombre_servicio,
+        ls.descripcion_larga,
+        ls.precio_servicio,
+        CONCAT(u.nombres, ' ', u.apellidos) AS proveedor_nombre
+    FROM Lista_ServiciosMOVO AS ls
+    INNER JOIN usuariosMOVO AS u ON ls.id_prestador = u.idUsuarios
+    WHERE ls.id_prestador = ? AND ls.id_categoria = ? AND ls.id_servicio = ?
+";
 $stmt = $conexion->prepare($sql);
-$stmt->bind_param("i", $id_proveedor);
+$stmt->bind_param("iii", $id_proveedor, $id_categoria, $id_servicio);
 $stmt->execute();
 $resultado = $stmt->get_result();
 $servicio = $resultado->fetch_assoc();
 
-
-
-// Consulta para obtener reseñas del servicio completado y datos del cliente
+// Consulta para obtener las reseñas del servicio completado
 $sql_reviews = "
-    SELECT reseñas, fecha_completado, calificacion, cliente, idCliente, nombres, apellidos 
-    FROM Servicios_CompletadosMOVO
-    LEFT JOIN clientesMOVO ON cliente = idMOVOcliente
-    LEFT JOIN usuariosMOVO ON idCliente = idUsuarios
-    WHERE proveedor = ?
+    SELECT 
+        sc.reseña AS reseñas,
+        sc.fecha_completado,
+        sc.calificacion,
+        CONCAT(uc.nombres, ' ', uc.apellidos) AS cliente_nombre
+    FROM Servicios_CompletadosMOVO AS sc
+    INNER JOIN usuariosMOVO AS uc ON sc.id_cliente = uc.idUsuarios
+    WHERE sc.id_prestador = ? AND sc.id_servicio = ?
 ";
 $stmt_reviews = $conexion->prepare($sql_reviews);
-$stmt_reviews->bind_param("i", $id_proveedor);
+$stmt_reviews->bind_param("ii", $id_proveedor, $id_servicio);
 $stmt_reviews->execute();
 $resultado_reviews = $stmt_reviews->get_result();
+
 // Cerrar la conexión
 $stmt->close();
 $conexion->close();
@@ -61,12 +75,12 @@ $conexion->close();
 <body>
 <header class="d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
     <div class="d-flex align-items-center" id="logo">
-        <img src="../Perfil/Images/logo.png" alt="Logo Movo" class="me-2" ">
+        <img src="../Perfil/Images/logo.png" alt="Logo Movo" class="me-2">
         <h1 class="m-0">MOVO</h1>
     </div>
     <nav>
-        <a href="../HomeLogeado/home.html" >Inicio</a>
-        <a href="../../verificador.php" >Perfil</a>
+        <a href="../HomeLogeado/home.html">Inicio</a>
+        <a href="../../verificador.php">Perfil</a>
     </nav>
     <div id="logo-salir">
         <img src="../Perfil/Images/logout.png" alt="Salir" style="width: 50px;">
@@ -98,13 +112,12 @@ $conexion->close();
         <div class="card-body">
             <?php if ($resultado_reviews && $resultado_reviews->num_rows > 0): ?>
                 <?php while ($review = $resultado_reviews->fetch_assoc()): ?>
-                        <div class="review-container">
-                            <p class="card-text"><strong>Cliente:</strong> <?php echo htmlspecialchars(($review['nombres'] ?? 'Nombre no disponible') . ' ' . ($review['apellidos'] ?? '')); ?></p>
-                            <p class="card-text"><strong>Reseña:</strong> <?php echo htmlspecialchars($review['reseñas'] ?? 'Sin reseña'); ?></p>
-                            <p class="card-text"><strong>Calificación:</strong> <?php echo htmlspecialchars($review['calificacion'] ?? 'Sin calificación'); ?></p>
-                            <p class="card-text"><small class="text-muted">Fecha: <?php echo htmlspecialchars($review['fecha_completado'] ?? 'Fecha no disponible'); ?></small></p>
-                        </div>
-                        </div>
+                    <div class="review-container mb-3">
+                        <p class="card-text"><strong>Cliente:</strong> <?php echo htmlspecialchars($review['cliente_nombre'] ?? 'Nombre no disponible'); ?></p>
+                        <p class="card-text"><strong>Reseña:</strong> <?php echo htmlspecialchars($review['reseñas'] ?? 'Sin reseña'); ?></p>
+                        <p class="card-text"><strong>Calificación:</strong> <?php echo htmlspecialchars($review['calificacion'] ?? 'Sin calificación'); ?></p>
+                        <p class="card-text"><small class="text-muted">Fecha: <?php echo htmlspecialchars($review['fecha_completado'] ?? 'Fecha no disponible'); ?></small></p>
+                    </div>
                 <?php endwhile; ?>
             <?php else: ?>
                 <p class="alert alert-info">No hay reseñas disponibles para este proveedor.</p>
@@ -112,25 +125,8 @@ $conexion->close();
         </div>
     </div>
 </div>
-<footer class=" text-white text-center py-4">
+<footer class="text-white text-center py-4">
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <h3>Contacto</h3>
-                <p>Email: contacto@movo.com</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Redes Sociales</h3>
-                <a href="https://www.facebook.com/profile.php?id=61566403465579" class="contenido-footer">Facebook</a><br>
-                <a href="https://x.com/CompanyMovo_inc" class="contenido-footer">Twitter</a><br>
-                <a href="https://www.instagram.com/movo_inc/" class="contenido-footer">Instagram</a>
-            </div>
-            <div class="col-md-4 ">
-                <h3>Información Legal</h3>
-                <a href="../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html y privacidad/politica y privacidad.html" class="contenido-footer">Política de Privacidad</a><br>
-                <a href="../../../InicioSesion-Registro/Registro/terminos.html" class="contenido-footer">Términos de Servicio</a>
-            </div>
-        </div>
         <p class="mt-3">&copy; 2024 MOVO. Todos los derechos reservados.</p>
     </div>
 </footer>

@@ -12,6 +12,11 @@ function decryptData($data, $key) {
     list($encrypted_data, $iv) = explode('::', base64_decode($data), 2);
     return openssl_decrypt($encrypted_data, ENCRYPTION_METHOD, $key, 0, $iv);
 }
+// Función para verificar si la contraseña parece estar encriptada
+function isEncrypted($data) {
+    // Verifica si el formato contiene "::" que es característico de nuestra encriptación AES con IV
+    return strpos($data, '::') !== false;
+}
 
 $error = ''; // Variable para errores lógicos
 $executionError = ''; // Variable para errores de ejecución
@@ -36,14 +41,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_result($id_usuario, $hashed_password, $rol);
         $stmt->fetch();
 
-        // Verificar la contraseña desencriptando el hash almacenado
-        $decrypted_password = decryptData($hashed_password, ENCRYPTION_KEY); // Usa tu función personalizada
-        if ($password === $decrypted_password) {
-            $_SESSION['idUsuarios'] = $id_usuario;
-            $_SESSION['rol'] = $rol;
-            echo json_encode(['success' => true, 'message' => 'Inicio de sesión exitoso.']);
+        // Verificar si la contraseña almacenada está encriptada
+        if (isEncrypted($hashed_password)) {
+            // Desencripta la contraseña almacenada
+            $decrypted_password = decryptData($hashed_password, ENCRYPTION_KEY); // Usa tu función personalizada
+            // Comparar contraseñas
+            if ($password === $decrypted_password) {
+                $_SESSION['idUsuarios'] = $id_usuario;
+                $_SESSION['rol'] = $rol;
+                echo json_encode(['success' => true, 'message' => 'Inicio de sesión exitoso.']);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Contraseña incorrecta.']);
+            }
         } else {
-            echo json_encode(['success' => false, 'message' => 'Contraseña incorrecta.']);
+            // Comparar contraseñas no encriptadas directamente
+            if ($password === $hashed_password) {
+                $_SESSION['idUsuarios'] = $id_usuario;
+                $_SESSION['rol'] = $rol;
+                echo json_encode(['success' => true, 'message' => 'Inicio de sesión exitoso.']);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Contraseña incorrecta.']);
+            }
         }
     } else {
         echo json_encode(['success' => false, 'message' => 'Usuario no encontrado.']);

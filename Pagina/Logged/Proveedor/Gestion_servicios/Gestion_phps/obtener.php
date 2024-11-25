@@ -1,24 +1,27 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+session_start(); // Iniciar sesión
 header('Content-Type: application/json');
-include 'conexion.php';
+include 'conexion.php'; // Conexión a la base de datos
 
-// Obtener todos los servicios
-$sql = "SELECT id_servicio, proveedor_nombre, nombre_servicio, id_categoria, descripcion, estado_servicio, precio_servicio, fecha_registrado 
-        FROM Lista_ServiciosMOVO";
-$result = $conn->query($sql);
-
-$servicios = [];
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $servicios[] = $row;
-    }
-    echo json_encode($servicios);
-} else {
-    echo json_encode(["mensaje" => "No se encontraron servicios"]);
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['idUsuarios'])) {
+    echo json_encode(["success" => false, "error" => "Usuario no autenticado"]);
+    exit;
 }
 
-$conn->close();
+// Obtener el ID del usuario desde la sesión
+$id_prestador = $_SESSION['idUsuarios'];
+
+// Consultar los servicios del usuario autenticado
+$query = $conexion->prepare("SELECT * FROM Lista_ServiciosMOVO WHERE id_prestador = ?");
+$query->bind_param("i", $id_prestador);
+$query->execute();
+$result = $query->get_result();
+
+$servicios = [];
+while ($row = $result->fetch_assoc()) {
+    $servicios[] = $row;
+}
+
+echo json_encode($servicios);
 ?>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animación GSAP - Progreso de Pedido</title>
+    <link rel="stylesheet" href="exito.css">
+</head>
+<body>
+    <div class="container">
+        <div class="processing-section" id="processingSection">
+            <div class="loading-indicator"></div>
+            <p id="processingText">Procesando pedido...</p>
+        </div>
+        <div class="success-section" id="successSection">
+            <p id="successMessage">¡Pedido procesado exitosamente!</p>
+            <button id="homeButton" class="hidden">Volver al Home</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="exito.js"></script>
+</body>
+</html>

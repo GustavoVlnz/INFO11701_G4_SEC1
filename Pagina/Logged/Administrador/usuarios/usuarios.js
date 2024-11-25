@@ -106,30 +106,32 @@ function guardarCambios(event, id) {
         .catch(error => console.error("Error al actualizar el usuario:", error));
 }
 
-// Función para eliminar un usuario
 function eliminarUsuario(id) {
     if (!confirm("¿Estás seguro de que deseas eliminar este usuario?")) {
         return;
     }
 
-    fetch("EliminarUsuario.php", {
+    console.log("Eliminando usuario con ID:", id); // Verifica que el ID es correcto
+
+    fetch("eliminarUsuario.php", {
         method: "POST",
         body: new URLSearchParams({ idUsuarios: id })
     })
         .then(response => response.text())
         .then(data => {
-            alert(data);
+            console.log("Respuesta del servidor:", data); // Verifica la respuesta del servidor
+            mostrarNotificacion(data);
 
             if (data.includes("Usuario eliminado correctamente")) {
-                // Elimina la fila del usuario de la tabla
-                const filas = document.querySelectorAll("#tabla-usuarios tbody tr");
-                filas.forEach(fila => {
-                    const idCelda = fila.querySelector("td:first-child").textContent;
-                    if (idCelda == id) {
+                document.querySelectorAll("#tabla-usuarios tbody tr").forEach(fila => {
+                    if (fila.querySelector("td:first-child").textContent == id) {
                         fila.remove();
                     }
                 });
             }
         })
-        .catch(error => console.error("Error al eliminar el usuario:", error));
+        .catch(error => {
+            console.error("Error al eliminar el usuario:", error);
+            mostrarNotificacion("Hubo un error al eliminar el usuario.");
+        });
 }

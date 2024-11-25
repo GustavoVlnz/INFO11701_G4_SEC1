@@ -1,3 +1,8 @@
+<?php
+session_start(); // Asegúrate de iniciar la sesión
+$idEmpresa = $_SESSION['idEmpresa']; // Supongamos que el ID está almacenado en la sesión
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -88,17 +93,21 @@
                     <p>Actualmente tus horarios son:</p>
                     <p class="text-muted"><strong>No definidos</strong></p>
                     <hr>
-                    <form id="form-horarios">
+                    <form id="form-horarios" action="Disponibilidad.php" method="POST">
+                        
+                        <input type="hidden" name="idEmpresa" value="1"> 
+                    
                         <div class="mb-3">
                             <label for="hora-inicio" class="form-label">Hora de inicio:</label>
-                            <input type="time" id="hora-inicio" class="form-control" required>
+                            <input type="time" id="hora-inicio" name="fecha_inicial" class="form-control" required>
                         </div>
                         <div class="mb-3">
                             <label for="hora-fin" class="form-label">Hora de fin:</label>
-                            <input type="time" id="hora-fin" class="form-control" required>
+                            <input type="time" id="hora-fin" name="fecha_final" class="form-control" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Guardar horarios</button>
                     </form>
+                    
                 </div>
             </div>
 

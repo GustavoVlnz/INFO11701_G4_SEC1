@@ -18,6 +18,34 @@
             <a href="../../../categorias/categorias.html">Servicios</a>
             <a href="../../InfoAcc/Info.php">Perfil</a>
         </nav>
+        <a href="javascript:void(0);" class="btn btn-outline-secondary me-2" id="notificaciones-btn">
+            <img src="../../Images/notificaciones.png" alt="Notificaciones" class="img-fluid"> Notificaciones
+        </a>
+        <!-- Bandeja de notificaciones -->
+        <div id="bandeja-notificaciones" class="dropdown-notificaciones hidden">
+            <div class="tabs">
+                <button id="todas-tab" class="tab-btn active">Todas</button>
+                <button id="no-leidas-tab" class="tab-btn">No Leídas</button>
+            </div>
+            <div id="todas" class="tab-content visible">
+                <ul id="lista-notificaciones-todas">
+                    <!-- Aquí se agregarán las notificaciones de todas -->
+                    <li class="notificacion-item">Tu pedido está en camino</li>
+                    <li class="notificacion-item">El prestador ha aceptado tu solicitud</li>
+                    <li class="notificacion-item">La solicitud ha sido confirmada por el prestador</li>
+                    <li class="notificacion-item">El prestador ha completado el trabajo</li>
+                </ul>
+            </div>
+            <div id="no-leidas" class="notificaciones-contenedor">
+                <ul id="lista-notificaciones-no-leidas">
+                    <li class="notificacion-item">El prestador ha aceptado tu solicitud</li>
+                    <li class="notificacion-item">Nuevo prestador disponible para tu solicitud</li>
+                    <li class="notificacion-item">Tienes una nueva propuesta de un prestador</li>
+                    <li class="notificacion-item">El prestador ha completado el trabajo</li>
+                </ul>
+            </div>
+            <button id="limpiar-notificaciones-btn">Limpiar notificaciones</button>
+        </div>
         <div id="logo-salir">
             <img src="../../Images/logout.png" alt="Salir" style="width: 50px;">
         </div>

@@ -1,15 +1,22 @@
+<?php
+include 'conexion.php';
+
+// Consulta para obtener las reseñas donde `comentado` es "si"
+$sql = "SELECT calificacion, reseña, id_cliente FROM Servicios_CompletadosMOVO WHERE comentado = 'si'";
+$result = $conn->query($sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
+    <title>Reseñas</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="Reseñas.css">
-    <title>Document</title>
 </head>
 <body>
-    <!-- Header -->
     <header class="header d-flex align-items-center justify-content-between p-3 bg-white">
         <div class="d-flex align-items-center">
             <img src="../../Clientes/Perfil/Images/logo.png" alt="Logo de la empresa" class="logo mr-3">
@@ -24,13 +31,30 @@
         </nav>
     </header>
 
-    <!-- Últimas Reseñas -->
     <div class="mb-4 shadow-sm p-4 bg-white">
         <h2>Últimas Reseñas Recibidas</h2>
-        
+
+        <?php
+        if ($result->num_rows > 0) {
+            // Iterar sobre los resultados y mostrarlos
+            while ($row = $result->fetch_assoc()) {
+                $estrellas = str_repeat("⭐", $row['calificacion']);
+                echo "<div class='review-item mb-3 p-3 border rounded'>";
+                echo "<div class='d-flex justify-content-between'>";
+                echo "<p><strong>Autor:</strong> Cliente " . $row['id_cliente'] . "</p>";
+                echo "<p><strong>Calificación:</strong> $estrellas</p>";
+                echo "</div>";
+                echo "<p><strong>Reseña:</strong> " . htmlspecialchars($row['reseña']) . "</p>";
+                echo "</div>";
+            }
+        } else {
+            echo "<p>No hay reseñas disponibles.</p>";
+        }
+
+        $conn->close();
+        ?>
     </div>
 
-    <!-- Footer -->
     <footer class="text-white p-4 mt-4">
         <div class="container">
             <div class="row text-center">
@@ -55,6 +79,5 @@
             <p>&copy; 2024 MOVO. Todos los derechos reservados.</p>
         </div>
     </footer>
-
 </body>
 </html>

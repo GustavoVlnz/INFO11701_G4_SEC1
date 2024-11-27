@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Gráficos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Estadisticas.css">
+</head>
+<body>
+
+    <header class="d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
+        <div class="d-flex align-items-center" id="logo">
+          <img src="../vista admin/imagenes/logo.png" alt="Logo Movo" class="me-2" ">
+          <h1 class="m-0">MOVO</h1>
+        </div>
+        <nav>
+          <a href="../HomeLogeado/home.html" >Inicio</a>
+          <a href="../categorias/categorias.html" >Servicios</a>
+        </nav>
+        <div id="logo-salir">
+          <img src="../vista admin/imagenes/salir.png" alt="Salir" style="width: 50px;">
+        </div>
+    </header>
+
+
+    <main class="estructura-admin container-fluid">
+        <!-- Título principal -->
+        <section class="mt-4">
+            <h1 class="text-center">Panel Administrador</h1>
+        </section>
+    
+        <!-- Menú de navegación con animaciones -->
+        <section class="bg-light p-4 rounded shadow-sm">
+            <nav class="nav nav-pills justify-content-center">
+                <a href="../usuarios/usuarios.html" class="nav-link">Usuarios</a>
+                <a href="../servicios/servicios.html" class="nav-link">Servicios</a>
+                <a href="../estadisticas/Estadisticas.html" class="nav-link">Estadísticas</a>
+                <a href="../reportes/reportes.html" class="nav-link">Reportes</a>
+                <a href="../Comentarios/SistemaDeComentarios.html" class="nav-link ">Moderación de Comentarios</a>
+            </nav>
+        </section>
+        
+
+        <section class="container">
+            <h1>Gráficos Administrativos</h1>
+    
+            <div class="chart-container">
+                <h3>Comparación de Servicios</h3>
+                <canvas id="graficoServicios"></canvas>
+            </div>
+            
+    
+            <!-- Nuevo: Gráfico Circular para Distribución de Géneros -->
+            <div class="chart-container">
+                <h3>Distribución por Género</h3>
+                <canvas id="graficoGenero"></canvas>
+            </div>
+    
+            <div class="chart-container">
+                <h3>Usuarios por Rol</h3>
+                <canvas id="graficoRoles"></canvas>
+            </div>
+        </section>
+    </main>
+    
+    
+    
+<footer class=" text-white text-center py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Contacto</h3>
+                <p>Email: contacto@movo.com</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Redes Sociales</h3>
+                <a href="https://www.facebook.com/profile.php?id=61566403465579" class="contenido-footer">Facebook</a><br>
+                <a href="https://x.com/CompanyMovo_inc" class="contenido-footer">Twitter</a><br>
+                <a href="https://www.instagram.com/movo_inc/" class="contenido-footer">Instagram</a>
+            </div>
+            <div class="col-md-4 ">
+                <h3>Información Legal</h3>
+                <a href="/Pagina Oficial/politica y privacidad/politica y privacidad.html" class="contenido-footer">Política de Privacidad</a><br>
+                <a href="/Pagina Oficial/Registro/terminos.html" class="contenido-footer">Términos de Servicio</a>
+            </div>
+        </div>
+        <p class="mt-3">&copy; 2024 MOVO. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="Estadisticas.js"></script> 
+
+</body>
+</html>

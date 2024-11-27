@@ -112,11 +112,3 @@ document.getElementById('Formulario').addEventListener('submit', function(event)
     }
 });
 
-function validarTelefono(input) {
-    const regex = /^\+56 9 \d{4} \d{4}$/;
-    if (!regex.test(input.value)) {
-        input.setCustomValidity("Formato inválido. Use el formato +56 9.");
-    } else {
-        input.setCustomValidity("");
-    }
-}

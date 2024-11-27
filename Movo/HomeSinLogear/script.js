@@ -1,5 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     const readMoreButtons = document.querySelectorAll('.btn-leer-mas');
+    const toggleButton = document.getElementById('descubre-mas');
+    const infoSection = document.getElementById('mas-info');
+
+    // Añadir un evento de clic al botón
+    toggleButton.addEventListener('click', () => {
+        // Alternar la clase 'hidden'
+        infoSection.classList.toggle('hidden');
+
+        // Cambiar el texto del botón según el estado
+        if (infoSection.classList.contains('hidden')) {
+            toggleButton.textContent = 'Descubre más';
+        } else {
+            toggleButton.textContent = 'Ocultar';
+        }
+    });
 
     readMoreButtons.forEach(button => {
         button.addEventListener('click', (event) => {

@@ -26,7 +26,7 @@ $result = $conn->query($sql);
             <ul class="nav">
                 <li class="nav-item"><a href="../../Clientes/HomeLogeado/home.html" class="nav-link">INICIO</a></li>
                 <li class="nav-item"><a href="../../Clientes/categorias/categorias.html" class="nav-link">SERVICIOS</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">PERFIL</a></li>
+                <li class="nav-item"><a href="../../verificador.php" class="nav-link">PERFIL</a></li>
             </ul>
         </nav>
     </header>

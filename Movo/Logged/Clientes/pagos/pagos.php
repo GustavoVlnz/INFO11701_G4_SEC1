@@ -103,11 +103,29 @@ $conn->close();
                             <option value="tarjeta_credito">Tarjeta de Crédito</option>
                             <option value="tarjeta_debito">Tarjeta de Débito</option>
                             <option value="transferencia">Transferencia Bancaria</option>
-                            <option value="paypal">PayPal</option>
+                            <option value="Efectivo">Efectivo</option>
                         </select>
-                        <button id="mostrarFormulario" class="btn btn-primary mt-3">Continuar</button>
-                    </div>
-
+                        
+                        <div class="container">
+                            <div class="payment-apps">
+                                <h3 class="text-center">Métodos de pago alternativos:</h3>
+                                <div class="app-logos">
+                                    <a href="https://www.somosmach.com/" target="_blank" title="Ir a Mach">
+                                        <img src="Images/mach.png" alt="Mach" class="app-logo">
+                                    </a>
+                                    <a href="https://www.mercadopago.com/" target="_blank" title="Ir a Mercado Pago">
+                                        <img src="Images/mercadopago.png" alt="Mercado Pago" class="app-logo">
+                                    </a>
+                                    <a href="https://www.paypal.com/" target="_blank" title="Ir a PayPal">
+                                        <img src="Images/paypall.jpg" alt="PayPal" class="app-logo">
+                                    </a>
+                                    <a href="https://www.tenpo.cl/" target="_blank" title="Ir a Tenpo">
+                                        <img src="Images/tenpo.png" alt="Tenpo" class="app-logo">
+                                    </a>
+                                </div>
+                                <button id="mostrarFormulario" class="btn btn-primary mt-3">Continuar</button>
+                            </div>
+                        </div>
                     <div id="formularioPago" class="d-none">
                         <h5>Formulario de Pago</h5>
                         <form>

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 CREATE TABLE contactos (
+=======
+CREATE TABLE contactosMOVO (
+>>>>>>> Alex
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombres VARCHAR(255) NOT NULL,
     apellidos VARCHAR(255) NOT NULL,

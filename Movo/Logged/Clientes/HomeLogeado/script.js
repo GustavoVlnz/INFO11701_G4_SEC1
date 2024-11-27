@@ -1,33 +1,129 @@
-// Espera a que el contenido del documento esté completamente cargado antes de ejecutar el código
 document.addEventListener('DOMContentLoaded', () => {
-    // Obtiene referencias a los elementos del DOM que se usarán
-    const DescubreMasBtn = document.getElementById('descubre-mas'); // Botón para mostrar/ocultar información
-    const SeccionInfo = document.getElementById('mas-info'); // Sección de información que se muestra/oculta
-    const SeccionServicio = document.getElementById('seccion-servicio'); // Sección del carrusel de servicios
+    const readMoreButtons = document.querySelectorAll('.btn-leer-mas');
 
-    // Agrega un evento de clic al botón "Descubre Más"
-    DescubreMasBtn.addEventListener('click', (event) => {
-        event.preventDefault(); // Evita el comportamiento por defecto del enlace (navegar a otro lugar)
+    readMoreButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault(); // Evita que el enlace navegue a otra página
 
-        // Alterna la visibilidad de la sección de información y la sección de servicios
-        if (SeccionInfo.classList.contains('hidden')) { // Si la sección de información está oculta
-            SeccionInfo.classList.remove('hidden'); // Elimina la clase 'hidden'
-            SeccionInfo.classList.add('visible'); // Añade la clase 'visible'
-            SeccionServicio.classList.remove('hidden'); // Asegura que la sección de servicios esté visible
-            DescubreMasBtn.textContent = 'Ocultar Información'; // Cambia el texto del botón a "Ocultar Información"
-        } else { // Si la sección de información está visible
-            SeccionInfo.classList.remove('visible'); // Elimina la clase 'visible'
-            SeccionInfo.classList.add('hidden'); // Añade la clase 'hidden'
-            SeccionServicio.classList.add('hidden'); // Oculta la sección de servicios
-            DescubreMasBtn.textContent = 'Descubre Más'; // Cambia el texto del botón de vuelta a "Descubre Más"
+            // Encuentra el contenedor de más información correspondiente al botón
+            const moreInfo = button.closest('.card').querySelector('.masInfo');
+
+            if (moreInfo.classList.contains('hidden')) {
+                moreInfo.classList.remove('hidden'); // Muestra la información
+                moreInfo.classList.add('visible'); // Opcional: agregar una clase visible si tienes estilos específicos
+                button.textContent = 'Ocultar'; // Cambia el texto del botón
+            } else {
+                moreInfo.classList.remove('visible'); // Opcional: remover clase visible si tienes estilos específicos
+                moreInfo.classList.add('hidden'); // Oculta la información
+                button.textContent = 'Leer más'; // Cambia el texto del botón de vuelta
+            }
+        });
+    });
+    // --- Funcionalidad para mostrar/ocultar la bandeja de notificaciones ---
+    document.getElementById('boton-notificaciones').addEventListener('click', () => {
+        const bandeja = document.getElementById('bandeja-notificaciones');
+        bandeja.classList.toggle('show'); // Alterna la clase 'show' para mostrar/ocultar
+        bandeja.classList.toggle('hidden'); // Alterna la clase 'hidden' para ocultar/mostrar
+    });
+
+    // Suponiendo que las notificaciones se almacenan en un array de objetos
+    let notifications = [
+        { id: 1, text: 'Nueva solicitud de servicio', isRead: false },
+        { id: 2, text: 'Nuevo mensaje de cliente', isRead: true },
+        { id: 3, text: 'Pedido confirmado, en espera de pago', isRead: false }
+    ];
+
+    // Función para mostrar todas las notificaciones
+    function showNotifications() {
+        const containerTodas = document.getElementById('lista-notificaciones-todas'); // Sección donde se mostrarán todas las notificaciones
+        const containerNoLeidas = document.getElementById('no-leidas'); // Sección donde se mostrarán las no leídas
+
+        // Limpiar las secciones antes de agregar las nuevas
+        containerTodas.innerHTML = '';
+        containerNoLeidas.innerHTML = '';
+
+        notifications.forEach(notification => {
+            const notificationElement = document.createElement('div');
+            notificationElement.classList.add('notificacion-item');
+            if (notification.isRead) {
+                notificationElement.classList.add('leida');
+            } else {
+                notificationElement.classList.add('no-leida');
+            }
+            notificationElement.innerHTML = `<p>${notification.text}</p>`; // Sin el botón de eliminación
+
+            // Añadir la notificación a ambas secciones
+            containerTodas.appendChild(notificationElement);
+            if (!notification.isRead) {
+                containerNoLeidas.appendChild(notificationElement); // Añadir solo las no leídas a la sección "No Leídas"
+            }
+        });
+    }
+
+    // Función para actualizar la visibilidad de las notificaciones
+    function actualizarNotificaciones() {
+        const noLeidas = document.querySelectorAll('.notificacion-item.no-leida');
+        const todas = document.querySelectorAll('.notificacion-item');
+
+        // Mostrar todas las notificaciones
+        todas.forEach(item => item.style.display = 'block');
+        
+        // Mostrar solo las notificaciones no leídas cuando estamos en la pestaña "No Leídas"
+        if (noLeidasContent.classList.contains('visible')) {
+            noLeidas.forEach(item => item.style.display = 'block');  // Mostrar no leídas
+            todas.forEach(item => {
+                if (!item.classList.contains('no-leida')) {
+                    item.style.display = 'none'; // Ocultar las leídas
+                }
+            });
+        }
+    }
+
+    // Manejo del clic en la pestaña "No Leídas"
+    noLeidasTab.addEventListener('click', () => {
+        // Cambiar el color de las pestañas
+        noLeidasTab.classList.add('active');
+        todasTab.classList.remove('active');
+        
+        // Mostrar contenido de "No Leídas" y ocultar "Todas"
+        noLeidasContent.classList.add('visible');
+        todasContent.classList.remove('visible');
+        
+        actualizarNotificaciones(); // Actualizar notificaciones al hacer clic
+    });
+
+    // Manejo del clic en la pestaña "Todas"
+    todasTab.addEventListener('click', () => {
+        // Cambiar el color de las pestañas
+        todasTab.classList.add('active');
+        noLeidasTab.classList.remove('active');
+        
+        // Mostrar contenido de "Todas" y ocultar "No Leídas"
+        todasContent.classList.add('visible');
+        noLeidasContent.classList.remove('visible');
+        
+        actualizarNotificaciones(); // Actualizar notificaciones al hacer clic
+    });
+
+    // Funcionalidad para mostrar/ocultar la bandeja de notificaciones
+    document.getElementById('notificaciones-btn').addEventListener('click', function() {
+        var notificationDropdown = document.querySelector('.dropdown-notificaciones');
+        notificationDropdown.classList.toggle('visible');
+    });
+
+    // Cierra la bandeja si se hace clic fuera de ella
+    document.addEventListener('click', (event) => {
+        const notificacionesBtn = document.getElementById('notificaciones-btn');
+        const notificationDropdown = document.querySelector('.dropdown-notificaciones');
+        if (!notificacionesBtn.contains(event.target) && !notificationDropdown.contains(event.target)) {
+            notificationDropdown.classList.remove('visible');
         }
     });
 
-    // Inicializa el índice de la diapositiva para la galeria de servicios
+    // Función para mostrar las diapositivas del carrusel
     let slideIndex = 0;
     showSlides(slideIndex); // Muestra la diapositiva inicial
 
-    // Función para mostrar las diapositivas del carrusel
     function showSlides(n) {
         let slides = document.getElementsByClassName("slide"); // Obtiene todas las diapositivas
         if (n >= slides.length) { slideIndex = 0; } // Si el índice es mayor o igual al número de diapositivas, reinicia al inicio
@@ -45,65 +141,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Exponer la función moveSlide a nivel global para los botones de navegación del carrusel
     window.moveSlide = moveSlide;
-});
 
-// Función para mostrar los datos del formulario en una alerta
-function showAlertOnSubmit(event) {
-    event.preventDefault(); // Evita que el formulario se envíe de la forma tradicional
+    // --- Función para agregar nuevas notificaciones ---
+    function agregarNotificacion(texto) {
+        const lista = document.getElementById('lista-notificaciones');
+        
+        // Crear el elemento de la notificación
+        const notificacionItem = document.createElement('li');
+        notificacionItem.classList.add('notificacion-item');
+        
+        // Crear la estructura de la notificación
+        notificacionItem.innerHTML = `
+            <div class="notificacion-text">${texto}</div>
+            <i class="delete-icon fas fa-trash" onclick="eliminarNotificacion(event)"></i>
+        `;
+        
+        // Añadir la notificación a la lista
+        lista.prepend(notificacionItem); // Añadir al principio para que aparezcan más recientes
+    }
 
-    // Obtener los valores de los campos del formulario
-    const name = document.getElementById('name').value;
-    const lastname = document.getElementById('lastname').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('telefono').value; 
-    const selectElement = document.getElementById('options');
-    const optionText = selectElement.options[selectElement.selectedIndex].text; // Obtener el texto de la opción seleccionada
-    const message = document.getElementById('message').value;
+    // --- Llamadas a la función para agregar nuevas notificaciones ---
+    agregarNotificacion("Pedido confirmado, en espera de pago");
+    agregarNotificacion("Tu pedido está en preparación");
+    agregarNotificacion("El pedido ha sido enviado");
+    agregarNotificacion("Tu pedido está en camino");
 
-    // Mostrar los datos en una alerta
-    alert(`Nombres: ${name}\nApellidos: ${lastname}\nEmail: ${email}\nTelefono: ${phone}\nMotivo: ${optionText}\nMensaje: ${message}`);
-}
+    // Función para cambiar el color del botón al pasar el mouse sobre él
+    function changeButtonColorOnHover() {
+        this.style.backgroundColor = 'royalblue';
+    }
 
-// Asignar el evento submit del formulario a la función
-document.getElementById('contactForm').addEventListener('submit', showAlertOnSubmit);
+    // Función para restaurar el color original del botón al salir el mouse
+    function restoreButtonColor() {
+        this.style.backgroundColor = '#333';
+    }
 
-// Función para cambiar el color del botón al pasar el mouse sobre él
-function changeButtonColorOnHover() {
-    this.style.backgroundColor = 'royalblue';
-}
+    // Obtener el botón de envío del formulario y agregar los eventos
+    const submitButton = document.querySelector('#contactForm input[type="submit"]'); // Selector más específico
 
-// Función para restaurar el color original del botón al salir el mouse
-function restoreButtonColor() {
-    this.style.backgroundColor = '#333';
-}
+    submitButton.addEventListener('mouseover', changeButtonColorOnHover);
+    submitButton.addEventListener('mouseout', restoreButtonColor);
 
-// Obtener el botón de envío del formulario y agregar los eventos
-const submitButton = document.querySelector('#contactForm input[type="submit"]'); // Selector más específico
-
-submitButton.addEventListener('mouseover', changeButtonColorOnHover);
-submitButton.addEventListener('mouseout', restoreButtonColor);
-
-// Funcionalidad seccion noticias leer mas
-document.addEventListener('DOMContentLoaded', () => {
-    const readMoreButtons = document.querySelectorAll('.btn-leer-mas');
-
-    // Agrega un evento de clic a cada botón "Leer más"
-    readMoreButtons.forEach(button => {
-        button.addEventListener('click', (event) => {
-            event.preventDefault(); // Evita el comportamiento por defecto del enlace
-
-            const moreInfo = button.closest('.noticias-post').querySelector('.masInfo'); // Selecciona la sección de más información correspondiente
-
-            // Alterna la visibilidad de la sección de información adicional
-            if (moreInfo.classList.contains('hidden')) {
-                moreInfo.classList.remove('hidden'); // Muestra la información
-                moreInfo.classList.add('visible'); // (opcional) añade clase visible si necesitas estilos específicos
-                button.textContent = 'Ocultar'; // Cambia el texto del botón
-            } else {
-                moreInfo.classList.remove('visible'); // (opcional) quita clase visible si la usaste
-                moreInfo.classList.add('hidden'); // Oculta la información
-                button.textContent = 'Leer más'; // Cambia el texto del botón de vuelta
-            }
-        });
-    });
 });

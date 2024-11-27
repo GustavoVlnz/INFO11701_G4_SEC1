@@ -1,0 +1,109 @@
+/* Para asegurar que el footer quede al final */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ocupa toda la altura de la ventana */
+    margin: 0;
+}
+
+main {
+    flex: 1; /* Ocupa el espacio restante entre el header y el footer */
+}
+
+h2{
+    color: #333;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    color: #555;
+}
+
+.progress-bar {
+    height: 20px;
+    transition: width 0.4s ease;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.nav-tabs .nav-link {
+    color: #007bff;
+}
+
+/*Estilos del header*/
+header #logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+header #logo img,
+header #logo-salir img {
+    width: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+header #logo img:hover,
+header #logo-salir img:hover {
+    transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav a.active {
+    color: #007bff;
+}
+
+nav a:hover {
+    color: #0056b3;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    margin-top: auto; /* Empuja el footer al final */
+}
+  
+.contenido-footer h3 {
+      margin-top: 0;/* Elimina el margen superior de los encabezados dentro del footer */
+}
+  
+.contenido-footer  {
+      font-size: 18px;
+      color: rgb(255, 255, 255);
+      text-decoration: none;/* Elimina el subrayado de los enlaces por defecto */
+      margin-bottom: 5px;/* Añade margen inferior para separarlos visualmente */
+}
+  
+.col-md-4  a:hover {
+      text-decoration: underline;/* Agrega un subrayado cuando se pasa el mouse sobre los enlaces */
+}
+  
+.copyright_footer {
+      border-top: 1px solid #444;/* Añade una línea superior al footer para separarlo del contenido principal */
+}
+

@@ -11,24 +11,24 @@ header #logo {
     display: flex;
     align-items: center;
     margin-right: 20px;
-  }
+}
   
 header #logo img,
 header #logo-salir img {
     width: 50px;
     margin-right: 10px;
     transition: transform 0.3s ease;
-  }
+}
   
 header #logo img:hover,
 header #logo-salir img:hover {
     transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
-  }
+}
   
 header h1 {
     font-size: 24px;
     margin: 0;
-  }
+}
   
 nav a {
     margin: 0 15px;
@@ -36,15 +36,15 @@ nav a {
     color: #333;
     font-size: 16px;
     transition: color 0.3s ease;
-  }
+}
   
 nav a.active {
     color: #007bff;
-  }
+}
   
 nav a:hover {
     color: #0056b3;
-  }
+}
 /* Contenedor principal */
 .estructura-admin {
     padding: 20px;
@@ -103,13 +103,41 @@ table .btn {
 }
 
 /* Detalle de Comentario */
+/* Mejora de estilo para el contenedor de detalle */
 #detalle-comentario {
     display: none;
     padding: 20px;
-    background-color: #e9ecef;
-    border-radius: 8px;
+    background-color: #f8f9fa; /* Fondo más claro */
+    border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1.6; /* Mejora el espaciado entre líneas */
+    font-size: 16px; /* Tamaño de fuente cómodo */
+    color: #212529; /* Texto oscuro para mayor contraste */
 }
+
+/* Agregamos un margen inferior y un diseño más claro al texto */
+#comentario-detalle {
+    font-size: 18px;
+    color: #343a40;
+    text-align: justify; /* Justifica el texto para facilitar la lectura */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+/* Botón de cerrar detalle */
+#detalle-comentario .btn {
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#detalle-comentario .btn:hover {
+    background-color: #0056b3; /* Cambio de color al pasar el ratón */
+}
+
 
 #comentario-detalle {
     font-size: 16px;
@@ -126,23 +154,38 @@ table .btn {
 footer {
     background-color: #333;
   
-  }
+}
   
 .contenido-footer h3 {
       margin-top: 0;/* Elimina el margen superior de los encabezados dentro del footer */
-  }
+}
   
 .contenido-footer  {
       font-size: 18px;
       color: rgb(255, 255, 255);
       text-decoration: none;/* Elimina el subrayado de los enlaces por defecto */
       margin-bottom: 5px;/* Añade margen inferior para separarlos visualmente */
-  }
+}
   
 .col-md-4  a:hover {
       text-decoration: underline;/* Agrega un subrayado cuando se pasa el mouse sobre los enlaces */
-  }
+}
   
 .copyright_footer {
       border-top: 1px solid #444;/* Añade una línea superior al footer para separarlo del contenido principal */
-  }
+}
+
+/* Estilos según el estado */
+.estado {
+    font-weight: bold;
+    color: #ffc107; /* Por defecto (Pendiente) */
+}
+
+/* Colores específicos */
+.estado.aprobado {
+    color: green;
+}
+
+.estado.rechazado {
+    color: red;
+}

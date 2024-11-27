@@ -42,12 +42,20 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('Formulario').addEventListener('submit', function(event) {
         event.preventDefault(); // Evita que el formulario recargue la página por defecto
 
-        const formData = new FormData(this); // Crear un objeto FormData con el contenido del formulario
+        const formData = new FormData(this);
+        const jsonData = {};
 
+        // Convertir FormData a un objeto JSON
+        formData.forEach((value, key) => {
+            jsonData[key] = value;
+        });
         // Enviar datos a registro.php usando fetch
         fetch('./Backend_registro/registro.php', {
             method: 'POST',
-            body: formData
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(jsonData)
         })
         .then(response => response.json()) // Procesar la respuesta como JSON
         .then(data => {
@@ -79,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error:', error);
             const toastMessage = document.getElementById('toastMessage');
-            toastMessage.textContent = 'Error al conectar con el servidor.';
+            toastMessage.textContent = 'Error al conectar con el servidor o respuesta no válida.';
             const toastEl = document.getElementById('liveToast');
             const toast = new bootstrap.Toast(toastEl);
             toast.show();
@@ -112,11 +120,3 @@ document.getElementById('Formulario').addEventListener('submit', function(event)
     }
 });
 
-function validarTelefono(input) {
-    const regex = /^\+56 9 \d{4} \d{4}$/;
-    if (!regex.test(input.value)) {
-        input.setCustomValidity("Formato inválido. Use el formato +56 9.");
-    } else {
-        input.setCustomValidity("");
-    }
-}

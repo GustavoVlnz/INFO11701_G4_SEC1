@@ -38,7 +38,7 @@ try {
     }
 
     // Contar servicios pendientes
-    $result = $conn->query("SELECT COUNT(*) AS total FROM Lista_ServiciosMOVO WHERE estado_servicio = 'revision'"); // Cambia 'serviciosMOVO' según tu tabla
+    $result = $conn->query("SELECT COUNT(*) AS total FROM Lista_ServiciosMOVO WHERE estado_servicio = 'en revision'"); // Cambia 'serviciosMOVO' según tu tabla
     if ($result) {
         $row = $result->fetch_assoc();
         $serviciosPendientes = $row['total'];
@@ -54,12 +54,7 @@ try {
     ]);
 
 } catch (Exception $e) {
-    // Devolver un mensaje de error en formato JSON
+    // Devuelve el error en formato JSON
     echo json_encode(['error' => $e->getMessage()]);
-} finally {
-    // Cerrar la conexión si fue abierta
-    if (isset($conn) && $conn->ping()) {
-        $conn->close();
-    }
 }
 ?>

@@ -1,108 +1,125 @@
-<<<<<<< HEAD
-document.addEventListener('DOMContentLoaded', function () {
-    const servicios = [
-        { id: "A5Z3Q", nombre: "Chef a Domicilio", descripcion: "Un chef profesional cocinando en tu hogar.", precio: "$150.000 CLP" },
-        { id: "K9P7R", nombre: "Limpieza del Hogar", descripcion: "Servicio de limpieza profunda.", precio: "$75.000 CLP" },
-        { id: "J8F4B", nombre: "Jardinería", descripcion: "Cuidado y mantenimiento de jardines.", precio: "$100.000 CLP" },
-        { id: "D3L1T", nombre: "Constructor", descripcion: "Servicios de construcción y reformas.", precio: "$200.000 CLP" },
-        { id: "Z7X8H", nombre: "Plomería", descripcion: "Reparaciones y mantenimiento de tuberías.", precio: "$90.000 CLP" },
-        { id: "G2R6Y", nombre: "Electricista", descripcion: "Instalaciones y reparaciones eléctricas.", precio: "$110.000 CLP" },
-        { id: "M1N9V", nombre: "Pintura", descripcion: "Pintura de interiores y exteriores.", precio: "$130.000 CLP" },
-        { id: "X4U7P", nombre: "Mudanza", descripcion: "Servicios completos de mudanza.", precio: "$180.000 CLP" },
-        { id: "C8S5J", nombre: "Mantenimiento de Computadoras", descripcion: "Reparación y mantenimiento de PCs.", precio: "$95.000 CLP" },
-        { id: "R9V6E", nombre: "Mecánico", descripcion: "Mantenimiento y reparación de automóviles.", precio: "$160.000 CLP" },
-        { id: "H7P4K", nombre: "Seguridad Privada", descripcion: "Vigilancia y seguridad personalizada.", precio: "$250.000 CLP" },
-        { id: "F3D9L", nombre: "Organización de Eventos", descripcion: "Planificación y ejecución de eventos.", precio: "$300.000 CLP" },
-        { id: "B2Q6Z", nombre: "Fotografía", descripcion: "Servicio profesional de fotografía.", precio: "$120.000 CLP" },
-        { id: "E5W3T", nombre: "Clases Particulares", descripcion: "Clases a domicilio en diversas materias.", precio: "$50.000 CLP" },
-        { id: "U9L1C", nombre: "Entrenador Personal", descripcion: "Entrenamiento físico a domicilio.", precio: "$140.000 CLP" },
-        { id: "A1B2C", nombre: "Masajes a Domicilio", descripcion: "Relajación y bienestar en la comodidad de tu hogar.", precio: "$30.000 CLP" },
-        { id: "A2B3C", nombre: "Nutricionista", descripcion: "Asesoría nutricional personalizada.", precio: "$50.000 CLP" },
-        { id: "A3B4C", nombre: "Clases de Yoga", descripcion: "Sesiones de yoga adaptadas a tus necesidades.", precio: "$20.000 CLP" },
-        { id: "A4B5C", nombre: "Entrenamiento de Mascotas", descripcion: "Clases de adiestramiento para tus mascotas.", precio: "$40.000 CLP" },
-        { id: "A5B6C", nombre: "Decoración de Interiores", descripcion: "Asesoría en diseño y decoración de espacios.", precio: "$100.000 CLP" },
-        { id: "A6B7C", nombre: "Reparaciones Eléctricas", descripcion: "Soluciones rápidas y eficientes en electricidad.", precio: "$80.000 CLP" },
-        { id: "A7B8C", nombre: "Transporte de Mascotas", descripcion: "Traslados seguros para tus mascotas.", precio: "$25.000 CLP" },
-        { id: "A8B9C", nombre: "Lavado de Autos", descripcion: "Lavado y limpieza a fondo de tu vehículo.", precio: "$15.000 CLP" },
-        { id: "A9B0C", nombre: "Planificación de Eventos", descripcion: "Organización integral de eventos especiales.", precio: "$150.000 CLP" },
-        { id: "A0B1C", nombre: "Cuidador de Mascotas", descripcion: "Cuidado y paseos para tus mascotas en la comodidad de tu hogar.", precio: "$40.000 CLP" }
+document.addEventListener("DOMContentLoaded", function () {
+    const tbody = document.querySelector("#tabla-servicios tbody");
 
-    ];
-    // Función para agregar filas a la tabla de servicios
-    function agregarServicioATabla() {
-        const tabla = document.getElementById('serviceTable');
-        servicios.forEach(servicio => {
-            const fila = document.createElement('tr');
-            fila.innerHTML = `
-                <td>${servicio.id}</td>
-                <td>${servicio.nombre}</td>
-                <td>${servicio.descripcion}</td>
-                <td>${servicio.precio}</td>
-                <td>
-                    <button class="btn btn-warning btn-sm editar-btn" data-id="${servicio.id}">Editar</button>
-                    <button class="btn btn-danger btn-sm eliminar-btn" data-id="${servicio.id}">Eliminar</button>
-                </td>
-            `;
-            tabla.appendChild(fila);
-        });
-    }
+    // Cargar los servicios desde el servidor
+    fetch("servicios.php")
+        .then(response => response.json())
+        .then(data => {
+            tbody.innerHTML = ""; // Limpia el tbody antes de insertar datos
+            data.forEach(servicio => {
+                // Crear la fila principal del servicio
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${servicio.id_servicio}</td>
+                    <td>${servicio.nombre_servicio}</td>
+                    <td>${servicio.descripcion_corta}</td>
+                    <td>${servicio.precio_servicio}</td>
+                    <td>
+                        <button class="btn btn-editar" onclick="mostrarFormularioServicio(${servicio.id_servicio}, '${servicio.nombre_servicio}', '${servicio.descripcion_corta}', ${servicio.precio_servicio})">Editar</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
 
-    // Cargar la tabla al iniciar la página
-    agregarServicioATabla();
+                // Crear la fila oculta para el formulario de edición
+                const formRow = document.createElement("tr");
+                formRow.style.display = "none";
+                formRow.setAttribute("form-row", "true"); // Etiqueta para identificar las filas de formularios
+                formRow.innerHTML = `
+                    <td colspan="5">
+                        <form id="form-editar-servicio-${servicio.id_servicio}" onsubmit="guardarCambiosServicio(event, ${servicio.id_servicio})" style="width: 100%; padding: 15px; box-sizing: border-box;">
+                            <div class="mb-2">
+                                <label>Nombre:</label>
+                                <input type="text" name="nombre" value="${servicio.nombre_servicio}" class="form-control" required>
+                            </div>
+                            <div class="mb-2">
+                                <label>Detalle:</label>
+                                <input type="text" name="descripcion" value="${servicio.descripcion_corta}" class="form-control" required>
+                            </div>
+                            <div class="mb-2">
+                                <label>Precio:</label>
+                                <input type="number" name="precio" value="${servicio.precio_servicio}" class="form-control" required>
+                            </div>
+                            <div class="form-group" style="display: flex; justify-content: space-between;">
+                                <button type="submit" class="btn btn-success btn-sm">Guardar</button>
+                                <button type="button" class="btn btn-secondary btn-sm" onclick="ocultarFormularioServicio(${servicio.id_servicio})">Cancelar</button>
+                            </div>
+                        </form>
+                    </td>
+                `;
+                tbody.appendChild(formRow);
+            });
+        })
+        .catch(error => console.error("Error al cargar los servicios:", error));
+});
 
-    // Manejar los clics en los botones de editar y eliminar
-    document.getElementById('serviceTable').addEventListener('click', function (e) {
-        if (e.target.classList.contains('editar-btn')) {
-            const idServicio = e.target.getAttribute('data-id');
-            alert(`Editar servicio con ID: ${idServicio}`);
-            // Aquí puedes implementar la lógica para editar el servicio
-        }
-
-        if (e.target.classList.contains('eliminar-btn')) {
-            const idServicio = e.target.getAttribute('data-id');
-            const confirmacion = confirm(`¿Estás seguro de que deseas eliminar el servicio con ID: ${idServicio}?`);
-            if (confirmacion) {
-                // Eliminar el servicio de la tabla (solo para demostración, no elimina del array)
-                const fila = e.target.closest('tr');
-                fila.remove();
-                alert(`Servicio con ID: ${idServicio} eliminado.`);
-            }
-        }
+// Función para mostrar el formulario de edición de servicio
+function mostrarFormularioServicio(id, nombre, descripcion, precio) {
+    // Oculta cualquier formulario visible
+    document.querySelectorAll("tr[form-row]").forEach(row => {
+        row.style.display = "none";
     });
-});
-=======
-document.addEventListener('DOMContentLoaded', function() {
-    // Función para obtener y mostrar los servicios
-    function cargarServicios() {
-        fetch('servicios.php') // Llamada al archivo PHP
-            .then(response => response.json()) // Convertir la respuesta a JSON
-            .then(data => {
-                const serviceTable = document.getElementById('serviceTable');
-                serviceTable.innerHTML = ''; // Limpiar la tabla antes de agregar datos
 
-                // Iterar sobre los servicios y agregarlos a la tabla
-                data.forEach(servicio => {
-                    const row = document.createElement('tr');
-                    
-                    row.innerHTML = `
-                        <td>${servicio.id_servicio}</td>
-                        <td>${servicio.nombre_servicio}</td>
-                        <td>${servicio.descripcion}</td>
-                        <td>$${servicio.precio_servicio}</td>
-                        <td>
-                            <button class="btn btn-aceptar">Aceptar</button>
-                            <button class="btn btn-editar">Editar</button>
-                            <button class="btn btn-eliminar">Eliminar</button>
-                        </td>
-                    `;
+    // Muestra el formulario específico para el servicio
+    const formRow = document.querySelector(`#form-editar-servicio-${id}`).parentNode.parentNode;
+    formRow.style.display = "table-row";
 
-                    serviceTable.appendChild(row);
-                });
-            })
-            .catch(error => console.error('Error al cargar los servicios:', error));
+    // Llenar los campos con la información actual del servicio
+    const form = document.querySelector(`#form-editar-servicio-${id}`);
+    form.querySelector('[name="nombre"]').value = nombre;
+    form.querySelector('[name="descripcion"]').value = descripcion;
+    form.querySelector('[name="precio"]').value = precio;
+}
+
+// Función para ocultar el formulario de edición de servicio
+function ocultarFormularioServicio(id) {
+    const formRow = document.querySelector(`#form-editar-servicio-${id}`).parentNode.parentNode;
+    if (formRow) {
+        formRow.style.display = "none"; // Oculta la fila del formulario
+    }
+}
+
+function guardarCambiosServicio(event, id) {
+    event.preventDefault();
+
+    const form = event.target; // Utilizamos `event.target` porque esta función se ejecuta en el evento `onsubmit`.
+
+    // Validar si es un formulario
+    if (!(form instanceof HTMLFormElement)) {
+        console.error("El formulario seleccionado no es válido");
+        return;
     }
 
-    // Llamar a la función para cargar los servicios al cargar la página
-    cargarServicios();
-});
->>>>>>> Alex
+    const formData = new FormData(form);
+
+    // Convertir FormData en URLSearchParams
+    const urlParams = new URLSearchParams();
+    formData.forEach((value, key) => {
+        urlParams.append(key, value);
+    });
+    urlParams.append("id_servicio", id); // Asegurarse de que el id_servicio sea enviado correctamente
+
+    fetch("ActualizarServicio.php", {
+        method: "POST",
+        body: urlParams,
+    })
+        .then((response) => response.text())
+        .then((data) => {
+            alert(data);
+
+            if (data.includes("Servicio actualizado correctamente")) {
+                // Actualiza la tabla con los nuevos datos
+                const filas = document.querySelectorAll("#tabla-servicios tbody tr");
+                filas.forEach((fila) => {
+                    const idCelda = fila.querySelector("td:first-child").textContent;
+                    if (idCelda == id) {
+                        fila.children[1].textContent = formData.get("nombre");
+                        fila.children[2].textContent = formData.get("detalle");
+                        fila.children[3].textContent = formData.get("precio");
+                    }
+                });
+
+                ocultarFormularioServicio(id); // Oculta el formulario al finalizar
+            }
+        })
+        .catch((error) => console.error("Error al actualizar el servicio:", error));
+}

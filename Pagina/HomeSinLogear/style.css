@@ -13,7 +13,7 @@ header {
 }
 
 .logo {
-    height: 50px; /* Establece la altura del logo */
+    height: 52px; /* Establece la altura del logo */
     margin-right: 10px;
     transition: transform 0.6s ease;
 }
@@ -23,9 +23,15 @@ header {
 }
 
 nav {
-    flex-grow: 1; /* Hace que el nav ocupe el espacio disponible */
+    flex-grow: 1; /* Mantiene el espacio disponible */
     display: flex; /* Flexbox para centrar el contenido */
     justify-content: center; /* Centra los enlaces horizontalmente */
+    padding: 16px 0; /* Espaciado adicional para agrandar el nav */
+    font-size: 21px; /* Aumenta el tamaño del texto */
+}
+
+.d-flex > a {
+    margin-left: 10px; /* Agrega espacio entre los botones */
 }
 
 .nav-links {
@@ -37,7 +43,7 @@ nav {
 }
 
 .nav-item {
-    margin: 0; /* Elimina el margen de los elementos de la lista */
+    margin: 0px; /* Elimina el margen de los elementos de la lista */
 }
 
 .nav-link {
@@ -68,6 +74,8 @@ nav {
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
+    align-items: center;
+    padding: 12px 17px; /* Ajuste del tamaño del botón */
 }
 
 .btn:hover {
@@ -84,21 +92,6 @@ nav {
     margin-right: 5px;
 }
 
-
-/* Estilos Banner */
-.banner {
-    position: relative; /* Posiciona el banner de forma relativa para los elementos internos */
-    background-image: url(./Imagenes/Movo_Banner.jpg);
-    background-size: cover; /* Cubre el área del banner con la imagen de fondo */
-    background-position: center 1100px; /* Posición de la imagen de fondo */
-    text-align: center;
-    padding: 100px 20px;
-    display: flex; /* Usa un contenedor flexible para alinear los elementos internos */
-    flex-direction: column; /* Coloca los elementos internos en una columna */
-    justify-content: center; /* Centra verticalmente los elementos */
-    align-items: center; 
-    color: white;
-}
 
 .banner::before {
     content: ""; /* Crea un pseudo-elemento vacío */
@@ -214,7 +207,7 @@ nav {
 }
 
 /* Estilos seccion de Noticias */
-/* Estilos sección de Noticias */
+
 #noticias {
     background-color: #f4f4f4;
 }
@@ -267,46 +260,89 @@ nav {
 footer {
     background-color: #333;
   
-  }
+}
   
-  .contenido-footer h3 {
-      margin-top: 0;/* Elimina el margen superior de los encabezados dentro del footer */
-  }
-  
-  .contenido-footer  {
-      font-size: 18px;
-      color: rgb(255, 255, 255);
-      text-decoration: none;/* Elimina el subrayado de los enlaces por defecto */
-      margin-bottom: 5px;/* Añade margen inferior para separarlos visualmente */
-  }
-  
-  .col-md-4  a:hover {
-      text-decoration: underline;/* Agrega un subrayado cuando se pasa el mouse sobre los enlaces */
-  }
-  
-  .copyright_footer {
-      border-top: 1px solid #444;/* Añade una línea superior al footer para separarlo del contenido principal */
-  }
+.contenido-footer h3 {
+    margin-top: 0;/* Elimina el margen superior de los encabezados dentro del footer */
+}
+
+.contenido-footer  {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;/* Elimina el subrayado de los enlaces por defecto */
+    margin-bottom: 5px;/* Añade margen inferior para separarlos visualmente */
+}
+
+.col-md-4  a:hover {
+    text-decoration: underline;/* Agrega un subrayado cuando se pasa el mouse sobre los enlaces */
+}
+
+.copyright_footer {
+    border-top: 1px solid #444;/* Añade una línea superior al footer para separarlo del contenido principal */
+}
 
 #contacto {
-    padding: 40px 300px; 
-    display: flex; /* Flexbox para alinear los elementos */
-    flex-wrap: wrap; /* Flexbox para hacer que los elementos se ajusten en dispositivos pequeños */
-    justify-content: space-between; /* Espacio entre los elementos */
-    align-items: center;
-    color: white; 
-    gap: 20px; /* Espacio entre los elementos */
+    position: relative; /* Necesario para el pseudo-elemento */
+    padding: 50px 0;
 }
 
-#button {
-    background-color: #333; /* Fondo negro */
-    color: white; 
-    padding: 10px 15px; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    transition: background-color 0.3s ease;
+#contacto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('Imagenes/fondoContactos.avif'); /* Ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.7; /* Nivel de transparencia de la imagen */
+    z-index: 0; /* Coloca el pseudo-elemento detrás del contenido */
 }
+
+#contacto .container {
+    position: relative;
+    z-index: 1; /* Asegura que el contenido quede encima de la imagen */
+}
+
+#contactanos h2 {
+    color: #fff; /* Texto claro */
+}
+
+#contactanos p {
+    color: #eaeaea; /* Mejor contraste sobre el fondo oscuro */
+}
+
+#formulario {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#formulario h2 {
+    color: #0056b3; /* Azul similar al de la imagen */
+}
+
+#contactForm .form-label {
+    color: #333;
+}
+
+#contactForm .form-select,
+#contactForm .form-control {
+    border: 1px solid #ccc;
+}
+
+#contactForm button {
+    background-color: #37b5ff;
+    border: none;
+    transition: 0.3s;
+}
+
+#contactForm button:hover {
+    background-color: #0056b3;
+}
+
 
 .botones-cuenta {
     margin-bottom: 15px;

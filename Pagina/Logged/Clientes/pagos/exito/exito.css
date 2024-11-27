@@ -1,0 +1,74 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f4f8;
+}
+
+.container {
+    text-align: center;
+    max-width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+.processing-section {
+    display: none;
+}
+.success-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-indicator {
+    width: 50px;
+    height: 50px;
+    border: 6px solid #e0e0e0;
+    border-top-color: #3498db;
+    border-radius: 50%;
+    margin: 20px auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#processingText, #successMessage {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    opacity: 0;
+}
+
+.hidden {
+    display: none;
+}
+button {
+    margin: 20px auto; /* Centra horizontalmente si el contenedor es un bloque */
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    transition: background-color 0.3s;
+    display: block; /* Asegura que el botón sea un bloque y pueda ser centrado con margin auto */
+}
+
+button:hover {
+    background-color: #2874a6;
+}
+

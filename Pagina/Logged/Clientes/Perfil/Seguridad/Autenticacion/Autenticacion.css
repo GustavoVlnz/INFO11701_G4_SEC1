@@ -166,6 +166,8 @@ footer {
       color: white;
       text-align: center;
       padding: 10px;
+      max-height: 500px;
+      height: 50%;
       width: 100%;
       margin-top: 40px;
       bottom: 0; /* Añade un margen superior para separar el footer del contenido */

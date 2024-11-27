@@ -22,23 +22,41 @@
             <img src="imagenes/salir.png" alt="Salir">
         </div>
     </header>
-    <div class="container mt-4">
-        <h2>Lista de Servicios</h2>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre del Servicio</th>
-                    <th>Descripción</th>
-                    <th>Precio</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody id="serviceTable">
-                <!-- Aquí se agregarán los servicios dinámicamente -->
-            </tbody>
-        </table>
-    </div>
+
+    <main class="estructura-admin container-fluid">
+        <!-- Título principal -->
+        <section class="mt-4">
+            <h1 class="text-center">Panel Administrador</h1>
+        </section>
+    
+        <!-- Menú de navegación con animaciones -->
+        <section class="bg-light p-4 rounded shadow-sm">
+            <nav class="nav nav-pills justify-content-center">
+                <a href="../usuarios/usuarios.html" class="nav-link">Usuarios</a>
+                <a href="../servicios/servicios.html" class="nav-link">Servicios</a>
+                <a href="../estadisticas/Estadisticas.html" class="nav-link">Estadísticas</a>
+                <a href="../reportes/reportes.html" class="nav-link">Reportes</a>
+                <a href="../Comentarios/SistemaDeComentarios.html" class="nav-link ">Moderación de Comentarios</a>
+            </nav>
+        </section>
+        
+        <div class="container mt-4">
+            <h2>Lista de Servicios</h2>
+            <table id="tabla-servicios" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Detalle</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se generarán las filas dinámicamente -->
+                </tbody>
+            </table>
+        </div>
 
     <footer>
         <div class="contenido-footer">

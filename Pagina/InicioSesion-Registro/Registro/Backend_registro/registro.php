@@ -25,15 +25,17 @@ function encryptData($data, $key) {
 
 try {
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        // Recibir los datos del formulario
-        $nombres = $_POST['username'] ?? '';
-        $apellidos = $_POST['apellido'] ?? '';
-        $rut = $_POST['rut'] ?? '';
-        $genero = $_POST['genero'] ?? '';
-        $email = $_POST['email'] ?? '';
-        $password = $_POST['password'] ?? '';
-        $confirm_password = $_POST['confirm-password'] ?? '';
-        $rol = $_POST['Rol'] ?? '';
+        $data = json_decode(file_get_contents("php://input"), true);
+        $nombres = $data['username'] ?? '';
+        $apellidos = $data['apellido'] ?? '';
+        $rut = $data['rut'] ?? '';
+        $genero = $data['genero'] ?? '';
+        $email = $data['email'] ?? '';
+        $password = $data['password'] ?? '';
+        $confirm_password = $data['confirm-password'] ?? '';
+        $rol = $data['Rol'] ?? '';
+        $telefono = $data['telefono'] ?? '';
+        $direccion = $data['direccion'] ?? '';
 
         // Validación: Verificar que las contraseñas coincidan
         if ($password !== $confirm_password) {
@@ -57,12 +59,12 @@ try {
         }
 
         // Registrar al nuevo usuario
-        $stmt = $conexion->prepare("INSERT INTO usuariosMOVO (nombres, apellidos, rut, genero, email, password, rol) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conexion->prepare("INSERT INTO usuariosMOVO (nombres, apellidos, rut, genero, email, password, rol, telefono, direccion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         if (!$stmt) {
             throw new Exception('Error al preparar la consulta de inserción.');
         }
-        $stmt->bind_param('sssssss', $nombres, $apellidos, $rut, $genero, $email, $encrypted_password, $rol);
-
+        $stmt->bind_param('sssssssss', $nombres, $apellidos, $rut, $genero, $email, $encrypted_password, $rol, $telefono, $direccion); // Cambié el 'sssssss' a 'ssssssss' para coincidir
+        
         if ($stmt->execute()) {
             // Obtener el ID del usuario recién insertado
             $user_id = $conexion->insert_id;

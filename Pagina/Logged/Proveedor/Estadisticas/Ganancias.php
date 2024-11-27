@@ -9,23 +9,14 @@ $dbname = "A2024_acarrasco";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-
-if ($conn->connect_error) {
-    die(json_encode(['error' => 'Conexión fallida: ' . $conn->connect_error]));
-}
-
 // Consulta para obtener las ganancias por servicio
 $sql = "SELECT servicio_completado, SUM(ganancia) AS total_ganancia
         FROM Servicios_CompletadosMOVO
+
         GROUP BY servicio_completado
         ORDER BY total_ganancia DESC";
 
 $result = $conn->query($sql);
-
-
-if ($result === false) {
-    die(json_encode(['error' => 'Error en la consulta SQL: ' . $conn->error]));
-}
 
 // Inicializar arrays para los servicios y las ganancias
 $servicios = [];

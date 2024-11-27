@@ -1,24 +1,48 @@
 <?php
-include 'conexion.php';
+session_start(); // Iniciar sesión
+header('Content-Type: application/json');
+include 'conexion.php'; // Conexión a la base de datos
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id_servicio = $_POST['id_servicio'];
-    $nombre_servicio = $_POST['nombre_servicio'];
-    $categoria = $_POST['categoria'];
-    $precio = $_POST['precio'];
+$data = json_decode(file_get_contents('php://input'), true);
 
-    // Actualizar los datos del servicio
-    $sql = "UPDATE Lista_ServiciosMOVO 
-            SET nombre_servicio='$nombre_servicio', id_categoria='$categoria', 
-                precio_servicio='$precio'
-            WHERE id_servicio='$id_servicio'";
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['idUsuarios'])) {
+    echo json_encode(["success" => false, "error" => "Usuario no autenticado"]);
+    exit;
+}
 
-    if ($conn->query($sql) === TRUE) {
-        echo json_encode(["mensaje" => "Servicio actualizado exitosamente"]);
+// Obtener el ID del usuario desde la sesión
+$id_prestador = $_SESSION['idUsuarios'];
+
+// Validar los datos recibidos
+if (isset($data['id'], $data['nombre_servicio'], $data['descripcion_corta'], $data['descripcion_larga'], $data['id_categoria'], $data['precio_servicio'])) {
+    $id_servicio = $data['id'];
+    $nombre_servicio = $data['nombre_servicio'];
+    $descripcion_corta = $data['descripcion_corta'];
+    $descripcion_larga = $data['descripcion_larga'];
+    $id_categoria = $data['id_categoria'];
+    $precio_servicio = $data['precio_servicio'];
+
+    // Verificar que el servicio pertenece al usuario autenticado
+    $query_check = $conexion->prepare("SELECT id_servicio FROM Lista_ServiciosMOVO WHERE id_servicio = ? AND id_prestador = ?");
+    $query_check->bind_param("ii", $id_servicio, $id_prestador);
+    $query_check->execute();
+    $result = $query_check->get_result();
+
+    if ($result->num_rows > 0) {
+        // Actualizar el servicio
+        $query_update = $conexion->prepare("UPDATE Lista_ServiciosMOVO SET nombre_servicio = ?, descripcion_corta = ?, descripcion_larga = ?, id_categoria = ?, precio_servicio = ? WHERE id_servicio = ?");
+        $query_update->bind_param("sssidi", $nombre_servicio, $descripcion_corta, $descripcion_larga, $id_categoria, $precio_servicio, $id_servicio);
+
+        if ($query_update->execute()) {
+            echo json_encode(["success" => true]);
+        } else {
+            echo json_encode(["success" => false, "error" => $query_update->error]);
+        }
     } else {
-        echo json_encode(["error" => "Error al actualizar el servicio: " . $conn->error]);
+        echo json_encode(["success" => false, "error" => "Servicio no encontrado o no autorizado"]);
     }
-
-    $conn->close();
+} else {
+    echo json_encode(["success" => false, "error" => "Datos incompletos"]);
 }
 ?>

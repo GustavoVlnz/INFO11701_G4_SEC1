@@ -1,52 +1,46 @@
-/*Estilos del header*/
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: white;
-    border-bottom: 2px solid #eaeaea;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
 }
 
-.header-content {
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-    align-items: center;
+#Codigo {
+    background-color: #f9f9f9; /* Este color se puede ajustar según sea necesario */
+    border-radius: 10px;
 }
 
-header .logo {
+#Reenviar {
+    text-decoration: none;
+}
+
+#Reenviar:hover {
+    text-decoration: underline;
+}
+
+/* Estilos del header */
+header #logo {
     display: flex;
     align-items: center;
     margin-right: 20px;
-}
-
-header .logo img {
+  }
+  
+header #logo img,
+header #logo-salir img {
     width: 50px;
     margin-right: 10px;
     transition: transform 0.3s ease;
-}
-
-header .salir img {
-    width: 50px;
-    margin-right: 10px;
-}
-
-header .logo img:hover {
+  }
+  
+header #logo img:hover,
+header #logo-salir img:hover {
     transform: rotate(20deg); /* la imagen rota cuando el raton pasa sobre ella */
-}
-
+  }
+  
 header h1 {
     font-size: 24px;
     margin: 0;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
-}
-
+  }
+  
 nav a {
     margin: 0 15px;
     text-decoration: none;

@@ -6,7 +6,7 @@ session_start();
 $IDuser = $_SESSION['idUsuarios']; 
 
 // Consulta para obtener las reseñas del usuario
-$sql = "SELECT servicio_completado, fecha_completado, calificacion, reseñas FROM Servicios_CompletadosMOVO WHERE cliente = ?";
+$sql = "SELECT nombre_servicio, fecha_completado, calificacion, reseñas FROM Servicios_CompletadosMOVO WHERE cliente = ?";
 $stmt = $db->prepare($sql);
 $stmt->bind_param("i", $IDuser);
 $stmt->execute();

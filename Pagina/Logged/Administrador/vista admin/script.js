@@ -1,24 +1,4 @@
-
-function mostrarDetalles(id) {
-    const detalles = document.getElementById(`detalles-${id}`);
-    if (detalles.style.display === "none" || detalles.style.display === "") {
-        detalles.style.display = "block";
-    } else {
-        detalles.style.display = "none";
-    }
-}
-
-function verEstado(id) {
-    const estadoReporte = document.getElementById(`estado-${id}`);
-    if (estadoReporte.style.display === "none" || estadoReporte.style.display === "") {
-        estadoReporte.style.display = "block";
-    } else {
-        estadoReporte.style.display = "none";
-    }
-}
-
 document.addEventListener('DOMContentLoaded', function () {
-    // Selección por id
     const usuariosElement = document.getElementById('total-usuarios');
     const serviciosActivosElement = document.getElementById('servicios-activos');
     const serviciosPendientesElement = document.getElementById('pedidos-pendientes');
@@ -28,25 +8,53 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!response.ok) {
                 throw new Error('Error al cargar los datos');
             }
-            return response.text(); // Cambiar a .text() para inspeccionar la respuesta
+            return response.json();
         })
-        .then(text => {
-            console.log('Respuesta recibida del servidor:', text); // Imprimir la respuesta completa para inspección
+        .then(data => {
+            // Actualiza estadísticas principales
+            usuariosElement.textContent = data.usuariosRegistrados;
+            serviciosActivosElement.textContent = data.serviciosActivos;
+            serviciosPendientesElement.textContent = data.pedidosPendientes;
 
-            try {
-                const data = JSON.parse(text); // Intentar convertir la respuesta a JSON
-                console.log('Datos parseados:', data);
+            // Actualiza Últimos Pedidos
+            const pedidosTable = document.querySelector('#datos tbody');
+            pedidosTable.innerHTML = ''; // Limpia el contenido actual
+            data.ultimosPedidos.forEach(pedido => {
+                pedidosTable.innerHTML += `
+                    <tr>
+                        <td>${pedido.id_servicio}</td>
+                        <td>${pedido.cliente}</td>
+                        <td>${pedido.servicio_solicitado}</td>
+                        <td>${pedido.estado}</td>
+                        <td>${pedido.fecha_solicitud}</td>
+                    </tr>`;
+            });
 
-                // Actualiza los elementos del HTML con los datos recibidos
-                usuariosElement.textContent = data.usuariosRegistrados;
-                serviciosActivosElement.textContent = data.serviciosActivos;
-                serviciosPendientesElement.textContent = data.serviciosPendientes;
-            } catch (error) {
-                console.error('Error al intentar parsear JSON:', error);
-            }
+            // Actualiza Solicitudes de Servicios
+            const solicitudesContainer = document.getElementById('servicios-pymes');
+            solicitudesContainer.innerHTML = '<h2 class="text-center">Solicitud de Servicios</h2>';
+            data.solicitudesServicios.forEach((servicio, index) => {
+                solicitudesContainer.innerHTML += `
+                    <div class="servicio mb-4 bg-white p-4 rounded shadow-sm">
+                        <h3>Empresa: <span>${servicio.proveedor}</span></h3>
+                        <p>Servicio: <span>${servicio.servicio}</span></p>
+                        <p>Descripción: ${servicio.reseñas}</p>
+                        <p>Precio: ${servicio.ganancia}</p>
+                    </div>`;
+            });
+
+            // Actualiza Reportes de Usuarios
+            const reportesContainer = document.getElementById('reportes-usuarios');
+            reportesContainer.innerHTML = '<h2 class="text-center">Reportes de Usuarios</h2>';
+            data.reportesUsuarios.forEach(reporte => {
+                reportesContainer.innerHTML += `
+                    <div class="reporte mb-4 bg-white p-4 rounded shadow-sm">
+                        <h3>Usuario: <span>${reporte.usuario}</span></h3>
+                        <p>Servicio reportado: <span>${reporte.servicio}</span></p>
+                        <p>Descripción: <span>${reporte.descripcion}</span></p>
+                        <p>Estado del reporte: <span>${reporte.estado}</span></p>
+                    </div>`;
+            });
         })
-        .catch(error => {
-            console.error('Error al cargar los datos:', error);
-        });
+        .catch(error => console.error('Error al cargar los datos:', error));
 });
-

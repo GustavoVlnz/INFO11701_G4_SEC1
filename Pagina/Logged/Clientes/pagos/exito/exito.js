@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const successSection = document.getElementById('successSection');
     const processingText = document.getElementById('processingText');
     const successMessage = document.getElementById('successMessage');
+    const detallePedidoButton = document.getElementById("detallePedidoButton");
     const homeButton = document.getElementById('homeButton');
-    const progreso = document.getElementById('progreso');
 
     // Muestra la sección de procesamiento con efectos complejos
     gsap.set(processingSection, { display: 'block', opacity: 0, scale: 0.5 });
@@ -71,18 +71,15 @@ document.addEventListener('DOMContentLoaded', () => {
                             delay: 0.5, 
                             ease: 'back.out(1.7)' 
                         });
-                        
-                        // Muestra el botón de "Ver Progreso del Pedido" junto al texto final
-                        gsap.set(progreso, { display: 'block', opacity: 0, y: 20, scale: 0.7 });
-                        gsap.to(progreso, { 
-                            opacity: 1, 
-                            y: 0, 
-                            scale: 1, 
-                            duration: 1, 
-                            delay: 0.5, 
-                            ease: 'back.out(1.7)' 
+                        gsap.to(detallePedidoButton, {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.8,
+                            ease: "power2.out",
+                            onStart: () => {
+                                detallePedidoButton.classList.remove("hidden");
+                            }
                         });
-                        
                     }
                 });
             }, 5500); // Procesamiento ahora dura 4.5 segundos (3 + 1.5)
@@ -93,7 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
     homeButton.addEventListener('click', () => {
         window.location.href = '../../HomeLogeado/home.html'; // Ajusta '/' según la URL de tu página de inicio
     });
-    progreso.addEventListener('click', () => {
-        window.location.href = '../../progreso_y_detalles/progresoPedido.php'; 
+    
+    detallePedidoButton.addEventListener("click", () => {
+        window.location.href = "../../progreso_y_detalles/progresoPedido.php"; // Redirige al Detalle del Pedido
     });
 });

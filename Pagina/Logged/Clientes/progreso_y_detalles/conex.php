@@ -4,10 +4,10 @@ $username = "acarrasco";
 $password = "Hellovro2019@";
 $dbname = "A2024_acarrasco";
 
-$db = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 
-if ($db->connect_error) {
-    die("Conexión fallida: " . $db->connect_error);
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
 }
 ?>

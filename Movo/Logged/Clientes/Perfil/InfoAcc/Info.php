@@ -47,8 +47,8 @@ if ($result->num_rows > 0) {
           <h1 class="m-0">MOVO</h1>
         </div>
         <nav>
-          <a href="#" >Inicio</a>
-          <a href="#" >Servicios</a>
+          <a href="../../HomeLogeado/home.html" >Inicio</a>
+          <a href="../../categorias/categorias.html" >Servicios</a>
         </nav>
         <div id="logo-salir">
           <img src="../Images/logout.png" alt="Salir" style="width: 50px;">

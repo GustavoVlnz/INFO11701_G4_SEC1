@@ -10,7 +10,7 @@ header('Content-Type: application/json');
 
 // Inicializar variables
 $usuariosRegistrados = 0;
-$serviciosActivos = 0;
+$serviciosCompletados = 0;
 $serviciosPendientes = 0;
 
 try {
@@ -20,7 +20,7 @@ try {
     }
 
     // Contar usuarios registrados
-    $result = $conn->query("SELECT COUNT(*) AS total FROM usuariosMOVO"); // Cambia 'usuariosMOVO' según tu tabla
+    $result = $conn->query("SELECT COUNT(*) AS total FROM usuariosMOVO");
     if ($result) {
         $row = $result->fetch_assoc();
         $usuariosRegistrados = $row['total'];
@@ -28,17 +28,17 @@ try {
         throw new Exception('Error al obtener usuarios registrados: ' . $conn->error);
     }
 
-    // Contar servicios activos
-    $result = $conn->query("SELECT COUNT(*) AS total FROM Lista_ServiciosMOVO WHERE estado_servicio = 'activo'"); // Cambia 'serviciosMOVO' según tu tabla
+    // Contar servicios completados
+    $result = $conn->query("SELECT COUNT(*) AS total FROM Servicios_CompletadosMOVO");
     if ($result) {
         $row = $result->fetch_assoc();
-        $serviciosActivos = $row['total'];
+        $serviciosCompletados = $row['total'];
     } else {
-        throw new Exception('Error al obtener servicios activos: ' . $conn->error);
+        throw new Exception('Error al obtener servicios completados: ' . $conn->error);
     }
 
     // Contar servicios pendientes
-    $result = $conn->query("SELECT COUNT(*) AS total FROM Lista_ServiciosMOVO WHERE estado_servicio = 'en revision'"); // Cambia 'serviciosMOVO' según tu tabla
+    $result = $conn->query("SELECT COUNT(*) AS total FROM Lista_ServiciosMOVO WHERE estado_servicio = 'en revision'");
     if ($result) {
         $row = $result->fetch_assoc();
         $serviciosPendientes = $row['total'];
@@ -49,10 +49,9 @@ try {
     // Devolver los resultados como JSON
     echo json_encode([
         'usuariosRegistrados' => $usuariosRegistrados,
-        'serviciosActivos' => $serviciosActivos,
+        'serviciosCompletados' => $serviciosCompletados,
         'serviciosPendientes' => $serviciosPendientes,
     ]);
-
 } catch (Exception $e) {
     // Devolver un mensaje de error en formato JSON
     echo json_encode(['error' => $e->getMessage()]);

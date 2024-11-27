@@ -20,7 +20,7 @@ function verEstado(id) {
 document.addEventListener('DOMContentLoaded', function () {
     // Selección por id
     const usuariosElement = document.getElementById('total-usuarios');
-    const serviciosActivosElement = document.getElementById('servicios-activos');
+    const serviciosCompletadosElement = document.getElementById('servicios-completados');
     const serviciosPendientesElement = document.getElementById('pedidos-pendientes');
 
     fetch('admin.php')
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Actualiza los elementos del HTML con los datos recibidos
                 usuariosElement.textContent = data.usuariosRegistrados;
-                serviciosActivosElement.textContent = data.serviciosActivos;
+                serviciosCompletadosElement.textContent = data.serviciosCompletados;
                 serviciosPendientesElement.textContent = data.serviciosPendientes;
             } catch (error) {
                 console.error('Error al intentar parsear JSON:', error);

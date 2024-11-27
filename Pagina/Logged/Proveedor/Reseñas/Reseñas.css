@@ -35,6 +35,22 @@
     color: #37b5ff;
 }
 
+.boton-volver-atras {
+    display: flex; /* Usa un contenedor flexible para los botones de cuenta */
+    gap: 10px; /* Espacio entre los botones */
+}
+
+.boton-volver-atras img {
+    width: 45px; /* Ajusta el ancho de la imagen */
+    height: auto; /* Mantén la proporción de la imagen */
+    transition: transform 0.5s;
+}
+.boton-volver-atras img:hover {
+    width: 45px; /* Ajusta el ancho de la imagen */
+    height: auto; /* Mantén la proporción de la imagen */
+    transform: scale(1.1);
+}
+
 /* Estilos para las reseñas */
 .review-item {
     background-color: #fff;

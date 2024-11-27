@@ -6,9 +6,33 @@
     <title>Calendario</title>
     <!-- Pikaday CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="Calendario.css">
 </head>
 <body>
+    <!-- Header con Bootstrap -->
+    <header class="d-flex align-items-center justify-content-between p-3 bg-white shadow-sm">
+        <!-- Sección para el logo de la empresa -->
+        <div class="d-flex align-items-center">
+            <img src="../../Clientes/Perfil/Images/logo.png" alt="Logo de la empresa" class="logo">
+            <h1 class="titulo-empresa h3 mb-0">MOVO</h1>
+        </div>
+        <!-- Barra de navegación con enlaces internos -->
+        <nav class="nav justify-content-center">
+            <ul class="nav">
+                <li class="nav-item"><a href="../../Clientes/HomeLogeado/home.html" class="nav-link">INICIO</a></li>
+                <li class="nav-item"><a href="../../Clientes/categorias/categorias.html" class="nav-link">SERVICIOS</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">PERFIL</a></li>
+            </ul>
+        </nav>
+        <!-- Botón para volver atrás -->
+        <div class="boton-volver-atras">
+            <a href="../VistaPrestador/VistaPrestador.html">
+                <img src="../../Clientes/Perfil/Images/logout.png" alt="Cerrar Sesion" class="img-fluid">
+            </a>
+        </div>
+    </header>
+
     <h1 style="text-align:center;">Calendario</h1>
 
     <!-- Campo de entrada para el calendario -->
@@ -29,6 +53,39 @@
         <input type="text" id="event-title" placeholder="Título del Evento">
         <button class="btn" id="add-event-btn">Agregar Evento</button>
     </div>
+
+    <!-- Footer -->
+    <footer class="text-white p-4 mt-4">
+        <div class="container">
+            <div class="row d-flex justify-content-between text-center">
+                <!-- Primera columna: Contacto -->
+                <div class="col-md-4">
+                    <h3>Contacto</h3>
+                    <a href="mailto:Movocompanycontact@gmail.com" class="text-white d-block">Movocompanycontact@gmail.com</a>
+                </div>
+
+                <!-- Segunda columna: Redes Sociales -->
+                <div class="col-md-4">
+                    <h3>Redes Sociales</h3>
+                    <a href="https://www.facebook.com/profile.php?id=61566403465579" class="text-white d-block">Facebook</a>
+                    <a href="https://x.com/CompanyMovo_inc" class="text-white d-block">Twitter</a>
+                    <a href="https://www.instagram.com/movo_inc/" class="text-white d-block">Instagram</a>
+                </div>
+
+                <!-- Tercera columna: Información Legal -->
+                <div class="col-md-4">
+                    <h3>Información Legal</h3>
+                    <a href="../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html" class="text-white d-block">Política de Privacidad</a>
+                    <a href="../../../InicioSesion-Registro/Registro/terminos.html" class="text-white d-block">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center mt-3">
+            <p class="mb-0">&copy; 2024 MOVO. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
     <!-- Pikaday JS -->
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>

@@ -12,7 +12,7 @@ header {
 }
 
 .logo {
-    height: 50px; /* Establece la altura del logo */
+    height: 52px; /* Establece la altura del logo */
     margin-right: 10px;
     transition: transform 0.6s ease;
 }
@@ -22,9 +22,15 @@ header {
 }
 
 nav {
-    flex-grow: 1; /* Hace que el nav ocupe el espacio disponible */
+    flex-grow: 1; /* Mantiene el espacio disponible */
     display: flex; /* Flexbox para centrar el contenido */
     justify-content: center; /* Centra los enlaces horizontalmente */
+    padding: 16px 0; /* Espaciado adicional para agrandar el nav */
+    font-size: 21px; /* Aumenta el tamaño del texto */
+}
+
+.d-flex > a {
+    margin-left: 10px; /* Agrega espacio entre los botones */
 }
 
 .nav-links {
@@ -36,7 +42,7 @@ nav {
 }
 
 .nav-item {
-    margin: 0; /* Elimina el margen de los elementos de la lista */
+    margin: 0px; /* Elimina el margen de los elementos de la lista */
 }
 
 .nav-link {
@@ -56,8 +62,6 @@ nav {
 /* Estilos para los botones de inicio de sesión y registro */
 .btn {
     display: inline-flex;
-    align-items: center;
-    padding: 12px 24px;
     font-size: 18px;
     font-weight: bold;
     color: #333;
@@ -67,6 +71,8 @@ nav {
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
+    align-items: center;
+    padding: 12px 17px; /* Ajuste del tamaño del botón */
 }
 
 .btn:hover {
@@ -79,27 +85,39 @@ nav {
 }
 
 .btn img {
-    max-height: 20px;
-    margin-right: 5px;
+    max-height: 30px;
+    margin-right: 8px;
 }
 
 /* Estilos Banner */
+/* Contenedor para adaptar el tamaño del banner */
+.banner-container {
+    width: 100%; /* Ocupa el ancho completo de la pantalla */
+    max-width: 1600px; /* Establece un ancho máximo para pantallas grandes */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    overflow: hidden; /* Evita desbordamientos */
+    padding: 0 20px; /* Espaciado interno para pantallas pequeñas */
+}
+
+/* Estilos del banner */
 .banner {
     position: relative;
-    width: 1920px; /* Ancho del contenedor */
-    height: 900px; /* Alto del contenedor */
     display: flex;
-    flex-direction: column; /* Cambio a columna para apilar la imagen y el botón */
-    justify-content: flex-end;  /* Alinea el contenido hacia el fondo */
-    padding-bottom: 50px; /* Ajuste del espacio entre el fondo de la imagen y el botón */
+    flex-direction: column; /* Apila la imagen y el botón */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: flex-end; /* Alinea el contenido hacia la parte inferior */
+    text-align: center; /* Centra el texto y el botón si hay más contenido */
 }
 
+/* Imagen del banner */
 .banner img {
-    width: 100%; /* Hace que la imagen ocupe todo el ancho del contenedor */
-    height: auto; /* Ajusta la altura de la imagen proporcionalmente */
+    width: 100%; /* Ajusta la imagen al ancho del contenedor */
+    height: auto; /* Mantiene las proporciones */
 }
 
+/* Botón Descubre Más */
 #descubre-mas {
+    position: relative;
     padding: 15px 30px;
     background-color: #37b5ff;
     color: white;
@@ -107,8 +125,16 @@ nav {
     font-weight: bold;
     text-decoration: none;
     border-radius: 5px;
-    margin-top: 20px; /* Separación adicional entre la imagen y el botón */
+    margin-top: 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
 }
+
+/* Efecto hover en el botón */
+#descubre-mas:hover {
+    background-color: #0056b3; /* Cambia a un azul más oscuro */
+}
+
 
 .seccion-info {
     padding: 40px 20px;
@@ -173,13 +199,11 @@ nav {
 
 /* Estilos seccion de Noticias */
 /* Estilos sección de Noticias */
-/* Contenedor de las noticias */
 #noticias .row {
     display: flex; /* Usamos Flexbox */
     flex-wrap: wrap; /* Permite que los elementos se ajusten en nuevas filas si no caben */
     gap: 20px; /* Añadir espacio entre las tarjetas */
 }
-
 
 #noticias .col-md-4 {
     flex: 1 1 300px; /* Ajusta el tamaño mínimo de cada tarjeta a 300px */
@@ -190,55 +214,91 @@ nav {
 #noticias .card {
     display: flex;
     flex-direction: column; /* Asegura que el contenido interno esté en columna */
-    justify-content: space-between; /* Espacia los elementos verticalmente */
-    height: 100%; /* Todas las tarjetas tienen la misma altura */
+    justify-content: flex-start; /* Alinea los elementos en la parte superior */
+    height: auto; /* Permite que la tarjeta se ajuste al contenido */
+    min-height: 450px; /* Aumentamos la altura mínima */
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#noticias .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 /* Imágenes */
 #noticias .card-img-top {
-    height: 200px; /* Altura fija para todas las imágenes */
+    height: 220px; /* Aumentamos la altura */
     object-fit: cover; /* Ajusta las imágenes sin deformarlas */
-    border-top-left-radius: 8px; /* Mantiene esquinas redondeadas */
-    border-top-right-radius: 8px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
 
 /* Botón al final de la tarjeta */
 #noticias .btn-leer-mas {
     margin-top: auto; /* Mueve el botón al final de la tarjeta */
-    padding: 15px 30px;
-    font-size: 18px;
+    padding: 12px 24px;
+    font-size: 16px;
     font-weight: bold;
     background-color: #37b5ff;
     color: white;
+    border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #noticias .btn-leer-mas:hover {
     background-color: #1e90ff; /* Cambia el color al pasar el cursor */
+    transform: scale(1.05);
 }
 
-
+/* Títulos y párrafos */
 #noticias h2 {
     font-size: 48px;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 #noticias p {
-    font-size: 24px;
+    font-size: 18px;
     color: #666;
+    line-height: 1.6;
 }
 
-.btn-leer-mas:hover {
-    background-color: #1e90ff; /* Color más oscuro al pasar el ratón */
+/* Información extra */
+#noticias .masInfo {
+    display: none; /* Oculto por defecto */
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.hidden {
-    display: none;
+#noticias .masInfo p {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 10px;
 }
 
-.visible {
+/* Animación para mostrar información adicional */
+#noticias .masInfo.visible {
     display: block;
+    animation: fadeIn 0.5s ease;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 /* Estilos del footer */
 footer {
@@ -267,6 +327,7 @@ footer {
 
 #contacto {
     position: relative; /* Necesario para el pseudo-elemento */
+    padding: 50px 0;
 }
 
 #contacto::before {
@@ -289,8 +350,12 @@ footer {
     z-index: 1; /* Asegura que el contenido quede encima de la imagen */
 }
 
-#contacto .col-md-6 {
-    color: #333; /* Cambiar a texto oscuro para mejor contraste */
+#contactanos h2 {
+    color: #fff; /* Texto claro */
+}
+
+#contactanos p {
+    color: #eaeaea; /* Mejor contraste sobre el fondo oscuro */
 }
 
 #formulario {
@@ -322,16 +387,6 @@ footer {
     background-color: #0056b3;
 }
 
-
-#button {
-    background-color: #333; /* Fondo negro */
-    color: white; 
-    padding: 10px 15px; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    transition: background-color 0.3s ease;
-}
 
 .botones-cuenta {
     margin-bottom: 15px;

@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 // Comprobar si el usuario ha iniciado sesión

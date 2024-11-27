@@ -1,33 +1,58 @@
 <?php
-include "conex.php"; 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Incluir el archivo de conexión
+include "conex.php"; // Asegúrate de que el nombre y la ruta sean correctos
+
+// Configurar el encabezado para devolver JSON
+header('Content-Type: application/json');
+
+// Inicializar variables
+$usuariosRegistrados = 0;
+$serviciosActivos = 0;
+$serviciosPendientes = 0;
 
 try {
-    // Consultas principales
-    $usuariosStmt = $conn->query("SELECT COUNT(*) AS usuariosRegistrados FROM usuariosMOVO");
-    $serviciosStmt = $conn->query("SELECT COUNT(*) AS serviciosActivos FROM Lista_ServiciosMOVO WHERE estado = 'Activo'");
-    $pedidosStmt = $conn->query("SELECT COUNT(*) AS pedidosPendientes FROM Servicios_SolicitadosMOVO WHERE estado = 'pendiente'");
+    // Verificar si la conexión es exitosa
+    if ($conn->connect_error) {
+        throw new Exception('Error de conexión a la base de datos: ' . $conn->connect_error);
+    }
 
-    // Últimos 5 pedidos
-    $ultimosPedidosStmt = $conn->query("SELECT id_servicio, cliente, servicio_solicitado, estado, fecha_solicitud FROM Servicios_SolicitadosMOVO ORDER BY fecha_solicitud DESC LIMIT 5");
+    // Contar usuarios registrados
+    $result = $conn->query("SELECT COUNT(*) AS total FROM usuariosMOVO"); // Cambia 'usuariosMOVO' según tu tabla
+    if ($result) {
+        $row = $result->fetch_assoc();
+        $usuariosRegistrados = $row['total'];
+    } else {
+        throw new Exception('Error al obtener usuarios registrados: ' . $conn->error);
+    }
 
-    // Solicitudes de servicios
-    $solicitudesStmt = $conn->query("SELECT proveedor, servicio, reseñas, ganancia FROM Servicios_CompletadosMOVO");
+    // Contar servicios activos
+    $result = $conn->query("SELECT COUNT(*) AS total FROM Lista_ServiciosMOVO WHERE estado_servicio = 'activo'"); // Cambia 'serviciosMOVO' según tu tabla
+    if ($result) {
+        $row = $result->fetch_assoc();
+        $serviciosActivos = $row['total'];
+    } else {
+        throw new Exception('Error al obtener servicios activos: ' . $conn->error);
+    }
 
-    // Reportes de usuarios
-    $reportesStmt = $conn->query("SELECT usuario, servicio, descripcion, estado FROM reportes_usuarios");
+    // Contar servicios pendientes
+    $result = $conn->query("SELECT COUNT(*) AS total FROM Lista_ServiciosMOVO WHERE estado_servicio = 'en revision'"); // Cambia 'serviciosMOVO' según tu tabla
+    if ($result) {
+        $row = $result->fetch_assoc();
+        $serviciosPendientes = $row['total'];
+    } else {
+        throw new Exception('Error al obtener servicios pendientes: ' . $conn->error);
+    }
 
-    // Resultados en un arreglo
-    $result = [
-        'usuariosRegistrados' => $usuariosResult->fetch_assoc()['usuariosRegistrados'],
-        'serviciosActivos' => $serviciosResult->fetch_assoc()['serviciosActivos'],
-        'pedidosPendientes' => $pedidosResult->fetch_assoc()['pedidosPendientes'],
-        'ultimosPedidos' => $ultimosPedidosResult->fetch_all(MYSQLI_ASSOC),
-        'solicitudesServicios' => $solicitudesResult->fetch_all(MYSQLI_ASSOC),
-        'reportesUsuarios' => $reportesResult->fetch_all(MYSQLI_ASSOC),
-    ];
+    // Devolver los resultados como JSON
+    echo json_encode([
+        'usuariosRegistrados' => $usuariosRegistrados,
+        'serviciosActivos' => $serviciosActivos,
+        'serviciosPendientes' => $serviciosPendientes,
+    ]);
 
-    // Devuelve los datos en formato JSON
-    echo json_encode($result);
 } catch (Exception $e) {
     // Devuelve el error en formato JSON
     echo json_encode(['error' => $e->getMessage()]);

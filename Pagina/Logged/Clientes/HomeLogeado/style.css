@@ -59,82 +59,103 @@ nav {
     text-decoration: underline; /* Subrayado del enlace */
 }
 
-/* Estilos para los botones de inicio de sesión y registro */
-.btn {
-    display: inline-flex;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    align-items: center;
-    padding: 12px 17px; /* Ajuste del tamaño del botón */
+.boton-volver-atras {
+    display: flex; /* Usa un contenedor flexible para los botones */
+    gap: 10px; /* Espacio entre los botones */
 }
 
-.btn:hover {
-    background-color: #37b5ff;
-    transform: scale(1.05);
+.boton-volver-atras .btn {
+    display: inline-flex; /* Muestra el botón como un contenedor flexible */
+    align-items: center; /* Alinea el contenido del botón verticalmente */
+    padding: 12px 24px; /* Espaciado interno del botón */
+    font-size: 18px; /* Tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+    color: #333; /* Color del texto del botón */
+    background-color: white; /* Color de fondo del botón */
+    border: 1px solid #ccc; /* Color y estilo del borde */
+    border-radius: 5px; /* Bordes redondeados del botón */
+    text-decoration: none; /* Elimina el subrayado del texto del botón */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición para el color de fondo y transformación */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
 }
 
-.btn:active {
-    transform: scale(0.98);
+.boton-volver-atras .btn:hover {
+    background-color: #37b5ff; /* Color de fondo del botón al pasar el ratón */
+    transform: scale(1.05); /* Aumenta el tamaño del botón al pasar el ratón */
 }
 
-.btn img {
-    max-height: 30px;
-    margin-right: 8px;
+.boton-volver-atras img {
+    max-height: 20px; /* Altura máxima de las imágenes en los botones */
+    margin-right: 5px; /* Espacio entre la imagen y el texto del botón */
 }
+
 
 /* Estilos Banner */
-/* Contenedor para adaptar el tamaño del banner */
-.banner-container {
-    width: 100%; /* Ocupa el ancho completo de la pantalla */
-    max-width: 1600px; /* Establece un ancho máximo para pantallas grandes */
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
-    overflow: hidden; /* Evita desbordamientos */
-    padding: 0 20px; /* Espaciado interno para pantallas pequeñas */
-}
-
-/* Estilos del banner */
 .banner {
-    position: relative;
-    display: flex;
-    flex-direction: column; /* Apila la imagen y el botón */
-    align-items: center; /* Centra los elementos horizontalmente */
-    justify-content: flex-end; /* Alinea el contenido hacia la parte inferior */
-    text-align: center; /* Centra el texto y el botón si hay más contenido */
-}
-
-/* Imagen del banner */
-.banner img {
-    width: 100%; /* Ajusta la imagen al ancho del contenedor */
-    height: auto; /* Mantiene las proporciones */
-}
-
-/* Botón Descubre Más */
-#descubre-mas {
-    position: relative;
-    padding: 15px 30px;
-    background-color: #37b5ff;
+    position: relative; /* Posiciona el banner de forma relativa para los elementos internos */
+    background-image: url(./Imagenes/Movo_Banner.jpg);
+    background-size: cover; /* Cubre el área del banner con la imagen de fondo */
+    background-position: center 1100px; /* Posición de la imagen de fondo */
+    text-align: center;
+    padding: 100px 20px;
+    display: flex; /* Usa un contenedor flexible para alinear los elementos internos */
+    flex-direction: column; /* Coloca los elementos internos en una columna */
+    justify-content: center; /* Centra verticalmente los elementos */
+    align-items: center; 
     color: white;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-    display: inline-block;
-    transition: background-color 0.3s ease;
 }
 
-/* Efecto hover en el botón */
-#descubre-mas:hover {
-    background-color: #0056b3; /* Cambia a un azul más oscuro */
+.banner::before {
+    content: ""; /* Crea un pseudo-elemento vacío */
+    position: absolute; /* Posiciona el pseudo-elemento de forma absoluta */
+    top: 0; /* Coloca el pseudo-elemento en la parte superior */
+    left: 0; /* Coloca el pseudo-elemento en la parte izquierda */
+    width: 100%; /* Ancho del pseudo-elemento */
+    height: 100%; /* Alto del pseudo-elemento */
+    background-color: rgba(0, 0, 0, 0.5); /* Color de fondo con opacidad para el efecto de oscurecimiento */
+    z-index: 1; /* Asegura que el pseudo-elemento esté detrás del contenido del banner */
 }
 
+.banner h1, .banner p, .banner .btn {
+    position: relative; /* Posiciona los elementos de forma relativa sobre el pseudo-elemento */
+    z-index: 2; /* Asegura que estos elementos estén por encima del pseudo-elemento */
+}
+
+.banner h1 {
+    font-size: 48px; 
+    margin-bottom: 20px; 
+    text-shadow: 2px 2px 4px #37b5ff; /* Sombra de texto para el encabezado */
+    color: white; 
+}
+
+.banner p {
+    font-size: 24px; 
+    margin-bottom: 30px; 
+    max-width: 800px; /* Ancho máximo del párrafo */
+    text-shadow: 1px 1px 3px #37b5ff; /* Sombra de texto para el párrafo */
+    color: white; 
+}
+
+.banner .btn {
+    display: inline-block; /* Muestra el botón en línea */
+    padding: 15px 30px; 
+    font-size: 18px; 
+    font-weight: bold; /* Texto en negrita */
+    color: white; 
+    background-color: #37b5ff; 
+    border-radius: 5px; /* Bordes redondeados del botón */
+    text-decoration: none; /* Elimina el subrayado del texto del botón */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición para el color de fondo y la transformación */
+}
+
+.banner .btn:hover {
+    background-color: #1e90ff; 
+    transform: scale(1.05); /* Aumenta el tamaño del botón al pasar el ratón */
+}
+
+.banner .btn:active {
+    transform: scale(0.98); /* Reduce el tamaño del botón cuando se hace clic */
+}
 
 .seccion-info {
     padding: 40px 20px;
@@ -199,106 +220,53 @@ nav {
 
 /* Estilos seccion de Noticias */
 /* Estilos sección de Noticias */
-#noticias .row {
-    display: flex; /* Usamos Flexbox */
-    flex-wrap: wrap; /* Permite que los elementos se ajusten en nuevas filas si no caben */
-    gap: 20px; /* Añadir espacio entre las tarjetas */
+#noticias {
+    background-color: #f4f4f4;
 }
 
-#noticias .col-md-4 {
-    flex: 1 1 300px; /* Ajusta el tamaño mínimo de cada tarjeta a 300px */
-    max-width: 33%; /* Asegura que haya 3 tarjetas por fila */
-}
-
-/* Tarjetas de noticias */
-#noticias .card {
-    display: flex;
-    flex-direction: column; /* Asegura que el contenido interno esté en columna */
-    justify-content: flex-start; /* Alinea los elementos en la parte superior */
-    height: auto; /* Permite que la tarjeta se ajuste al contenido */
-    min-height: 450px; /* Aumentamos la altura mínima */
-    border-radius: 12px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#noticias .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-/* Imágenes */
-#noticias .card-img-top {
-    height: 220px; /* Aumentamos la altura */
-    object-fit: cover; /* Ajusta las imágenes sin deformarlas */
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-}
-
-/* Botón al final de la tarjeta */
-#noticias .btn-leer-mas {
-    margin-top: auto; /* Mueve el botón al final de la tarjeta */
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #37b5ff;
-    color: white;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#noticias .btn-leer-mas:hover {
-    background-color: #1e90ff; /* Cambia el color al pasar el cursor */
-    transform: scale(1.05);
-}
-
-/* Títulos y párrafos */
 #noticias h2 {
     font-size: 48px;
-    color: #333;
-    margin-bottom: 20px;
 }
 
 #noticias p {
-    font-size: 18px;
+    font-size: 24px;
     color: #666;
-    line-height: 1.6;
 }
 
-/* Información extra */
-#noticias .masInfo {
-    display: none; /* Oculto por defecto */
-    background-color: #f9f9f9;
-    padding: 15px;
-    margin-top: 15px;
+.card {
     border-radius: 8px;
-    border: 1px solid #ddd;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#noticias .masInfo p {
-    font-size: 16px;
-    color: #444;
-    margin-bottom: 10px;
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
 }
 
-/* Animación para mostrar información adicional */
-#noticias .masInfo.visible {
+.btn-leer-mas {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-leer-mas {
+    background-color: #37b5ff;
+    color: white;
+}
+
+.btn-leer-mas:hover {
+    background-color: #1e90ff; /* Color más oscuro al pasar el ratón */
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
     display: block;
-    animation: fadeIn 0.5s ease;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 /* Estilos del footer */
 footer {

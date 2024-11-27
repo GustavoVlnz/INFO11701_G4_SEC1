@@ -12,6 +12,7 @@ document.getElementById('rut').addEventListener('input', function(event) {
     // Actualizar el valor en el campo de entrada
     input.value = rut;
 });
+
 //Funcion para desabilitar boton si no acepta los terminos
 document.addEventListener('DOMContentLoaded', function() {
     const checkbox = document.querySelector('input[name="terminos"]');
@@ -37,86 +38,104 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Capturar el evento 'submit' del formulario
-    document.getElementById('Formulario').addEventListener('submit', function(event) {
-        event.preventDefault(); // Evita que el formulario recargue la página por defecto
 
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('Formulario');
+    const passwordField = document.getElementById('password');
+    const confirmPasswordField = document.getElementById('confirm-password');
+    const errorMessage = document.getElementById('mensaje-error');
+
+    // Función para validar la contraseña
+    function validarContraseña() {
+        const password = passwordField.value;
+        const confirmPassword = confirmPasswordField.value;
+
+        // Ocultar mensaje de error inicialmente
+        errorMessage.classList.add('d-none');
+
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+        // Validar fortaleza de la contraseña
+        if (!passwordRegex.test(password)) {
+            errorMessage.textContent =
+                'La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas y números.';
+            errorMessage.classList.remove('d-none');
+            return false; // Contraseña no válida
+        }
+
+        // Validar que ambas contraseñas coincidan
+        if (password !== confirmPassword) {
+            errorMessage.textContent = 'Las contraseñas no coinciden.';
+            errorMessage.classList.remove('d-none');
+            return false; // Contraseñas no coinciden
+        }
+
+        return true; // Contraseña válida
+    }
+
+    // Evento 'submit' del formulario
+    form.addEventListener('submit', function (event) {
+        // Detener el evento de envío si la contraseña no es válida
+        if (!validarContraseña()) {
+            event.preventDefault();
+            return; // Salir de la función sin continuar
+        }
+
+        // Preparar los datos para enviar al servidor
         const formData = new FormData(this);
         const jsonData = {};
 
-        // Convertir FormData a un objeto JSON
         formData.forEach((value, key) => {
             jsonData[key] = value;
         });
-        // Enviar datos a registro.php usando fetch
+
+        // Enviar datos al servidor con fetch
         fetch('./Backend_registro/registro.php', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(jsonData)
+            body: JSON.stringify(jsonData),
         })
-        .then(response => response.json()) // Procesar la respuesta como JSON
-        .then(data => {
-            const toastMessage = document.getElementById('toastMessage');
-            const toastEl = document.getElementById('liveToast');
-            const toast = new bootstrap.Toast(toastEl);
+            .then((response) => response.json())
+            .then((data) => {
+                const toastMessage = document.getElementById('toastMessage');
+                const toastEl = document.getElementById('liveToast');
+                const toast = new bootstrap.Toast(toastEl);
 
-            if (data.success) {
-                toastMessage.textContent = data.message; // Mensaje de éxito
-                toast.show();
+                if (data.success) {
+                    toastMessage.textContent = data.message; // Mensaje de éxito
+                    toast.show();
 
-                // Redirigir al usuario según el rol
-                if (data.rol === 'empresa') {
-                    setTimeout(() => {
-                        window.location.href = '../Verificacion/FormVer.html'; // Redirige a empresa
-                    }, 2000);
-                } else if (data.rol === 'cliente') {
-                    setTimeout(() => {
-                        window.location.href = '../../Logged/Clientes/HomeLogeado/home.html'; // Redirige a cliente
-                    }, 2000);
+                    // Redirigir al usuario según el rol
+                    if (data.rol === 'empresa') {
+                        setTimeout(() => {
+                            window.location.href = '../Verificacion/FormVer.html';
+                        }, 2000);
+                    } else if (data.rol === 'cliente') {
+                        setTimeout(() => {
+                            window.location.href = '../../Logged/Clientes/HomeLogeado/home.html';
+                        }, 2000);
+                    } else {
+                        console.error('Rol no reconocido:', data.rol);
+                    }
                 } else {
-                    console.error('Rol no reconocido:', data.rol); // Manejo de errores en caso de un valor inesperado
+                    toastMessage.textContent = data.message; // Mensaje de error
+                    toast.show();
                 }
-            } else {
-                toastMessage.textContent = data.message; // Mensaje de error (correo ya registrado u otro error)
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                const toastMessage = document.getElementById('toastMessage');
+                toastMessage.textContent =
+                    'Error al conectar con el servidor o respuesta no válida.';
+                const toastEl = document.getElementById('liveToast');
+                const toast = new bootstrap.Toast(toastEl);
                 toast.show();
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            const toastMessage = document.getElementById('toastMessage');
-            toastMessage.textContent = 'Error al conectar con el servidor o respuesta no válida.';
-            const toastEl = document.getElementById('liveToast');
-            const toast = new bootstrap.Toast(toastEl);
-            toast.show();
-        });
+            });
+
+        // Detener el envío del formulario para esperar la respuesta de fetch
+        event.preventDefault();
     });
 });
-
-
-document.getElementById('Formulario').addEventListener('submit', function(event) {
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
-    const errorMessage = document.getElementById('mensaje-error');
-    
-    errorMessage.classList.add('d-none'); // Ocultar mensaje de error inicialmente
-    
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    
-    // Validar fortaleza de la contraseña
-    if (!passwordRegex.test(password)) {
-        event.preventDefault(); 
-        errorMessage.textContent = 'La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas y numeros.';
-        errorMessage.classList.remove('d-none'); // Mostrar mensaje de error
-    }
-    
-    // Validar que ambas contraseñas coincidan
-    if (password !== confirmPassword) {
-        event.preventDefault(); 
-        errorMessage.textContent = 'Las contraseñas no coinciden.';
-        errorMessage.classList.remove('d-none'); 
-    }
-});
-

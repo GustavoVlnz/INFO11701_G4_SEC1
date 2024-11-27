@@ -1,27 +1,35 @@
+// Generar un arreglo con todos los meses del año
+const meses = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+];
+
 // Cargar datos del backend
 fetch('Estadisticas.php')
     .then(response => response.json())
     .then(data => {
-        // Gráfico de Ganancias (Línea de Tiempo)
+        // Preprocesar datos para asegurar que todos los meses tengan un valor
+        const gananciasMensuales = meses.map((_, i) => data.ganancias[i + 1] || 0);
+        const pedidosMensuales = meses.map((_, i) => data.pedidos[i + 1] || 0);
+
+        // Gráfico de Ganancias Mensuales
         const gananciasCtx = document.getElementById('chartGanancias').getContext('2d');
         new Chart(gananciasCtx, {
-            type: 'line',
+            type: 'bar',
             data: {
-                labels: Object.keys(data.ganancias).map(mes => `Mes ${mes}`),
+                labels: meses,
                 datasets: [{
-                    label: 'Ganancias',
-                    data: Object.values(data.ganancias),
-                    borderColor: '#007bff',
-                    borderWidth: 2,
-                    fill: false,
-                    tension: 0.3
+                    label: 'Ganancias ($)',
+                    data: gananciasMensuales,
+                    backgroundColor: '#007bff',
+                    borderWidth: 1
                 }]
             },
             options: {
                 responsive: true,
                 plugins: {
                     legend: {
-                        display: false
+                        display: true
                     }
                 },
                 scales: {
@@ -41,26 +49,24 @@ fetch('Estadisticas.php')
             }
         });
 
-        // Gráfico de Pedidos (Línea de Tiempo)
+        // Gráfico de Pedidos Mensuales
         const pedidosCtx = document.getElementById('chartPedidos').getContext('2d');
         new Chart(pedidosCtx, {
-            type: 'line',
+            type: 'bar',
             data: {
-                labels: Object.keys(data.pedidos).map(mes => `Mes ${mes}`),
+                labels: meses,
                 datasets: [{
                     label: 'Pedidos',
-                    data: Object.values(data.pedidos),
-                    borderColor: '#28a745',
-                    borderWidth: 2,
-                    fill: false,
-                    tension: 0.3
+                    data: pedidosMensuales,
+                    backgroundColor: '#28a745',
+                    borderWidth: 1
                 }]
             },
             options: {
                 responsive: true,
                 plugins: {
                     legend: {
-                        display: false
+                        display: true
                     }
                 },
                 scales: {
@@ -86,7 +92,6 @@ fetch('Estadisticas.php')
         const calificacionText = document.getElementById('calificacionText');
         const circumference = 440; // Circunferencia del círculo
 
-        // Animar calificación promedio
         gsap.to(circle, {
             strokeDashoffset: circumference - (calificacionPromedio / 5) * circumference,
             duration: 1.5,
@@ -100,5 +105,26 @@ fetch('Estadisticas.php')
                 calificacionText.textContent = currentValue.toFixed(1);
             }
         });
+
+        // Animaciones para cada sección
+        gsap.from("#sectionGanancias", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.2
+        });
+        gsap.from("#sectionPedidos", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.5
+        });
+        gsap.from("#sectionCalificacion", {
+            scale: 0.8,
+            opacity: 0,
+            duration: 1,
+            delay: 0.8
+        });
     })
     .catch(error => console.error('Error al cargar los datos:', error));
+s

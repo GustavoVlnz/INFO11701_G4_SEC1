@@ -112,7 +112,7 @@ function eliminarUsuario(id) {
         return;
     }
 
-    fetch("EliminarUsuario.php", {
+    fetch("eliminarUsuario.php", {
         method: "POST",
         body: new URLSearchParams({ idUsuarios: id })
     })

@@ -8,41 +8,41 @@
     <link rel="stylesheet" href="Estadisticas.css">
 </head>
 <body>
+    <!-- Header -->
+    <header class="header d-flex align-items-center justify-content-between p-3 bg-white">
+        <div class="d-flex align-items-center">
+            <img src="../../Clientes/Perfil/Images/logo.png" alt="Logo de la empresa" class="logo mr-3">
+            <h1 class="titulo-empresa mb-0">MOVO</h1>
+        </div>
+        <nav class="nav justify-content-center flex-grow-1">
+            <ul class="nav">
+                <li class="nav-item"><a href="../../Clientes/HomeLogeado/home.html" class="nav-link">INICIO</a></li>
+                <li class="nav-item"><a href="../../Clientes/categorias/categorias.html" class="nav-link">SERVICIOS</a></li>
+                <li class="nav-item"><a href="../../verificador.php" class="nav-link">PERFIL</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Estadísticas del Proveedor</h1>
 
         <!-- Sección de Ganancias -->
-        <section class="mb-5">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <h2 class="text-primary">Ganancias Mensuales</h2>
-                    <canvas id="chartGanancias"></canvas>
-                </div>
-                <div class="col-md-4">
-                    <p class="text-muted">
-                        Este gráfico muestra las ganancias obtenidas por mes en una línea de tiempo, lo que permite observar el rendimiento mensual.
-                    </p>
-                </div>
+        <section class="mb-4 p-3 border rounded shadow-sm" id="sectionGanancias">
+            <h2 class="text-primary text-center">Ganancias Mensuales</h2>
+            <div class="chart-container mx-auto">
+                <canvas id="chartGanancias"></canvas>
             </div>
         </section>
 
         <!-- Sección de Pedidos -->
-        <section class="mb-5">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <h2 class="text-success">Pedidos Solicitados</h2>
-                    <canvas id="chartPedidos"></canvas>
-                </div>
-                <div class="col-md-4">
-                    <p class="text-muted">
-                        El gráfico muestra la cantidad de pedidos solicitados por mes, incluyendo los finalizados y pendientes.
-                    </p>
-                </div>
+        <section class="mb-4 p-3 border rounded shadow-sm" id="sectionPedidos">
+            <h2 class="text-success text-center">Pedidos Solicitados por Mes</h2>
+            <div class="chart-container mx-auto">
+                <canvas id="chartPedidos"></canvas>
             </div>
         </section>
 
         <!-- Sección de Calificación -->
-        <section class="text-center mb-5">
+        <section class="text-center mb-4 p-3 border rounded shadow-sm" id="sectionCalificacion">
             <h2 class="text-warning">Calificación Promedio</h2>
             <div id="circleCalificacion" class="d-inline-block">
                 <svg width="150" height="150">
@@ -51,11 +51,40 @@
                 </svg>
                 <div id="calificacionText" class="position-absolute top-50 start-50 translate-middle fs-3 fw-bold text-warning">0.0</div>
             </div>
-            <p class="text-muted mt-3">
-                Calificación promedio obtenida en base a los servicios completados.
-            </p>
         </section>
     </div>
+    <!-- Footer -->
+<footer class="text-white p-4 mt-4">
+    <div class="container">
+        <div class="row d-flex justify-content-between text-center">
+            <!-- Primera columna: Contacto -->
+            <div class="col-md-4">
+                <h3>Contacto</h3>
+                <a href="mailto:Movocompanycontact@gmail.com" class="text-white d-block">Movocompanycontact@gmail.com</a>
+            </div>
+
+            <!-- Segunda columna: Redes Sociales -->
+            <div class="col-md-4">
+                <h3>Redes Sociales</h3>
+                <a href="https://www.facebook.com/profile.php?id=61566403465579" class="text-white d-block">Facebook</a>
+                <a href="https://x.com/CompanyMovo_inc" class="text-white d-block">Twitter</a>
+                <a href="https://www.instagram.com/movo_inc/" class="text-white d-block">Instagram</a>
+            </div>
+
+            <!-- Tercera columna: Información Legal -->
+            <div class="col-md-4">
+                <h3>Información Legal</h3>
+                <a href="../../../InicioSesion-Registro/politica y privacidad/politica y privacidad.html" class="text-white d-block">Política de Privacidad</a>
+                <a href="../../../InicioSesion-Registro/Registro/terminos.html" class="text-white d-block">Términos de Servicio</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center mt-3">
+        <p class="mb-0">&copy; 2024 MOVO. Todos los derechos reservados.</p>
+    </div>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
